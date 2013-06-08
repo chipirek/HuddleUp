@@ -1,0 +1,7 @@
+development:
+  host: localhost
+  adapter: postgresql
+  database: HuddleUp
+  username: postgres
+  password: pentag0n
+
