@@ -1,0 +1,59 @@
+<%= form_for(@project, :html => {:class => 'form-horizontal well'}) do |f| %>
+    <% if @project.errors.any? %>
+        <div id="error_explanation" class='alert alert-error'>
+          <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+          <h4>Ooops, <%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h4>
+
+          <ul>
+            <% @project.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#project_name_controlGroup').addClass('error');
+            });
+        </script>
+
+    <% else %>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#project_name').focus();
+            });
+        </script>
+
+    <% end %>
+
+    <div class="control-group" id='project_name_controlGroup'>
+      <label class="control-label" for="project_name">Subject</label>
+
+      <div class="controls">
+        <input type="text" id="project_name" name='project[name]' placeholder="name" value='<%= @project.name %>'>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="project_duration">Description</label>
+
+      <div class="controls">
+        <input type="text" id="project_description" name='project[description]' placeholder="description" value='<%= @project.description %>'>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
+      <a href='/projects' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
+    </div>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $(".chzn-select").chosen();
+        });
+
+    </script>
+
+<% end %>
