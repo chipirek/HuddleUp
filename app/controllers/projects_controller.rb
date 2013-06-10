@@ -1,14 +1,16 @@
 class ProjectsController < ApplicationController
+
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.where('user_id=' + current_user.id.to_s)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
     end
   end
+
 
   # GET /projects/1
   # GET /projects/1.json
@@ -21,10 +23,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+
   # GET /projects/new
   # GET /projects/new.json
   def new
     @project = Project.new
+    @project.user_id = current_user.id
+    session[:return_to] = request.referrer
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,15 +37,18 @@ class ProjectsController < ApplicationController
     end
   end
 
+
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
   end
 
+
   # POST /projects
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
+    @project.user_id = current_user.id
 
     respond_to do |format|
       if @project.save
@@ -52,6 +60,7 @@ class ProjectsController < ApplicationController
       end
     end
   end
+
 
   # PUT /projects/1
   # PUT /projects/1.json
@@ -69,6 +78,7 @@ class ProjectsController < ApplicationController
     end
   end
 
+
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
@@ -76,7 +86,7 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url }
+      format.html { redirect_to projects_path }
       format.json { head :no_content }
     end
   end

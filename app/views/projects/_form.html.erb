@@ -43,6 +43,14 @@
       </div>
     </div>
 
+    <div class="control-group">
+      <label class="control-label" for="todo_recurrence">Status</label>
+
+      <div class="controls">
+        <%= select('project', 'status_code', [['On track', 1], ['Troubled', 2], ['Late', 3]], {}, {'class' => 'chzn-select', 'data-placeholder' => 'Repeats...'}) %>
+      </div>
+    </div>
+
     <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
       <a href='/projects' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>

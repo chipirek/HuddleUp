@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20130608175748) do
     t.integer  "user_id"
     t.string   "name"
     t.text     "description"
+    t.integer  "status_code"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
