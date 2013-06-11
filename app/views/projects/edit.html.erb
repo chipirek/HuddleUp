@@ -314,9 +314,9 @@
 
     <div id="breadcrumbs">
       <ul class="breadcrumb">
-        <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span>
-        </li>
-        <li class="active">Projects</li>
+        <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+        <li><a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+        <li class="active"><%= @project.name %></li>
       </ul>
       <!--.breadcrumb-->
 
@@ -335,7 +335,7 @@
     <div id="page-content" class="clearfix">
 
       <div class="page-header position-relative">
-        <h1><i class="icon-list-alt"></i> <%= @project.name %></h1>
+        <h1><i class="icon-list-alt"></i> Edit <i><%= @project.name %></i></h1>
       </div>
       <!--/page-header-->
 
