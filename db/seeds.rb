@@ -13,10 +13,10 @@ puts ' '
 puts 'Seeding projects...'
 Project.destroy_all
 
-Project.create(:name=>'Paint the bridge', :user_id=>1, :status_code=>1)
+Project.create(:name=>'Paint the bridge', :user_id=>User.first.id, :status_code=>1)
 puts '   Added project ' + Project.all.first.name
-Project.create(:name=>'Encompass', :user_id=>1, :status_code=>2)
+Project.create(:name=>'Encompass', :user_id=>User.first.id, :status_code=>2)
 puts '   Added project ' + Project.last.name
-Project.create(:name=>'Apply hotfix 77 to the main boards', :user_id=>1, :status_code=>3)
+Project.create(:name=>'Apply hotfix 77 to the main boards', :user_id=>User.first.id, :status_code=>3)
 puts '   Added project ' + Project.last.name
 

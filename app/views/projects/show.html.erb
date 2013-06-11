@@ -309,8 +309,8 @@
 
     <div id="breadcrumbs">
       <ul class="breadcrumb">
-        <li><i class="icon-home"></i> <a href="#">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-        <li> <a href="#">Projects</a><span class="divider"><i class="icon-angle-right"></i></span>
+        <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+        <li> <a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span>
         <li class='active'> <%=  @project.name %></li>
       </ul>
       <!--.breadcrumb-->
@@ -330,7 +330,8 @@
     <div id="page-content" class="clearfix">
 
       <div class="page-header position-relative">
-        <h1><i class="icon-dashboard"></i> Dashboard for <%=  @project.name %></h1>
+        <h1><i class="icon-dashboard"></i> Dashboard for <%=  @project.name %> <span class='pull-right label <%= get_project_status_color(@project) %>' style='font-size:.7em; padding: 5px 5px 5px 5px;'>Status is <%= get_project_status_text(@project) %></span></h1>
+
       </div>
       <!--/page-header-->
 
@@ -351,7 +352,9 @@
                   <div class="tab-content padding-8">
 
                     <!-- BEGIN -->
-
+                    <p><ul><li>milestone 1</li><li>milestone 2</li><li>milestone 3</li></ul></p>
+                    <p><ul><li>task 1</li><li>task 2</li><li>task 3</li></ul></p>
+                    <a class='btn btn-success' href="/projects/<%= @project.id %>/edit">Edit this project</a>
                     <!-- END -->
 
                   </div>

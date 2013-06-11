@@ -257,7 +257,7 @@
 
   <div id="breadcrumbs">
     <ul class="breadcrumb">
-      <li><i class="icon-home"></i> <a href="#">Home</a><span class="divider"><i class="icon-angle-right"></i></span>
+      <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span>
       </li>
       <li class="active">Projects</li>
     </ul>
@@ -315,7 +315,7 @@
 
                     <% @projects.each do |project| %>
                         <tr>
-                          <td><a href='#'><%= project.name %></a></td>
+                          <td><a href='/projects/<%= project.id %>'><%= project.name %></a></td>
                           <td class='hidden-phone'>Feb 12</td>
                           <td class='hidden-480'><span class='label <%= get_project_status_color(project) %>'><%= get_project_status_text(project) %></span></td>
                           <td>
@@ -326,7 +326,8 @@
                                                  :title=>"Delete",
                                                  'data-placement'=>"left"} do %>
                                   <span class='red'><i class='icon-trash'></i></span>
-                              <% end %>
+                              <% end %>  |
+                            <a href="/projects/<%= project.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
                           </td>
                         </tr>
                     <% end %>

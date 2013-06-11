@@ -28,7 +28,7 @@
     <% end %>
 
     <div class="control-group" id='project_name_controlGroup'>
-      <label class="control-label" for="project_name">Subject</label>
+      <label class="control-label" for="project_name">Project Name</label>
 
       <div class="controls">
         <input type="text" id="project_name" name='project[name]' placeholder="name" value='<%= @project.name %>'>
@@ -53,7 +53,7 @@
 
     <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
-      <a href='/projects' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
+      <a href='/projects/<%= @project.id %>' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
     </div>
 
     <script type="text/javascript">
