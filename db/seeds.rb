@@ -3,9 +3,19 @@
 puts 'Seeding users...'
 User.destroy_all
 
-User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p' )  # no, not my real password
+u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p' )  # no, not my real password
 puts '   Added user ' + User.first.name
-User.create( :name => 'Max Power', :email => 'max.power@gmail.com', :password => 'lollip0p' )  # no, not my real password
+u1=User.create( :name => 'Max Power', :email => 'max.power@gmail.com', :password => 'lollip0p' )  # no, not my real password
+puts '   Added user ' + User.last.name
+u2=User.create( :name => 'Bob Doe', :email => 'a@gmail.com', :password => 'lollip0p' )
+puts '   Added user ' + User.last.name
+u3=User.create( :name => 'John Doe', :email => 'j@gmail.com', :password => 'lollip0p' )
+puts '   Added user ' + User.last.name
+u4=User.create( :name => 'John Vegas', :email => 'c@gmail.com', :password => 'lollip0p' )
+puts '   Added user ' + User.last.name
+u5=User.create( :name => 'Tony Mandalay', :email => 'd@gmail.com', :password => 'lollip0p' )
+puts '   Added user ' + User.last.name
+u6=User.create( :name => 'Edgar Edge', :email => 'e@gmail.com', :password => 'lollip0p' )
 puts '   Added user ' + User.last.name
 
 
@@ -20,3 +30,15 @@ puts '   Added project ' + Project.last.name
 Project.create(:name=>'Apply hotfix 77 to the main boards', :user_id=>User.first.id, :status_code=>3)
 puts '   Added project ' + Project.last.name
 
+puts ' '
+puts 'Seeding members...'
+Member.destroy_all
+
+project_id = Project.first.id
+
+m = Member.create(:project_id=>project_id, :user_id=>u0.id, :joined_date=>3.days.ago)
+puts '   Added member ' + m.user.name
+m = Member.create(:project_id=>project_id, :user_id=>u2.id, :joined_date=>2.days.ago)
+puts '   Added member ' + m.user.name
+m = Member.create(:project_id=>project_id, :user_id=>u4.id, :joined_date=>20.minutes.ago)
+puts '   Added member ' + m.user.name

@@ -215,8 +215,10 @@
 <!--/.ace-nav-->
 
 
-</div><!--/.container-fluid-->
-</div><!--/.navbar-inner-->
+</div>
+<!--/.container-fluid-->
+</div>
+<!--/.navbar-inner-->
 </div>
 
 
@@ -243,7 +245,7 @@
 
     <ul class="nav nav-list">
 
-      <li class="active">
+      <li>
         <a href="/projects/<%= @project.id %>">
           <i class="icon-dashboard"></i>
           <span>Dashboard</span>
@@ -257,7 +259,7 @@
         </a>
       </li>
 
-      <li>
+      <li class="active">
         <a href="/projects/<%= @project.id %>/members">
           <i class="icon-group"></i>
           <span>Members</span>
@@ -315,8 +317,9 @@
     <div id="breadcrumbs">
       <ul class="breadcrumb">
         <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-        <li><a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-        <li class="active"><%= @project.name %></li>
+        <li> <a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+        <li> <a href="/projects/<%=  @project.id %>"> <%=  @project.name %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
+        <li class='active'> Members</li>
       </ul>
       <!--.breadcrumb-->
 
@@ -335,12 +338,13 @@
     <div id="page-content" class="clearfix">
 
       <div class="page-header position-relative">
-        <h1><i class="icon-list-alt"></i> Edit <i><%= @project.name %></i></h1>
+        <h1><i class="icon-group"></i> Members for <i><%=  @project.name %></i> </h1>
       </div>
       <!--/page-header-->
 
 
       <div class="row-fluid">
+
 
         <!-- PAGE CONTENT BEGINS HERE -->
 
@@ -355,8 +359,26 @@
                   <div class="tab-content padding-8">
 
                     <!-- BEGIN -->
+                    <div id="member-tab" class="tab-pane active">
+                      <div class="clearfix">
 
-                    <%=  render 'form' %>
+                        <% @members.each do |member| %>
+
+                            <div class="itemdiv memberdiv">
+                              <div class="user">
+                                <%= image_tag('avatar2.png') %>
+                              </div>
+
+                              <div class="body">
+                                <div class="name"><a href="#"><%=  member.user.name %></a></div>
+                                <div class="time"><i class="icon-time"></i> <span class="green">3 hour</span></div>
+                                <div class="label label-success">approved</div>
+                              </div>
+                            </div>
+
+                        <% end %>
+
+                    </div><!-- member-tab -->
 
                     <!-- END -->
 
@@ -418,6 +440,5 @@
         $('[data-rel="tooltip"]').tooltip();
 
     });
-
 
 </script>
