@@ -359,6 +359,14 @@
                   <div class="tab-content padding-8">
 
                     <!-- BEGIN -->
+
+                    <% if flash[:notice] %>
+                        <div class='alert alert-block alert-success'>
+                          <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+                          <strong><i class="icon-ok"></i> <%=  flash[:notice] %></strong>
+                        </div>
+                    <% end %>
+
                     <p><ul><li>milestone 1</li><li>milestone 2</li><li>milestone 3</li></ul></p>
                     <p><ul><li>task 1</li><li>task 2</li><li>task 3</li></ul></p>
                     <a class='btn btn-success' href="/projects/<%= @project.id %>/edit">Edit this project</a>
