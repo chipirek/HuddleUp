@@ -31,7 +31,8 @@ class MilestonesController < ApplicationController
   def new
     @milestone = Milestone.new
     @project = Project.find(params[:project_id])
-    @milestone.event_date=Date.today
+    @milestone.event_date = Date.today
+    @milestone.project_id = params[:project_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,6 +45,7 @@ class MilestonesController < ApplicationController
   def edit
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:id])
+    @milestone.project_id = params[:project_id]
   end
 
 
@@ -52,10 +54,15 @@ class MilestonesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @milestone = Milestone.new(params[:milestone])
+    @milestone.project_id = params[:project_id]
+
+    # TODO: hack to overcome Ruby 1.9 date parse bug
+    buffer = params[:milestone][:event_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
+    @milestone.event_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
 
     respond_to do |format|
       if @milestone.save
-        format.html { redirect_to project_members_path(@project), notice: 'Milestone was successfully created.' }
+        format.html { redirect_to project_milestones_path(@project), notice: 'Milestone was successfully created.' }
         format.json { render json: @milestone, status: :created, location: @milestone }
       else
         format.html { render action: "new" }
@@ -70,10 +77,17 @@ class MilestonesController < ApplicationController
   def update
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:id])
+    @milestone.update_attributes(params[:milestone])
+    # @milestone.project_id = params[:project_id]
+
+    # TODO: hack to overcome Ruby 1.9 date parse bug
+    buffer = params[:milestone][:event_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
+    @milestone.event_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
 
     respond_to do |format|
-      if @milestone.update_attributes(params[:milestone])
-        format.html { redirect_to project_members_path(@project), notice: 'Milestone was successfully updated.' }
+      # if @milestone.update_attributes(params[:milestone])
+      if @milestone.save
+        format.html { redirect_to project_milestones_path(@project), notice: 'Milestone was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -81,6 +95,7 @@ class MilestonesController < ApplicationController
       end
     end
   end
+
 
   # DELETE /milestones/1
   # DELETE /milestones/1.json
@@ -90,7 +105,7 @@ class MilestonesController < ApplicationController
     @milestone.destroy
 
     respond_to do |format|
-      format.html { redirect_to project_members_path(@project) }
+      format.html { redirect_to project_milestones_path(@project) }
       format.json { head :no_content }
     end
   end

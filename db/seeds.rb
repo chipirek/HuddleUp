@@ -42,3 +42,18 @@ m = Member.create(:project_id=>project_id, :user_id=>u2.id, :joined_date=>2.days
 puts '   Added member ' + m.user.name
 m = Member.create(:project_id=>project_id, :user_id=>u4.id, :joined_date=>20.minutes.ago)
 puts '   Added member ' + m.user.name
+
+puts ' '
+puts 'Seeding milestones...'
+Milestone.destroy_all
+
+project_id = Project.first.id
+
+m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something early', :event_date=>3.months.ago)
+puts '   Added milestone ' + m.subject
+
+m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the middle', :event_date=>35.days.ago)
+puts '   Added milestone ' + m.subject
+
+m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the future', :event_date=>Date.tomorrow)
+puts '   Added milestone ' + m.subject
