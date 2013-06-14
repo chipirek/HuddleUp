@@ -1,29 +1,61 @@
-<%= form_for(@milestone) do |f| %>
-  <% if @milestone.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@milestone.errors.count, "error") %> prohibited this milestone from being saved:</h2>
+<%= form_for [@project, @milestone], :html => {:class => 'form-horizontal well'} do |f| %>
+    <% if @milestone.errors.any? %>
+        <div id="error_explanation" class='alert alert-error'>
+          <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+          <h4>Ooops, <%= pluralize(@milestone.errors.count, "error") %> prohibited this milestone from being saved:</h4>
 
-      <ul>
-      <% @milestone.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @milestone.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#milestone_subject_controlGroup').addClass('error');
+            });
+        </script>
+
+    <% else %>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#milestone_subject').focus();
+            });
+        </script>
+
+    <% end %>
+
+    <div class="control-group" id='milestone_subject_controlGroup'>
+      <label class="control-label" for="milestone_name">Milestone</label>
+
+      <div class="controls">
+        <input type="text" id="milestone_subject" name='milestone[subject]' placeholder="name" value='<%= @milestone.subject %>'>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
-  </div>
-  <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= f.label :event_date %><br />
-    <%= f.date_select :event_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group" id='milestone_subject_controlGroup'>
+      <label class="control-label" for="milestone_event_date">Date</label>
+        <div class="controls date">
+            <span class='input-icon input-icon-right'>
+                <input class="date-picker" id="milestone_event_date" name='milestone[event_date]' type="text" data-date-format="mm/dd/yyyy" value='<%= @milestone.event_date.strftime("%m/%d/%Y") %>'>
+                <i class="icon-calendar"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+      <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
+      <a href='/projects/<%= @project.id %>' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
+    </div>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $(".chzn-select").chosen();
+        });
+
+    </script>
+
 <% end %>

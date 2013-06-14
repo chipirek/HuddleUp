@@ -4,7 +4,7 @@ class MilestonesController < ApplicationController
   # GET /milestones.json
   def index
     @project = Project.find(params[:project_id])
-    @milestones = Milestone.where('project_id=?', params[:project_id])
+    @milestones = Milestone.where('project_id=?', params[:project_id]).order('event_date')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -31,6 +31,7 @@ class MilestonesController < ApplicationController
   def new
     @milestone = Milestone.new
     @project = Project.find(params[:project_id])
+    @milestone.event_date=Date.today
 
     respond_to do |format|
       format.html # new.html.erb
