@@ -24,5 +24,4 @@ module ProjectsHelper
     return 'label-important'
   end
 
-
 end
