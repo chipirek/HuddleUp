@@ -18,6 +18,8 @@ class MilestonesController < ApplicationController
   def show
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:id])
+    @tasks = Task.where('milestone_id=?', params[:id]).order('position')
+
 
     respond_to do |format|
       format.html # show.html.erb

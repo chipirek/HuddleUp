@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Milestone:</b>
+  <%= @task.milestone_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @task.subject %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%= @task.due_date %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @task.duration %>
+</p>
+
+<p>
+  <b>Is complete:</b>
+  <%= @task.is_complete %>
+</p>
+
+<p>
+  <b>Completed at:</b>
+  <%= @task.completed_at %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @task.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

@@ -68,3 +68,16 @@ puts '   Added todo ' + t.subject
 t = Todo.create(:subject=>'organize the assets',:due_date=>Time.now.to_date, :position=>2, :project_id=>project_id)
 puts '   Added todo ' + t.subject
 
+
+puts ' '
+puts 'Seeding tasks...'
+Task.destroy_all
+
+project = Project.first
+milestone_id = project.milestones.first.id
+
+t = Task.create(:subject=>'create the examination',:due_date=>Time.now.to_date, :position=>1, :milestone_id=>milestone_id)
+puts '   Added task ' + t.subject
+t = Task.create(:subject=>'assess the infrastructure',:due_date=>Time.now.to_date, :position=>2, :milestone_id=>milestone_id)
+puts '   Added task ' + t.subject
+

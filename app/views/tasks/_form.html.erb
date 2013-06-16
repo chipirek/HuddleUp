@@ -1,0 +1,62 @@
+<%= form_for [@project, @milestone, @task], :html => {:class => 'form-horizontal well'} do |f| %>
+    <% if @task.errors.any? %>
+        <div id="error_explanation" class='alert alert-error'>
+          <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+          <h4>Ooops, <%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h4>
+
+          <ul>
+            <% @task.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#task_subject_controlGroup').addClass('error');
+            });
+        </script>
+
+    <% else %>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#task_subject').focus();
+            });
+        </script>
+
+    <% end %>
+
+    <div class="control-group" id='task_subject_controlGroup'>
+      <label class="control-label" for="task_name">task</label>
+
+      <div class="controls">
+        <input type="text" id="task_subject" name='task[subject]' placeholder="name" value='<%= @task.subject %>'>
+      </div>
+    </div>
+
+    <div class="control-group" id='task_subject_controlGroup'>
+      <label class="control-label" for="task_due_date">Due Date</label>
+      <div class="controls date">
+            <span class='input-icon input-icon-right'>
+                <input class="date-picker" id="task_due_date" name='task[due_date]' type="text" data-date-format="mm/dd/yyyy"
+                       value='<%= @task.due_date.strftime("%m/%d/%Y") unless @task.due_date.nil? %>'>
+                <i class="icon-calendar"></i>
+            </span>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
+      <a href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
+    </div>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $(".chzn-select").chosen();
+        });
+
+    </script>
+
+<% end %>

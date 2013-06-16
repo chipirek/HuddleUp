@@ -2,7 +2,9 @@ HuddleUp::Application.routes.draw do
 
   resources :projects do
     resources :members
-    resources :milestones
+    resources :milestones do
+      resources :tasks
+    end
     resources :todos
   end
 
@@ -10,6 +12,7 @@ HuddleUp::Application.routes.draw do
 
   root :to => 'projects#index'
 
-  match ':controller(/:action(/:id(.:format)))'
+  #match ':controller(/:action(/:id(.:format)))'
   match '/projects/:project_id/:controller/:action(/:id)'
+  match '/projects/:project_id/milestones/:milestone_id/:controller/:action(/:id)'
 end
