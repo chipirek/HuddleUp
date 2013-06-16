@@ -49,7 +49,7 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:milestone_id])
     @task = Task.find(params[:id])
-    @task.project_id = params[:project_id]
+    @task.milestone_id = params[:milestone_id]
   end
 
 
@@ -87,7 +87,7 @@ class TasksController < ApplicationController
     @milestone = Milestone.find(params[:milestone_id])
     @task = Task.find(params[:id])
     @task.update_attributes(params[:task])
-    @task.project_id = params[:project_id]
+    @task.milestone_id = params[:milestone_id]
 
     # task: hack to overcome Ruby 1.9 date parse bug
     if !params[:task][:due_date]
@@ -98,7 +98,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       # if @task.update_attributes(params[:task])
       if @task.save
-        format.html { redirect_to project_milestone_tasks_path(@project, @milestone), notice: 'Task was successfully updated.' }
+        format.html { redirect_to project_milestone_path(@project, @milestone), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -117,7 +117,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to project_milestone_tasks_path(@project, @milestone) }
+      format.html { redirect_to project_milestone_path(@project, @milestone) }
       format.json { head :no_content }
     end
   end
@@ -131,7 +131,7 @@ class TasksController < ApplicationController
     @item.update_attribute('completed_at', Time.now)
     @item.save!
 
-    redirect_to project_milestone_tasks_path(@project, @milestone), notice: 'Task was marked complete.'
+    redirect_to project_milestone_path(@project, @milestone), notice: 'Task was marked complete.'
   end
 
 
@@ -143,7 +143,7 @@ class TasksController < ApplicationController
     @item.update_attribute('completed_at', nil)
     @item.save!
 
-    redirect_to project_milestone_tasks_path(@project, @milestone), notice: 'Task was marked incomplete.'
+    redirect_to project_milestone_path(@project, @milestone), notice: 'Task was marked incomplete.'
   end
 
 

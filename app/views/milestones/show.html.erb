@@ -97,10 +97,10 @@
 
                                 <div class="inline pull-right position-relative">
 
-                                  <a href="/projects/<%= @project.id %>/tasks/<%= task.id %>" class="tooltip-error" data-confirm="Are you sure you want to delete <%= task.subject %>?" data-method="delete" data-placement="left" data-rel="tooltip" rel="nofollow" title="Delete">
+                                  <a href="/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/<%= task.id %>" class="tooltip-error" data-confirm="Are you sure you want to delete <%= task.subject %>?" data-method="delete" data-placement="left" data-rel="tooltip" rel="nofollow" title="Delete">
                                     <span class='red'><i class='icon-trash'></i></span>
                                   </a> |
-                                  <a href="/projects/<%= @project.id %>/tasks/<%= task.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
+                                  <a href="/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/<%= task.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
 
                                 </div>
                               </li>

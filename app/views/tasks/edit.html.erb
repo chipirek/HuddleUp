@@ -17,7 +17,7 @@
 <div class="container-fluid" id="main-container">
   <a href="#" id="menu-toggler"><span></span></a><!-- menu toggler -->
 
-  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'tasks', :project_id => @project.id } %>
+  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'milestones', :project_id => @project.id } %>
 
   <div id="main-content" class="clearfix">
 
@@ -25,8 +25,14 @@
       <ul class="breadcrumb">
         <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
         <li><a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-        <li><a href='/projects/<%= @project.id %>'><%= @project.name %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
-        <li class="active"><%= @task.subject %></li>
+        <li><a href='/projects/<%= @project.id %>'> <%= @project.name %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
+        <li>
+          <a href="/projects/<%= @project.id %>/milestones"> Milestones</a><span class="divider"><i class="icon-angle-right"></i></span>
+        </li>
+        <li>
+          <a href="/projects/<%= @project.id %>/milestones/<%= @milestone.id %>"> <%= @milestone.subject %></a><span class="divider"><i class="icon-angle-right"></i></span>
+        </li>
+        <li class="active"> <%= @task.subject %></li>
       </ul>
       <!--.breadcrumb-->
 
