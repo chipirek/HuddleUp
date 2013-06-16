@@ -93,20 +93,12 @@
                                 <label class="inline"><input id="chk_<%= todo.id %>" type="checkbox" data-completed="<%= todo.is_complete %>" /><span class="lbl"> <%= todo.subject %></span></label>
 
                                 <div class="inline pull-right position-relative">
-                                  <button class="btn btn-minier bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-angle-down icon-only"></i></button>
-                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-closer">
-                                    <li>
-                                      <a href="/projects/<%= @project.id %>/todos/mark_complete/<%= todo.id %>" class="tooltip-success" data-rel="tooltip" title="Mark&nbsp;as&nbsp;done" data-placement="left"><span class="green"><i class="icon-ok"></i></span></a>
-                                    </li>
-                                    <li><a href="/projects/<%= @project.id %>/todos/<%= todo.id %>" class="tooltip-error" data-confirm="Are you sure you want to delete <%= todo.subject %>?" data-method="delete" data-placement="left" data-rel="tooltip" rel="nofollow" title="Delete">
-                                      <span class='red'><i class='icon-trash'></i></span>
-                                    </a>
-                                    </li>
-                                    <li>
-                                      <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
-                                    </li>
-                                  </ul>
+
+                                  <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>" class="tooltip-error" data-confirm="Are you sure you want to delete <%= todo.subject %>?" data-method="delete" data-placement="left" data-rel="tooltip" rel="nofollow" title="Delete">
+                                    <span class='red'><i class='icon-trash'></i></span>
+                                  </a> |
+                                  <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
+
                                 </div>
                               </li>
 

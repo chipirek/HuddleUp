@@ -58,6 +58,12 @@ class TodosController < ApplicationController
     @todo.project_id = params[:project_id]
     @todo.position=99
 
+    # TODO: hack to overcome Ruby 1.9 date parse bug
+    if !params[:todo][:due_date]
+      buffer = params[:todo][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
+      @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+    end
+
     respond_to do |format|
       if @todo.save
         format.html { redirect_to project_todos_path(@project), notice: 'Todo was successfully created.' }
@@ -77,6 +83,12 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
     @todo.update_attributes(params[:todo])
     @todo.project_id = params[:project_id]
+
+    # TODO: hack to overcome Ruby 1.9 date parse bug
+    if !params[:todo][:due_date]
+      buffer = params[:todo][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
+      @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+    end
 
     respond_to do |format|
       # if @todo.update_attributes(params[:todo])
