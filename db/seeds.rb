@@ -51,9 +51,20 @@ project_id = Project.first.id
 
 m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something early', :event_date=>3.months.ago)
 puts '   Added milestone ' + m.subject
-
 m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the middle', :event_date=>35.days.ago)
 puts '   Added milestone ' + m.subject
-
 m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the future', :event_date=>Date.tomorrow)
 puts '   Added milestone ' + m.subject
+
+
+puts ' '
+puts 'Seeding todos...'
+Todo.destroy_all
+
+project_id = Project.first.id
+
+t = Todo.create(:subject=>'create the team room',:due_date=>Time.now.to_date, :position=>1, :project_id=>project_id)
+puts '   Added todo ' + t.subject
+t = Todo.create(:subject=>'organize the assets',:due_date=>Time.now.to_date, :position=>2, :project_id=>project_id)
+puts '   Added todo ' + t.subject
+

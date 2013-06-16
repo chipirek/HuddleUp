@@ -1,0 +1,275 @@
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+
+
+      <a class="brand" href="#">
+        <small><i class="icon-check"></i> HuddleUp</small>
+      </a>
+
+      <%= render :partial => '/projects/top_nav', :locals => { :post => 'hello' } %>
+
+    </div>
+    <!--/.container-fluid-->
+  </div>
+  <!--/.navbar-inner-->
+</div>
+
+
+<div class="container-fluid" id="main-container">
+  <a href="#" id="menu-toggler"><span></span></a><!-- menu toggler -->
+
+  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'todos', :project_id => @project.id } %>
+
+
+  <div id="main-content" class="clearfix">
+
+    <div id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li><i class="icon-home"></i>
+          <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+        <li><a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+        <li>
+          <a href="/projects/<%= @project.id %>"> <%= @project.name %></a><span class="divider"><i class="icon-angle-right"></i></span>
+        </li>
+        <li class='active'> Todos</li>
+      </ul>
+      <!--.breadcrumb-->
+
+      <div id="nav-search">
+        <form class="form-search">
+            <span class="input-icon">
+                <input autocomplete="off" id="nav-search-input" type="text" class="input-small search-query" placeholder="Search ..."/>
+                <i id="nav-search-icon" class="icon-search"></i>
+            </span>
+        </form>
+      </div>
+      <!--#nav-search-->
+    </div>
+    <!--#breadcrumbs-->
+
+    <div id="page-content" class="clearfix">
+
+      <div class="page-header position-relative">
+        <h1><i class="icon-group"></i> Todos for <i><%= @project.name %></i></h1>
+      </div>
+      <!--/page-header-->
+
+
+      <div class="row-fluid">
+
+        <a class='btn btn-success' href="/projects/<%= @project.id %>/todos/new">Create a new todo</a>
+
+        <!-- PAGE CONTENT BEGINS HERE -->
+
+        <div class="space-6"></div>
+        <div class="row-fluid">
+
+          <div class="span12">
+            <div class="widget-box transparent">
+
+              <div class="widget-body">
+                <div class="widget-main padding-5">
+                  <div class="tab-content padding-8">
+
+                    <!-- BEGIN -->
+
+                    <% if flash[:notice] %>
+                        <div class='alert alert-block alert-success'>
+                          <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+                          <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
+                        </div>
+                    <% end %>
+
+
+                    <div id="tasks-tab" class="tab-pane active" style="margin-bottom: 150px;">
+                      <div class="clearfix">
+
+                        <ul id="tasks" class="item-list">
+
+                          <% @todos.each do |todo| %>
+
+                              <li class="<%= get_item_color(todo) %> clearfix task" data-pk='<%= todo.id %>' data-completed="<%= todo.is_complete %>" id="task_<%= todo.id %>">
+                                <label class="inline"><input id="chk_<%= todo.id %>" type="checkbox" data-completed="<%= todo.is_complete %>" /><span class="lbl"> <%= todo.subject %></span></label>
+
+                                <div class="inline pull-right position-relative">
+                                  <button class="btn btn-minier bigger btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                    <i class="icon-angle-down icon-only"></i></button>
+                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-closer">
+                                    <li>
+                                      <a href="/projects/<%= @project.id %>/todos/mark_complete/<%= todo.id %>" class="tooltip-success" data-rel="tooltip" title="Mark&nbsp;as&nbsp;done" data-placement="left"><span class="green"><i class="icon-ok"></i></span></a>
+                                    </li>
+                                    <li><a href="/projects/<%= @project.id %>/todos/<%= todo.id %>" class="tooltip-error" data-confirm="Are you sure you want to delete <%= todo.subject %>?" data-method="delete" data-placement="left" data-rel="tooltip" rel="nofollow" title="Delete">
+                                      <span class='red'><i class='icon-trash'></i></span>
+                                    </a>
+                                    </li>
+                                    <li>
+                                      <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+
+                          <% end %>
+
+                        </ul>
+
+                      </div>
+                    </div>
+
+
+                    <!-- END -->
+
+                  </div>
+                </div>
+                <!--/widget-main-->
+              </div>
+              <!--/widget-body-->
+
+
+            </div>
+            <!--/widget-box-->
+          </div>
+          <!--/span-->
+
+        </div>
+        <!--/row-->
+
+        <!-- PAGE CONTENT ENDS HERE -->
+
+
+      </div>
+      <!--/row-->
+
+    </div>
+    <!--/#page-content-->
+
+
+  </div>
+  <!-- #main-content -->
+
+
+</div>
+<!--/.fluid-container#main-container-->
+
+
+<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
+  <i class="icon-double-angle-up icon-only"></i>
+</a>
+
+
+<!-- inline scripts related to this page -->
+
+<script type="text/javascript" src="/assets/js/spin.min.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+        $('.dialogs,.comments').slimScroll({
+            height: '300px'
+        });
+
+        $('.date-picker').datepicker();
+
+        $(".chzn-select").chosen();
+
+        var oldie = $.browser.msie && $.browser.version < 9;
+
+        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
+        $('[data-rel="tooltip"]').tooltip();
+
+        $('#tasks').sortable({
+            axis: 'y',
+            items: 'li',
+            update: function(){
+                $.ajax({
+                    type: 'post',
+                    data: $('#tasks').sortable('serialize'),
+                    dataType: 'script',
+                    complete: function(request){
+                        $('#tasks').effect('highlight');
+                    },
+                    url: '/projects/<%= @project.id %>/todos/sort'})
+            }
+        });
+
+        $('#tasks').disableSelection();
+
+        $('#tasks input:checkbox').removeAttr('checked').on('click', function () {
+            if (this.checked)
+            {
+                var opts = {
+                    lines: 13, // The number of lines to draw
+                    length: 20, // The length of each line
+                    width: 10, // The line thickness
+                    radius: 30, // The radius of the inner circle
+                    corners: 1, // Corner roundness (0..1)
+                    rotate: 0, // The rotation offset
+                    direction: 1, // 1: clockwise, -1: counterclockwise
+                    color: '#000', // #rgb or #rrggbb
+                    speed: 1, // Rounds per second
+                    trail: 60, // Afterglow percentage
+                    shadow: false, // Whether to render a shadow
+                    hwaccel: false, // Whether to use hardware acceleration
+                    className: 'spinner', // The CSS class to assign to the spinner
+                    zIndex: 2e9, // The z-index (defaults to 2000000000)
+                    top: 'auto', // Top position relative to parent in px
+                    left: 'auto' // Left position relative to parent in px
+                };
+                var target = document.getElementById('tasks');
+                var spinner = new Spinner(opts).spin(target);
+
+                var id = $(this).closest('li').attr('data-pk');
+                //$.ajax({
+                //    url:'/tasks/mark_complete/' + id,
+                //    type:'GET'  // HACK: why not type:'PUT'
+                //});
+                //$(this).closest('li').addClass('selected');
+                window.location.href='/projects/<%= @project.id %>/todos/mark_complete/' + id;
+            }
+            else
+            {
+                var opts = {
+                    lines: 13, // The number of lines to draw
+                    length: 20, // The length of each line
+                    width: 10, // The line thickness
+                    radius: 30, // The radius of the inner circle
+                    corners: 1, // Corner roundness (0..1)
+                    rotate: 0, // The rotation offset
+                    direction: 1, // 1: clockwise, -1: counterclockwise
+                    color: '#000', // #rgb or #rrggbb
+                    speed: 1, // Rounds per second
+                    trail: 60, // Afterglow percentage
+                    shadow: false, // Whether to render a shadow
+                    hwaccel: false, // Whether to use hardware acceleration
+                    className: 'spinner', // The CSS class to assign to the spinner
+                    zIndex: 2e9, // The z-index (defaults to 2000000000)
+                    top: 'auto', // Top position relative to parent in px
+                    left: 'auto' // Left position relative to parent in px
+                };
+                var target = document.getElementById('tasks');
+                var spinner = new Spinner(opts).spin(target);
+
+                var id = $(this).closest('li').attr('data-pk');
+                //$.ajax({
+                //    url:'/tasks/mark_incomplete/' + id,
+                //    type:'GET'  // HACK: why not type:'PUT'
+                //});
+                //$(this).closest('li').removeClass('selected');
+                window.location.href='/projects/<%= @project.id %>/todos/mark_incomplete/' + id;
+            }
+        });
+
+        $('.task').each(function () {
+            var done = ($(this).attr('data-completed') == "true");
+            var pk = $(this).attr('data-pk');
+            if (done) {
+                $(this).addClass('selected');
+                $('#chk_' + pk).attr('checked', true);  //WORKS!
+                //$(this).find('input:checkbox').attr('checked', true);
+            }
+        });
+
+    });
+
+</script>
