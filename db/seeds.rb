@@ -23,7 +23,7 @@ puts ' '
 puts 'Seeding projects...'
 Project.destroy_all
 
-Project.create(:name=>'Paint the bridge', :user_id=>User.first.id, :status_code=>1)
+Project.create(:name=>'The First Project', :user_id=>User.first.id, :status_code=>1)
 puts '   Added project ' + Project.all.first.name
 Project.create(:name=>'Encompass', :user_id=>User.first.id, :status_code=>2)
 puts '   Added project ' + Project.last.name
@@ -31,7 +31,7 @@ Project.create(:name=>'Apply hotfix 77 to the main boards', :user_id=>User.first
 puts '   Added project ' + Project.last.name
 
 puts ' '
-puts 'Seeding members...'
+puts 'Seeding members to The First Project...'
 Member.destroy_all
 
 project_id = Project.first.id
@@ -44,11 +44,13 @@ m = Member.create(:project_id=>project_id, :user_id=>u4.id, :joined_date=>20.min
 puts '   Added member ' + m.user.name
 
 puts ' '
-puts 'Seeding milestones...'
+puts 'Seeding milestones to The First Project...'
 Milestone.destroy_all
 
 project_id = Project.first.id
 
+m = Milestone.create(:project_id=>project_id, :subject=>'Milestone 1', :event_date=>100.days.ago)
+puts '   Added milestone ' + m.subject
 m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something early', :event_date=>3.months.ago)
 puts '   Added milestone ' + m.subject
 m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the middle', :event_date=>35.days.ago)
@@ -58,7 +60,7 @@ puts '   Added milestone ' + m.subject
 
 
 puts ' '
-puts 'Seeding todos...'
+puts 'Seeding todos for The First Project...'
 Todo.destroy_all
 
 project_id = Project.first.id
@@ -70,7 +72,7 @@ puts '   Added todo ' + t.subject
 
 
 puts ' '
-puts 'Seeding tasks...'
+puts 'Seeding tasks for Milestone 1...'
 Task.destroy_all
 
 project = Project.first

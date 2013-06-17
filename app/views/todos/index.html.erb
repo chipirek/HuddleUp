@@ -58,8 +58,6 @@
 
       <div class="row-fluid">
 
-        <a class='btn btn-success' href="/projects/<%= @project.id %>/todos/new">Create a new todo</a>
-
         <!-- PAGE CONTENT BEGINS HERE -->
 
         <div class="space-6"></div>
@@ -82,7 +80,7 @@
                     <% end %>
 
 
-                    <div id="tasks-tab" class="tab-pane active" style="margin-bottom: 150px;">
+                    <div id="tasks-tab" class="tab-pane active" style="margin-bottom: 50px;">
                       <div class="clearfix">
 
                         <ul id="tasks" class="item-list">
@@ -124,6 +122,7 @@
           </div>
           <!--/span-->
 
+          <a class='btn btn-success' href="/projects/<%= @project.id %>/todos/new">Create a new todo</a>
         </div>
         <!--/row-->
 
