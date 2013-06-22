@@ -91,7 +91,8 @@
                           <% @tasks.each do |task| %>
 
                               <li class="<%= get_item_color(task) %> clearfix task" data-pk='<%= task.id %>' data-completed="<%= task.is_complete %>" id="task_<%= task.id %>">
-                                <label class="inline"><input id="chk_<%= task.id %>" type="checkbox" data-completed="<%= task.is_complete %>" /><span class="lbl"> <%= task.subject %></span></label>
+                                <label class="inline"><input id="chk_<%= task.id %>" type="checkbox" data-completed="<%= task.is_complete %>" /><span class="lbl"> <%= task.subject %>
+                                  <i>(<%= task.points %> effort 'points')</i></span></label>
 
                                 <div class="inline pull-right position-relative">
 

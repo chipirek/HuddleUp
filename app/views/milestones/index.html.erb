@@ -51,7 +51,7 @@
   <div id="page-content" class="clearfix">
 
     <div class="page-header position-relative">
-      <h1><i class="icon-group"></i> Milestones for <i><%= @project.name %></i></h1>
+      <h1><i class="icon-calendar"></i> Milestones for <i><%= @project.name %></i></h1>
     </div>
     <!--/page-header-->
 
@@ -102,8 +102,8 @@
                           <td class='hidden-phone'><%= milestone.event_date.strftime('%m/%d/%Y') %></td>
 
                           <td>
-                            <div class="progress" data-percent="25%">
-                              <div class="bar" style="width:25%;"></div>
+                            <div class="progress" data-percent="<%= milestone.percent_complete %>%">
+                              <div class="bar" style="width:<%= milestone.percent_complete %>%;"></div>
                             </div>
                           </td>
 

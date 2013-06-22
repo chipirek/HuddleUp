@@ -28,7 +28,7 @@
     <% end %>
 
     <div class="control-group" id='task_subject_controlGroup'>
-      <label class="control-label" for="task_name">task</label>
+      <label class="control-label" for="task_name">Subject</label>
 
       <div class="controls">
         <input type="text" id="task_subject" name='task[subject]' placeholder="name" value='<%= @task.subject %>'>
@@ -45,6 +45,14 @@
             </span>
       </div>
     </div>
+
+    <div class="control-group">
+      <label class="control-label" for="task_points">Effort "points"</label>
+      <div class="controls">
+        <%= select('task', 'points', [['An hour', 1], ['A few hours', 4], ['A day', 8], ['A few days', 24], ['Over a week', 100]], {}, {'class' => 'chzn-select', 'data-placeholder' => 'Repeats...'}) %>
+      </div>
+    </div>
+
 
     <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>

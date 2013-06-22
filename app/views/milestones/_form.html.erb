@@ -45,6 +45,17 @@
         </div>
     </div>
 
+    <div class="control-group">
+      <label class="control-label" for="milestone_percent_complete">% Complete</label>
+
+      <div class="controls">
+        <div class='ace-spinner'>
+          <input type="text" class="input-mini spinner-input" id="milestone_percent_complete" name='milestone[percent_complete]' maxlength="3" style="width: 30px;">
+        </div>
+        &nbsp;&nbsp;&nbsp;<a href='#'>(Re-)Calculate from my tasks</a>
+      </div>
+    </div>
+
     <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
       <a href='/projects/<%= @project.id %>/milestones' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
@@ -53,6 +64,9 @@
     <script type="text/javascript">
 
         $(function () {
+            $('#milestone_percent_complete').ace_spinner({value: 0, min: 0, max: 100, step: 5, btn_up_class: 'btn-info', btn_down_class: 'btn-info'});
+            $('#milestone_percent_complete').val('<%= @milestone.percent_complete %>');
+
             $(".chzn-select").chosen();
         });
 

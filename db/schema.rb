@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(:version => 20130616203723) do
     t.integer  "project_id"
     t.string   "subject"
     t.date     "event_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "percent_complete"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130616203723) do
     t.integer  "milestone_id"
     t.string   "subject"
     t.date     "due_date"
-    t.integer  "duration"
+    t.integer  "points"
     t.boolean  "is_complete"
     t.date     "completed_at"
     t.integer  "position"

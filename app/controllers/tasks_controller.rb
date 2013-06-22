@@ -36,6 +36,7 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:milestone_id])
     @task = Task.new
+    @task.points = 4
 
     respond_to do |format|
       format.html # new.html.erb

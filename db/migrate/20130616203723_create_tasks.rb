@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :milestone_id
       t.string :subject
       t.date :due_date
-      t.integer :duration
+      t.integer :points
       t.boolean :is_complete
       t.date :completed_at
       t.integer :position
