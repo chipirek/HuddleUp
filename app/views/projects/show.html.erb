@@ -146,7 +146,6 @@
                                     <th>Milestone</th>
                                     <th class="hidden-phone"><i class="icon-time hidden-phone"></i> Date</th>
                                     <th class="hidden-480">Progress</th>
-                                    <th></th>
                                   </tr>
                                   </thead>
 
@@ -162,16 +161,9 @@
                                         <td class='hidden-phone'><%= milestone.event_date.strftime('%m/%d/%Y') %></td>
 
                                         <td>
-                                          <div class="easy-pie-chart percentage" data-size="30" data-color="#ECCB71" data-percent="42">
-                                            <span class="percent">42</span>%
+                                          <div class="progress" data-percent="25%">
+                                            <div class="bar" style="width:25%;"></div>
                                           </div>
-                                        </td>
-
-                                        <td>
-                                          <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>" class="tooltip-error" data-confirm="Are you sure you want to delete <%= milestone.subject %>?" data-method="delete" data-placement="left" data-rel="tooltip" rel="nofollow" title="Delete">
-                                            <span class='red'><i class='icon-trash'></i></span>
-                                          </a> |
-                                          <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
                                         </td>
 
                                       </tr>
@@ -209,16 +201,7 @@
                                       <% @project.todos.each do |todo| %>
 
                                           <li class="<%= get_item_color(todo) %> clearfix task" data-pk='<%= todo.id %>' data-completed="<%= todo.is_complete %>" id="task_<%= todo.id %>">
-                                            <label class="inline"><input id="chk_<%= todo.id %>" type="checkbox" data-completed="<%= todo.is_complete %>" /><span class="lbl"> <%= todo.subject %></span></label>
-
-                                            <div class="inline pull-right position-relative">
-
-                                              <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>" class="tooltip-error" data-confirm="Are you sure you want to delete <%= todo.subject %>?" data-method="delete" data-placement="left" data-rel="tooltip" rel="nofollow" title="Delete">
-                                                <span class='red'><i class='icon-trash'></i></span>
-                                              </a> |
-                                              <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
-
-                                            </div>
+                                            <label class="inline"><span class="lbl"> <a href='/projects/<%= @project.id %>/todos/<%= todo.id %>/edit'><%= todo.subject %></a></span></label>
                                           </li>
 
                                       <% end %>
@@ -299,6 +282,16 @@
 
         var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
         $('[data-rel="tooltip"]').tooltip();
+
+        $('.task').each(function () {
+            var done = ($(this).attr('data-completed') == "true");
+            var pk = $(this).attr('data-pk');
+            if (done) {
+                $(this).addClass('selected');
+                $('#chk_' + pk).attr('checked', true);  //WORKS!
+                //$(this).find('input:checkbox').attr('checked', true);
+            }
+        });
 
     });
 

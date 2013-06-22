@@ -1,6 +1,5 @@
 class TodosController < ApplicationController
 
-
   # GET /todos
   # GET /todos.json
   def index
@@ -148,5 +147,6 @@ class TodosController < ApplicationController
 
     render :nothing => true
   end
+
 
 end
