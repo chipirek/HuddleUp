@@ -49,7 +49,7 @@ Milestone.destroy_all
 
 project_id = Project.first.id
 
-m = Milestone.create(:project_id=>project_id, :subject=>'Milestone 1', :event_date=>100.days.ago, :percent_complete=>80)
+m = Milestone.create(:project_id=>project_id, :subject=>'Planning completed - ready to start', :event_date=>100.days.ago, :percent_complete=>80)
 puts '   Added milestone ' + m.subject
 m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something early', :event_date=>3.months.ago, :percent_complete=>70)
 puts '   Added milestone ' + m.subject
@@ -72,14 +72,15 @@ puts '   Added todo ' + t.subject
 
 
 puts ' '
-puts 'Seeding tasks for Milestone 1...'
+puts 'Seeding tasks for Planning completed...'
 Task.destroy_all
 
 project = Project.first
 milestone_id = project.milestones.first.id
 
-t = Task.create(:subject=>'create the examination',:due_date=>Time.now.to_date, :position=>1, :milestone_id=>milestone_id, :points=>1)
-puts '   Added task ' + t.subject
-t = Task.create(:subject=>'assess the infrastructure',:due_date=>Time.now.to_date, :position=>2, :milestone_id=>milestone_id, :points=>8)
-puts '   Added task ' + t.subject
-
+5.times do |i|
+  t = Task.create(:subject=>'define examination ' + i.to_s,:due_date=>Time.now.to_date, :position=>1, :milestone_id=>milestone_id, :points=>1)
+  puts '   Added task ' + t.subject
+  t = Task.create(:subject=>'assess the infrastructure for exam ' + i.to_s,:due_date=>Time.now.to_date, :position=>2, :milestone_id=>milestone_id, :points=>8)
+  puts '   Added task ' + t.subject
+end
