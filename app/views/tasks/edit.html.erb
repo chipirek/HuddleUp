@@ -32,6 +32,9 @@
         <li>
           <a href="/projects/<%= @project.id %>/milestones/<%= @milestone.id %>"> <%= @milestone.subject %></a><span class="divider"><i class="icon-angle-right"></i></span>
         </li>
+        <li>
+          <a href="/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks"> Tasks</a><span class="divider"><i class="icon-angle-right"></i></span>
+        </li>
         <li class="active"> <%= @task.subject %></li>
       </ul>
       <!--.breadcrumb-->

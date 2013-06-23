@@ -118,7 +118,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to project_milestone_path(@project, @milestone) }
+      format.html { redirect_to request.referrer }  #project_milestone_path(@project, @milestone)
       format.json { head :no_content }
     end
   end
