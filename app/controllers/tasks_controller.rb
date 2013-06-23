@@ -142,7 +142,12 @@ class TasksController < ApplicationController
     @item.update_attribute('completed_at', Time.now)
     @item.save!
 
-    redirect_to project_milestone_path(@project, @milestone), notice: 'Task was marked complete.'
+    target_url = project_milestone_path(@project, @milestone)
+    if params[:target_view] == 'edit'
+      target_url = edit_project_milestone_path(@project, @milestone)
+    end
+
+    redirect_to target_url, notice: 'Task was marked complete.'
   end
 
 
@@ -154,7 +159,12 @@ class TasksController < ApplicationController
     @item.update_attribute('completed_at', nil)
     @item.save!
 
-    redirect_to project_milestone_path(@project, @milestone), notice: 'Task was marked incomplete.'
+    target_url = project_milestone_path(@project, @milestone)
+    if params[:target_view] == 'edit'
+      target_url = edit_project_milestone_path(@project, @milestone)
+    end
+
+    redirect_to target_url, notice: 'Task was marked incomplete.'
   end
 
 
