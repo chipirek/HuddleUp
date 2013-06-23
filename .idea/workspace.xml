@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/tasks/_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/index.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/new.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/new.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/show.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tasks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tasks_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
@@ -13,13 +16,13 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706614907" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370982041407" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372015750056" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372018087809" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371387738768" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370714530647" ignored="false" />
-    <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372000012645" ignored="false" />
-    <file path="/new.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371929751890" ignored="false" />
+    <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372027324878" ignored="false" />
+    <file path="/new.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372027482184" ignored="false" />
     <file path="/sessions.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370715775082" ignored="false" />
-    <file path="/index.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371929939186" ignored="false" />
+    <file path="/index.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372028838247" ignored="false" />
     <file path="/_test.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370723201372" ignored="false" />
     <file path="/_navbar.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370782597199" ignored="false" />
     <file path="/blank.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370799146896" ignored="false" />
@@ -28,8 +31,8 @@
     <file path="/seeds.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371989616833" ignored="false" />
     <file path="/projects_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371238118544" ignored="false" />
     <file path="/projects_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370865514905" ignored="false" />
-    <file path="/show.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372017669638" ignored="false" />
-    <file path="/edit.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372015513957" ignored="false" />
+    <file path="/show.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372028585893" ignored="false" />
+    <file path="/edit.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372028281150" ignored="false" />
     <file path="/routes.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372014862634" ignored="false" />
     <file path="/member.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370982019448" ignored="false" />
     <file path="/members_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370970337098" ignored="false" />
@@ -83,20 +86,20 @@
       <list>
         <option value="$PROJECT_DIR$/app/controllers/milestones_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/projects/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/milestones/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/milestones/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/milestones/_form.html.erb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/views/tasks/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/tasks/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/milestone.rb" />
         <option value="$PROJECT_DIR$/app/views/todos/index.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/tasks_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/milestones/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/milestones/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/tasks/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/milestones/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/milestones/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/milestones/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/milestones/index.html.erb" />
       </list>
     </option>
   </component>
@@ -204,28 +207,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="todos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -826,7 +807,11 @@
       <created>1372015755260</created>
       <updated>1372015755260</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Enabled dynamic marking on milestone tasks">
+      <created>1372018093367</created>
+      <updated>1372018093367</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -895,7 +880,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enabled dynamic routing after adding new task" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enabled dynamic marking on milestone tasks" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -927,57 +912,12 @@
     <MESSAGE value="Enabled dynamic url targetting on task edit" />
     <MESSAGE value="Enabled dynamic sorting to tasks" />
     <MESSAGE value="Enabled dynamic routing after adding new task" />
+    <MESSAGE value="Enabled dynamic marking on milestone tasks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="110" selection-start="6279" selection-end="6300" vertical-scroll-proportion="-13.083333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/todos_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.4273129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="27" selection-start="2366" selection-end="2366" vertical-scroll-proportion="0.50359714">
-          <folding>
-            <marker date="1371999821000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="27" selection-start="2340" selection-end="2340" vertical-scroll-proportion="-0.026378896">
-          <folding>
-            <marker date="1371999809000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.0903084">
@@ -1006,20 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/milestones/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="117" selection-start="2441" selection-end="2552" vertical-scroll-proportion="0.36211032">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="59" selection-start="979" selection-end="979" vertical-scroll-proportion="0.35971224">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/todos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="153" column="69" selection-start="4956" selection-end="5025" vertical-scroll-proportion="-4.875">
@@ -1029,28 +955,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/milestones/edit.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/tasks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="147" selection-start="8089" selection-end="8089" vertical-scroll-proportion="0.2086331">
+        <state line="164" column="46" selection-start="4887" selection-end="4887" vertical-scroll-proportion="0.8017621">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/milestones/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="48" selection-start="2450" selection-end="2483" vertical-scroll-proportion="0.41007194">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tasks/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="48" selection-start="2399" selection-end="2399" vertical-scroll-proportion="0.7194245">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/milestones/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="35" selection-start="1835" selection-end="1835" vertical-scroll-proportion="-1.0791367">
           <folding>
-            <marker date="1372018005000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1372027483000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/milestones/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="26" selection-start="4872" selection-end="4872" vertical-scroll-proportion="0.89928055">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1372028839000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/milestones/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="269" column="0" selection-start="8895" selection-end="10112" vertical-scroll-proportion="0.92805755">
+        <state line="157" column="0" selection-start="5713" selection-end="6910" vertical-scroll-proportion="0.8201439">
           <folding>
-            <marker date="1372017836000" expanded="false" signature="-1:-1" placeholder="..." />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#2;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#3;n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1372028600000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/tasks_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/milestones/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="46" selection-start="4887" selection-end="4887" vertical-scroll-proportion="0.8017621">
+        <state line="118" column="66" selection-start="5026" selection-end="5026" vertical-scroll-proportion="2.6978416">
+          <folding>
+            <marker date="1372028409000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tasks/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="27" selection-start="2340" selection-end="2340" vertical-scroll-proportion="0.035971224">
+          <folding>
+            <marker date="1371999809000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tasks/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tasks/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tasks/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="27" selection-start="2366" selection-end="2366" vertical-scroll-proportion="0.035971224">
+          <folding>
+            <marker date="1371999821000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

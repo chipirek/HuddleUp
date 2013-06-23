@@ -108,10 +108,24 @@
                           </td>
 
                           <td>
-                            <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>" class="tooltip-error" data-confirm="Are you sure you want to delete <%= milestone.subject %>?" data-method="delete" data-placement="left" data-rel="tooltip" rel="nofollow" title="Delete">
-                              <span class='red'><i class='icon-trash'></i></span>
-                            </a> |
-                            <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit" class="tooltip-edit" data-rel="tooltip" title="Edit" data-placement="left"><span class="blue"><i class="icon-edit"></i></span></a>
+
+                              <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"
+                                 class="btn btn-mini btn-danger"
+                                 data-confirm="Are you sure you want to delete <%= milestone.subject %>?"
+                                 data-method="delete"
+                                 data-placement="right"
+                                 data-rel="tooltip"
+                                 rel="nofollow"
+                                 title="Delete">
+                                <span><i class='icon-trash'></i></span>
+                              </a>
+                              <button class="btn btn-mini btn-info"
+                                      onclick="window.location.href='/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit'"
+                                      data-placement="left"
+                                      data-rel="tooltip"
+                                      title="Edit">
+                                <i class="icon-edit"></i></button>
+
                           </td>
 
                         </tr>
