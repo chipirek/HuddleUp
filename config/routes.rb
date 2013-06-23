@@ -15,4 +15,5 @@ HuddleUp::Application.routes.draw do
   #match ':controller(/:action(/:id(.:format)))'
   match '/projects/:project_id/:controller/:action(/:id)'
   match '/projects/:project_id/milestones/:milestone_id/:controller/:action(/:id)'
+  match '/projects/:project_id/milestones/:milestone_id/:controller/:action' #sort
 end

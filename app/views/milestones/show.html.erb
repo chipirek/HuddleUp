@@ -84,6 +84,15 @@
                       <td>Progress:</td>
                       <td><%= @milestone.percent_complete %>%</td>
                     </tr>
+                    <tr>
+                      <td>Size:</td>
+                      <td><%= @milestone.total_points %> points</td>
+                    </tr>
+                    <tr>
+                      <td>Calculated:</td>
+                      <td><%= @milestone.calculated_percent_complete %>
+                        , <%= number_to_percentage(@milestone.calculated_percent_complete, :precision => 0) %></td>
+                    </tr>
                   </table>
                 </div>
               </div>
@@ -97,10 +106,9 @@
               <h4 class="lighter smaller"> Associated Tasks</h4>
 
               <div class="widget-toolbar no-border">
-                            <span class="badge badge-success">
-      <a href='#'>Add a task</a>
-    </span>
-
+                <span class="badge badge-success">
+                    <a href='#'>Add a task</a>
+                </span>
               </div>
             </div>
 
@@ -123,11 +131,14 @@
 
                         <ul id="tasks" class="item-list">
 
-                          <% @milestone.tasks.each do |task| %>
+                          <% @milestone.tasks.order('position').each do |task| %>
 
                               <li class="<%= get_item_color(task) %> clearfix task" data-pk='<%= task.id %>' data-completed="<%= task.is_complete %>" id="task_<%= task.id %>">
-                                <label class="inline"><input id="chk_<%= task.id %>" type="checkbox" data-completed="<%= task.is_complete %>"/><span class="lbl"> <%= task.subject %>
-                                  <i>(<%= task.points %> effort 'points')</i></span></label>
+                                <label class="inline"><input id="chk_<%= task.id %>" type="checkbox" data-completed="<%= task.is_complete %>"/>
+                                  <span class="lbl"> <%= task.subject %> &nbsp;&nbsp;
+                                    <span class="badge badge-light"><%= task.points %> point(s)</span>
+                                  </span>
+                                </label>
 
                                 <div class="inline pull-right position-relative">
 
@@ -195,6 +206,23 @@
 
         var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
         $('[data-rel="tooltip"]').tooltip();
+
+        $('#tasks').sortable({
+            axis: 'y',
+            items: 'li',
+            update: function () {
+                $.ajax({
+                    type: 'post',
+                    data: $('#tasks').sortable('serialize'),
+                    dataType: 'script',
+                    complete: function (request) {
+                        $('#tasks').effect('highlight');
+                    },
+                    url: '/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/sort'})
+            }
+        });
+
+        $('#tasks').disableSelection();
 
     });
 
