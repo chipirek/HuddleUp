@@ -96,10 +96,15 @@ class TasksController < ApplicationController
       @task.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
+    target_url = project_milestone_path(@project, @milestone)
+    if params[:target_view] == 'edit'
+      target_url = edit_project_milestone_path(@project, @milestone)
+    end
+
     respond_to do |format|
       # if @task.update_attributes(params[:task])
       if @task.save
-        format.html { redirect_to project_milestone_path(@project, @milestone), notice: 'Task was successfully updated.' }
+        format.html { redirect_to target_url, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
