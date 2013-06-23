@@ -106,9 +106,7 @@
               <h4 class="lighter smaller"> Associated Tasks</h4>
 
               <div class="widget-toolbar no-border">
-                <span class="badge badge-success">
-                    <a href='#'>Add a task</a>
-                </span>
+                <a href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/new?target_view=show' class='btn btn-success btn-small'> Add a task</a>
               </div>
             </div>
 

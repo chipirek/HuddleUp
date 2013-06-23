@@ -72,9 +72,7 @@
               <h4 class="lighter smaller"> Associated Tasks</h4>
 
               <div class="widget-toolbar no-border">
-                <span class="badge badge-success">
-                    <a href='#'>Add a task</a>
-                </span>
+                <a href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/new?target_view=edit' class='btn btn-success btn-small'> Add a task</a>
               </div>
             </div>
 
@@ -90,7 +88,6 @@
                           <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
                         </div>
                     <% end %>
-
 
                     <div id="tasks-tab" class="tab-pane active">
                       <div class="clearfix">
