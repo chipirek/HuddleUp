@@ -58,7 +58,10 @@ class TodosController < ApplicationController
     @todo.position=99
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
-    if params[:todo][:due_date]
+    #puts '********************'
+    #puts params[:todo][:due_date]
+    #puts '********************'
+    if params[:todo][:due_date].nil?
       buffer = params[:todo][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
       @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
@@ -84,7 +87,7 @@ class TodosController < ApplicationController
     @todo.project_id = params[:project_id]
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
-    if params[:todo][:due_date]
+    if params[:todo][:due_date].nil?
       buffer = params[:todo][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
       @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
