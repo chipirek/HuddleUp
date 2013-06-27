@@ -1,0 +1,30 @@
+<div id="breadcrumbs" xmlns="http://www.w3.org/1999/html">
+  <ul class="breadcrumb">
+    <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+    <li><a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+    <li><a href='/projects/<%= project.id %>'> <%= project.name %>
+
+      <% if task %>
+        </a><span class="divider"><i class="icon-angle-right"></i></span></li>
+            <li><a href="/projects/<%= project.id %>/milestones"> Milestones</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+            <li><a href="/projects/<%= project.id %>/milestones/<%= milestone.id %>"> <%= milestone.subject %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
+            <li class="active"> <%= task.subject %></li>
+      <% end %>
+
+      <% if todo %>
+          </a><span class="divider"><i class="icon-angle-right"></i></span></li>
+          <li><a href="/projects/<%= project.id %>/todos"> Todos</a><span class="divider"><i class="icon-angle-right"></i></span></li>
+          <li><a href="/projects/<%= project.id %>/milestones/<%= milestone.id %>"> <%= milestone.subject %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
+          <li class="active"> <%= task.subject %></li>
+      <% end %>
+  </ul>
+
+  <div id="nav-search">
+    <form class="form-search">
+            <span class="input-icon">
+                <input autocomplete="off" id="nav-search-input" type="text" class="input-small search-query" placeholder="Search ..."/>
+                <i id="nav-search-icon" class="icon-search"></i>
+            </span>
+    </form>
+  </div>
+</div>
