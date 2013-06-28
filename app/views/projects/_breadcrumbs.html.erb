@@ -1,22 +1,13 @@
-<div id="breadcrumbs" xmlns="http://www.w3.org/1999/html">
+<div id="breadcrumbs">
   <ul class="breadcrumb">
     <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-    <li><a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-    <li><a href='/projects/<%= project.id %>'> <%= project.name %>
 
-      <% if task %>
-        </a><span class="divider"><i class="icon-angle-right"></i></span></li>
-            <li><a href="/projects/<%= project.id %>/milestones"> Milestones</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-            <li><a href="/projects/<%= project.id %>/milestones/<%= milestone.id %>"> <%= milestone.subject %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
-            <li class="active"> <%= task.subject %></li>
-      <% end %>
+    <% crumbs.each do |c| %>
+        <li><a href="<%= c[1] %>"><%= c[0] %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
+    <% end %>
 
-      <% if todo %>
-          </a><span class="divider"><i class="icon-angle-right"></i></span></li>
-          <li><a href="/projects/<%= project.id %>/todos"> Todos</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-          <li><a href="/projects/<%= project.id %>/milestones/<%= milestone.id %>"> <%= milestone.subject %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
-          <li class="active"> <%= task.subject %></li>
-      <% end %>
+    <li class="active"> <%= title %></li>
+
   </ul>
 
   <div id="nav-search">
