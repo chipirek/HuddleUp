@@ -21,32 +21,13 @@
 
   <div id="main-content" class="clearfix">
 
-    <div id="breadcrumbs">
-      <ul class="breadcrumb">
-        <li><i class="icon-home"></i> <a href="/projects">Home</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-        <li><a href="/projects">Projects</a><span class="divider"><i class="icon-angle-right"></i></span></li>
-        <li><a href='/projects/<%= @project.id %>'> <%= @project.name %></a><span class="divider"><i class="icon-angle-right"></i></span></li>
-        <li>
-          <a href="/projects/<%= @project.id %>/milestones"> Milestones</a><span class="divider"><i class="icon-angle-right"></i></span>
-        </li>
-        <li>
-          <a href="/projects/<%= @project.id %>/milestones/<%= @milestone.id %>"> <%= @milestone.subject %></a><span class="divider"><i class="icon-angle-right"></i></span>
-        </li>
-        <li class="active"> <%= @task.subject %></li>
-      </ul>
-      <!--.breadcrumb-->
+    <% crumbs = [['Projects', projects_path],
+                 [@project.name, project_path(@project)],
+                 ['Milestones', project_milestones_path(@project)],
+                 [@milestone.subject, project_milestone_path(@project, @milestone)],
+                 ['Tasks', project_milestone_tasks_path(@project, @milestone)]] %>
 
-      <div id="nav-search">
-        <form class="form-search">
-            <span class="input-icon">
-                <input autocomplete="off" id="nav-search-input" type="text" class="input-small search-query" placeholder="Search ..."/>
-                <i id="nav-search-icon" class="icon-search"></i>
-            </span>
-        </form>
-      </div>
-      <!--#nav-search-->
-    </div>
-    <!--#breadcrumbs-->
+    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Edit this task'} %>
 
     <div id="page-content" class="clearfix">
 
