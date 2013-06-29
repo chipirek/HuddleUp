@@ -16,10 +16,12 @@ ActiveRecord::Schema.define(:version => 20130616203723) do
   create_table "members", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
+    t.date     "invited_date"
     t.date     "joined_date"
+    t.date     "blocked_date"
     t.string   "status_code"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "milestones", :force => true do |t|

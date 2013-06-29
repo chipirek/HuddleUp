@@ -23,7 +23,7 @@ puts ' '
 puts 'Seeding projects...'
 Project.destroy_all
 
-Project.create(:name=>'The First Project', :user_id=>User.first.id, :status_code=>1)
+Project.create(:name=>'Project Alpha', :user_id=>User.first.id, :status_code=>1)
 puts '   Added project ' + Project.all.first.name
 Project.create(:name=>'Encompass', :user_id=>User.first.id, :status_code=>2)
 puts '   Added project ' + Project.last.name
@@ -31,7 +31,7 @@ Project.create(:name=>'Apply hotfix 77 to the main boards', :user_id=>User.first
 puts '   Added project ' + Project.last.name
 
 puts ' '
-puts 'Seeding members to The First Project...'
+puts 'Seeding members of Project Alpha...'
 Member.destroy_all
 
 project_id = Project.first.id
@@ -44,7 +44,7 @@ m = Member.create(:project_id=>project_id, :user_id=>u4.id, :joined_date=>20.min
 puts '   Added member ' + m.user.name
 
 puts ' '
-puts 'Seeding milestones to The First Project...'
+puts 'Seeding milestones to Project Alpha...'
 Milestone.destroy_all
 
 project_id = Project.first.id
@@ -60,7 +60,7 @@ puts '   Added milestone ' + m.subject
 
 
 puts ' '
-puts 'Seeding todos for The First Project...'
+puts 'Seeding todos for Project Alpha...'
 Todo.destroy_all
 
 project_id = Project.first.id

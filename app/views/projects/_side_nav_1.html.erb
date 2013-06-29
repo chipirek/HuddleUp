@@ -41,17 +41,6 @@
     </li>
 
     <li
-    <% if component == 'members' %>
-    class="active"
-    <% end %>
-    >
-      <a href="/projects/<%= project_id %>/members">
-        <i class="icon-group"></i>
-        <span>Members</span>
-      </a>
-    </li>
-
-    <li
     <% if component == 'todos' %>
     class="active"
     <% end %>
@@ -59,6 +48,17 @@
       <a href="/projects/<%= project_id %>/todos">
         <i class="icon-list"></i>
         <span>Todos</span>
+      </a>
+    </li>
+
+    <li
+    <% if component == 'members' %>
+    class="active"
+    <% end %>
+    >
+      <a href="/projects/<%= project_id %>/members">
+        <i class="icon-group"></i>
+        <span>Members</span>
       </a>
     </li>
 
