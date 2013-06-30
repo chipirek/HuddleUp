@@ -72,8 +72,10 @@
 
                               <div class="body">
                                 <div class="name"><a href="#"><%=  member.user.name %></a></div>
-                                <div class="time"><i class="icon-time"></i> <span class="green">3 hours ago</span></div>
-                                <div class="label label-info">Admin</div>
+                                <div class="time"><i class="icon-time"></i> <span class="green"><%= time_ago_in_words(member.joined_date) %> ago</span></div>
+                                <% if member.is_admin? %>
+                                    <div class="label label-info">Admin</div>
+                                <% end %>
                                 <div class="label label-success">Active</div>
                                 <div class="inline position-relative">
                                   <button class="btn btn-minier bigger btn-grey dropdown-toggle" data-toggle="dropdown"><i class="icon-angle-down icon-only"></i></button>

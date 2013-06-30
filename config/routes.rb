@@ -8,7 +8,8 @@ HuddleUp::Application.routes.draw do
     resources :todos
   end
 
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
   root :to => 'projects#index'
 

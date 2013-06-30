@@ -36,11 +36,11 @@ Member.destroy_all
 
 project_id = Project.first.id
 
-m = Member.create(:project_id=>project_id, :user_id=>u0.id, :joined_date=>3.days.ago)
+m = Member.create(:project_id=>project_id, :user_id=>u0.id, :joined_date=>3.days.ago, :is_admin=>true)
 puts '   Added member ' + m.user.name
-m = Member.create(:project_id=>project_id, :user_id=>u2.id, :joined_date=>2.days.ago)
+m = Member.create(:project_id=>project_id, :user_id=>u2.id, :joined_date=>2.days.ago, :is_admin=>false)
 puts '   Added member ' + m.user.name
-m = Member.create(:project_id=>project_id, :user_id=>u4.id, :joined_date=>20.minutes.ago)
+m = Member.create(:project_id=>project_id, :user_id=>u4.id, :joined_date=>20.minutes.ago, :is_admin=>false)
 puts '   Added member ' + m.user.name
 
 puts ' '
