@@ -23,11 +23,11 @@ puts ' '
 puts 'Seeding projects...'
 Project.destroy_all
 
-Project.create(:name=>'Project Alpha', :user_id=>User.first.id, :status_code=>1)
+Project.create(:name=>'Project Alpha', :status_code=>1)
 puts '   Added project ' + Project.all.first.name
-Project.create(:name=>'Encompass', :user_id=>User.first.id, :status_code=>2)
+Project.create(:name=>'Encompass', :status_code=>2)
 puts '   Added project ' + Project.last.name
-Project.create(:name=>'Apply hotfix 77 to the main boards', :user_id=>User.first.id, :status_code=>3)
+Project.create(:name=>'Apply hotfix 77 to the main boards', :status_code=>3)
 puts '   Added project ' + Project.last.name
 
 puts ' '
@@ -35,12 +35,13 @@ puts 'Seeding members of Project Alpha...'
 Member.destroy_all
 
 project_id = Project.first.id
+project_id_2 = Project.last.id
 
 m = Member.create(:project_id=>project_id, :user_id=>u0.id, :joined_date=>3.days.ago, :is_admin=>true)
 puts '   Added member ' + m.user.name
 m = Member.create(:project_id=>project_id, :user_id=>u2.id, :joined_date=>2.days.ago, :is_admin=>false)
 puts '   Added member ' + m.user.name
-m = Member.create(:project_id=>project_id, :user_id=>u4.id, :joined_date=>20.minutes.ago, :is_admin=>false)
+m = Member.create(:project_id=>project_id_2, :user_id=>u0.id, :joined_date=>20.minutes.ago, :is_admin=>false)
 puts '   Added member ' + m.user.name
 
 puts ' '

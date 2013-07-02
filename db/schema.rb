@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616203723) do
+ActiveRecord::Schema.define(:version => 20130702162549) do
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.boolean  "password_is_temp"
+    t.datetime "sent_at"
+    t.datetime "accepted_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "members", :force => true do |t|
     t.integer  "user_id"
@@ -32,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20130616203723) do
   end
 
   create_table "projects", :force => true do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.text     "description"
     t.integer  "status_code"

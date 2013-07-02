@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where('user_id=' + current_user.id.to_s)
+    @membership = Member.where('user_id=' + current_user.id.to_s)
+    @projects = Project.where('id in (?)', @membership)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,8 +29,6 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
-    @project.user_id = current_user.id
-    session[:return_to] = request.referrer
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,7 +47,6 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
-    @project.user_id = current_user.id
 
     respond_to do |format|
       if @project.save

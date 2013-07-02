@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :name
 
-  belongs_to :user
+  #belongs_to :user
   has_many :members
   has_many :milestones
   has_many :todos
