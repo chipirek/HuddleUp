@@ -1,37 +1,40 @@
-<%= form_for(@invitation) do |f| %>
-  <% if @invitation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+<%= form_for [@project, @invitation], :html => {:class => 'form-horizontal well'} do |f| %>
+    <% if @invitation.errors.any? %>
+        <div id="error_explanation" class='alert alert-error'>
+          <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+          <h4>Ooops, <%= pluralize(@invitation.errors.count, "error") %> prohibited this invitation from being saved:</h4>
 
-      <ul>
-      <% @invitation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @invitation.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+
+    <% end %>
+
+    <div class="control-group" id='email_controlGroup'>
+      <label class="control-label" for="email">Email</label>
+
+      <div class="controls">
+        <input type="text" id="email" name='email' placeholder="joe@company.com" value=''>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :password_is_temp %><br />
-    <%= f.check_box :password_is_temp %>
-  </div>
-  <div class="field">
-    <%= f.label :sent_at %><br />
-    <%= f.datetime_select :sent_at %>
-  </div>
-  <div class="field">
-    <%= f.label :accepted_at %><br />
-    <%= f.datetime_select :accepted_at %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="control-group" id='name_controlGroup'>
+      <label class="control-label" for="name">Milestone</label>
+
+      <div class="controls">
+        <input type="text" id="name" name='name' placeholder="Joe Dirt" value=''>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
+      <a href='javascript:window.history.back();' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
+    </div>
+
+    <script type="text/javascript">
+    </script>
+
 <% end %>

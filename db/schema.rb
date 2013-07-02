@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130702162549) do
     t.integer  "project_id"
     t.boolean  "is_admin"
     t.datetime "joined_date"
+    t.string   "status_code"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
