@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @invitation.project_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @invitation.user_id %>
+</p>
+
+<p>
+  <b>Password is temp:</b>
+  <%= @invitation.password_is_temp %>
+</p>
+
+<p>
+  <b>Sent at:</b>
+  <%= @invitation.sent_at %>
+</p>
+
+<p>
+  <b>Accepted at:</b>
+  <%= @invitation.accepted_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+<%= link_to 'Back', invitations_path %>
