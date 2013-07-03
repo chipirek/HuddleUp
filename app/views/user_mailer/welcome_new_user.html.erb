@@ -4,13 +4,44 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h3>Welcome to HuddleUp, <%= @user.name %></h3>
+
+<h3>Welcome to HuddleUp, <%= @member.user.name %></h3>
+
 <p>
-  You have been invited to join the project <%= @project.name %>.
+  <br />&nbsp;
 </p>
+
 <p>
-  To accept this invitation, just follow this link: <br /><%= @url %>.
+    You have been invited to join the project <b><%= @project.name %></b>.
+  <br />&nbsp;
 </p>
-<p>Thanks for huddling up with your team!</p>
+
+<p>
+    To accept this invitation and join the project, just follow this link: <br />
+    <a href='<%= @url %>' data-method='put'><%= @url %></a>
+    <br />&nbsp;
+</p>
+
+<p>
+  Your User Id is <b><%= @member.user.email %></b>
+  <br />
+  Your TEMPORARY password is <b><%= @pwd %></b>
+  <br />&nbsp;
+</p>
+
+<p>
+  Be sure to set a secure password once you log in!
+  <br />&nbsp;
+</p>
+
+<p>
+    Thanks for huddling up with your team!
+  <br />&nbsp;
+</p>
+
+<p>
+  -- Your HuddleUp team
+</p>
+
 </body>
 </html>

@@ -14,8 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130702162549) do
 
   create_table "invitations", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
+    t.integer  "member_id"
     t.boolean  "password_is_temp"
     t.datetime "sent_at"
     t.datetime "accepted_at"

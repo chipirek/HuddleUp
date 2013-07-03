@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130702162549_create_invitations.rb" afterPath="$PROJECT_DIR$/db/migrate/20130702162549_create_invitations.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/invitations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/invitations/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/invitations/index.html.erb" afterPath="$PROJECT_DIR$/app/views/invitations/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/invitations_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/invitations/show.html.erb" afterPath="$PROJECT_DIR$/app/views/invitations/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/user_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_mailer/welcome_new_user.html.erb" afterPath="$PROJECT_DIR$/app/views/user_mailer/welcome_new_user.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
@@ -11,7 +18,7 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706614907" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372857294277" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372867073139" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372867107856" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372783878149" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370714530647" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372864159628" ignored="false" />
@@ -46,9 +53,11 @@
     <file path="/_top_nav.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372678693341" ignored="false" />
     <file path="/registrations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372627404641" ignored="false" />
     <file path="/devise_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372626662388" ignored="false" />
-    <file path="/invitations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372866328442" ignored="false" />
-    <file path="/user_mailer.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372866840803" ignored="false" />
-    <file path="/welcome_new_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372863550736" ignored="false" />
+    <file path="/invitations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372883698159" ignored="false" />
+    <file path="/user_mailer.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372883305213" ignored="false" />
+    <file path="/welcome_new_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372883744966" ignored="false" />
+    <file path="/20130702162549_create_invitations.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372880564499" ignored="false" />
+    <file path="/application_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372882505450" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,46 +77,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="invitations_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="invitations_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/invitations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="48" selection-start="1855" selection-end="1855" vertical-scroll-proportion="1.3464203">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="development.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="62" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_mailer.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/mailers/user_mailer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="85" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0">
+            <state line="19" column="70" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/invitations/index.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/members/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="37.5">
+              <folding>
+                <marker date="1372808878000" expanded="false" signature="5560:5573" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="35" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/invitations/_form.html.erb">
+      <file leaf-file-name="user_mailer.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/mailers/user_mailer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="75" selection-start="1225" selection-end="1225" vertical-scroll-proportion="-12.5">
+            <state line="6" column="24" selection-start="226" selection-end="226" vertical-scroll-proportion="0.19736843">
               <folding />
             </state>
           </provider>
@@ -116,7 +118,7 @@
       <file leaf-file-name="welcome_new_user.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/user_mailer/welcome_new_user.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="35" selection-start="279" selection-end="279" vertical-scroll-proportion="-6.875">
+            <state line="27" column="40" selection-start="572" selection-end="572" vertical-scroll-proportion="-7.375">
               <folding />
             </state>
           </provider>
@@ -145,22 +147,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20130608175748_create_projects.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20130702162549_create_invitations.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20130611130434_create_members.rb" />
-        <option value="$PROJECT_DIR$/app/views/invitations/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/members/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20130608155207_devise_create_users.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/views/user_mailer/welcome_new_user.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/invitations/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/invitations/_form.html.erb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/controllers/projects_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/invitations/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/invitations/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/invitations/edit.html.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/20130702162549_create_invitations.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/invitations_controller.rb" />
         <option value="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
+        <option value="$PROJECT_DIR$/app/views/user_mailer/welcome_new_user.html.erb" />
       </list>
     </option>
   </component>
@@ -172,8 +174,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="189" />
-    <option name="y" value="47" />
+    <option name="x" value="178" />
+    <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="812" />
   </component>
@@ -343,7 +345,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="milestones" />
+              <option name="myItemId" value="members" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -433,6 +435,7 @@
     <property name="FullScreen" value="false" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
@@ -443,7 +446,7 @@
       <recent name="$PROJECT_DIR$/app/views" />
     </key>
   </component>
-  <component name="RunManager" selected="Rake.db:seed">
+  <component name="RunManager" selected="Rails.Development: HuddleUp">
     <configuration default="false" name="db:migrate" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="HuddleUp" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -790,10 +793,10 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Rake.db:seed" />
-        <item index="1" class="java.lang.String" itemvalue="Rake.db:migrate" />
-        <item index="2" class="java.lang.String" itemvalue="Rake.db:create" />
-        <item index="3" class="java.lang.String" itemvalue="Rake.db:drop" />
+        <item index="0" class="java.lang.String" itemvalue="Rake.db:drop" />
+        <item index="1" class="java.lang.String" itemvalue="Rake.db:seed" />
+        <item index="2" class="java.lang.String" itemvalue="Rake.db:migrate" />
+        <item index="3" class="java.lang.String" itemvalue="Rake.db:create" />
       </list>
     </recent_temporary>
   </component>
@@ -970,11 +973,15 @@
       <created>1372867077504</created>
       <updated>1372867077504</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Added outbound email infrastructure to invitations module">
+      <created>1372867110150</created>
+      <updated>1372867110150</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="189" y="47" width="1440" height="812" extended-state="0" />
+    <frame x="178" y="22" width="1440" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1083,81 +1090,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130611130434_create_members.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="207" selection-end="207" vertical-scroll-proportion="0.23026316" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="24" selection-start="598" selection-end="598" vertical-scroll-proportion="0.5641593">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="188" selection-start="4312" selection-end="4312" vertical-scroll-proportion="0.036144577">
-          <folding>
-            <marker date="1372855135000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130608155207_devise_create_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="0.03318584">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/project.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="29" selection-start="100" selection-end="127" vertical-scroll-proportion="0.09955752">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="62" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/milestones/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.1818182">
-          <folding>
-            <marker date="1372803750000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/projects_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.27713627">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="11" selection-start="3880" selection-end="3880" vertical-scroll-proportion="2.6785715">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/invitations/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="75" selection-start="1225" selection-end="1225" vertical-scroll-proportion="-12.5">
           <folding />
         </state>
       </provider>
@@ -1169,30 +1104,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user_mailer/welcome_new_user.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/invitations/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="35" selection-start="279" selection-end="279" vertical-scroll-proportion="-6.875">
+        <state line="32" column="75" selection-start="1225" selection-end="1225" vertical-scroll-proportion="0.6944444">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/user_mailer.rb">
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="85" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0">
+        <state line="31" column="62" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.43201753">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/invitations/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/invitations/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/invitations/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130611130434_create_members.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/invitations/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.5681818">
+          <folding>
+            <marker date="1372808679000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/members/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="37.5">
+          <folding>
+            <marker date="1372808878000" expanded="false" signature="5560:5573" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130702162549_create_invitations.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="29" selection-start="254" selection-end="254" vertical-scroll-proportion="0.38106236">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="35" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_mailer/welcome_new_user.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="40" selection-start="572" selection-end="572" vertical-scroll-proportion="-7.375">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/invitations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="48" selection-start="1855" selection-end="1855" vertical-scroll-proportion="1.3464203">
+        <state line="19" column="70" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/user_mailer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="24" selection-start="226" selection-end="226" vertical-scroll-proportion="0.19736843">
           <folding />
         </state>
       </provider>
