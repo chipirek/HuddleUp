@@ -36,11 +36,15 @@ class InvitationsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user.nil?
       # new user
-      @invitation.password_is_temp=true
+      puts '------------------- creating user and member'
       temp_password = (0...8).map{(65+rand(26)).chr}.join
       user = User.create( :name => params[:name], :email => params[:email], :password => temp_password )
       member = Member.create(:user_id=>user.id, :project_id=>@project.id, :is_admin=>false, :status_code=>2)
-      # TODO **************** SEND EMAIL HERE
+      UserMailer.welcome_new_user(user, @project, 'xyz').deliver
+      puts '------------------- mail sent'
+      @invitation.password_is_temp=true
+      @invitation.sent_at=Time.now
+      @invitation.user_id=user.id
     else
       @invitation.password_is_temp=false
       # existing user
@@ -50,11 +54,13 @@ class InvitationsController < ApplicationController
 
     respond_to do |format|
       if @invitation.save
-        redirect_to project_invitations_path(@project), notice: 'Invitation was successfully sent.'
+        puts '------------------- invitation saved'
+        format.html { redirect_to project_members_path(@project), notice: 'Invitation was successfully sent.' }
       else
-        render action: "new"
+        format.html { render action: "new" }
       end
     end
+
   end
 
 

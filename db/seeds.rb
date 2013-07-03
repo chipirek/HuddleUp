@@ -85,3 +85,10 @@ milestone_id = project.milestones.first.id
   t = Task.create(:subject=>'assess the infrastructure for exam ' + i.to_s,:due_date=>Time.now.to_date, :position=>2, :milestone_id=>milestone_id, :points=>8)
   puts '   Added task ' + t.subject
 end
+
+puts ' '
+puts 'Removing all invitations...'
+Invitation.destroy_all
+
+puts ' '
+puts 'Done.'
