@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     if resource.save
 
-      @project = Project.new(:name=>params[:project_name], :user_id=>resource.id, :status_code=>1)
+      @project = Project.new(:name=>params[:project_name], :status_code=>1)
       if @project.save
 
         @member = Member.new(:project_id=>@project.id, :user_id=>resource.id, :joined_date=>Time.now, :is_admin=>true)
@@ -25,7 +25,7 @@ class RegistrationsController < Devise::RegistrationsController
         end
 
       else
-        resource.errors.add('Project', 'name cannot be blank.')
+        resource.errors.add('Project', 'Project name cannot be blank.')
         clean_up_passwords resource
         respond_with resource, :location => '/users/sign_up'
       end

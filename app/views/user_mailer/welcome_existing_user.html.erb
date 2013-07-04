@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+
+<h3>Hello, <%= @member.user.name %></h3>
+
+<p>
+  <br />&nbsp;
+</p>
+
+<p>
+  You have been invited to join the project <b><%= @project.name %></b>.
+  <br />&nbsp;
+</p>
+
+<p>
+  To accept this invitation and join the project, just follow this link: <br />
+  <a href='<%= @url %>' data-method='put'><%= @url %></a>
+  <br />&nbsp;
+</p>
+
+<p>
+  Thanks for huddling up with your team!
+  <br />&nbsp;
+</p>
+
+<p>
+  -- Your HuddleUp team
+</p>
+
+</body>
+</html>

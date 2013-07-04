@@ -37,29 +37,35 @@ class InvitationsController < ApplicationController
     success_code = false
 
     user = User.find_by_email(params[:email])
+
     if user.nil?
       # new user
       temp_password = ((0...8).map{(65+rand(26)).chr}.join).to_s
       user = User.create( :name => params[:name], :email => params[:email], :password => temp_password )
       member = Member.create(:user_id=>user.id, :project_id=>@project.id, :is_admin=>false, :status_code=>2)
-
       @invitation.password_is_temp=true
       @invitation.sent_at=Time.now
       @invitation.member_id=member.id
       success_code = @invitation.save
       if success_code
         url = 'http://localhost:3000/projects/' + @project.id.to_s + '/invitations/accept/' + @invitation.id.to_s
-        UserMailer.welcome_new_user(member, @project, url, temp_password ).deliver
+        UserMailer.welcome_new_user(member, @project, url, temp_password).deliver
       end
     else
-      @invitation.password_is_temp=false
       # existing user
       member = Member.create(:user_id=>user.id, :project_id=>@project.id, :is_admin=>false, :status_code=>2)
-      # TODO **************** SEND EMAIL HERE
+      @invitation.password_is_temp=false
+      @invitation.sent_at=Time.now
+      @invitation.member_id=member.id
+      success_code = @invitation.save
+      if success_code
+        url = 'http://localhost:3000/projects/' + @project.id.to_s + '/invitations/accept/' + @invitation.id.to_s
+        UserMailer.welcome_existing_user(member, @project, url).deliver
+      end
     end
 
     respond_to do |format|
-      if @invitation.save
+      if success_code
         format.html { redirect_to project_members_path(@project), notice: 'Invitation was successfully sent.' }
       else
         format.html { render action: "new" }
