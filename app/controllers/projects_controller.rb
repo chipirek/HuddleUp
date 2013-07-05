@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @membership = Member.where('user_id=' + current_user.id.to_s).pluck(:project_id)
+    @membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
     @projects = Project.where('id in (?)', @membership)
 
     respond_to do |format|
