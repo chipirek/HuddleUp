@@ -76,7 +76,9 @@
                                 <% if member.is_admin? %>
                                     <div class="label label-yellow">Admin</div>
                                 <% end %>
-                                <% if !member.joined_date.nil? %>
+                                <% if member.is_blocked? %>
+                                    <div class="label label-important">Blocked</div>
+                                <% elsif !member.joined_date.nil? %>
                                     <div class="label label-success">Active</div>
                                 <% else %>
                                     <div class="label label-warning">Invited</div>
@@ -86,9 +88,18 @@
                                     <div class="inline position-relative">
                                       <button class="btn btn-minier bigger btn-grey dropdown-toggle" data-toggle="dropdown"><i class="icon-angle-down icon-only"></i></button>
                                       <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                        <li><a href="#" class="tooltip-success" data-rel="tooltip" title="Approve" data-placement="right"><span class="green"><i class="icon-ok"></i></span></a></li>
-                                        <li><a href="#" class="tooltip-warning" data-rel="tooltip" title="Reject" data-placement="right"><span class="orange"><i class="icon-remove"></i></span> </a></li>
-                                        <li><a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="right"><span class="red"><i class="icon-trash"></i></span> </a></li>
+                                        <% if member.is_admin? %>
+                                            <li><a href="/projects/<%= @project.id %>/members/remove_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" title="Remove admin" data-placement="right"><span class="green"><i class="icon-certificate"></i></span></a></li>
+                                        <% else %>
+                                            <li><a href="/projects/<%= @project.id %>/members/make_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" title="Make an admin" data-placement="right"><span class="green"><i class="icon-certificate"></i></span></a></li>
+                                        <% end %>
+
+                                        <% if member.is_blocked? %>
+                                            <li><a href="/projects/<%= @project.id %>/members/unblock/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" title="Unblock this user" data-placement="right"><span class="red"><i class="icon-remove"></i></span> </a></li>
+                                        <% else %>
+                                            <li><a href="/projects/<%= @project.id %>/members/block/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" title="Block this user" data-placement="right"><span class="red"><i class="icon-remove"></i></span> </a></li>
+                                        <% end %>
+
                                       </ul>
                                     </div>
                                 <% end %>

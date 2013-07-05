@@ -84,6 +84,74 @@ class MembersController < ApplicationController
   end
 
 
+  def make_admin
+    @project = Project.find(params[:project_id])
+    @member = Member.find(params[:id])
+    @member.is_admin=true
+
+    respond_to do |format|
+      if @member.save
+        format.html { redirect_to project_members_path(@project), notice: @member.user.name + ' is now an admin.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def remove_admin
+    @project = Project.find(params[:project_id])
+    @member = Member.find(params[:id])
+    @member.is_admin=false
+
+    respond_to do |format|
+      if @member.save
+        format.html { redirect_to project_members_path(@project), notice: @member.user.name + ' is no longer an admin.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def block
+    @project = Project.find(params[:project_id])
+    @member = Member.find(params[:id])
+    @member.status_code=9
+
+    respond_to do |format|
+      if @member.save
+        format.html { redirect_to project_members_path(@project), notice: @member.user.name + ' is now blocked.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def unblock
+    @project = Project.find(params[:project_id])
+    @member = Member.find(params[:id])
+    @member.status_code=4
+
+    respond_to do |format|
+      if @member.save
+        format.html { redirect_to project_members_path(@project), notice: @member.user.name + ' is now unblocked.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   # DELETE /members/1
   # DELETE /members/1.json
   def destroy
