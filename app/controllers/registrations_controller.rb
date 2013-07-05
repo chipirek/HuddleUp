@@ -19,17 +19,18 @@ class RegistrationsController < Devise::RegistrationsController
           sign_up(resource_name, resource)
           respond_with resource, :location => after_sign_up_path_for(resource)
         else
-          resource.errors.add('Member', 'creation had a fatal error.')
+          resource.errors.add('Member', ' creation had a fatal error.')
           clean_up_passwords resource
           respond_with resource
         end
 
       else
-        resource.errors.add('Project', 'Project name cannot be blank.')
+        resource.errors.add('Project', ' name cannot be blank.')
         clean_up_passwords resource
         respond_with resource, :location => '/users/sign_up'
       end
     else
+      resource.errors.add('Registration', ' failed.  Does this email already exist in the system?')
       clean_up_passwords resource
       respond_with resource
     end

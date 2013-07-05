@@ -5,6 +5,8 @@ class MembersController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
     @members = Member.where('project_id=?', params[:project_id])
+    my_member = Member.where('project_id=?', params[:project_id]).where('user_id=?', current_user.id).first
+    @i_am_an_admin = my_member.is_admin
 
     respond_to do |format|
       format.html # index.html.erb

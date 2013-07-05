@@ -81,14 +81,18 @@
                                 <% else %>
                                     <div class="label label-warning">Invited</div>
                                 <% end %>
-                                <div class="inline position-relative">
-                                  <button class="btn btn-minier bigger btn-grey dropdown-toggle" data-toggle="dropdown"><i class="icon-angle-down icon-only"></i></button>
-                                  <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                    <li><a href="#" class="tooltip-success" data-rel="tooltip" title="Approve" data-placement="right"><span class="green"><i class="icon-ok"></i></span></a></li>
-                                    <li><a href="#" class="tooltip-warning" data-rel="tooltip" title="Reject" data-placement="right"><span class="orange"><i class="icon-remove"></i></span> </a></li>
-                                    <li><a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="right"><span class="red"><i class="icon-trash"></i></span> </a></li>
-                                  </ul>
-                                </div>
+
+                                <% if @i_am_an_admin == true %>
+                                    <div class="inline position-relative">
+                                      <button class="btn btn-minier bigger btn-grey dropdown-toggle" data-toggle="dropdown"><i class="icon-angle-down icon-only"></i></button>
+                                      <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                        <li><a href="#" class="tooltip-success" data-rel="tooltip" title="Approve" data-placement="right"><span class="green"><i class="icon-ok"></i></span></a></li>
+                                        <li><a href="#" class="tooltip-warning" data-rel="tooltip" title="Reject" data-placement="right"><span class="orange"><i class="icon-remove"></i></span> </a></li>
+                                        <li><a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" data-placement="right"><span class="red"><i class="icon-trash"></i></span> </a></li>
+                                      </ul>
+                                    </div>
+                                <% end %>
+
                               </div>
                             </div>
 
