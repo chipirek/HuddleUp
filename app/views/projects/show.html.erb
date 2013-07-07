@@ -45,11 +45,10 @@
 
     <div id="page-content" class="clearfix">
 
-      <div class="page-header position-relative">
-        <h1><i class="icon-dashboard"></i> Dashboard for <i><%=  @project.name %></i>
-        <br /><small><%=  @project.description %></small>
-        </h1>
-      </div>
+    <div class="page-header position-relative">
+      <h1><i class="icon-list-alt"></i> <%= @project.name %> </h1>
+      <span><%= @project.description %></span>
+    </div>
       <!--/page-header-->
 
 
@@ -78,62 +77,10 @@
 
                     <div class='row-fluid'>
 
-                    <div class="span6">
-                      <div class="widget-box transparent">
+                    <div class="span6" id='left-column'>
 
-                        <div class="widget-header">
-                          <h4 class="lighter smaller"> STATUS</h4>
-                          <div class="widget-toolbar no-border">
-                          </div>
-                        </div>
-
-                        <div class="widget-body">
-                          <div class="widget-main padding-5">
-                            <div class="tab-content padding-8">
-                              <div id="status-gadget" class="tab-pane active">
-                                <span class='label <%= get_project_status_color(@project) %>' style='font-size:1em; padding: 5px 5px 5px 5px;'>Status is <%= get_project_status_text(@project) %></span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="span6">
-                      <div class="widget-box transparent">
-
-                        <div class="widget-header">
-                          <h4 class="lighter smaller"> ACTIVITY</h4>
-                          <div class="widget-toolbar no-border">
-                          </div>
-                        </div>
-
-                        <div class="widget-body">
-                          <div class="widget-main padding-5">
-                            <div class="tab-content padding-8">
-                              <div id="progress-gadget" class="tab-pane active">
-                                <ul>
-                                <% @audits.each do |a| %>
-                                    <li><%= User.find(a.user_id).name %> <%= a.action %>d this project record <%= time_ago_in_words(a.created_at) %> ago</li>
-                                <% end %>
-
-                                <% @associated_audits.each do |a| %>
-                                    <li><%= User.find(a.user_id).name %> <%= a.action %>d a <%= a.auditable_type.downcase %> record <%= time_ago_in_words(a.created_at) %> ago</li>
-                                <% end %>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    </div>
-
-                    <div class='row-fluid'>
-
-                    <div class="span6">
-                      <div class="widget-box transparent">
+                        <!-- widget -->
+                        <div class="widget-box transparent">
 
                         <div class="widget-header">
                           <h4 class="lighter smaller"> MILESTONES</h4>
@@ -182,11 +129,11 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                        </div>
+                        <!-- end widget -->
 
-                    <div class="span6">
-                      <div class="widget-box transparent">
+                        <!-- widget -->
+                        <div class="widget-box transparent">
 
                         <div class="widget-header">
                           <h4 class="lighter smaller"> TODOS</h4>
@@ -220,10 +167,68 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                        </div>
+                        <!-- end widget -->
+
+                    </div>
+
+                    <div class="span6" id='right-column'>
+
+                        <!-- widget -->
+                        <div class="widget-box transparent">
+
+                            <div class="widget-header">
+                              <h4 class="lighter smaller"> STATUS</h4>
+                              <div class="widget-toolbar no-border">
+                              </div>
+                            </div>
+
+                            <div class="widget-body">
+                              <div class="widget-main padding-5">
+                                <div class="tab-content padding-8">
+                                  <div id="status-gadget" class="tab-pane active">
+                                    <span class='label <%= get_project_status_color(@project) %>' style='font-size:1em; padding: 5px 5px 5px 5px;'>Status is <%= get_project_status_text(@project) %></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                        </div>
+                        <!-- end widget -->
+
+                        <!-- widget -->
+                        <div class="widget-box transparent">
+
+                        <div class="widget-header">
+                          <h4 class="lighter smaller"> ACTIVITY</h4>
+                          <div class="widget-toolbar no-border">
+                          </div>
+                        </div>
+
+                        <div class="widget-body">
+                          <div class="widget-main padding-5">
+                            <div class="tab-content padding-8">
+                              <div id="progress-gadget" class="tab-pane active">
+                                <ul>
+                                <% @audits.each do |a| %>
+                                    <li><%= User.find(a.user_id).name %> <%= a.action %>d this project record <%= time_ago_in_words(a.created_at) %> ago</li>
+                                <% end %>
+
+                                <% @associated_audits.each do |a| %>
+                                    <li><%= User.find(a.user_id).name %> <%= a.action %>d a <%= a.auditable_type.downcase %> record <%= time_ago_in_words(a.created_at) %> ago</li>
+                                <% end %>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <!-- end widget -->
+
                     </div>
 
                     </div>
+
                     <!-- END -->
 
                   </div>
