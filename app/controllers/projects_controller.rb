@@ -17,6 +17,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @audits = @project.audits
+    @associated_audits = @project.associated_audits
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,6 +42,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @audits = @project.audits
+    @associated_audits = @project.associated_audits
   end
 
 

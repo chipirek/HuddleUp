@@ -1,4 +1,7 @@
 class Task < ActiveRecord::Base
+
+  audited
+
   attr_accessible :completed_at, :due_date, :is_complete, :milestone_id, :position, :subject, :points
 
   validates_presence_of :subject
