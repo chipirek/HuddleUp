@@ -20,7 +20,6 @@ class MilestonesController < ApplicationController
     @milestone = Milestone.find(params[:id])
     @tasks = Task.where('milestone_id=?', params[:id]).order('position')
 
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @milestone }
@@ -63,9 +62,14 @@ class MilestonesController < ApplicationController
     buffer = params[:milestone][:event_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
     @milestone.event_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
 
+    target_url = project_milestones_path(@project)
+    if params[:target_view] == 'dashboard'
+      target_url = project_path(@project)
+    end
+
     respond_to do |format|
       if @milestone.save
-        format.html { redirect_to project_milestones_path(@project), notice: 'Milestone was successfully created.' }
+        format.html { redirect_to target_url, notice: 'Milestone was successfully created.' }
         format.json { render json: @milestone, status: :created, location: @milestone }
       else
         format.html { render action: "new" }
@@ -87,10 +91,15 @@ class MilestonesController < ApplicationController
     buffer = params[:milestone][:event_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
     @milestone.event_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
 
+    target_url = project_milestones_path(@project)
+    if params[:target_view] == 'dashboard'
+      target_url = project_path(@project)
+    end
+
     respond_to do |format|
       # if @milestone.update_attributes(params[:milestone])
       if @milestone.save
-        format.html { redirect_to project_milestones_path(@project), notice: 'Milestone was successfully updated.' }
+        format.html { redirect_to target_url, notice: 'Milestone was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -107,9 +116,15 @@ class MilestonesController < ApplicationController
     @milestone = Milestone.find(params[:id])
     @milestone.destroy
 
+    target_url = project_milestones_path(@project)
+    if params[:target_view] == 'dashboard'
+      target_url = project_path(@project)
+    end
+
     respond_to do |format|
-      format.html { redirect_to project_milestones_path(@project) }
+      format.html { redirect_to target_url, notice: 'Milestone was successfully deleted.' }
       format.json { head :no_content }
     end
   end
+
 end
