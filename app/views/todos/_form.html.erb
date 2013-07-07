@@ -27,8 +27,10 @@
 
     <% end %>
 
+    <input type='hidden' id='target_view' name='target_view' value='<%= params[:target_view] %>' />
+
     <div class="control-group" id='todo_subject_controlGroup'>
-      <label class="control-label" for="todo_name">todo</label>
+      <label class="control-label" for="todo_name">Subject</label>
 
       <div class="controls">
         <input type="text" id="todo_subject" name='todo[subject]' placeholder="name" value='<%= @todo.subject %>'>
