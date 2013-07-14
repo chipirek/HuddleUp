@@ -6,8 +6,6 @@ class ProjectsController < ApplicationController
     @membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
     @projects = Project.where('id in (?)', @membership)
 
-    puts ' == Observation ==>' + current_user.name + ' viewed the list of projects.'
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
@@ -20,7 +18,8 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    puts ' == Observation ==>' + current_user.name + ' viewed the project ' + @project.name + ' on ' + Time.now.strftime('%m/%d/%Y at %I:%M%p')
+    #@audits = @project.audits
+    #@associated_audits = @project.associated_audits
 
     respond_to do |format|
       format.html # show.html.erb

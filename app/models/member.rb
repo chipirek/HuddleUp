@@ -1,5 +1,7 @@
 class Member < ActiveRecord::Base
 
+  audited :associated_with => :project
+
   attr_accessible :joined_date, :project_id, :status_code, :user_id, :is_admin
 
   # from user...

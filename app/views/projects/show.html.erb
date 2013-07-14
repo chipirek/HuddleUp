@@ -260,7 +260,14 @@
                     <div class="widget-main padding-5">
                       <div class="tab-content padding-8">
                         <div id="progress-gadget" class="tab-pane active">
-                          blah blah
+                          <ul>
+                          <% @project.audits.each do |a| %>
+                            <li><%= User.find(a.user_id).name %> <%= a.action %>d <%= a.auditable_type.downcase %> <%= time_ago_in_words(a.created_at) %> ago</li>
+                          <% end %>
+                          <% @project.associated_audits.each do |a| %>
+                              <li><%= User.find(a.user_id).name %> <%= a.action %>d <%= a.auditable_type.downcase %> <%= time_ago_in_words(a.created_at) %> ago</li>
+                          <% end %>
+                          </ul>
                         </div>
                       </div>
                     </div>

@@ -1,4 +1,8 @@
-
+require 'active_record'
+require 'audited'
+require 'audited/adapters/active_record'
+require 'audited/auditor'
+require 'audited/adapters/active_record/audit'
 
 puts 'Seeding users...'
 User.destroy_all
@@ -18,6 +22,7 @@ puts '   Added user ' + User.last.name
 u6=User.create( :name => 'Edgar Edge', :email => 'e@gmail.com', :password => 'lollip0p' )
 puts '   Added user ' + User.last.name
 
+Audited::Adapters::ActiveRecord::Audit.as_user(u1) do
 
 puts ' '
 puts 'Seeding projects...'
@@ -94,3 +99,5 @@ Invitation.destroy_all
 
 puts ' '
 puts 'Done.'
+
+end

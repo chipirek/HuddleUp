@@ -1,5 +1,7 @@
 class Milestone < ActiveRecord::Base
 
+  audited :associated_with => :project
+
   attr_accessible :event_date, :project_id, :subject, :percent_complete
 
   validates_presence_of :subject
