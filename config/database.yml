@@ -5,3 +5,10 @@ development:
   username: postgres
   password: pentag0n
 
+test:
+  host: localhost
+  adapter: postgresql
+  database: HuddleUp_Test
+  username: postgres
+  password: pentag0n
+

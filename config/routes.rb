@@ -3,10 +3,10 @@ HuddleUp::Application.routes.draw do
   resources :projects do
     resources :members
     resources :invitations
+    resources :todos
     resources :milestones do
       resources :tasks
     end
-    resources :todos
   end
 
   #devise_for :users

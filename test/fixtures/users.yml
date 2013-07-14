@@ -1,0 +1,9 @@
+me:
+  email: 'chip.irek@gmail.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
+  name: 'Chip Irek'
+
+rich:
+  email: 'r2k@me.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
+  name: 'Richard Tooke'
