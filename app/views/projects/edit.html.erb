@@ -63,15 +63,6 @@
 
             </div>
 
-            <h3>Recent Activity for this Project</h3>
-            <% @audits.each do |a| %>
-                <%= User.find(a.user_id).name %> <%= a.action %>d this project record <%= time_ago_in_words(a.created_at) %> ago<br />
-            <% end %>
-
-            <% @associated_audits.each do |a| %>
-                <%= User.find(a.user_id).name %> <%= a.action %>d a <%= a.auditable_type.downcase %> record <%= time_ago_in_words(a.created_at) %> ago<br />
-            <% end %>
-
             <!--/widget-box-->
           </div>
           <!--/span-->
