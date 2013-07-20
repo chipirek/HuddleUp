@@ -94,6 +94,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_equal p.name, 'My Integration Test Project'
   end
 
+
   test 'edit a project' do
     #-- login
     get '/users/sign_in'
@@ -115,6 +116,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     p = Project.last  # get the fresh copy from the database
     assert_equal p.name, 'My Integration Test Project -e'
   end
+
 
   test 'delete a project' do
     #-- login
@@ -140,6 +142,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     new_p = Project.last
     assert_not_equal p.id, new_p.id
   end
+
 
   test 'create new todo' do
 
@@ -172,4 +175,38 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_equal t.subject, 'My Integration Test Todo'
   end
 
+
+  test 'update a todo' do
+
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+    #p flash
+    #assert_equal 'Welcome david!', flash[:notice]
+
+    #-- create a working project
+    post_via_redirect '/projects', 'project[name]' => 'My Working Project'
+    p = Project.last
+
+    #-- create a todo to work with
+    post_via_redirect '/projects/' + p.id.to_s + '/todos', 'todo[subject]' => 'Some Todo', 'todo[due_date]' => '12/25/13'
+
+    #-- now get the edit page for that item
+    get edit_project_todo_path(p, p.todos.first.id)
+    assert_response :success
+
+    #-- post the form / add the object
+    put_via_redirect '/projects/' + p.id.to_s + '/todos/' + p.todos.first.id.to_s, 'todo[subject]' => '-e', 'todo[due_date]' => '12/25/13'
+
+    #-- get the fresh copy from the database
+    p = Project.last
+    t = p.todos.first
+    assert_equal t.subject, '-e'
+
+  end
+
 end
+
