@@ -11,4 +11,5 @@ test:
   database: HuddleUp_Test
   username: postgres
   password: pentag0n
+  min_messages: WARNING
 
