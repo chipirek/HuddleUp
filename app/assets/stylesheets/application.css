@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+.embiggened
+{
+    font-size: 2em;
+}
