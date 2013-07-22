@@ -24,4 +24,16 @@ module ProjectsHelper
     return 'label-important'
   end
 
+  def get_project_progress_color(p)
+    if p.status_code == 1
+      return 'rgb(130, 175, 111)'
+    end
+
+    if p.status_code == 2
+      return 'rgb(248, 148, 6)'
+    end
+
+    return 'rgb(209, 91, 71)'
+  end
+
 end
