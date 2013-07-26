@@ -336,8 +336,8 @@
                   </li>
               <% end %>
               <% @project.associated_audits.each do |a| %>
-                  <li><i class="icon-circle green"></i><%= User.find(a.user_id).name %> <%= a.action %>
-                    d <%= a.auditable_type.downcase %> <%= time_ago_in_words(a.created_at) %> ago
+                  <li><i class="icon-circle green"></i><%= User.find(a.user_id).name %> <%= a.action %>d
+                    a <%= a.auditable_type.downcase %> <%= time_ago_in_words(a.created_at) %> ago
                   </li>
               <% end %>
             </ul>
@@ -358,6 +358,10 @@
 
 <p>
   <a class='btn btn-success' href="/projects/<%= @project.id %>/edit">Edit this project</a>
+</p>
+
+<p>
+    <%= render :partial => "comments", :locals => { project: @project } %>
 </p>
 
 </div>
