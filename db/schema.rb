@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20130714203505) do
 
   create_table "todos", :force => true do |t|
     t.integer  "project_id"
+    t.integer  "member_id"
     t.string   "subject"
     t.date     "due_date"
     t.boolean  "is_complete"

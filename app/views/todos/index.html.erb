@@ -71,6 +71,8 @@
                               <li class="<%= get_item_color(todo) %> clearfix task" data-pk='<%= todo.id %>' data-completed="<%= todo.is_complete %>" id="task_<%= todo.id %>">
                                 <label class="inline"><input id="chk_<%= todo.id %>" type="checkbox" data-completed="<%= todo.is_complete %>" /><span class="lbl"> <%= todo.subject %></span></label>
 
+                                <span class="label label-large label-light"><%= todo.member.user.name unless todo.member.nil? %></span>
+
                                 <div class="inline pull-right position-relative">
 
                                   <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>"

@@ -48,6 +48,13 @@
       </div>
     </div>
 
+    <div class="control-group">
+      <label class="control-label" for="task_points">Assigned to</label>
+      <div class="controls">
+        <%= select('todo', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
+      </div>
+    </div>
+
     <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
       <a href='javascript:window.history.back();' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
