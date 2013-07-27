@@ -10,6 +10,7 @@ class Member < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
   has_many :todos
+  has_many :tasks
 
   def is_blocked?
     return (status_code.to_s == '9')

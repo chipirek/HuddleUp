@@ -55,6 +55,12 @@
       </div>
     </div>
 
+    <div class="control-group">
+      <label class="control-label" for="task_points">Assigned to</label>
+      <div class="controls">
+        <%= select('task', 'member_id', @milestone.project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
+      </div>
+    </div>
 
     <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>

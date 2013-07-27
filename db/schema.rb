@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130714203505) do
 
   create_table "tasks", :force => true do |t|
     t.integer  "milestone_id"
+    t.integer  "member_id"
     t.string   "subject"
     t.date     "due_date"
     t.integer  "points"
