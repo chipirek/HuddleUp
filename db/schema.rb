@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130714203505) do
     t.string   "subject"
     t.date     "event_date"
     t.integer  "percent_complete"
+    t.integer  "points"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130714203505) do
     t.string   "name"
     t.text     "description"
     t.integer  "status_code"
+    t.integer  "percent_complete"
     t.string   "token_for_disqus"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false

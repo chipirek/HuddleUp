@@ -2,7 +2,7 @@ class Milestone < ActiveRecord::Base
 
   audited :associated_with => :project
 
-  attr_accessible :event_date, :project_id, :subject, :percent_complete
+  attr_accessible :event_date, :project_id, :subject, :percent_complete, :points
 
   validates_presence_of :subject
   validates_presence_of :event_date
@@ -15,11 +15,11 @@ class Milestone < ActiveRecord::Base
     tasks.each do |t|
         p += t.points
     end
-    return p
+    return p * 1.00
   end
 
   def calculated_percent_complete
-    tp = total_points + 1.00
+    tp = total_points
     cp = 0.00
     tasks.each do |t|
       if t.is_complete
@@ -28,6 +28,10 @@ class Milestone < ActiveRecord::Base
     end
 
     return (cp/tp)*100.00
+  end
+
+  def is_complete?
+    return percent_complete == 100
   end
 
 end

@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :status_code
+      t.integer :percent_complete
       t.string :token_for_disqus
       t.timestamps
     end

@@ -28,9 +28,9 @@ puts ' '
 puts 'Seeding projects...'
 Project.destroy_all
 
-Project.create(:name=>'Project Alpha', :status_code=>1)
+Project.create(:name=>'Project Alpha', :status_code=>1, :percent_complete=>22)
 puts '   Added project ' + Project.all.first.name
-Project.create(:name=>'Encompass', :status_code=>2)
+Project.create(:name=>'Encompass', :status_code=>2, :percent_complete=>9)
 puts '   Added project ' + Project.last.name
 Project.create(:name=>'Apply hotfix 77 to the main boards', :status_code=>3)
 puts '   Added project ' + Project.last.name
@@ -57,13 +57,13 @@ Milestone.destroy_all
 
 project_id = Project.first.id
 
-m = Milestone.create(:project_id=>project_id, :subject=>'Planning completed - ready to start', :event_date=>100.days.ago, :percent_complete=>80)
+m = Milestone.create(:project_id=>project_id, :subject=>'Planning completed - ready to start', :event_date=>100.days.ago, :percent_complete=>80, :points=>5)
 puts '   Added milestone ' + m.subject
-m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something early', :event_date=>3.months.ago, :percent_complete=>70)
+m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something early', :event_date=>3.months.ago, :percent_complete=>70, :points=>15)
 puts '   Added milestone ' + m.subject
-m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the middle', :event_date=>35.days.ago, :percent_complete=>30)
+m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the middle', :event_date=>35.days.ago, :percent_complete=>30, :points=>50)
 puts '   Added milestone ' + m.subject
-m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the future', :event_date=>Date.tomorrow, :percent_complete=>5)
+m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the future', :event_date=>Date.tomorrow, :percent_complete=>5, :points=>30)
 puts '   Added milestone ' + m.subject
 
 

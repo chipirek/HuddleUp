@@ -238,7 +238,7 @@
         <div class="tab-content padding-8">
 
           <div class="span4 center">
-            <div class="easy-pie-chart percentage center" data-percent="90" data-color='<%= get_project_progress_color(@project) %>'><span class="percent">90</span>%</div>
+            <div class="easy-pie-chart percentage center" data-percent="<%= @project.percent_complete.to_s %>" data-color='<%= get_project_progress_color(@project) %>'><span class="percent"><%= @project.percent_complete.to_s %></span>%</div>
           </div>
 
           <div class="span2 center">
@@ -295,25 +295,6 @@
   </div>
   <!-- end widget -->
 
-  <!-- widget -->
-  <div class="widget-box transparent">
-
-    <div class="widget-header">
-      <h4 class="lighter smaller"><i class="icon-comments-alt"></i> COMMENTS</h4>
-
-      <div class="widget-toolbar no-border">
-      </div>
-    </div>
-
-    <div class="widget-body">
-      <div class="widget-main padding-5">
-        <div class="tab-content padding-8">
-          tbd
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end widget -->
 
   <!-- widget -->
   <div class="widget-box transparent">

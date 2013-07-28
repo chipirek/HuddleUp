@@ -35,6 +35,7 @@ class MilestonesController < ApplicationController
     @milestone.event_date = Date.today
     @milestone.project_id = params[:project_id]
     @milestone.percent_complete = 0
+    @milestone.points = 0
 
     respond_to do |format|
       format.html # new.html.erb

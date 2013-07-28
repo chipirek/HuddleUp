@@ -48,6 +48,16 @@
     </div>
 
     <div class="control-group">
+      <label class="control-label" for="milestone_points">% of Overall Project</label>
+
+      <div class="controls">
+        <div class='ace-spinner'>
+          <input type="text" class="input-mini spinner-input" id="milestone_points" name='milestone[points]' maxlength="3" style="width: 30px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
       <label class="control-label" for="milestone_percent_complete">% Complete</label>
 
       <div class="controls">
@@ -92,7 +102,9 @@
 
         $(function () {
             $('#milestone_percent_complete').ace_spinner({value: 0, min: 0, max: 100, step: 5, btn_up_class: 'btn-info', btn_down_class: 'btn-info'});
+            $('#milestone_points').ace_spinner({value: 0, min: 0, max: 100, step: 5, btn_up_class: 'btn-info', btn_down_class: 'btn-info'});
             $('#milestone_percent_complete').val('<%= @milestone.percent_complete %>');
+            $('#milestone_points').val('<%= @milestone.points %>');
 
             $(".chzn-select").chosen();
         });

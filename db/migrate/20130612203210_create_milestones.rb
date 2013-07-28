@@ -5,6 +5,7 @@ class CreateMilestones < ActiveRecord::Migration
       t.string :subject
       t.date :event_date
       t.integer :percent_complete
+      t.integer :points
       t.timestamps
     end
   end
