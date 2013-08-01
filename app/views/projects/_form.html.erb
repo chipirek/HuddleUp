@@ -90,15 +90,15 @@
             var percent = 0;
             $('#children li').each(function(index, value)
             {
-                alert($(this).attr('id') + ' completed=' + $(this).attr('data-completed') + 'points=' + $(this).attr('data-points'));
+                //alert($(this).attr('id') + ' completed=' + $(this).attr('data-completed') + 'points=' + $(this).attr('data-points'));
                 total += parseInt($(this).attr('data-points'));
                 if ($(this).attr('data-completed') == 'true')
                     completed += parseInt($(this).attr('data-points'));
             });
-            alert('total=' + total + '    completed=' + completed);
+            //alert('total=' + total + '    completed=' + completed);
             if (total > 0)
                 percent = ((completed / total) * 100).toFixed(0);
-            alert('percent=' + percent);
+            //alert('percent=' + percent);
             $('#project_percent_complete').val(percent);
         }
 
