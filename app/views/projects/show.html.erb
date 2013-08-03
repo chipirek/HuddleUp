@@ -49,7 +49,7 @@
 <div class="page-header position-relative">
   <h1><i class="icon-list-alt"></i> <%= @project.name %>
     <small><i class='icon-double-angle-right'> Project Dashboard
-      <% if Member.find(current_user.id).is_admin? %>
+      <% if Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first().is_admin? %>
         <i class='icon-double-angle-right'> <a href="/projects/<%= @project.id %>/edit">Edit this project's definition</a></i>
       <% end %>
     </i></small>
