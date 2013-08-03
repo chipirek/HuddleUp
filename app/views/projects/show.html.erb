@@ -47,7 +47,13 @@
 <div id="page-content" class="clearfix">
 
 <div class="page-header position-relative">
-  <h1><i class="icon-list-alt"></i> <%= @project.name %> </h1>
+  <h1><i class="icon-list-alt"></i> <%= @project.name %>
+    <small><i class='icon-double-angle-right'> Project Dashboard
+      <% if Member.find(current_user.id).is_admin? %>
+        <i class='icon-double-angle-right'> <a href="/projects/<%= @project.id %>/edit">Edit this project's definition</a></i>
+      <% end %>
+    </i></small>
+  </h1>
   <span><%= @project.description %></span>
 </div>
 <!--/page-header-->
@@ -241,12 +247,6 @@
             <div class="easy-pie-chart percentage center" data-percent="<%= @project.percent_complete.to_s %>" data-color='<%= get_project_progress_color(@project) %>'><span class="percent"><%= @project.percent_complete.to_s %></span>%</div>
           </div>
 
-          <div class="span2 center">
-            <div id="status-gadget" class="tab-pane active">
-              <span class='label <%= get_project_status_color(@project) %>' style='font-size:2em; padding: 25px 25px 25px 25px;'><%= get_project_status_text(@project) %></span>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
@@ -338,10 +338,6 @@
 </div>
 
 <p>
-  <a class='btn btn-success' href="/projects/<%= @project.id %>/edit">Edit this project</a>
-</p>
-
-<p>
     <%= render :partial => "comments", :locals => { project: @project } %>
 </p>
 
@@ -415,13 +411,13 @@
             var $box = $(this).closest('.infobox');
             var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
             var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
-            var size = parseInt($(this).data('size')) || 50;
+            var size = parseInt($(this).data('size')) || 150;
             $(this).easyPieChart({
                 barColor: barColor,
                 trackColor: trackColor,
                 scaleColor: false,
                 lineCap: 'butt',
-                lineWidth: parseInt(size / 10),
+                lineWidth: 50, //parseInt(size / 10),
                 animate: oldie ? false : 1000,
                 size: size
             });
