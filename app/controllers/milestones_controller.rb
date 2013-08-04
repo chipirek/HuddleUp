@@ -19,6 +19,7 @@ class MilestonesController < ApplicationController
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:id])
     @tasks = Task.where('milestone_id=?', params[:id]).order('position')
+    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
 
     respond_to do |format|
       format.html # show.html.erb

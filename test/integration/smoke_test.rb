@@ -4,6 +4,18 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   fixtures :all
 
+
+  def setup
+
+    #-- HACK - why do I have to manually add relationships in the setup?
+    #m = Member.first
+    #m.user_id = User.first.id
+    #m.project_id = Project.first.id
+    #m.save!
+
+  end
+
+
   test 'login and get to index' do
     #@user = users(:me)
 
@@ -70,25 +82,33 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   
   test 'create new project' do
+
+    #-- p 'Logging in...'
+
     #-- login
     get '/users/sign_in'
     assert_response :success
 
     post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
     assert_equal '/', path
-    #p flash
+
+    #-- p flash
     #assert_equal 'Welcome david!', flash[:notice]
 
     #-- get the index
+    #-- p 'Getting index...'
     get '/projects'
     assert_response :success
     assert assigns(:projects)
 
     #-- get the add page
+    #-- p 'Getting new project form...'
     get '/projects/new'
     assert_response :success
 
     post_via_redirect '/projects', 'project[name]' => 'My Integration Test Project'
+
+    p 'Verifying...'
     p = Project.last
     assert_equal '/projects/' + p.id.to_s, path
     assert_equal p.name, 'My Integration Test Project'
@@ -198,7 +218,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     get edit_project_todo_path(p, p.todos.first.id)
     assert_response :success
 
-    #-- post the form / add the object
+    #-- post the form
     put_via_redirect '/projects/' + p.id.to_s + '/todos/' + p.todos.first.id.to_s, 'todo[subject]' => '-e', 'todo[due_date]' => '12/25/13'
 
     #-- get the fresh copy from the database

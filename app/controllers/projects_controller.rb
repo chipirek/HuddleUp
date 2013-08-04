@@ -17,6 +17,25 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    puts '------------------------'
+    puts 'current_user = ' + current_user.id.to_s
+    puts 'project = ' + @project.id.to_s
+
+    Member.all.each do |m|
+      puts 'm.id=' + m.id.to_s
+      puts 'm.user_id=' + m.user_id.to_s
+      puts 'm.project_id=' + m.project_id.to_s
+    end
+
+    puts 'Count of project members found = ' + @project.members.count.to_s
+
+    #@member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    @member = @project.members.where('user_id=?', current_user.id).first
+    if @member.nil?
+      puts 'ERROR HERE --> No member found'
+    else
+      puts 'MEMBER FOUND!!'
+    end
 
     #@audits = @project.audits
     #@associated_audits = @project.associated_audits
@@ -54,7 +73,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        #puts ' == Observation ==>' + current_user.name + ' created the project ' + @project.name + ' on ' + Time.now.strftime('%m/%d/%Y at %I:%M%p')
+        @project.members.create(:user_id => current_user.id, :is_admin => true, :joined_date => Time.now )
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
