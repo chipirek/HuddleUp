@@ -46,6 +46,9 @@ class InvitationsController < ApplicationController
       @invitation.password_is_temp=true
       @invitation.sent_at=Time.now
       @invitation.member_id=member.id
+
+      puts 'invitation=' + @invitation.to_s
+
       success_code = @invitation.save
       if success_code
         url = 'http://localhost:3000/projects/' + @project.id.to_s + '/invitations/accept/' + @invitation.id.to_s

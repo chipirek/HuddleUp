@@ -11,6 +11,7 @@ class Member < ActiveRecord::Base
   belongs_to :user
   has_many :todos
   has_many :tasks
+  has_one :invitation
 
   def is_blocked?
     return (status_code.to_s == '9')
