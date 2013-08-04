@@ -5,17 +5,6 @@ class SmokeTest < ActionDispatch::IntegrationTest
   fixtures :all
 
 
-  def setup
-
-    #-- HACK - why do I have to manually add relationships in the setup?
-    #m = Member.first
-    #m.user_id = User.first.id
-    #m.project_id = Project.first.id
-    #m.save!
-
-  end
-
-
   test 'login and get to index' do
     #@user = users(:me)
 
@@ -108,7 +97,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
     post_via_redirect '/projects', 'project[name]' => 'My Integration Test Project'
 
-    p 'Verifying...'
+    # p 'Verifying...'
     p = Project.last
     assert_equal '/projects/' + p.id.to_s, path
     assert_equal p.name, 'My Integration Test Project'
@@ -126,15 +115,17 @@ class SmokeTest < ActionDispatch::IntegrationTest
     #assert_equal 'Welcome david!', flash[:notice]
 
     #-- get the edit page
-    p = Project.last
-    get '/projects/' + p.id.to_s + '/edit'
+    prj = Project.find(1)  #where('name=?', 'Project fixture 1').first
+    assert_equal prj.name, 'Project fixture 1'
+
+    get '/projects/' + prj.id.to_s + '/edit'
     assert_response :success
 
-    put_via_redirect '/projects/' + p.id.to_s, 'project[name]' => 'My Integration Test Project -e'
+    put_via_redirect '/projects/' + prj.id.to_s, 'project[name]' => 'Project fixture 1 -e'
 
-    assert_equal '/projects/' + p.id.to_s, path
-    p = Project.last  # get the fresh copy from the database
-    assert_equal p.name, 'My Integration Test Project -e'
+    assert_equal '/projects/' + prj.id.to_s, path
+    prj = Project.find(1)  # get the fresh copy from the database
+    assert_equal prj.name, 'Project fixture 1 -e'
   end
 
 
