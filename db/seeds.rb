@@ -22,82 +22,163 @@ puts '   Added user ' + User.last.name
 u6=User.create( :name => 'Edgar Edge', :email => 'e@gmail.com', :password => 'lollip0p' )
 puts '   Added user ' + User.last.name
 
-Audited::Adapters::ActiveRecord::Audit.as_user(u1) do
+Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
-puts ' '
-puts 'Seeding projects...'
-Project.destroy_all
+  puts ' '
+  puts 'Seeding projects...'
+  Project.destroy_all
 
-Project.create(:name=>'Project Alpha', :status_code=>1, :percent_complete=>22)
-puts '   Added project ' + Project.all.first.name
-Project.create(:name=>'Encompass', :status_code=>2, :percent_complete=>9)
-puts '   Added project ' + Project.last.name
-Project.create(:name=>'Apply hotfix 77 to the main boards', :status_code=>3)
-puts '   Added project ' + Project.last.name
+  # an agile project, a traditional project, a honey-do list, planning a party
 
-puts ' '
-puts 'Seeding members of Project Alpha...'
-Member.destroy_all
+  project1 = Project.create(:name=>"AlphaSim v0.9 (An agile software development project)", :status_code=>1, :percent_complete=>90)
+  puts '   Added project ' + Project.all.first.name
+  project2 = Project.create(:name=>"You should NOT see this project!!", :status_code=>2, :percent_complete=>9)
+  puts '   Added project ' + Project.last.name
+  project3 = Project.create(:name=>"Mom's 50th Birthday party", :status_code=>2, :percent_complete=>15)
+  puts '   Added project ' + Project.last.name
+  project4 = Project.create(:name=>"Weekend chores (A 'honey-do' list)", :status_code=>1, :percent_complete=>35)
+  puts '   Added project ' + Project.last.name
+  project5 = Project.create(:name=>"Build the shed (A traditional project)", :status_code=>1, :percent_complete=>60)
+  puts '   Added project ' + Project.last.name
 
-project_id = Project.first.id
-project_id_2 = Project.last.id
+  puts ' '
+  puts 'Seeding members of AlphaSim...'
+  Member.destroy_all
 
-m = Member.create(:project_id=>project_id, :user_id=>u0.id, :joined_date=>3.days.ago, :is_admin=>true, :status_code=>1)
-puts '   Added member ' + m.user.name
-m = Member.create(:project_id=>project_id, :user_id=>u1.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
-puts '   Added member ' + m.user.name
-m = Member.create(:project_id=>project_id, :user_id=>u2.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
-puts '   Added member ' + m.user.name
-m = Member.create(:project_id=>project_id_2, :user_id=>u0.id, :joined_date=>20.minutes.ago, :is_admin=>false, :status_code=>1)
-puts '   Added member ' + m.user.name
+  m = project1.members.create(:user_id=>u0.id, :joined_date=>3.days.ago, :is_admin=>true, :status_code=>1)
+  puts '   Added member ' + m.user.name
+  m = project1.members.create(:user_id=>u1.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
+  puts '   Added member ' + m.user.name
+  m = project1.members.create(:user_id=>u2.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
+  puts '   Added member ' + m.user.name
+  m = project1.members.create(:user_id=>u0.id, :joined_date=>20.minutes.ago, :is_admin=>false, :status_code=>1)
+  puts '   Added member ' + m.user.name
 
-puts ' '
-puts 'Seeding milestones to Project Alpha...'
-Milestone.destroy_all
+  puts ' '
+  puts 'Seeding members of Moms party...'
 
-project_id = Project.first.id
+  m = project3.members.create(:user_id=>u0.id, :joined_date=>3.days.ago, :is_admin=>true, :status_code=>1)
+  puts '   Added member ' + m.user.name
+  m = project3.members.create(:user_id=>u1.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
+  puts '   Added member ' + m.user.name
 
-m = Milestone.create(:project_id=>project_id, :subject=>'Planning completed - ready to start', :event_date=>100.days.ago, :percent_complete=>80, :points=>5)
-puts '   Added milestone ' + m.subject
-m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something early', :event_date=>3.months.ago, :percent_complete=>70, :points=>15)
-puts '   Added milestone ' + m.subject
-m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the middle', :event_date=>35.days.ago, :percent_complete=>30, :points=>50)
-puts '   Added milestone ' + m.subject
-m = Milestone.create(:project_id=>project_id, :subject=>'Accomplish something in the future', :event_date=>Date.tomorrow, :percent_complete=>5, :points=>30)
-puts '   Added milestone ' + m.subject
+  puts ' '
+  puts 'Seeding members of Weekend chores...'
 
+  m = project4.members.create(:user_id=>u0.id, :joined_date=>3.days.ago, :is_admin=>true, :status_code=>1)
+  puts '   Added member ' + m.user.name
+  m = project4.members.create(:user_id=>u1.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
+  puts '   Added member ' + m.user.name
 
-puts ' '
-puts 'Seeding todos for Project Alpha...'
-Todo.destroy_all
+  puts ' '
+  puts 'Seeding members of Build the shed...'
 
-project_id = Project.first.id
+  m = project5.members.create(:user_id=>u0.id, :joined_date=>3.days.ago, :is_admin=>true, :status_code=>1)
+  puts '   Added member ' + m.user.name
+  m = project5.members.create(:user_id=>u1.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
+  puts '   Added member ' + m.user.name
 
-t = Todo.create(:subject=>'create the team room',:due_date=>Time.now.to_date, :position=>1, :project_id=>project_id)
-puts '   Added todo ' + t.subject
-t = Todo.create(:subject=>'organize the assets',:due_date=>Time.now.to_date, :position=>2, :project_id=>project_id)
-puts '   Added todo ' + t.subject
+  puts ' '
+  puts 'Seeding milestones to AlphaSim...'
+  Milestone.destroy_all
 
+  m = project1.milestones.create(:subject=>'Sprint planning completed - ready to start', :event_date=>100.days.ago, :percent_complete=>100, :points=>1)
+  puts '   Added milestone ' + m.subject
+  t = m.tasks.create(:subject=>'Draft product vision',:due_date=>100.days.ago, :position=>1, :points=>1)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Gain executive support',:due_date=>100.days.ago, :position=>1, :points=>1)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Organize resourcing',:due_date=>100.days.ago, :position=>1, :points=>1)
+  puts '       Added task ' + t.subject
 
-puts ' '
-puts 'Seeding tasks for Planning completed...'
-Task.destroy_all
+  m = project1.milestones.create(:subject=>'Sprint 1 complete', :event_date=>3.months.ago, :percent_complete=>100, :points=>33)
+  puts '   Added milestone ' + m.subject
+  m = project1.milestones.create(:subject=>'Sprint 2 complete', :event_date=>35.days.ago, :percent_complete=>100, :points=>33)
+  puts '   Added milestone ' + m.subject
+  m = project1.milestones.create(:subject=>'Sprint 3 complete', :event_date=>Date.tomorrow, :percent_complete=>75, :points=>33)
+  puts '   Added milestone ' + m.subject
 
-project = Project.first
-milestone_id = project.milestones.first.id
+  m = project5.milestones.create(:subject=>'Initial Design', :event_date=>100.days.ago, :percent_complete=>100, :points=>1)
+  puts '   Added milestone ' + m.subject
+  t = m.tasks.create(:subject=>'Draft product vision',:due_date=>100.days.ago, :position=>1, :points=>1, :is_complete=>true)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Gain executive support',:due_date=>100.days.ago, :position=>1, :points=>1, :is_complete=>true)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Organize resourcing',:due_date=>100.days.ago, :position=>1, :points=>1, :is_complete=>true)
+  puts '       Added task ' + t.subject
 
-5.times do |i|
-  t = Task.create(:subject=>'define examination ' + i.to_s,:due_date=>Time.now.to_date, :position=>1, :milestone_id=>milestone_id, :points=>1)
-  puts '   Added task ' + t.subject
-  t = Task.create(:subject=>'assess the infrastructure for exam ' + i.to_s,:due_date=>Time.now.to_date, :position=>2, :milestone_id=>milestone_id, :points=>8)
-  puts '   Added task ' + t.subject
-end
+  m = project5.milestones.create(:subject=>'Engineering Design', :event_date=>90.days.ago, :percent_complete=>100, :points=>5)
+  puts '   Added milestone ' + m.subject
+  t = m.tasks.create(:subject=>'Save the Johnson account',:due_date=>90.days.ago, :position=>1, :points=>1, :is_complete=>true)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Final elevation',:due_date=>90.days.ago, :position=>1, :points=>1, :is_complete=>true)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Blueprinting',:due_date=>90.days.ago, :position=>1, :points=>1, :is_complete=>true)
+  puts '       Added task ' + t.subject
 
-puts ' '
-puts 'Removing all invitations...'
-Invitation.destroy_all
+  m = project5.milestones.create(:subject=>'Construction', :event_date=>80.days.ago, :percent_complete=>50, :points=>60)
+  puts '   Added milestone ' + m.subject
+  t = m.tasks.create(:subject=>'Framing',:due_date=>80.days.ago, :position=>1, :points=>1, :is_complete=>true)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Walls',:due_date=>80.days.ago, :position=>1, :points=>1, :is_complete=>true)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Shingle the roof',:due_date=>80.days.ago, :position=>1, :points=>1)
+  puts '       Added task ' + t.subject
+  t = m.tasks.create(:subject=>'Painting',:due_date=>80.days.ago, :position=>1, :points=>1)
+  puts '       Added task ' + t.subject
 
-puts ' '
-puts 'Done.'
+  m = project5.milestones.create(:subject=>'Punchlist / Final Inspection', :event_date=>Date.tomorrow, :percent_complete=>0, :points=>33)
+  puts '   Added milestone ' + m.subject
+  t = m.tasks.create(:subject=>'Walkthrough',:due_date=>Date.tomorrow, :position=>1, :points=>1)
+  puts '       Added task ' + t.subject
+
+  m = project5.milestones.create(:subject=>'Signoff', :event_date=>Time.now.advance(:days=>7).to_date, :percent_complete=>0, :points=>1)
+  puts '   Added milestone ' + m.subject
+  t = m.tasks.create(:subject=>'Walk-through and official close',:due_date=>Date.tomorrow, :position=>1, :points=>1)
+  puts '       Added task ' + t.subject
+
+  puts ' '
+  puts 'Seeding todos for AlphaSim...'
+  Todo.destroy_all
+
+  t = project1.todos.create(:subject=>'create the team room',:due_date=>Time.now.to_date, :position=>1, :member_id=>project1.members.first.id)
+  puts '   Added todo ' + t.subject
+  t = project1.todos.create(:subject=>'organize the assets',:due_date=>Time.now.to_date, :position=>2)
+  puts '   Added todo ' + t.subject
+
+  puts ' '
+  puts 'Seeding todos for Moms party...'
+
+  t = project3.todos.create(:subject=>'order the cake',:due_date=>Time.now.advance(:days=>-1).to_date, :position=>1, :is_complete=>true)
+  puts '   Added todo ' + t.subject
+  t = project3.todos.create(:subject=>'get catering',:due_date=>Time.now.advance(:days=>-1).to_date, :position=>2, :is_complete=>true)
+  puts '   Added todo ' + t.subject
+  t = project3.todos.create(:subject=>'order artwork from Amazon',:due_date=>Time.now.to_date, :position=>3)
+  puts '   Added todo ' + t.subject
+  t = project3.todos.create(:subject=>'shop for party favors',:due_date=>Time.now.to_date, :position=>4)
+  puts '   Added todo ' + t.subject
+  t = project3.todos.create(:subject=>'get a babysitter for the kids',:due_date=>Time.now.to_date, :position=>5)
+  puts '   Added todo ' + t.subject
+
+  puts ' '
+  puts 'Seeding todos for Weekend chores...'
+
+  t = project4.todos.create(:subject=>'mow the lawn',:due_date=>Time.now.to_date, :position=>2)
+  puts '   Added todo ' + t.subject
+  t = project4.todos.create(:subject=>'get bug spray',:due_date=>Time.now.to_date, :position=>3)
+  puts '   Added todo ' + t.subject
+  t = project4.todos.create(:subject=>'paint the garage',:due_date=>Time.now.to_date, :position=>4, :is_complete=>true)
+  puts '   Added todo ' + t.subject
+  t = project4.todos.create(:subject=>'grocery shopping',:due_date=>Time.now.advance(:days=>-1).to_date, :position=>5)
+  puts '   Added todo ' + t.subject
+  t = project4.todos.create(:subject=>'take Sadie to vet for check-up',:due_date=>Time.now.to_date, :position=>1)
+  puts '   Added todo ' + t.subject
+
+  puts ' '
+  puts 'Removing all invitations...'
+  Invitation.destroy_all
+
+  puts ' '
+  puts 'Done.'
 
 end
