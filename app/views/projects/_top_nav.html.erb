@@ -3,64 +3,50 @@
   <li class="grey">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       <i class="icon-tasks"></i>
-      <span class="badge">4</span>
+      <span class="badge"><%= @my_active_todos.count + @my_active_tasks.count %></span>
     </a>
     <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
       <li class="nav-header">
-        <i class="icon-ok"></i> 4 Tasks to complete
+        <i class="icon-ok"></i> <%= @my_active_todos.count + @my_active_tasks.count %> things assigned to me
       </li>
+
+      <% @my_active_todos.each do |t| %>
+          <li>
+            <a href='/projects/<%= t.project.id.to_s %>/todos'>
+              <div class="clearfix">
+                <span><b><%= t.subject %></b></span>
+              </div>
+              <div>
+                <span><%= t.project.name[0..30] %>
+                  <% if t.project.name.length > 30 %>
+                      ...
+                  <% end %>
+                </span>
+              </div>
+            </a>
+          </li>
+      <% end %>
+
+      <% @my_active_tasks.each do |t| %>
+          <li>
+            <a href='/projects/<%= t.milestone.project.id.to_s %>/todos'>
+              <div class="clearfix">
+                <span><b><%= t.subject %></b></span>
+              </div>
+              <div>
+                <span><%= t.milestone.project.name[0..30] %>
+                  <% if t.milestone.project.name.length > 30 %>
+                      ...
+                  <% end %>
+                </span>
+              </div>
+            </a>
+          </li>
+      <% end %>
 
       <li>
         <a href="#">
-          <div class="clearfix">
-            <span class="pull-left">Software Update</span>
-            <span class="pull-right">65%</span>
-          </div>
-          <div class="progress progress-mini">
-            <div class="bar" style="width:65%"></div>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <div class="clearfix">
-            <span class="pull-left">Hardware Upgrade</span>
-            <span class="pull-right">35%</span>
-          </div>
-          <div class="progress progress-mini progress-danger">
-            <div class="bar" style="width:35%"></div>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <div class="clearfix">
-            <span class="pull-left">Unit Testing</span>
-            <span class="pull-right">15%</span>
-          </div>
-          <div class="progress progress-mini progress-warning">
-            <div class="bar" style="width:15%"></div>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <div class="clearfix">
-            <span class="pull-left">Bug Fixes</span>
-            <span class="pull-right">90%</span>
-          </div>
-          <div class="progress progress-mini progress-success progress-striped active">
-            <div class="bar" style="width:90%"></div>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          See tasks with details
+          Close this popup
           <i class="icon-arrow-right"></i>
         </a>
       </li>
