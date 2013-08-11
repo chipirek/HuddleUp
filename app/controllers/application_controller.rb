@@ -26,11 +26,14 @@ class ApplicationController < ActionController::Base
       #active_projects = Project.where('id in (?)', active_membership)
 
       @my_late_todos = Todo.where('member_id in (?)', my_member_ids).where('is_complete is null').where('due_date < ?', Date.today)
-      #puts '@my_late_todos=' + @my_late_todos.count.to_s
+      @my_late_tasks = Task.where('member_id in (?)', my_member_ids).where('is_complete is null').where('due_date < ?', Date.today)
       @my_active_todos = Todo.where('member_id in (?)', my_member_ids).where('is_complete is null')
-      #puts '@my_active_todos=' + @my_active_todos.count.to_s
       @my_active_tasks = Task.where('member_id in (?)', my_member_ids).where('is_complete is null')
-      #puts '@my_active_tasks=' + @my_active_tasks.count.to_s
+
+    else
+      @my_late_todos = []
+      @my_active_todos = []
+      @my_active_tasks = []
     end
 
   end

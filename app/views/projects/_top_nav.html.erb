@@ -7,14 +7,14 @@
     </a>
     <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
       <li class="nav-header">
-        <i class="icon-ok"></i> <%= @my_active_todos.count + @my_active_tasks.count %> things assigned to me
+        <i class="icon-ok"></i> <%= @my_active_todos.count + @my_active_tasks.count %> thing(s) assigned to me
       </li>
 
       <% @my_active_todos.each do |t| %>
           <li>
             <a href='/projects/<%= t.project.id.to_s %>/todos'>
               <div class="clearfix">
-                <span><b><%= t.subject %></b></span>
+                <span><b><i class='icon-check-empty btn btn-mini btn-info'></i><%= t.subject %></b></span>
               </div>
               <div>
                 <span><%= t.project.name[0..30] %>
@@ -29,9 +29,9 @@
 
       <% @my_active_tasks.each do |t| %>
           <li>
-            <a href='/projects/<%= t.milestone.project.id.to_s %>/todos'>
+            <a href='/projects/<%= t.milestone.project.id.to_s %>/tasks'>
               <div class="clearfix">
-                <span><b><%= t.subject %></b></span>
+                <span><b><i class='icon-check-empty btn btn-mini btn-blue'></i><%= t.subject %></b></span>
               </div>
               <div>
                 <span><%= t.milestone.project.name[0..30] %>
@@ -57,49 +57,50 @@
   <li class="purple">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       <i class="icon-bell-alt icon-animated-bell icon-only"></i>
-      <span class="badge badge-important">8</span>
+      <span class="badge badge-important"><%= @my_late_todos.count + @my_late_tasks.count %></span>
     </a>
     <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-closer">
       <li class="nav-header">
-        <i class="icon-warning-sign"></i> 8 Notifications
+        <i class="icon-warning-sign"></i> <%= @my_late_todos.count + @my_late_tasks.count %> alert(s)
       </li>
+
+      <% @my_late_todos.each do |t| %>
+          <li>
+            <a href='/projects/<%= t.project.id.to_s %>/todos'>
+              <div class="clearfix">
+                <span><b><i class='icon-check-empty btn btn-mini btn-pink'></i><%= t.subject %></b></span>
+              </div>
+              <div>
+                <span><%= t.project.name[0..30] %>
+                  <% if t.project.name.length > 30 %>
+                      ...
+                  <% end %>
+                </span>
+              </div>
+            </a>
+          </li>
+      <% end %>
+
+      <% @my_late_tasks.each do |t| %>
+          <li>
+            <a href='/projects/<%= t.milestone.project.id.to_s %>/tasks'>
+              <div class="clearfix">
+                <span><b><i class='icon-check-empty btn btn-mini btn-blue'></i><%= t.subject %></b></span>
+              </div>
+              <div>
+                <span><%= t.milestone.project.name[0..30] %>
+                  <% if t.milestone.project.name.length > 30 %>
+                      ...
+                  <% end %>
+                </span>
+              </div>
+            </a>
+          </li>
+      <% end %>
 
       <li>
         <a href="#">
-          <div class="clearfix">
-            <span class="pull-left"><i class="icon-comment btn btn-mini btn-pink"></i> New comments</span>
-            <span class="pull-right badge badge-info">+12</span>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <i class="icon-user btn btn-mini btn-primary"></i> Bob just signed up as an editor ...
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <div class="clearfix">
-            <span class="pull-left"><i class="icon-shopping-cart btn btn-mini btn-success"></i> New orders</span>
-            <span class="pull-right badge badge-success">+8</span>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <div class="clearfix">
-            <span class="pull-left"><i class="icon-twitter btn btn-mini btn-info"></i> Followers</span>
-            <span class="pull-right badge badge-info">+4</span>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          See all notifications
+          Close this window
           <i class="icon-arrow-right"></i>
         </a>
       </li>
