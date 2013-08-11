@@ -8,5 +8,8 @@ class CreateMilestones < ActiveRecord::Migration
       t.integer :points
       t.timestamps
     end
+
+    add_index :milestones, :project_id # , :unique => true
+
   end
 end

@@ -51,7 +51,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts '   Added member ' + m.user.name
   m = project1.members.create(:user_id=>u2.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
   puts '   Added member ' + m.user.name
-  m = project1.members.create(:user_id=>u0.id, :joined_date=>20.minutes.ago, :is_admin=>false, :status_code=>1)
+  m = project2.members.create(:user_id=>u0.id, :joined_date=>20.minutes.ago, :is_admin=>false, :status_code=>1)
   puts '   Added member ' + m.user.name
 
   puts ' '
@@ -177,6 +177,24 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts ' '
   puts 'Removing all invitations...'
   Invitation.destroy_all
+
+  puts ' '
+  puts 'Creating load testing / performance testing bulk data...'
+
+  j=0
+  10000.times do |i|
+    u = User.create( :name => "User " + i.to_s, :email => i.to_s + '_user@gmail.com', :password => "lollip0p" )
+    p = Project.create(:name=>"Project " + i.to_s, :status_code=>2, :percent_complete=>10)
+    mb = p.members.create(:user_id=>u.id, :joined_date=>3.hours.ago, :is_admin=>false, :status_code=>1)
+    m = p.milestones.create(:subject=>"Milestone " + i.to_s, :event_date=>80.days.ago, :percent_complete=>50, :points=>60)
+    td = m.tasks.create(:subject=>"Task " + i.to_s, :due_date=>80.days.ago, :position=>1, :points=>1, :is_complete=>true)
+    ts = p.todos.create(:subject=>"Todo " + i.to_s, :due_date=>Time.now.to_date, :position=>1, :member_id=>mb.id)
+    j=j+1
+    if j==100
+      puts '...working, i=' + i.to_s + '...'
+      j=0
+    end
+  end
 
   puts ' '
   puts 'Done.'

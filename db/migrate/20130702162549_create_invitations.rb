@@ -7,5 +7,8 @@ class CreateInvitations < ActiveRecord::Migration
       t.datetime :accepted_at
       t.timestamps
     end
+
+    add_index :invitations, :member_id # , :unique => true
+
   end
 end

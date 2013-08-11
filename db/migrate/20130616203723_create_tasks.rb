@@ -11,5 +11,9 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :position
       t.timestamps
     end
+
+    add_index :tasks, :member_id #, :unique => true
+    add_index :tasks, :milestone_id #, :unique => true
+
   end
 end

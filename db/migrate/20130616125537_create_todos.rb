@@ -10,5 +10,9 @@ class CreateTodos < ActiveRecord::Migration
       t.integer :position
       t.timestamps
     end
+
+    add_index :todos, :member_id #, :unique => true
+    add_index :todos, :project_id #, :unique => true
+
   end
 end
