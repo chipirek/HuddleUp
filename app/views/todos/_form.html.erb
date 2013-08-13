@@ -1,11 +1,11 @@
-<%= form_for [@project, @todo], :html => {:class => 'form-horizontal well'} do |f| %>
-    <% if @todo.errors.any? %>
+<%= form_for [@project, todo], :html => {:class => 'form-horizontal'} do |f| %>
+    <% if todo.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
           <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-          <h4>Ooops, <%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h4>
+          <h4>Ooops, <%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h4>
 
           <ul>
-            <% @todo.errors.full_messages.each do |msg| %>
+            <% todo.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
           </ul>
@@ -33,7 +33,7 @@
       <label class="control-label" for="todo_name">Subject</label>
 
       <div class="controls">
-        <input type="text" id="todo_subject" name='todo[subject]' placeholder="name" value='<%= @todo.subject %>'>
+        <input type="text" id="todo_subject" name='todo[subject]' placeholder="name" value='<%= todo.subject %>'>
       </div>
     </div>
 
@@ -42,22 +42,17 @@
       <div class="controls date">
             <span class='input-icon input-icon-right'>
                 <input class="date-picker" id="todo_due_date" name='todo[due_date]' type="text" data-date-format="mm/dd/yyyy"
-                       value='<%= @todo.due_date.strftime("%m/%d/%Y") unless @todo.due_date.nil? %>'>
+                       value='<%= todo.due_date.strftime("%m/%d/%Y") unless todo.due_date.nil? %>'>
                 <i class="icon-calendar"></i>
             </span>
       </div>
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="task_points">Assigned to</label>
+      <label class="control-label" for="task_points">Assigned To</label>
       <div class="controls">
         <%= select('todo', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
       </div>
-    </div>
-
-    <div class="form-actions">
-      <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
-      <a href='javascript:window.history.back();' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
     </div>
 
     <script type="text/javascript">

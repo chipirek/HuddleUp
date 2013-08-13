@@ -6,6 +6,9 @@ class TodosController < ApplicationController
     @project = Project.find(params[:project_id])
     @todos = Todo.where('project_id=?', params[:project_id]).order('position')
 
+    @todo = Todo.new
+    @todo.project_id = params[:project_id]
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @todos }

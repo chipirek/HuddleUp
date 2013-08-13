@@ -86,13 +86,8 @@
                                     <span><i class='icon-trash'></i></span>
                                   </a>
                                   &nbsp;
-                                  <button class="btn btn-mini btn-info icon-edit"
-                                          onclick="window.location.href='/projects/<%= @project.id %>/todos/<%= todo.id %>/edit'"
-                                          data-placement="left"
-                                          data-rel="tooltip"
-                                          title="Edit">
-                                  </button>
-
+                                  <a class='btn btn-mini btn-info icon-edit'
+                                     href="#modal-form-<%= todo.id %>" role="button" data-toggle="modal"></a>
                                 </div>
                               </li>
 
@@ -118,10 +113,66 @@
           </div>
           <!--/span-->
 
-          <a class='btn btn-success' href="/projects/<%= @project.id %>/todos/new">Create a new todo</a>
+          <a class='btn btn-success' href="#modal-add-form" role="button" data-toggle="modal">Create a new todo</a>
+
         </div>
         <!--/row-->
 
+        <div id="modal-add-form" class="modal hide" tabindex="-1">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="blue bigger">Add a new TODO</h4>
+          </div>
+
+          <div class="modal-body overflow-visible">
+            <div class="row-fluid">
+
+              <%=  render 'form', :todo => @todo %>
+
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-small" data-dismiss="modal">
+              <i class="icon-remove"></i>
+              Cancel
+            </button>
+
+            <button class="btn btn-small btn-primary" onclick="javascript:$('#new_todo').submit();">
+              <i class="icon-ok"></i>
+              Save
+            </button>
+          </div>
+        </div>
+
+        <% @todos.each do |todo| %>
+            <div id="modal-form-<%= todo.id %>" class="modal hide" tabindex="-1">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="blue bigger"><%= todo.subject %></h4>
+              </div>
+
+              <div class="modal-body overflow-visible">
+                <div class="row-fluid">
+
+                  <%=  render 'form', :todo => todo  %>
+
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn btn-small" data-dismiss="modal">
+                  <i class="icon-remove"></i>
+                  Cancel
+                </button>
+
+                <button class="btn btn-small btn-primary" onclick="javascript:$('#edit_todo_<%= todo.id %>').submit();">
+                  <i class="icon-ok"></i>
+                  Save
+                </button>
+              </div>
+            </div>
+        <% end  %>
         <!-- PAGE CONTENT ENDS HERE -->
 
 
@@ -159,6 +210,9 @@
         $('.date-picker').datepicker();
 
         $(".chzn-select").chosen();
+        $('#modal-form').on('shown', function () {
+            $(this).find('.modal-chosen').chosen();
+        });
 
         var oldie = $.browser.msie && $.browser.version < 9;
 
