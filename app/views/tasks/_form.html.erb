@@ -1,11 +1,11 @@
-<%= form_for [@project, @milestone, @task], :html => {:class => 'form-horizontal well'} do |f| %>
-    <% if @task.errors.any? %>
+<%= form_for [@project, @milestone, task], :html => {:class => 'form-horizontal'} do |f| %>
+    <% if task.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
           <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-          <h4>Ooops, <%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h4>
+          <h4>Ooops, <%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h4>
 
           <ul>
-            <% @task.errors.full_messages.each do |msg| %>
+            <% task.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
           </ul>
@@ -33,7 +33,7 @@
       <label class="control-label" for="task_name">Subject</label>
 
       <div class="controls">
-        <input type="text" id="task_subject" name='task[subject]' placeholder="name" value='<%= @task.subject %>'>
+        <input type="text" id="task_subject" name='task[subject]' placeholder="name" value='<%= task.subject %>'>
       </div>
     </div>
 
@@ -42,36 +42,28 @@
       <div class="controls date">
             <span class='input-icon input-icon-right'>
                 <input class="date-picker" id="task_due_date" name='task[due_date]' type="text" data-date-format="mm/dd/yyyy"
-                       value='<%= @task.due_date.strftime("%m/%d/%Y") unless @task.due_date.nil? %>'>
+                       value='<%= task.due_date.strftime("%m/%d/%Y") unless task.due_date.nil? %>'>
                 <i class="icon-calendar"></i>
             </span>
       </div>
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="task_points">Effort "points"</label>
+      <label class="control-label" for="task_points">Effort "Points"</label>
       <div class="controls">
-        <%= select('task', 'points', [['An hour', 1], ['A few hours', 4], ['A day', 8], ['A few days', 24], ['Over a week', 100]], {}, {'class' => 'chzn-select', 'data-placeholder' => 'Repeats...'}) %>
+        <%= select('task', 'points', [['An hour', 1], ['A few hours', 4], ['A day', 8], ['A few days', 24], ['Over a week', 100]], {}) %>
       </div>
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="task_points">Assigned to</label>
+      <label class="control-label" for="task_member_id">Assigned To</label>
       <div class="controls">
         <%= select('task', 'member_id', @milestone.project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
       </div>
     </div>
 
-    <div class="form-actions">
-      <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
-      <a href='javascript:window.history.back();' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
-    </div>
-
     <script type="text/javascript">
 
-        $(function () {
-            $(".chzn-select").chosen();
-        });
 
     </script>
 

@@ -20,6 +20,8 @@ class MilestonesController < ApplicationController
     @milestone = Milestone.find(params[:id])
     @tasks = Task.where('milestone_id=?', params[:id]).order('position')
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    @task = Task.new
+    @task.milestone_id = params[:milestone_id]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,6 +52,8 @@ class MilestonesController < ApplicationController
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:id])
     @milestone.project_id = params[:project_id]
+    @task = Task.new
+    @task.milestone_id = params[:milestone_id]
   end
 
 

@@ -69,14 +69,9 @@ class TodosController < ApplicationController
       @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
-    target_url = project_todos_path(@project)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
-
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to target_url, notice: 'Todo was successfully created.' }
+        format.html { redirect_to request.referrer, notice: 'Todo was successfully created.' }
         format.json { render json: @todo, status: :created, location: @todo }
       else
         format.html { render action: "new" }
@@ -100,15 +95,10 @@ class TodosController < ApplicationController
       @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
-    target_url = project_todos_path(@project)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
-
     respond_to do |format|
       # if @todo.update_attributes(params[:todo])
       if @todo.save
-        format.html { redirect_to target_url, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to request.referrer, notice: 'Todo was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -125,13 +115,8 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
     @todo.destroy
 
-    target_url = project_todos_path(@project)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
-
     respond_to do |format|
-      format.html { redirect_to target_url, notice: 'Todo was successfully deleted.' }
+      format.html { redirect_to request.referrer, notice: 'Todo was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -144,12 +129,7 @@ class TodosController < ApplicationController
     @item.update_attribute('completed_at', Time.now)
     @item.save!
 
-    target_url = project_todos_path(@project)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
-
-    redirect_to target_url, notice: 'Todo was marked complete.'
+    redirect_to request.referrer, notice: 'Todo was marked complete.'
   end
 
 
@@ -160,12 +140,7 @@ class TodosController < ApplicationController
     @item.update_attribute('completed_at', nil)
     @item.save!
 
-    target_url = project_todos_path(@project)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
-
-    redirect_to target_url, notice: 'Todo was marked incomplete.'
+    redirect_to request.referrer, notice: 'Todo was marked incomplete.'
   end
 
 

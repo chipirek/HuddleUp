@@ -52,7 +52,7 @@
               <h4 class="lighter smaller"> Associated Tasks</h4>
 
               <div class="widget-toolbar no-border">
-                <a href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/new?target_view=edit' class='btn btn-success btn-small'> Add a task</a>
+                <a class='btn btn-small btn-success' href="#modal-add-form" role="button" data-toggle="modal">Add a new task</a>
               </div>
             </div>
 
@@ -100,12 +100,8 @@
                                     <span><i class='icon-trash'></i></span>
                                   </a>
                                   &nbsp;
-                                  <button class="btn btn-mini btn-info icon-edit"
-                                          onclick="window.location.href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/<%= task.id %>/edit?target_view=edit'"
-                                          data-placement="left"
-                                          data-rel="tooltip"
-                                          title="Edit">
-                                  </button>
+                                  <a class='btn btn-mini btn-info icon-edit'
+                                     href="#modal-form-<%= task.id %>" role="button" data-toggle="modal"></a>
 
                                 </div>
                               </li>
@@ -123,6 +119,63 @@
 
 
           </div>
+
+          <div id="modal-add-form" class="modal hide" tabindex="-1">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="blue bigger">Add a new task</h4>
+            </div>
+
+            <div class="modal-body overflow-visible">
+              <div class="row-fluid">
+
+                <%=  render 'tasks/form', :task => @task %>
+
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-small" data-dismiss="modal">
+                <i class="icon-remove"></i>
+                Cancel
+              </button>
+
+              <button class="btn btn-small btn-primary" onclick="javascript:$('#new_task').submit();">
+                <i class="icon-ok"></i>
+                Save
+              </button>
+            </div>
+          </div>
+
+          <% @milestone.tasks.each do |task| %>
+              <div id="modal-form-<%= task.id %>" class="modal hide" tabindex="-1">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="blue bigger"><%= task.subject %></h4>
+                </div>
+
+                <div class="modal-body overflow-visible">
+                  <div class="row-fluid">
+
+                    <%=  render 'tasks/form', :task => task %>
+
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button class="btn btn-small" data-dismiss="modal">
+                    <i class="icon-remove"></i>
+                    Cancel
+                  </button>
+
+                  <button class="btn btn-small btn-primary" onclick="javascript:$('#edit_task_<%= task.id %>').submit();">
+                    <i class="icon-ok"></i>
+                    Save
+                  </button>
+                </div>
+              </div>
+          <% end  %>
+
 
           <!-- END -->
 

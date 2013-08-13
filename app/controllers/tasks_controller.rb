@@ -69,14 +69,9 @@ class TasksController < ApplicationController
       @task.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
-    target_url = project_milestone_path(@project, @milestone)
-    if params[:target_view] == 'edit'
-      target_url = edit_project_milestone_path(@project, @milestone)
-    end
-
     respond_to do |format|
       if @task.save
-        format.html { redirect_to target_url, notice: 'Task was successfully created.' }
+        format.html { redirect_to request.referrer, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
@@ -101,15 +96,10 @@ class TasksController < ApplicationController
       @task.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
-    target_url = project_milestone_path(@project, @milestone)
-    if params[:target_view] == 'edit'
-      target_url = edit_project_milestone_path(@project, @milestone)
-    end
-
     respond_to do |format|
       # if @task.update_attributes(params[:task])
       if @task.save
-        format.html { redirect_to target_url, notice: 'Task was successfully updated.' }
+        format.html { redirect_to request.referrer, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -128,7 +118,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to request.referrer }  #project_milestone_path(@project, @milestone)
+      format.html { redirect_to request.referrer, notice: 'Task was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -142,12 +132,7 @@ class TasksController < ApplicationController
     @item.update_attribute('completed_at', Time.now)
     @item.save!
 
-    target_url = project_milestone_path(@project, @milestone)
-    if params[:target_view] == 'edit'
-      target_url = edit_project_milestone_path(@project, @milestone)
-    end
-
-    redirect_to target_url, notice: 'Task was marked complete.'
+    redirect_to request.referrer, notice: 'Task was marked complete.'
   end
 
 
@@ -159,12 +144,7 @@ class TasksController < ApplicationController
     @item.update_attribute('completed_at', nil)
     @item.save!
 
-    target_url = project_milestone_path(@project, @milestone)
-    if params[:target_view] == 'edit'
-      target_url = edit_project_milestone_path(@project, @milestone)
-    end
-
-    redirect_to target_url, notice: 'Task was marked incomplete.'
+    redirect_to request.referrer, notice: 'Task was marked incomplete.'
   end
 
 
