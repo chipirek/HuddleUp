@@ -19,6 +19,15 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @member = @project.members.where('user_id=?', current_user.id).first
 
+    @late_todos = @project.todos.where('is_complete is null').where('due_date < ?', Date.today)
+    @late_tasks = []
+    @project.milestones.each do |m|
+      tsks = m.tasks.where('is_complete is null').where('due_date < ?', Date.today)
+      tsks.each do |t|
+        @late_tasks << t
+      end
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }

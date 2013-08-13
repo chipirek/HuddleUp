@@ -50,7 +50,8 @@
   <h1><i class="icon-list-alt"></i> <%= @project.name %>
     <small><i class='icon-double-angle-right'> Project Dashboard
       <% if @member.is_admin? %>
-        <i class='icon-double-angle-right'> <a href="/projects/<%= @project.id %>/edit">Edit this project's definition</a></i>
+          <i class='icon-double-angle-right'>
+            <a href="/projects/<%= @project.id %>/edit">Edit this project's definition</a></i>
       <% end %>
     </i></small>
   </h1>
@@ -104,60 +105,60 @@
             <% if @project.milestones.count == 0 %>
                 None
             <% else %>
-            <table id="table_report" class="table table-striped table-bordered table-hover">
-              <thead>
-              <tr>
-                <th>Milestone</th>
-                <th class="hidden-phone"><i class="icon-time hidden-phone"></i> Date</th>
-                <th class="hidden-480">Progress</th>
-                <th></th>
-              </tr>
-              </thead>
-
-              <tbody>
-
-              <% @project.milestones.each do |milestone| %>
-
+                <table id="table_report" class="table table-striped table-bordered table-hover">
+                  <thead>
                   <tr>
-
-                    <td>
-                      <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><%= milestone.subject %></a>
-                    </td>
-                    <td class='hidden-phone'><%= milestone.event_date.strftime('%m/%d/%Y') %></td>
-
-                    <td>
-                      <div class="progress" data-percent="<%= milestone.percent_complete %>%">
-                        <div class="bar" style="width:<%= milestone.percent_complete %>%;"></div>
-                      </div>
-                    </td>
-
-                    <td>
-
-                      <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>?target_view=dashboard"
-                         class="btn btn-mini btn-danger"
-                         data-confirm="Are you sure you want to delete <%= milestone.subject %>?"
-                         data-method="delete"
-                         data-placement="right"
-                         data-rel="tooltip"
-                         rel="nofollow"
-                         title="Delete">
-                        <span><i class='icon-trash'></i></span>
-                      </a>
-                      &nbsp;
-                      <button class="btn btn-mini btn-info icon-edit"
-                              onclick="window.location.href='/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit?target_view=dashboard'"
-                              data-placement="left"
-                              data-rel="tooltip"
-                              title="Edit">
-                      </button>
-                    </td>
-
+                    <th>Milestone</th>
+                    <th class="hidden-phone"><i class="icon-time hidden-phone"></i> Date</th>
+                    <th class="hidden-480">Progress</th>
+                    <th></th>
                   </tr>
+                  </thead>
 
-              <% end %>
+                  <tbody>
 
-              </tbody>
-            </table>
+                  <% @project.milestones.each do |milestone| %>
+
+                      <tr>
+
+                        <td>
+                          <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><%= milestone.subject %></a>
+                        </td>
+                        <td class='hidden-phone'><%= milestone.event_date.strftime('%m/%d/%Y') %></td>
+
+                        <td>
+                          <div class="progress" data-percent="<%= milestone.percent_complete %>%">
+                            <div class="bar" style="width:<%= milestone.percent_complete %>%;"></div>
+                          </div>
+                        </td>
+
+                        <td>
+
+                          <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>?target_view=dashboard"
+                             class="btn btn-mini btn-danger"
+                             data-confirm="Are you sure you want to delete <%= milestone.subject %>?"
+                             data-method="delete"
+                             data-placement="right"
+                             data-rel="tooltip"
+                             rel="nofollow"
+                             title="Delete">
+                            <span><i class='icon-trash'></i></span>
+                          </a>
+                          &nbsp;
+                          <button class="btn btn-mini btn-info icon-edit"
+                                  onclick="window.location.href='/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit?target_view=dashboard'"
+                                  data-placement="left"
+                                  data-rel="tooltip"
+                                  title="Edit">
+                          </button>
+                        </td>
+
+                      </tr>
+
+                  <% end %>
+
+                  </tbody>
+                </table>
 
             <% end %>
           </div>
@@ -188,39 +189,39 @@
                   None
               <% else %>
 
-            <ul id="tasks" class="item-list">
+                  <ul id="tasks" class="item-list">
 
-                <% @project.todos.each do |todo| %>
+                    <% @project.todos.each do |todo| %>
 
-                    <li class="<%= get_item_color(todo) %> clearfix task" data-pk='<%= todo.id %>' data-completed="<%= todo.is_complete %>" id="task_<%= todo.id %>">
-                      <label class="inline"><input id="chk_<%= todo.id %>" type="checkbox" data-completed="<%= todo.is_complete %>"/><span class="lbl"> <%= todo.subject %></span></label>
+                        <li class="<%= get_item_color(todo) %> clearfix task" data-pk='<%= todo.id %>' data-completed="<%= todo.is_complete %>" id="task_<%= todo.id %>">
+                          <label class="inline"><input id="chk_<%= todo.id %>" type="checkbox" data-completed="<%= todo.is_complete %>"/><span class="lbl"> <%= todo.subject %></span></label>
 
-                      <div class="inline pull-right position-relative">
+                          <div class="inline pull-right position-relative">
 
-                        <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>?target_view=dashboard"
-                           class="btn btn-mini btn-danger"
-                           data-confirm="Are you sure you want to delete <%= todo.subject %>?"
-                           data-method="delete"
-                           data-placement="right"
-                           data-rel="tooltip"
-                           rel="nofollow"
-                           title="Delete">
-                          <span><i class='icon-trash'></i></span>
-                        </a>
-                        &nbsp;
-                        <button class="btn btn-mini btn-info icon-edit"
-                                onclick="window.location.href='/projects/<%= @project.id %>/todos/<%= todo.id %>/edit?target_view=dashboard'"
-                                data-placement="left"
-                                data-rel="tooltip"
-                                title="Edit">
-                        </button>
+                            <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>?target_view=dashboard"
+                               class="btn btn-mini btn-danger"
+                               data-confirm="Are you sure you want to delete <%= todo.subject %>?"
+                               data-method="delete"
+                               data-placement="right"
+                               data-rel="tooltip"
+                               rel="nofollow"
+                               title="Delete">
+                              <span><i class='icon-trash'></i></span>
+                            </a>
+                            &nbsp;
+                            <button class="btn btn-mini btn-info icon-edit"
+                                    onclick="window.location.href='/projects/<%= @project.id %>/todos/<%= todo.id %>/edit?target_view=dashboard'"
+                                    data-placement="left"
+                                    data-rel="tooltip"
+                                    title="Edit">
+                            </button>
 
-                      </div>
-                    </li>
+                          </div>
+                        </li>
 
-                <% end %>
+                    <% end %>
 
-              </ul>
+                  </ul>
 
               <% end %>
 
@@ -254,7 +255,9 @@
         <div class="tab-content padding-8">
 
           <div class="span4 center">
-            <div class="easy-pie-chart percentage center" data-percent="<%= @project.percent_complete.to_s %>" data-color='<%= get_project_progress_color(@project) %>'><span class="percent"><%= @project.percent_complete.to_s %></span>%</div>
+            <div class="easy-pie-chart percentage center" data-percent="<%= @project.percent_complete.to_s %>" data-color='<%= get_project_progress_color(@project) %>'>
+              <span class="percent"><%= @project.percent_complete.to_s %></span>%
+            </div>
           </div>
 
         </div>
@@ -278,7 +281,18 @@
     <div class="widget-body">
       <div class="widget-main padding-5">
         <div class="tab-content padding-8">
-          tbd
+          <ul class='unstyled space2'>
+            <% @late_todos.each do |o| %>
+                <li><i class="icon-circle red"></i>Todo "<%= o.subject %>" is late!</li>
+            <% end %>
+          </ul>
+
+          <ul class='unstyled space2'>
+            <% @late_tasks.each do |o| %>
+                <li><i class="icon-circle red"></i>Task "<%= o.subject %>" is late!</li>
+            <% end %>
+          </ul>
+
         </div>
       </div>
     </div>
@@ -348,7 +362,7 @@
 </div>
 
 <p>
-    <%= render :partial => "comments", :locals => { project: @project } %>
+  <%= render :partial => "comments", :locals => {project: @project} %>
 </p>
 
 </div>
