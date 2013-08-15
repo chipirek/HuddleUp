@@ -79,14 +79,14 @@
                                      class="btn btn-mini btn-danger"
                                      data-confirm="Are you sure you want to delete <%= todo.subject %>?"
                                      data-method="delete"
-                                     data-placement="right"
+                                     data-placement="left"
                                      data-rel="tooltip"
                                      rel="nofollow"
                                      title="Delete">
                                     <span><i class='icon-trash'></i></span>
                                   </a>
                                   &nbsp;
-                                  <a class='btn btn-mini btn-info icon-edit'
+                                  <a class='btn btn-mini btn-info icon-edit' data-placement="left" title='Edit' data-rel='tooltip'
                                      href="#modal-form-<%= todo.id %>" role="button" data-toggle="modal"></a>
                                 </div>
                               </li>
@@ -127,7 +127,7 @@
           <div class="modal-body overflow-visible">
             <div class="row-fluid">
 
-              <%=  render 'form', :todo => @todo %>
+              <%=  render 'form' %>
 
             </div>
           </div>
@@ -155,7 +155,8 @@
               <div class="modal-body overflow-visible">
                 <div class="row-fluid">
 
-                  <%=  render 'form', :todo => todo  %>
+                  <% @todo = todo %>
+                  <%=  render 'form' %>
 
                 </div>
               </div>

@@ -4,7 +4,6 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   fixtures :all
 
-
   test 'login and get to index' do
     #@user = users(:me)
 
@@ -157,7 +156,8 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   test 'create new todo' do
 
-    p = projects(:project1)
+    #p = projects(:project1)
+    p = Project.first
 
     #-- login
     get '/users/sign_in'
@@ -169,24 +169,28 @@ class SmokeTest < ActionDispatch::IntegrationTest
     #assert_equal 'Welcome david!', flash[:notice]
 
     #-- get the index
-    get project_todos_path(p)
+    get project_todos_path (p)
     assert_response :success
     assert assigns(:todos)
 
     #-- get the add page
-    get new_project_todo_path(p)
+    get new_project_todo_path (p)
     assert_response :success
 
     #-- post the form / add the object
-    post_via_redirect '/projects/' + p.id.to_s + '/todos', 'todo[subject]' => 'My Integration Test Todo', 'todo[due_date]' => '12/25/13'
+    p project_todos_path (p)
+    p p.name
+    post_via_redirect project_todos_path (p), 'todo[subject]' => 'My Integration Test Todo', 'todo[due_date]' => '12/25/13'
 
     #-- get the fresh copy from the database
-    p = projects(:project1)
+    #p = projects(:project1)
+    p = Project.first
     t = p.todos.first
     assert_equal t.subject, 'My Integration Test Todo'
+
   end
 
-
+=begin
   test 'update a todo' do
 
     #-- login
@@ -218,6 +222,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_equal t.subject, '-e'
 
   end
+=end
 
 end
 
