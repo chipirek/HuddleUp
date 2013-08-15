@@ -71,7 +71,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to request.referrer, notice: 'Todo was successfully created.' }
+        format.html { redirect_to project_todos_path(@project), notice: 'Todo was successfully created.' }
         format.json { render json: @todo, status: :created, location: @todo }
       else
         format.html { render action: "new" }
@@ -98,7 +98,7 @@ class TodosController < ApplicationController
     respond_to do |format|
       # if @todo.update_attributes(params[:todo])
       if @todo.save
-        format.html { redirect_to request.referrer, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to project_todos_path(@project), notice: 'Todo was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

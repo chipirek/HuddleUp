@@ -178,8 +178,8 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     #-- post the form / add the object
-    p project_todos_path (p)
-    p p.name
+    # p project_todos_path (p)
+    # p p.name
     post_via_redirect project_todos_path (p), 'todo[subject]' => 'My Integration Test Todo', 'todo[due_date]' => '12/25/13'
 
     #-- get the fresh copy from the database
@@ -190,7 +190,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   end
 
-=begin
+
   test 'update a todo' do
 
     #-- login
@@ -222,7 +222,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_equal t.subject, '-e'
 
   end
-=end
+
 
 end
 
