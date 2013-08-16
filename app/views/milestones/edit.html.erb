@@ -93,14 +93,16 @@
                                      class="btn btn-mini btn-danger"
                                      data-confirm="Are you sure you want to delete <%= task.subject %>?"
                                      data-method="delete"
-                                     data-placement="right"
+                                     data-placement="left"
                                      data-rel="tooltip"
                                      rel="nofollow"
                                      title="Delete">
                                     <span><i class='icon-trash'></i></span>
                                   </a>
                                   &nbsp;
-                                  <a class='btn btn-mini btn-info icon-edit'
+                                  <a class='btn btn-mini btn-info icon-edit'  data-placement="left"
+                                     data-rel="tooltip"
+                                     title='Edit'
                                      href="#modal-form-<%= task.id %>" role="button" data-toggle="modal"></a>
 
                                 </div>
@@ -129,7 +131,7 @@
             <div class="modal-body overflow-visible">
               <div class="row-fluid">
 
-                <%=  render 'tasks/form', :task => @task %>
+                <%=  render 'tasks/form' %>
 
               </div>
             </div>
@@ -157,7 +159,8 @@
                 <div class="modal-body overflow-visible">
                   <div class="row-fluid">
 
-                    <%=  render 'tasks/form', :task => task %>
+                    <% @task = task %>
+                    <%=  render 'tasks/form' %>
 
                   </div>
                 </div>
