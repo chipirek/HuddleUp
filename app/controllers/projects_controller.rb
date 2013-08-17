@@ -61,7 +61,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        @project.members.create(:user_id => current_user.id, :is_admin => true, :joined_date => Time.now )
+        @project.members.create(:user_id => current_user.id, :is_admin => true, :joined_date => Time.now, :status_code=>1 )
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
