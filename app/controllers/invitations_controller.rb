@@ -47,7 +47,7 @@ class InvitationsController < ApplicationController
       @invitation.sent_at=Time.now
       @invitation.member_id=member.id
 
-      puts 'invitation=' + @invitation.to_s
+      # puts 'invitation=' + @invitation.to_s
 
       success_code = @invitation.save
       if success_code
