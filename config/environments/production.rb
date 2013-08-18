@@ -70,10 +70,11 @@ HuddleUp::Application.configure do
       address:              'smtp.sendgrid.net',
       port:                 '587',
       domain:               'heroku.com',
-      user_name:            'app17565833@heroku.com', #ENV['SENDGRID_USERNAME'],
-      password:             'dszdjsen', #ENV['SENDGRID_PASSWORD'],
+      user_name:            ENV['SENDGRID_USERNAME'],
+      password:             ENV['SENDGRID_PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true
   }
 
+  #'app17565833@heroku.com', #'dszdjsen',
 end
