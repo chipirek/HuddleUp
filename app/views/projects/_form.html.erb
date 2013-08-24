@@ -31,15 +31,7 @@
       <label class="control-label" for="project_name">Project Name</label>
 
       <div class="controls">
-        <input type="text" id="project_name" name='project[name]' placeholder="name" value='<%= @project.name %>'>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label" for="project_duration">Description</label>
-
-      <div class="controls">
-        <input type="text" id="project_description" name='project[description]' placeholder="description" value='<%= @project.description %>'>
+        <input type="text" id="project_name" name='project[name]' placeholder="name" value='<%= @project.name %>' class='span8' style='font-size:2em; height:40px;'>
       </div>
     </div>
 
@@ -64,6 +56,8 @@
       </div>
     </div>
 
+
+    <div id="editor"></div>
 
     <div style='visibility: hidden;'>
       <ul id="children">
@@ -90,15 +84,12 @@
             var percent = 0;
             $('#children li').each(function(index, value)
             {
-                //alert($(this).attr('id') + ' completed=' + $(this).attr('data-completed') + 'points=' + $(this).attr('data-points'));
                 total += parseInt($(this).attr('data-points'));
                 if ($(this).attr('data-completed') == 'true')
                     completed += parseInt($(this).attr('data-points'));
             });
-            //alert('total=' + total + '    completed=' + completed);
             if (total > 0)
                 percent = ((completed / total) * 100).toFixed(0);
-            //alert('percent=' + percent);
             $('#project_percent_complete').val(percent);
         }
 
@@ -111,3 +102,6 @@
     </script>
 
 <% end %>
+
+
+<div class="wysiwyg-editor" id="editor1"></div>
