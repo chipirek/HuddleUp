@@ -123,7 +123,7 @@
 
         function getWysiwyg()
         {
-            alert('copying...');
+            //alert('copying...');
             $('#project_description').text($('#editor1').html());
         }
 
@@ -150,7 +150,7 @@
             //$(".chzn-select").chosen();
             $('#project_percent_complete').val(<%= @project.percent_complete %>);
             //$('#editor1').ace_wysiwyg();
-            $('#editor1').html('<%= @project.description %>');
+            $('#editor1').html('<%= @project.description.html_safe %>');
             $('#editor1').ace_wysiwyg({
                 toolbar:
                         [
