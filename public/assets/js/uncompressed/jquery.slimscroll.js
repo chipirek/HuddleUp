@@ -2,7 +2,7 @@
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
  *
- * Version: 1.1.1
+ * Version: 1.2.0
  *
  */
 (function($) {
@@ -70,7 +70,13 @@
         wheelStep : 20,
 
         // scroll amount applied when user is using gestures
-        touchScrollStep : 200
+        touchScrollStep : 200,
+        
+        // sets border radius
+        borderRadius: '7px',
+        
+        // sets border radius of the rail
+        railBorderRadius: '7px'
       };
 
       var o = $.extend(defaults, options);
@@ -106,7 +112,7 @@
               if ( 'height' in options && options.height == 'auto' ) {
                 me.parent().css('height', 'auto');
                 me.css('height', 'auto');
-                var height = me.parent().parent().innerHeight();
+                var height = me.parent().parent().height();
                 me.parent().css('height', height);
                 me.css('height', height);
               }
@@ -138,7 +144,7 @@
         }
 
         // optionally set height to the parent's height
-        o.height = (o.height == 'auto') ? me.parent().innerHeight() : o.height;
+        o.height = (o.height == 'auto') ? me.parent().height() : o.height;
 
         // wrap content
         var wrapper = $(divS)
@@ -166,7 +172,7 @@
             position: 'absolute',
             top: 0,
             display: (o.alwaysVisible && o.railVisible) ? 'block' : 'none',
-            'border-radius': o.size,
+            'border-radius': o.railBorderRadius,
             background: o.railColor,
             opacity: o.railOpacity,
             zIndex: 90
@@ -182,10 +188,10 @@
             top: 0,
             opacity: o.opacity,
             display: o.alwaysVisible ? 'block' : 'none',
-            'border-radius' : o.size,
-            BorderRadius: o.size,
-            MozBorderRadius: o.size,
-            WebkitBorderRadius: o.size,
+            'border-radius' : o.borderRadius,
+            BorderRadius: o.borderRadius,
+            MozBorderRadius: o.borderRadius,
+            WebkitBorderRadius: o.borderRadius,
             zIndex: 99
           });
 
@@ -202,7 +208,7 @@
         me.parent().append(rail);
 
         // make it draggable
-        if (o.railDraggable)
+        if (o.railDraggable && $.ui && typeof($.ui.draggable) == 'function')
         {
           bar.draggable({
             axis: 'y',
@@ -295,7 +301,7 @@
           if (e.wheelDelta) { delta = -e.wheelDelta/120; }
           if (e.detail) { delta = e.detail / 3; }
 
-          var target = e.target || e.srcTarget;
+          var target = e.target || e.srcTarget || e.srcElement;
           if ($(target).closest('.' + o.wrapperClass).is(me.parent())) {
             // scroll content
             scrollContent(delta, true);
@@ -396,6 +402,10 @@
                 var msg = (~~percentScroll == 0) ? 'top' : 'bottom';
                 me.trigger('slimscroll', msg);
             }
+          }
+          else
+          {
+            releaseScroll = false;
           }
           lastScroll = percentScroll;
 
