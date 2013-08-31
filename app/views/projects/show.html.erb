@@ -68,7 +68,7 @@
               </div>
           <% end %>
 
-            <p><div><%= @project.description.html_safe %></div></p>
+            <p><div><%= @project.description.html_safe unless @project.description.nil? %></div></p>
 
 
           <div class='row-fluid'>
