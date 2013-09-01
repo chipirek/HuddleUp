@@ -64,7 +64,7 @@ class TasksController < ApplicationController
     @task.milestone_id=params[:milestone_id]
 
     # task: hack to overcome Ruby 1.9 date parse bug
-    if params[:task][:due_date]
+    if params[:task][:due_date].length > 0
       buffer = params[:task][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
       @task.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
@@ -91,12 +91,10 @@ class TasksController < ApplicationController
     @task.milestone_id = params[:milestone_id]
 
     # task: hack to overcome Ruby 1.9 date parse bug
-    if params[:task][:due_date]
+    if params[:task][:due_date].length > 0
       buffer = params[:task][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
       @task.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
-
-    puts '===============>' + @task.due_date.to_s
 
     respond_to do |format|
       # if @task.update_attributes(params[:task])
