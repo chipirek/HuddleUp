@@ -290,9 +290,12 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript" src="/assets/js/spin.min.js"></script>
+<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
 
     $(function () {
+
+        $('.date-picker').datepicker();
 
         var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
         $('[data-rel="tooltip"]').tooltip();
@@ -317,7 +320,7 @@
                     data: $('#tasks').sortable('serialize'),
                     dataType: 'script',
                     complete: function (request) {
-                        $('#tasks').effect('highlight');
+                        //$('#tasks').effect('highlight');
                     },
                     url: '/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/sort'})
             }

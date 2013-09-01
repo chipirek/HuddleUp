@@ -222,10 +222,12 @@
 </a>
 
 <!-- inline scripts related to this page -->
-<script type="text/javascript" src="/assets/js/spin.min.js"></script>
+<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
 
     $(function () {
+
+        $('.date-picker').datepicker();
 
         $('#modal-add-form').on('shown', function() {
             $(this).find($('#todo_subject')).focus();
@@ -249,7 +251,7 @@
                     data: $('#tasks').sortable('serialize'),
                     dataType: 'script',
                     complete: function(request){
-                        $('#tasks').effect('highlight');
+                        //$('#tasks').effect('highlight');
                     },
                     url: '/projects/<%= @project.id %>/todos/sort'})
             }
