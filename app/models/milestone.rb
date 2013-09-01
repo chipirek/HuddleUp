@@ -27,7 +27,12 @@ class Milestone < ActiveRecord::Base
       end
     end
 
-    return (cp/tp)*100.00
+    r = 0
+    if tp > 0
+      r = (cp/tp)*100.00
+    end
+
+    return r
   end
 
   def is_complete?
