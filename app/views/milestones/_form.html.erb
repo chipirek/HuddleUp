@@ -1,4 +1,4 @@
-<%= form_for [@project, @milestone], :html => {:class => 'form-horizontal well'} do |f| %>
+<%= form_for [@project, @milestone], :html => {:class => 'form-horizontal'} do |f| %>
     <% if @milestone.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
           <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
@@ -33,7 +33,7 @@
       <label class="control-label" for="milestone_name">Milestone</label>
 
       <div class="controls">
-        <input type="text" id="milestone_subject" name='milestone[subject]' placeholder="name" value='<%= @milestone.subject %>'>
+        <input type="text" id="milestone_subject" name='milestone[subject]' placeholder="enter the milestone name" value='<%= @milestone.subject %>'  class='span8' style='font-size:2em; height:40px;'>
       </div>
     </div>
 
@@ -105,8 +105,7 @@
             $('#milestone_points').ace_spinner({value: 0, min: 0, max: 100, step: 5, btn_up_class: 'btn-info', btn_down_class: 'btn-info'});
             $('#milestone_percent_complete').val('<%= @milestone.percent_complete %>');
             $('#milestone_points').val('<%= @milestone.points %>');
-
-            $(".chzn-select").chosen();
+            $('.date-picker').datepicker();
         });
 
     </script>

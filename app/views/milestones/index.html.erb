@@ -1,179 +1,192 @@
-<div class="navbar navbar-inverse">
-<div class="navbar-inner">
-<div class="container-fluid">
+<div class="navbar">
 
+  <script type="text/javascript">
+      try {
+          ace.settings.check('navbar', 'fixed')
+      } catch (e) {
+      }
+  </script>
 
-<a class="brand" href="#">
-  <small><i class="icon-check"></i> HuddleUp</small>
-</a>
+  <div class="navbar-inner">
+    <div class="container-fluid">
 
-<%= render :partial => '/projects/top_nav', :locals => { :post => 'hello' } %>
+      <a class="brand" href="#">
+        <small><i class="icon-check"></i> HuddleUp</small>
+      </a>
 
-</div>
-<!--/.container-fluid-->
-</div>
-<!--/.navbar-inner-->
-</div>
+      <%= render :partial => '/projects/top_nav', :locals => {:post => 'foo'} %>
 
-
-<div class="container-fluid" id="main-container">
-<a href="#" id="menu-toggler"><span></span></a><!-- menu toggler -->
-
-<%= render :partial => '/projects/side_nav_1', :locals => {:component => 'milestones', :project_id => @project.id } %>
-
-
-<div id="main-content" class="clearfix">
-
-  <% crumbs = [['Projects', projects_path],
-               [@project.name, project_path(@project)]] %>
-
-  <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Milestones'} %>
-
-  <div id="page-content" class="clearfix">
-
-    <div class="page-header position-relative">
-      <h1><i class="icon-calendar"></i> Milestones  <small><i class='icon-double-angle-right'> <%= @project.name %></i></small></h1>
     </div>
-    <!--/page-header-->
+    <!--/.container-fluid-->
+  </div>
+  <!--/.navbar-inner-->
+
+</div>
 
 
-    <div class="row-fluid">
+<div class="main-container container-fluid">
+  <a class="menu-toggler" id="menu-toggler" href="#">
+    <span class="menu-text"></span>
+  </a>
 
-      <!-- PAGE CONTENT BEGINS HERE -->
+  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'milestones', :project_id => @project.id } %>
 
-      <div class="space-6"></div>
+  <div class="main-content">
+
+
+    <% crumbs = [['Projects', projects_path],
+                 [@project.name, project_path(@project)]] %>
+
+    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Milestones'} %>
+
+    <div class="page-content">
+      <div class="page-header position-relative">
+        <h1>
+          <i class="icon-calendar"></i> <%= @project.name %>
+          <small>
+            <i class="icon-double-angle-right"></i>
+            Milestones
+          </small>
+        </h1>
+
+      </div>
+      <!--/.page-header-->
+
       <div class="row-fluid">
-
         <div class="span12">
-          <div class="widget-box transparent">
+          <!--PAGE CONTENT BEGINS-->
 
-            <div class="widget-body">
-              <div class="widget-main padding-5">
-                <div class="tab-content padding-8">
-
-                  <!-- BEGIN -->
-
-                  <% if flash[:notice] %>
-                      <div class='alert alert-block alert-success'>
-                        <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-                        <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
-                      </div>
-                  <% end %>
-
-                  <div style="margin-bottom: 50px;">
-                  <table id="table_report" class="table table-striped table-bordered table-hover">
-                    <thead>
-                    <tr>
-                      <th>Milestone</th>
-                      <th class="hidden-phone"><i class="icon-time hidden-phone"></i> Date</th>
-                      <th class="hidden-480">Progress</th>
-                      <th></th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    <% @milestones.each do |milestone| %>
-
-                        <tr>
-
-                          <td>
-                            <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><%= milestone.subject %></a>
-                          </td>
-                          <td class='hidden-phone'><%= milestone.event_date.strftime('%m/%d/%Y') %></td>
-
-                          <td>
-                            <div class="progress" data-percent="<%= milestone.percent_complete %>%">
-                              <div class="bar" style="width:<%= milestone.percent_complete %>%;"></div>
-                            </div>
-                          </td>
-
-                          <td>
-
-                              <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"
-                                 class="btn btn-mini btn-danger"
-                                 data-confirm="Are you sure you want to delete <%= milestone.subject %>?"
-                                 data-method="delete"
-                                 data-placement="right"
-                                 data-rel="tooltip"
-                                 rel="nofollow"
-                                 title="Delete">
-                                <span><i class='icon-trash'></i></span>
-                              </a>
-                              &nbsp;
-                              <button class="btn btn-mini btn-info icon-edit"
-                                      onclick="window.location.href='/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit'"
-                                      data-placement="left"
-                                      data-rel="tooltip"
-                                      title="Edit">
-                              </button>
-                          </td>
-
-                        </tr>
-
-                    <% end %>
-
-                    </tbody>
-                  </table>
-
-                  </div>
-                  <!-- END -->
-
-                </div>
+          <% if flash[:notice] %>
+              <div class='alert alert-block alert-success'>
+                <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+                <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
               </div>
-              <!--/widget-main-->
-            </div>
-            <!--/widget-body-->
+          <% end %>
 
+
+          <div style="margin-bottom: 50px;">
+            <table id="table_report" class="table table-striped table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>Milestone</th>
+                <th class="hidden-phone"><i class="icon-time hidden-phone"></i> Date</th>
+                <th class="hidden-480">Progress</th>
+                <th></th>
+              </tr>
+              </thead>
+
+              <tbody>
+
+              <% @milestones.each do |milestone| %>
+
+                  <tr>
+
+                    <td>
+                      <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><%= milestone.subject %></a>
+                    </td>
+                    <td class='hidden-phone'><%= milestone.event_date.strftime('%m/%d/%Y') %></td>
+
+                    <td>
+                      <div class="progress" data-percent="<%= milestone.percent_complete %>%">
+                        <div class="bar" style="width:<%= milestone.percent_complete %>%;"></div>
+                      </div>
+                    </td>
+
+                    <td>
+
+                      <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"
+                         class="btn btn-mini btn-danger"
+                         data-confirm="Are you sure you want to delete <%= milestone.subject %>?"
+                         data-method="delete"
+                         data-placement="left"
+                         data-rel="tooltip"
+                         rel="nofollow"
+                         title="Delete">
+                        <span><i class='icon-trash'></i></span>
+                      </a>
+                      &nbsp;
+                      <button class="btn btn-mini btn-info icon-edit"
+                              onclick="window.location.href='/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit'"
+                              data-placement="left"
+                              data-rel="tooltip"
+                              title="Edit">
+                      </button>
+                    </td>
+
+                  </tr>
+
+              <% end %>
+
+              </tbody>
+            </table>
 
           </div>
-          <!--/widget-box-->
+
+          <a class='btn btn-success' href="/projects/<%= @project.id %>/milestones/new">Create a new milestone</a>
+
         </div>
-        <!--/span-->
+        <!--/row-->
 
-        <a class='btn btn-success' href="/projects/<%= @project.id %>/milestones/new">Create a new milestone</a>
+        <!--PAGE CONTENT ENDS-->
       </div>
-      <!--/row-->
-
-      <!-- PAGE CONTENT ENDS HERE -->
-
-
+      <!--/.span-->
     </div>
-    <!--/row-->
-
+    <!--/.row-fluid-->
   </div>
-  <!--/#page-content-->
+  <!--/.page-content-->
 
+  <div class="ace-settings-container" id="ace-settings-container">
+    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
+      <i class="icon-cog bigger-150"></i>
+    </div>
 
-</div>
-<!-- #main-content -->
+    <div class="ace-settings-box" id="ace-settings-box">
+      <div>
+        <div class="pull-left">
+          <select id="skin-colorpicker" class="hide">
+            <option data-skin="default" value="#438EB9">#438EB9</option>
+            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+          </select>
+        </div>
+        <span>&nbsp; Choose Skin</span>
+      </div>
 
+      <div>
+        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
+        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+      </div>
 
-</div>
-<!--/.fluid-container#main-container-->
+      <div>
+        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
+        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+      </div>
 
+      <div>
+        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
+        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+      </div>
 
-<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
-  <i class="icon-double-angle-up icon-only"></i>
+      <div>
+        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
+        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+      </div>
+    </div>
+  </div>
+  <!--/#ace-settings-container-->
+</div><!--/.main-content-->
+</div><!--/.main-container-->
+
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
+  <i class="icon-double-angle-up icon-only bigger-110"></i>
 </a>
 
-
 <!-- inline scripts related to this page -->
-
 <script type="text/javascript" src="/assets/js/jquery.easy-pie-chart.min.js"></script>
 <script type="text/javascript">
 
     $(function () {
-
-        $('.dialogs,.comments').slimScroll({
-            height: '300px'
-        });
-
-        $('.date-picker').datepicker();
-
-        $(".chzn-select").chosen();
-
-        var oldie = $.browser.msie && $.browser.version < 9;
 
         var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
         $('[data-rel="tooltip"]').tooltip();
@@ -192,7 +205,9 @@
                 animate: oldie ? false : 1000,
                 size: size
             });
-        })
+        });
+
     });
+
 
 </script>
