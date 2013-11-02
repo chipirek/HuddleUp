@@ -3,11 +3,11 @@
   <li class="grey">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       <i class="icon-tasks"></i>
-      <span class="badge"><%= @my_active_todos.count + @my_active_tasks.count %></span>
+      <span class="badge"><%= @my_active_todos.count %></span>
     </a>
     <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-closer">
       <li class="nav-header">
-        <i class="icon-ok"></i> <%= @my_active_todos.count + @my_active_tasks.count %> thing(s) assigned to me
+        <i class="icon-ok"></i> <%= @my_active_todos.count %> thing(s) assigned to me
       </li>
 
       <% @my_active_todos.each do |t| %>
@@ -19,23 +19,6 @@
               <div>
                 <span><%= t.project.name[0..30] %>
                   <% if t.project.name.length > 30 %>
-                      ...
-                  <% end %>
-                </span>
-              </div>
-            </a>
-          </li>
-      <% end %>
-
-      <% @my_active_tasks.each do |t| %>
-          <li>
-            <a href='/projects/<%= t.milestone.project.id.to_s %>/tasks'>
-              <div class="clearfix">
-                <span><b><i class='icon-check-empty btn btn-mini btn-blue'></i><%= t.subject %></b></span>
-              </div>
-              <div>
-                <span><%= t.milestone.project.name[0..30] %>
-                  <% if t.milestone.project.name.length > 30 %>
                       ...
                   <% end %>
                 </span>
@@ -57,11 +40,11 @@
   <li class="purple">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       <i class="icon-bell-alt icon-animated-bell icon-only"></i>
-      <span class="badge badge-important"><%= @my_late_todos.count + @my_late_tasks.count %></span>
+      <span class="badge badge-important"><%= @my_late_todos.count %></span>
     </a>
     <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-closer">
       <li class="nav-header">
-        <i class="icon-warning-sign"></i> <%= @my_late_todos.count + @my_late_tasks.count %> alert(s) for me
+        <i class="icon-warning-sign"></i> <%= @my_late_todos.count %> alert(s) for me
       </li>
 
       <% @my_late_todos.each do |t| %>
@@ -73,23 +56,6 @@
               <div>
                 <span><%= t.project.name[0..30] %>
                   <% if t.project.name.length > 30 %>
-                      ...
-                  <% end %>
-                </span>
-              </div>
-            </a>
-          </li>
-      <% end %>
-
-      <% @my_late_tasks.each do |t| %>
-          <li>
-            <a href='/projects/<%= t.milestone.project.id.to_s %>/tasks'>
-              <div class="clearfix">
-                <span><b><i class='icon-check-empty btn btn-mini btn-blue'></i><%= t.subject %></b></span>
-              </div>
-              <div>
-                <span><%= t.milestone.project.name[0..30] %>
-                  <% if t.milestone.project.name.length > 30 %>
                       ...
                   <% end %>
                 </span>

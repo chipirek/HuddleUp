@@ -84,12 +84,6 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
   m = project1.milestones.create(:subject=>'Sprint planning completed - ready to start', :event_date=>100.days.ago, :percent_complete=>100, :points=>1)
   puts '   Added milestone ' + m.subject
-  t = m.tasks.create(:subject=>'Draft product vision',:due_date=>100.days.ago, :position=>1, :points=>1)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Gain executive support',:due_date=>100.days.ago, :position=>1, :points=>1)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Organize resourcing',:due_date=>100.days.ago, :position=>1, :points=>1)
-  puts '       Added task ' + t.subject
 
   m = project1.milestones.create(:subject=>'Sprint 1 complete', :event_date=>3.months.ago, :percent_complete=>100, :points=>33)
   puts '   Added milestone ' + m.subject
@@ -100,42 +94,18 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
   m = project5.milestones.create(:subject=>'Initial Design', :event_date=>100.days.ago, :percent_complete=>100, :points=>1)
   puts '   Added milestone ' + m.subject
-  t = m.tasks.create(:subject=>'Draft product vision',:due_date=>100.days.ago, :position=>1, :points=>1, :is_complete=>true)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Gain executive support',:due_date=>100.days.ago, :position=>1, :points=>1, :is_complete=>true)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Organize resourcing',:due_date=>100.days.ago, :position=>1, :points=>1, :is_complete=>true)
-  puts '       Added task ' + t.subject
 
   m = project5.milestones.create(:subject=>'Engineering Design', :event_date=>90.days.ago, :percent_complete=>100, :points=>5)
   puts '   Added milestone ' + m.subject
-  t = m.tasks.create(:subject=>'Save the Johnson account',:due_date=>90.days.ago, :position=>1, :points=>1, :is_complete=>true)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Final elevation',:due_date=>90.days.ago, :position=>1, :points=>1, :is_complete=>true)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Blueprinting',:due_date=>90.days.ago, :position=>1, :points=>1, :is_complete=>true)
-  puts '       Added task ' + t.subject
 
   m = project5.milestones.create(:subject=>'Construction', :event_date=>80.days.ago, :percent_complete=>50, :points=>60)
   puts '   Added milestone ' + m.subject
-  t = m.tasks.create(:subject=>'Framing',:due_date=>80.days.ago, :position=>1, :points=>1, :is_complete=>true)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Walls',:due_date=>80.days.ago, :position=>1, :points=>1, :is_complete=>true)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Shingle the roof',:due_date=>80.days.ago, :position=>1, :points=>1)
-  puts '       Added task ' + t.subject
-  t = m.tasks.create(:subject=>'Painting',:due_date=>80.days.ago, :position=>1, :points=>1)
-  puts '       Added task ' + t.subject
 
   m = project5.milestones.create(:subject=>'Punchlist / Final Inspection', :event_date=>Date.tomorrow, :percent_complete=>0, :points=>33)
   puts '   Added milestone ' + m.subject
-  t = m.tasks.create(:subject=>'Walkthrough',:due_date=>Date.tomorrow, :position=>1, :points=>1)
-  puts '       Added task ' + t.subject
 
   m = project5.milestones.create(:subject=>'Signoff', :event_date=>Time.now.advance(:days=>7).to_date, :percent_complete=>0, :points=>1)
   puts '   Added milestone ' + m.subject
-  t = m.tasks.create(:subject=>'Walk-through and official close',:due_date=>Date.tomorrow, :position=>1, :points=>1)
-  puts '       Added task ' + t.subject
 
   puts ' '
   puts 'Seeding todos for AlphaSim...'
@@ -178,10 +148,11 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts 'Removing all invitations...'
   Invitation.destroy_all
 
+=begin
   puts ' '
   puts 'Creating load testing / performance testing bulk data...'
 
-=begin
+
   j=0
   10000.times do |i|
     u = User.create( :name => "User " + i.to_s, :email => i.to_s + '_user@gmail.com', :password => "lollip0p" )

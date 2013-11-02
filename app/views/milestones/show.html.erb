@@ -81,11 +81,11 @@
                       </tr>
                       <tr>
                         <td style='padding-bottom: 20px;'>Size:</td>
-                        <td style='padding-bottom: 20px;'><%= @milestone.total_points %> points</td>
+                        <td style='padding-bottom: 20px;'></td>
                       </tr>
                       <tr>
                         <td>Calculated:</td>
-                        <td><%= number_to_percentage(@milestone.calculated_percent_complete, :precision => 0) %>, according to completed tasks</td>
+                        <td></td>
                       </tr>
                     </table>
                   </div>
@@ -99,9 +99,6 @@
               <div class="widget-header widget-header-large">
                 <h4 class="lighter smaller"> Associated Tasks</h4>
 
-                <div class="widget-toolbar no-border">
-                  <a class='btn btn-small btn-success' href="#modal-add-form" role="button" data-toggle="modal">Add a new task</a>
-                </div>
               </div>
 
               <div class="widget-body">
@@ -118,47 +115,6 @@
                       <% end %>
 
                       <div id="tasks-tab" class="tab-pane active">
-                        <div class="clearfix">
-
-                          <ul id="tasks" class="item-list">
-
-                            <% @milestone.tasks.order('position').each do |task| %>
-
-                                <li class="<%= get_item_color(task) %> clearfix task" data-pk='<%= task.id %>' data-completed="<%= task.is_complete %>" id="task_<%= task.id %>">
-                                  <label class="inline"><input id="chk_<%= task.id %>" type="checkbox" data-completed="<%= task.is_complete %>"/>
-                                  <span class="lbl"> <%= task.subject %> &nbsp;&nbsp;
-
-                                    <span class="badge badge-light"><%= task.points %> point(s)</span>
-                                    <span class="badge badge-light"><%= 'Assigned to ' + task.member.user.name unless task.member.nil? %></span>
-                                  </span>
-                                  </label>
-
-                                  <div class="inline pull-right position-relative">
-
-                                    <a href="/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/tasks/<%= task.id %>"
-                                       class="btn btn-mini btn-danger"
-                                       data-confirm="Are you sure you want to delete <%= task.subject %>?"
-                                       data-method="delete"
-                                       data-placement="left"
-                                       data-rel="tooltip"
-                                       rel="nofollow"
-                                       title="Delete">
-                                      <span><i class='icon-trash'></i></span>
-                                    </a>
-                                    &nbsp;
-                                    <a class='btn btn-mini btn-info icon-edit' data-placement="left"
-                                       data-rel="tooltip"
-                                       title='Edit'
-                                       href="#modal-form-<%= task.id %>" role="button" data-toggle="modal"></a>
-
-                                  </div>
-                                </li>
-
-                            <% end %>
-
-                          </ul>
-
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -175,14 +131,6 @@
                 <h4 class="blue bigger">Add a new task</h4>
               </div>
 
-              <div class="modal-body overflow-visible">
-                <div class="row-fluid">
-
-                  <%=  render 'tasks/form' %>
-
-                </div>
-              </div>
-
               <div class="modal-footer">
                 <button class="btn btn-small" data-dismiss="modal">
                   <i class="icon-remove"></i>
@@ -195,36 +143,6 @@
                 </button>
               </div>
             </div>
-
-            <% @milestone.tasks.each do |task| %>
-                <div id="modal-form-<%= task.id %>" class="modal hide" tabindex="-1">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="blue bigger"><%= task.subject %></h4>
-                  </div>
-
-                  <div class="modal-body overflow-visible">
-                    <div class="row-fluid">
-
-                      <% @task = task %>
-                      <%=  render 'tasks/form' %>
-
-                    </div>
-                  </div>
-
-                  <div class="modal-footer">
-                    <button class="btn btn-small" data-dismiss="modal">
-                      <i class="icon-remove"></i>
-                      Cancel
-                    </button>
-
-                    <button class="btn btn-small btn-primary" onclick="javascript:$('#edit_task_<%= task.id %>').submit();">
-                      <i class="icon-ok"></i>
-                      Save
-                    </button>
-                  </div>
-                </div>
-            <% end  %>
 
             <!-- END -->
 
@@ -305,11 +223,6 @@
             $(this).find($('#task_subject')).focus();
         });
 
-        <% @milestone.tasks.each do |task| %>
-        $('#modal-form-<%= task.id %>').on('shown', function() {
-            $(this).find("[autofocus]:first").focus();
-        });
-        <% end %>
 
         $('#tasks').sortable({
             axis: 'y',

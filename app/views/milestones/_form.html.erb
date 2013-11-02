@@ -64,9 +64,6 @@
         <div class='ace-spinner'>
           <input type="text" class="input-mini spinner-input" id="milestone_percent_complete" name='milestone[percent_complete]' maxlength="3" style="width: 30px;">
         </div>
-        <% if !@milestone.id.nil? %>
-            &nbsp;&nbsp;&nbsp;<a href='javascript:showReCalc();'>(Re-)Calculate from my tasks</a>
-        <% end %>
       </div>
     </div>
 
@@ -76,29 +73,6 @@
     </div>
 
     <script type="text/javascript">
-
-        function showReCalc()
-        {
-            //$("div").each(function(index, value) {
-            //    console.log('div' + index + ':' + $(this).attr('id'));
-            //});
-            var total = 0;
-            var completed = 0;
-            var percent = 0;
-            $('#tasks li').each(function(index, value)
-            {
-                //alert($(this).attr('id') + ' completed=' + $(this).attr('data-completed') + 'points=' + $(this).attr('data-points'));
-                total += parseInt($(this).attr('data-points'));
-                if ($(this).attr('data-completed'))
-                    completed += parseInt($(this).attr('data-points'));
-            });
-            //alert('total=' + total + '    completed=' + completed);
-            if (total > 0)
-                percent = ((completed / total) * 100).toFixed(0);
-            //alert('percent=' + percent);
-            $('#milestone_percent_complete').val(percent);
-        }
-
 
         $(function () {
             $('#milestone_percent_complete').ace_spinner({value: 0, min: 0, max: 100, step: 5, btn_up_class: 'btn-info', btn_down_class: 'btn-info'});
