@@ -8,6 +8,10 @@ class MembersController < ApplicationController
     my_member = Member.where('project_id=?', params[:project_id]).where('user_id=?', current_user.id).first
     @i_am_an_admin = my_member.is_admin
 
+    #puts '----------------------'
+    #puts '@i_am_an_admin=' + @i_am_an_admin.to_s
+    #puts '----------------------'
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @members }

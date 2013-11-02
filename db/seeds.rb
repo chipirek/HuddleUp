@@ -51,7 +51,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts '   Added member ' + m.user.name
   m = project1.members.create(:user_id=>u2.id, :joined_date=>2.days.ago, :is_admin=>false, :status_code=>1)
   puts '   Added member ' + m.user.name
-  m = project1.members.create(:user_id=>u0.id, :joined_date=>20.minutes.ago, :is_admin=>false, :status_code=>1)
+  m = project1.members.create(:user_id=>u3.id, :joined_date=>20.minutes.ago, :is_admin=>false, :status_code=>1)
   puts '   Added member ' + m.user.name
 
   puts ' '
