@@ -72,29 +72,13 @@ ActiveRecord::Schema.define(:version => 20130714203505) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "description",      :default => ""
     t.integer  "status_code"
     t.integer  "percent_complete"
     t.string   "token_for_disqus"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
-
-  create_table "tasks", :force => true do |t|
-    t.integer  "milestone_id"
-    t.integer  "member_id"
-    t.string   "subject"
-    t.date     "due_date"
-    t.integer  "points"
-    t.boolean  "is_complete"
-    t.date     "completed_at"
-    t.integer  "position"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "tasks", ["member_id"], :name => "index_tasks_on_member_id"
-  add_index "tasks", ["milestone_id"], :name => "index_tasks_on_milestone_id"
 
   create_table "todos", :force => true do |t|
     t.integer  "project_id"

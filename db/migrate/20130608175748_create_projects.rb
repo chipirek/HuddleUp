@@ -2,7 +2,7 @@ class CreateProjects < ActiveRecord::Migration
   def change
     create_table :projects do |t|
       t.string :name
-      t.text :description
+      t.text :description, :default => ''
       t.integer :status_code
       t.integer :percent_complete
       t.string :token_for_disqus

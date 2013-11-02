@@ -34,7 +34,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts '   Added project ' + Project.all.first.name
   project2 = Project.create(:name=>"You should NOT see this project!!", :status_code=>2, :percent_complete=>9)
   puts '   Added project ' + Project.last.name
-  project3 = Project.create(:name=>"Mom's 50th Birthday party", :status_code=>2, :percent_complete=>15)
+  project3 = Project.create(:name=>"Mom's 50th Birthday party", :status_code=>2, :percent_complete=>15, :description=>'This is a description')
   puts '   Added project ' + Project.last.name
   project4 = Project.create(:name=>"Weekend chores (A 'honey-do' list)", :status_code=>1, :percent_complete=>35)
   puts '   Added project ' + Project.last.name
