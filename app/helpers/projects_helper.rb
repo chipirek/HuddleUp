@@ -36,4 +36,29 @@ module ProjectsHelper
     return 'rgb(209, 91, 71)'
   end
 
+
+
+  def get_milestone_status_color(m)
+    # late
+    if m.event_date.to_date < Time.now.to_date and m.percent_complete < 100
+      return 'alert-danger'
+    end
+
+    #complete
+    if m.percent_complete == 100
+      return 'alert-success'
+    end
+
+    #started
+    if m.percent_complete > 0 and m.percent_complete < 100
+      return 'alert-warning'
+    end
+
+    #not started
+    #started
+    if m.percent_complete == 0
+      return 'alert-info'
+    end
+  end
+
 end
