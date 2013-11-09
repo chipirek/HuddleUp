@@ -34,7 +34,6 @@ class IssuesController < ApplicationController
     @issue = Issue.new
     @project = Project.find(params[:project_id])
     @issue.project_id = params[:project_id]
-    @issue.percent_complete = 0
 
     respond_to do |format|
       format.html # new.html.erb
