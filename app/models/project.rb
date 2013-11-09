@@ -13,6 +13,7 @@ class Project < ActiveRecord::Base
   has_many :members
   has_many :milestones
   has_many :todos
+  has_many :issues
 
 
   def create_disqus_token

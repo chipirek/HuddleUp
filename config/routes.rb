@@ -4,6 +4,7 @@ HuddleUp::Application.routes.draw do
     resources :members
     resources :invitations
     resources :todos
+    resources :issues
     resources :milestones do
       resources :tasks
     end

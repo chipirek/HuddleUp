@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130714203505) do
+ActiveRecord::Schema.define(:version => 20131103221339) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(:version => 20130714203505) do
   end
 
   add_index "invitations", ["member_id"], :name => "index_invitations_on_member_id"
+
+  create_table "issues", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "description"
+    t.boolean  "is_resolved"
+    t.integer  "member_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "members", :force => true do |t|
     t.integer  "user_id"

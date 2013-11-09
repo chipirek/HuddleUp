@@ -41,6 +41,17 @@
     </li>
 
     <li
+    <% if component == 'issues' %>
+    class="active"
+    <% end %>
+    >
+      <a href="/projects/<%= project_id %>/issues">
+        <i class="icon-wrench"></i>
+        <span>Issues</span>
+      </a>
+    </li>
+
+    <li
     <% if component == 'todos' %>
     class="active"
     <% end %>
