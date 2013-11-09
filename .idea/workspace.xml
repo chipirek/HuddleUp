@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/projects/_side_nav_1.html.erb" afterPath="$PROJECT_DIR$/app/views/projects/_side_nav_1.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/project.rb" afterPath="$PROJECT_DIR$/app/models/project.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/index.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
@@ -14,13 +11,13 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706614907" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372857294277" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384008814356" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384010295451" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1383517884358" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1377466196105" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1378141555784" ignored="false" />
     <file path="/new.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1378152056322" ignored="false" />
     <file path="/sessions.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372602892174" ignored="false" />
-    <file path="/index.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1383518915626" ignored="false" />
+    <file path="/index.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384011541661" ignored="false" />
     <file path="/_test.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370723201372" ignored="false" />
     <file path="/_navbar.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370782597199" ignored="false" />
     <file path="/blank.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1377897727801" ignored="false" />
@@ -116,23 +113,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/milestones/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="79" selection-start="0" selection-end="7129" vertical-scroll-proportion="0.0">
+            <state line="110" column="41" selection-start="3761" selection-end="3761" vertical-scroll-proportion="0.7">
               <folding>
-                <marker date="1377984499000" expanded="false" signature="6248:6261" placeholder="..." />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#div#1" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <marker date="1384011542000" expanded="true" signature="5962:5975" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/issues/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="0" selection-start="3462" selection-end="3462" vertical-scroll-proportion="0.021613833">
+            <state line="119" column="0" selection-start="3462" selection-end="3462" vertical-scroll-proportion="-0.625">
               <folding>
                 <marker date="1383518916000" expanded="false" signature="4142:4155" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="157" column="22" selection-start="4092" selection-end="4670" vertical-scroll-proportion="-20.291666">
+              <folding>
+                <marker date="1383496819000" expanded="false" signature="12238:12251" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -164,15 +176,6 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/issues_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="84" column="0" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_side_nav_1.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/projects/_side_nav_1.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="29" selection-start="1415" selection-end="1415" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -210,7 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/projects/_top_nav.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/projects_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/milestone.rb" />
@@ -226,6 +228,7 @@
         <option value="$PROJECT_DIR$/app/models/project.rb" />
         <option value="$PROJECT_DIR$/app/views/projects/_side_nav_1.html.erb" />
         <option value="$PROJECT_DIR$/app/views/issues/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/milestones/index.html.erb" />
       </list>
     </option>
   </component>
@@ -1193,28 +1196,32 @@
       <created>1383496890353</created>
       <updated>1383496890353</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Starting adding issues module">
+      <created>1384010297731</created>
+      <updated>1384010297731</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="182" y="80" width="1457" height="866" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28561303" sideWeight="0.6723017" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28561303" sideWeight="0.6736021" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3275" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3274559" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32639793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19625" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1262,7 +1269,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed milestones gadget on project show page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting adding issues module" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1276,7 +1283,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Building out user registration function" />
     <MESSAGE value="Adding 'invitations' module" />
     <MESSAGE value="Building out 'invitations' module" />
     <MESSAGE value="Added outbound email infrastructure to invitations module" />
@@ -1301,18 +1307,12 @@
     <MESSAGE value="Fix UI on projects index page" />
     <MESSAGE value="Adding dashboard badges to project show page" />
     <MESSAGE value="Fixed milestones gadget on project show page" />
+    <MESSAGE value="Starting adding issues module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/projects_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="24" selection-start="1048" selection-end="1048" vertical-scroll-proportion="1.809816">
@@ -1410,20 +1410,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/milestones/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/issues/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="79" selection-start="0" selection-end="7129" vertical-scroll-proportion="0.0">
+        <state line="119" column="0" selection-start="3462" selection-end="3462" vertical-scroll-proportion="-0.625">
           <folding>
-            <marker date="1377984499000" expanded="false" signature="6248:6261" placeholder="..." />
+            <marker date="1383518916000" expanded="false" signature="4142:4155" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/issues/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="0" selection-start="3462" selection-end="3462" vertical-scroll-proportion="0.021613833">
+        <state line="157" column="22" selection-start="4092" selection-end="4670" vertical-scroll-proportion="-20.291666">
           <folding>
-            <marker date="1383518916000" expanded="false" signature="4142:4155" placeholder="..." />
+            <marker date="1383496819000" expanded="false" signature="12238:12251" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/milestones/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="41" selection-start="3761" selection-end="3761" vertical-scroll-proportion="0.7">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#div#1" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1384011542000" expanded="true" signature="5962:5975" placeholder="..." />
           </folding>
         </state>
       </provider>
