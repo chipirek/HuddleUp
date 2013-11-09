@@ -61,4 +61,14 @@ module ProjectsHelper
     end
   end
 
+
+  def get_issue_status_color(i)
+    if i.is_resolved?
+      return 'alert-success'
+    else
+      return 'alert-danger'
+    end
+  end
+
+
 end
