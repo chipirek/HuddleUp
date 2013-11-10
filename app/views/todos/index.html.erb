@@ -72,12 +72,39 @@
                 <% @todos.each do |todo| %>
 
                     <li class="<%= get_item_color(todo) %> clearfix task" data-pk='<%= todo.id %>' data-completed="<%= todo.is_complete %>" id="task_<%= todo.id %>">
-                      <label class="inline"><input id="chk_<%= todo.id %>" type="checkbox" data-completed="<%= todo.is_complete %>" /><span class="lbl"> <%= todo.subject %></span></label>
+                      <label class="inline">
+                        <span class="lbl">
+                          <% if todo.is_complete? %>
+                            <span class='bigger-130 icon-check'> </span>
+                          <% else %>
+                            <span class='bigger-130 icon-check-empty'> </span>
+                          <% end %>
+                          &nbsp;&nbsp;<%= todo.subject %>
+                        </span>
+                      </label>
 
-                      <span class="label label-large label-light"><%= todo.member.user.name unless todo.member.nil? %></span>
+                      <span class="badge badge-grey"><%= todo.member.user.name unless todo.member.nil? %></span>
 
                       <div class="inline pull-right position-relative">
 
+                        <% if !todo.is_complete? %>
+                            &nbsp;
+                            <button class="btn btn-mini btn-success"
+                                    onclick="window.location.href='/projects/<%= @project.id %>/todos/mark_complete/<%= todo.id %>'"
+                                    data-placement="left"
+                                    data-rel="tooltip"
+                                    title="Mark as Complete">Complete
+                            </button>
+                        <% else %>
+                            &nbsp;
+                            <button class="btn btn-mini btn-danger"
+                                    onclick="window.location.href='/projects/<%= @project.id %>/todos/mark_incomplete/<%= todo.id %>'"
+                                    data-placement="left"
+                                    data-rel="tooltip"
+                                    title="Mark as Incomplete">Re-Open
+                            </button>
+                        <% end %>
+                        &nbsp;
                         <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>"
                            class="btn btn-mini btn-danger"
                            data-confirm="Are you sure you want to delete <%= todo.subject %>?"
@@ -259,50 +286,11 @@
 
         $('#tasks').disableSelection();
 
-        var opts = {
-            lines: 13, // The number of lines to draw
-            length: 20, // The length of each line
-            width: 10, // The line thickness
-            radius: 30, // The radius of the inner circle
-            corners: 1, // Corner roundness (0..1)
-            rotate: 0, // The rotation offset
-            direction: 1, // 1: clockwise, -1: counterclockwise
-            color: '#000', // #rgb or #rrggbb
-            speed: 1, // Rounds per second
-            trail: 60, // Afterglow percentage
-            shadow: false, // Whether to render a shadow
-            hwaccel: false, // Whether to use hardware acceleration
-            className: 'spinner', // The CSS class to assign to the spinner
-            zIndex: 2e9, // The z-index (defaults to 2000000000)
-            top: 'auto', // Top position relative to parent in px
-            left: 'auto' // Left position relative to parent in px
-        };
-
-        $('#tasks input:checkbox').removeAttr('checked').on('click', function () {
-            var target = document.getElementById('tasks');
-            var spinner = new Spinner(opts).spin(target);
-
-            var id = $(this).closest('li').attr('data-pk');
-            var done = ($(this).closest('li').attr('data-completed') == "true");
-            if (done)
-            {
-                //alert('marking incomplete');
-                window.location.href='/projects/<%= @project.id %>/todos/mark_incomplete/' + id;
-            }
-            else
-            {
-                //alert('marking complete');
-                window.location.href='/projects/<%= @project.id %>/todos/mark_complete/' + id;
-            }
-        });
-
         $('.task').each(function () {
             var done = ($(this).attr('data-completed') == "true");
             var pk = $(this).attr('data-pk');
             if (done) {
                 $(this).addClass('selected');
-                $('#chk_' + pk).attr('checked', true);  //WORKS!
-                //$(this).find('input:checkbox').attr('checked', true);
             }
         });
 

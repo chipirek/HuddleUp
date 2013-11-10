@@ -72,35 +72,44 @@
                   &nbsp;
                   <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
 
-                  <div class='pull-right' >
-                    <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"
-                       class="btn btn-mini btn-danger"
-                       data-confirm="Are you sure you want to delete <%= issue.description %>?"
-                       data-method="delete"
-                       data-placement="left"
-                       data-rel="tooltip"
-                       rel="nofollow"
-                       title="Delete">
-                      <span><i class='icon-trash'></i></span>
+                  <div class="inline pull-right position-relative">
+                      <% if !issue.is_resolved? %>
+                        &nbsp;
+                        <button class="btn btn-mini btn-success"
+                              onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= issue.id %>'"
+                              data-placement="left"
+                              data-rel="tooltip"
+                              title="Mark as Resolved">Resolve
+                        </button>
+                      <% else %>
+                        &nbsp;
+                        <button class="btn btn-mini btn-danger"
+                                onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= issue.id %>'"
+                                data-placement="left"
+                                data-rel="tooltip"
+                                title="Mark as Un-Resolved">Re-Open
+                        </button>
+                      <% end %>
+                      &nbsp;
+                      <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"
+                        class="btn btn-mini btn-danger"
+                        data-confirm="Are you sure you want to delete <%= issue.description %>?"
+                        data-method="delete"
+                        data-placement="left"
+                        data-rel="tooltip"
+                        rel="nofollow"
+                        title="Delete">
+                        <span><i class='icon-trash'></i></span>
                     </a>
-                    <span class='pull-right'>&nbsp;</span>
-                    <button class="btn btn-mini btn-info icon-edit pull-right"
+                    &nbsp;
+                    <button class="btn btn-mini btn-info icon-edit"
                             onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= issue.id %>/edit'"
                             data-placement="left"
                             data-rel="tooltip"
                             title="Edit">
-                    </button> &nbsp;
-
+                    </button>
+                    &nbsp;
                   </div>
-                  <div class='pull-right'> &nbsp; </div>
-                  <div class='pull-right'> &nbsp; </div>
-                  <div class='pull-right smaller-80'>something here</div>
-
-                  <div class='pull-right'> &nbsp; </div>
-                  <div class='pull-right'>
-                    asdf
-                  </div>
-
                 </div>
             <% end %>
 

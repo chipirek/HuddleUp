@@ -118,4 +118,24 @@ class IssuesController < ApplicationController
     end
   end
 
+
+  def mark_resolved
+    @project = Project.find(params[:project_id])
+    @item = Issue.find(params[:id])
+    @item.update_attribute('is_resolved', true)
+    @item.save!
+
+    redirect_to request.referrer, notice: 'Issue has been resolved.'
+  end
+
+
+  def mark_unresolved
+    @project = Project.find(params[:project_id])
+    @item = Issue.find(params[:id])
+    @item.update_attribute('is_resolved', nil)
+    @item.save!
+
+    redirect_to request.referrer, notice: 'Issue has been re-opened.'
+  end
+
 end
