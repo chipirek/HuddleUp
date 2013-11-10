@@ -43,6 +43,13 @@
     <div class="page-content">
       <div class="page-header position-relative">
 
+        <% if flash[:notice] %>
+            <div class='alert alert-block alert-success'>
+              <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+              <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
+            </div>
+        <% end %>
+
         <div class="well well-large <%= get_issue_status_color(@issue) %>">
           <h4><a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>"><i class="icon-wrench"></i> <%= @issue.description %></a></h4>
           &nbsp;

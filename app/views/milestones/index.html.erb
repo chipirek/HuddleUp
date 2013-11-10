@@ -64,11 +64,11 @@
           <% end %>
 
 
-          <div class='span6' style="margin-bottom: 50px;">
+          <div class='span7' style="margin-bottom: 50px;">
 
             <% @project.milestones.order('event_date').each do |milestone| %>
                 <div class="alert <%= get_milestone_status_color(milestone) %>">
-                  <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit"><%= milestone.subject %></a>
+                  <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit"><i class="icon-calendar"></i> <%= milestone.subject %></a>
 
                   <div class='pull-right' >
                     <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"
@@ -107,7 +107,7 @@
 
 
 
-          <div class='span6' style="margin-bottom: 50px;">
+          <div class='span5' style="margin-bottom: 50px;">
             <h1>pie chart here soon </h1>
           </div>
 

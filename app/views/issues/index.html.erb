@@ -42,7 +42,7 @@
     <div class="page-content">
       <div class="page-header position-relative">
         <h1>
-          <i class="icon-calendar"></i> <%= @project.name %>
+          <i class="icon-wrench"></i> <%= @project.name %>
           <small>
             <i class="icon-double-angle-right"></i>
             Issues
@@ -66,7 +66,7 @@
 
           <div style="margin-bottom: 50px;">
 
-            <% @project.issues.order('is_resolved').each do |issue| %>
+            <% @project.issues.order('is_resolved nulls first').each do |issue| %>
                 <div class="alert <%= get_issue_status_color(issue) %>">
                   <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"><i class="icon-wrench"></i> <%= issue.description %></a>
                   &nbsp;
