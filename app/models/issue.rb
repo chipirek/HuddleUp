@@ -7,6 +7,6 @@ class Issue < ActiveRecord::Base
   validates_presence_of :description
 
   belongs_to :project
-
+  belongs_to :member
 
 end

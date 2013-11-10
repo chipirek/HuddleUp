@@ -30,10 +30,17 @@
     <input type='hidden' id='target_view' name='target_view' value='<%= params[:target_view] %>' />
 
     <div class="control-group" id='issue_subject_controlGroup'>
-      <label class="control-label" for="issue_description">Issue</label>
+      <label class="control-label" for="issue_description">Description</label>
 
       <div class="controls">
         <input type="text" id="issue_description" name='issue[description]' placeholder="enter the issue name" value='<%= @issue.description %>'  class='span8' style='font-size:2em; height:40px;'>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="task_points">Assigned To</label>
+      <div class="controls">
+        <%= select('issue', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
       </div>
     </div>
 

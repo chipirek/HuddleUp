@@ -69,6 +69,8 @@
             <% @project.issues.order('is_resolved').each do |issue| %>
                 <div class="alert <%= get_issue_status_color(issue) %>">
                   <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"><%= issue.description %></a>
+                  &nbsp;
+                  <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
 
                   <div class='pull-right' >
                     <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"
