@@ -152,7 +152,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts 'Seeding issues to AlphaSim...'
   Issue.destroy_all
 
-  m = project1.issues.create(:description=>'This is an unresolved issue', :is_resolved=>false)
+  m = project1.issues.create(:description=>'This is an unresolved issue')
   puts '   Added issue ' + m.description
 
   m = project1.issues.create(:description=>'This is a resolved issue', :is_resolved=>true)

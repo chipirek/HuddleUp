@@ -111,9 +111,9 @@
             </span>
 
             <span class="btn btn-app btn-small btn-success no-hover">
-                <span class="bigger-175"> <%= @project.members.count %> </span>
+                <span class="bigger-175"> <%= @project.issues.where('is_resolved is null').count %> </span>
                 <br/>
-                <span class="smaller-90"> Team Members </span>
+                <span class="smaller-90"> Open Issues </span>
             </span>
 
             <span class="btn btn-app btn-small btn-primary no-hover">
@@ -150,7 +150,7 @@
 
             <% @project.milestones.order('event_date').each do |milestone| %>
                 <div class="alert <%= get_milestone_status_color(milestone) %>">
-                  <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><%= milestone.subject %></a>
+                  <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><i class='icon-calendar'></i> <%= milestone.subject %></a>
                   <div class='pull-right smaller-80'>Due <%= milestone.event_date.strftime('%m/%d/%Y') %></div>
                   <div class='pull-right'> &nbsp; </div>
                   <div class='pull-right smaller-80'><%= milestone.percent_complete %>% done, </div>
@@ -169,7 +169,7 @@
 <div class="widget-box transparent">
 
   <div class="widget-header">
-    <h4 class="lighter smaller"><i class="icon-list"></i> TODOS</h4>
+    <h4 class="lighter smaller"><i class="icon-list"></i> OPEN TODOS</h4>
 
     <div class="widget-toolbar no-border">
     </div>
@@ -182,7 +182,7 @@
         <div id="tasks-tab" class="tab-pane active" style="margin-bottom: 50px;">
           <div class="clearfix">
 
-            <% if @project.todos.count == 0 %>
+            <% if @project.todos.where('is_complete is null or is_complete = false').count == 0 %>
                 None
             <% else %>
 
@@ -191,29 +191,7 @@
                   <% @project.todos.each do |todo| %>
 
                       <li class="<%= get_item_color(todo) %> clearfix task" data-pk='<%= todo.id %>' data-completed="<%= todo.is_complete %>" id="task_<%= todo.id %>">
-                        <label class="inline"><input id="chk_<%= todo.id %>" type="checkbox" data-completed="<%= todo.is_complete %>"/><span class="lbl"> <%= todo.subject %></span></label>
-
-                        <div class="inline pull-right position-relative">
-
-                          <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>?target_view=dashboard"
-                             class="btn btn-mini btn-danger"
-                             data-confirm="Are you sure you want to delete <%= todo.subject %>?"
-                             data-method="delete"
-                             data-placement="right"
-                             data-rel="tooltip"
-                             rel="nofollow"
-                             title="Delete">
-                            <span><i class='icon-trash'></i></span>
-                          </a>
-                          &nbsp;
-                          <button class="btn btn-mini btn-info icon-edit"
-                                  onclick="window.location.href='/projects/<%= @project.id %>/todos/<%= todo.id %>/edit?target_view=dashboard'"
-                                  data-placement="left"
-                                  data-rel="tooltip"
-                                  title="Edit">
-                          </button>
-
-                        </div>
+                        <label class="inline"><span class="lbl"><i class='icon-check-empty bigger-130'></i> <%= todo.subject %></span></label>
                       </li>
 
                   <% end %>
@@ -265,6 +243,40 @@
   <!-- end widget -->
 
 
+
+  <!-- widget -->
+  <div class="widget-box transparent">
+    <div class="widget-header">
+      <h4 class="lighter smaller"><i class="icon-wrench"></i> OPEN ISSUES</h4>
+      <div class="widget-toolbar no-border">
+      </div>
+    </div>
+
+    <div class="widget-body">
+      <div class="widget-main padding-5">
+        <div class="tab-content padding-8">
+
+          <% if @project.issues.count == 0 %>
+              None
+          <% else %>
+              <% @project.issues.where('is_resolved is null').each do |issue| %>
+                  <div class="alert <%= get_issue_status_color(issue) %>">
+                    <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"><i class="icon-wrench"></i> <%= issue.description %></a>
+                    &nbsp;
+                    <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
+                  </div>
+              <% end %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end widget -->
+
+
+
+
   <!-- widget -->
   <div class="widget-box transparent">
 
@@ -283,7 +295,7 @@
               None
           <% else %>
 
-            <ul class='unstyled space2'>
+              <ul class='unstyled space2'>
                 <% @late_todos.each do |o| %>
                     <li><i class="icon-circle red"></i>Todo "<%= o.subject %>" is late!</li>
                 <% end %>
@@ -296,7 +308,6 @@
     </div>
   </div>
   <!-- end widget -->
-
 
 
   <!-- widget -->
