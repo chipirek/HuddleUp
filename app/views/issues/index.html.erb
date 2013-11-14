@@ -41,13 +41,8 @@
 
     <div class="page-content">
       <div class="page-header position-relative">
-        <h1>
-          <i class="icon-wrench"></i> <%= @project.name %>
-          <small>
-            <i class="icon-double-angle-right"></i>
-            Issues
-          </small>
-        </h1>
+        <h1><small><%= @project.name %></small></h1>
+        <h1><i class="icon-wrench"></i> Issues</h1>
 
       </div>
       <!--/.page-header-->
@@ -63,43 +58,42 @@
               </div>
           <% end %>
 
-
-          <div style="margin-bottom: 50px;">
+          <ul id="issues" class="item-list" style='margin-bottom: 50px;'>
 
             <% @project.issues.order('is_resolved nulls first').each do |issue| %>
-                <div class="alert <%= get_issue_status_color(issue) %>">
-                  <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"><i class="icon-wrench"></i> <%= issue.description %></a>
-                  &nbsp;
-                  <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
 
+                <li class="<%= get_issue_status_color2(issue) %> clearfix <%= 'selected' unless !issue.is_resolved? %>" data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
+                  <i class='icon-wrench'></i>
+                  <a href='<%= project_issue_path(@project, issue) %>'>&nbsp;&nbsp;<%= issue.description %></a>
+                  <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
                   <div class="inline pull-right position-relative">
-                      <% if !issue.is_resolved? %>
+                    <% if !issue.is_resolved? %>
                         &nbsp;
                         <button class="btn btn-mini btn-success"
-                              onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= issue.id %>'"
-                              data-placement="left"
-                              data-rel="tooltip"
-                              title="Mark as Resolved">Resolve
+                                onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= issue.id %>'"
+                                data-placement="left"
+                                data-rel="tooltip"
+                                title="Mark as Resolved"><i class='icon-ok'></i> Resolve
                         </button>
-                      <% else %>
+                    <% else %>
                         &nbsp;
                         <button class="btn btn-mini btn-danger"
                                 onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= issue.id %>'"
                                 data-placement="left"
                                 data-rel="tooltip"
-                                title="Mark as Un-Resolved">Re-Open
+                                title="Mark as Un-Resolved"><i class='icon-remove'></i> Re-Open
                         </button>
-                      <% end %>
-                      &nbsp;
-                      <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"
-                        class="btn btn-mini btn-danger"
-                        data-confirm="Are you sure you want to delete <%= issue.description %>?"
-                        data-method="delete"
-                        data-placement="left"
-                        data-rel="tooltip"
-                        rel="nofollow"
-                        title="Delete">
-                        <span><i class='icon-trash'></i></span>
+                    <% end %>
+                    &nbsp;
+                    <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"
+                       class="btn btn-mini btn-danger"
+                       data-confirm="Are you sure you want to delete <%= issue.description %>?"
+                       data-method="delete"
+                       data-placement="left"
+                       data-rel="tooltip"
+                       rel="nofollow"
+                       title="Delete">
+                      <span><i class='icon-trash'></i></span>
                     </a>
                     &nbsp;
                     <button class="btn btn-mini btn-info icon-edit"
@@ -110,10 +104,11 @@
                     </button>
                     &nbsp;
                   </div>
-                </div>
+                </li>
+
             <% end %>
 
-          </div>
+          </ul >
 
           <a class='btn btn-success' href="/projects/<%= @project.id %>/issues/new">Create a new issue</a>
 

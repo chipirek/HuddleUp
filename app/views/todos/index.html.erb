@@ -93,7 +93,7 @@
                                     onclick="window.location.href='/projects/<%= @project.id %>/todos/mark_complete/<%= todo.id %>'"
                                     data-placement="left"
                                     data-rel="tooltip"
-                                    title="Mark as Complete">Complete
+                                    title="Mark as Complete"><i class='icon-ok'></i>Complete
                             </button>
                         <% else %>
                             &nbsp;
@@ -101,7 +101,7 @@
                                     onclick="window.location.href='/projects/<%= @project.id %>/todos/mark_incomplete/<%= todo.id %>'"
                                     data-placement="left"
                                     data-rel="tooltip"
-                                    title="Mark as Incomplete">Re-Open
+                                    title="Mark as Incomplete"><i class='icon-remove'></i>Re-Open
                             </button>
                         <% end %>
                         &nbsp;
