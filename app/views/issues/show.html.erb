@@ -25,141 +25,219 @@
 
 
 <div class="main-container container-fluid">
-  <a class="menu-toggler" id="menu-toggler" href="#">
-    <span class="menu-text"></span>
-  </a>
+<a class="menu-toggler" id="menu-toggler" href="#">
+  <span class="menu-text"></span>
+</a>
 
-  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'issues', :project_id => @project.id} %>
+<%= render :partial => '/projects/side_nav_1', :locals => {:component => 'issues', :project_id => @project.id} %>
 
-  <div class="main-content">
+<div class="main-content">
 
 
-    <% crumbs = [['Projects', projects_path],
-                 [@project.name, project_path(@project)],
-                 ['Issues', project_issues_path(@project)]] %>
+<% crumbs = [['Projects', projects_path],
+             [@project.name, project_path(@project)],
+             ['Issues', project_issues_path(@project)]] %>
 
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => @issue.description} %>
+<%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => @issue.description} %>
 
-    <div class="page-content">
-      <div class="page-header position-relative">
+<div class="page-content">
+  <div class="page-header position-relative">
 
-        <% if flash[:notice] %>
-            <div class='alert alert-block alert-success'>
-              <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-              <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
-            </div>
+    <% if flash[:notice] %>
+        <div class='alert alert-block alert-success'>
+          <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+          <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
+        </div>
+    <% end %>
+
+    <div class="well well-large <%= get_issue_status_color(@issue) %>">
+      <h4><b>Issue: </b>
+        <i><a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>"><i class="icon-wrench"></i> <%= @issue.description %>
+        </a></i></h4>
+      &nbsp;
+      <% if @issue.is_resolved? %>
+          <span class="badge badge-grey">This issue has been esolved</span>
+      <% else %>
+          <span class="badge badge-grey">This issue is not resolved</span>
+      <% end %>
+      &nbsp;
+      <span class="badge badge-grey"><%= 'Assigned to ' + @issue.member.user.name unless @issue.member.nil? %></span>
+
+      <div class="inline pull-right position-relative">
+        <% if !@issue.is_resolved? %>
+            &nbsp;
+            <button class="btn btn-mini btn-success"
+                    onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= @issue.id %>'"
+                    data-placement="left"
+                    data-rel="tooltip"
+                    title="Mark as Resolved">Resolve
+            </button>
+        <% else %>
+            &nbsp;
+            <button class="btn btn-mini btn-danger"
+                    onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= @issue.id %>'"
+                    data-placement="left"
+                    data-rel="tooltip"
+                    title="Mark as Un-Resolved">Re-Open
+            </button>
         <% end %>
-
-        <div class="well well-large <%= get_issue_status_color(@issue) %>">
-          <h4><a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>"><i class="icon-wrench"></i> <%= @issue.description %></a></h4>
-          &nbsp;
-          <% if @issue.is_resolved? %>
-            <span class="badge badge-grey">This issue has been esolved</span>
-          <% else %>
-            <span class="badge badge-grey">This issue is not resolved</span>
-          <% end %>
-          &nbsp;
-          <span class="badge badge-grey"><%= 'Assigned to ' + @issue.member.user.name unless @issue.member.nil? %></span>
-
-          <div class="inline pull-right position-relative">
-          <% if !@issue.is_resolved? %>
-              &nbsp;
-              <button class="btn btn-mini btn-success"
-                      onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= @issue.id %>'"
-                      data-placement="left"
-                      data-rel="tooltip"
-                      title="Mark as Resolved">Resolve
-              </button>
-          <% else %>
-              &nbsp;
-              <button class="btn btn-mini btn-danger"
-                      onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= @issue.id %>'"
-                      data-placement="left"
-                      data-rel="tooltip"
-                      title="Mark as Un-Resolved">Re-Open
-              </button>
-          <% end %>
-          &nbsp;
-          <a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>"
-             class="btn btn-mini btn-danger"
-             data-confirm="Are you sure you want to delete <%= @issue.description %>?"
-             data-method="delete"
-             data-placement="left"
-             data-rel="tooltip"
-             rel="nofollow"
-             title="Delete">
-            <span><i class='icon-trash'></i></span>
-          </a>
-          &nbsp;
-          <button class="btn btn-mini btn-info icon-edit"
-                  onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/edit'"
-                  data-placement="left"
-                  data-rel="tooltip"
-                  title="Edit">
-          </button>
-          &nbsp;
-        </div>
-      </div>
-      </div>
-      <!--/.page-header-->
-
-      <div class="row-fluid">
-        <div class="span12">
-          <!--PAGE CONTENT BEGINS-->
-
-
-        </div>
-        <!--/row-->
-
-        <!--PAGE CONTENT ENDS-->
-      </div>
-      <!--/.span-->
-    </div>
-    <!--/.row-fluid-->
-  </div>
-  <!--/.page-content-->
-
-  <div class="ace-settings-container" id="ace-settings-container">
-    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-      <i class="icon-cog bigger-150"></i>
-    </div>
-
-    <div class="ace-settings-box" id="ace-settings-box">
-      <div>
-        <div class="pull-left">
-          <select id="skin-colorpicker" class="hide">
-            <option data-skin="default" value="#438EB9">#438EB9</option>
-            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-          </select>
-        </div>
-        <span>&nbsp; Choose Skin</span>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+        &nbsp;
+        <a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>"
+           class="btn btn-mini btn-danger"
+           data-confirm="Are you sure you want to delete <%= @issue.description %>?"
+           data-method="delete"
+           data-placement="left"
+           data-rel="tooltip"
+           rel="nofollow"
+           title="Delete">
+          <span><i class='icon-trash'></i></span>
+        </a>
+        &nbsp;
+        <button class="btn btn-mini btn-info icon-edit"
+                onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/edit'"
+                data-placement="left"
+                data-rel="tooltip"
+                title="Edit">
+        </button>
+        &nbsp;
       </div>
     </div>
   </div>
-  <!--/#ace-settings-container-->
-</div><!--/.main-content-->
+  <!--/.page-header-->
+
+  <div class="row-fluid">
+    <div class="span12">
+      <!--PAGE CONTENT BEGINS-->
+
+      <%= form_for [@project, @issue, @post], :html => {:class => 'form-actions input-append offset1 span10',
+                                                        :onsubmit => 'return isValidForm();' } do |f| %>
+          <input type="hidden" id='post_member_id' name='post[member_id]' value='<%= @member.id %>'></input>
+          <input class="width-75" type="text" id='post_body' name='post[body]' placeholder="Post an update here ..."></input>
+          <button type='submit' class="btn btn-small btn-info no-radius"> Post! </button>
+      <% end %>
+
+      <div id="timeline-1">
+        <div class="row-fluid">
+          <div class="offset1 span10">
+            <div class="timeline-container">
+
+              <div class="timeline-items">
+
+                <% @issue.posts.order('created_at desc').each do |post| %>
+                    <div class="timeline-item clearfix">
+                  <div class="timeline-info">
+                    <div class="entryDate">
+                      <span class="postMonth"><%= post.created_at.strftime('%b') %></span>
+                      <span class="postDay"><%= post.created_at.strftime('%d') %></span>
+                      <span class="postYear"><%= post.created_at.strftime('%Y') %></span>
+                    </div>
+                  </div>
+
+                  <div class="widget-box transparent">
+                    <div class="widget-header widget-header-small">
+                      <h5 class="smaller">
+                        <span class='grey'><%= time_ago_in_words(post.created_at) %> ago </span>
+                        <span class='blue'><%= post.member.user.name unless post.member.user.name.nil? %></span>
+                            <span class="grey"> posted an update...
+                                <i class="icon-hand-right grey bigger-125"></i>
+                            </span>
+                      </h5>
+
+                        <span class="widget-toolbar">
+                            <a href="#" data-action="collapse">
+                              <i class="icon-chevron-up"></i>
+                            </a>
+                        </span>
+                    </div>
+
+                    <div class="widget-body">
+                      <div class="widget-main">
+                        <%= post.body %>
+                        <div class="space-6"></div>
+
+                        <div class="widget-toolbox clearfix">
+                          <div class="pull-right action-buttons">
+                            <a href="<%= project_issue_post_path(@project, @issue, post) %>"
+                               class="btn btn-mini btn-danger"
+                               data-confirm="Are you sure you want to delete this update?"
+                               data-method="delete"
+                               data-placement="left"
+                               data-rel="tooltip"
+                               rel="nofollow"
+                               title="Delete">
+                              <span><i class='icon-trash'></i></span>
+                            </a>
+                            &nbsp;
+                            <button class="btn btn-mini btn-info icon-edit"
+                                    onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/<%= post.id %>'"
+                                    data-placement="left"
+                                    data-rel="tooltip"
+                                    title="Edit">
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--PAGE CONTENT ENDS-->
+    </div>
+    <!--/.span-->
+  </div>
+  <!--/.row-fluid-->
+</div>
+<!--/.page-content-->
+
+<div class="ace-settings-container" id="ace-settings-container">
+  <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
+    <i class="icon-cog bigger-150"></i>
+  </div>
+
+  <div class="ace-settings-box" id="ace-settings-box">
+    <div>
+      <div class="pull-left">
+        <select id="skin-colorpicker" class="hide">
+          <option data-skin="default" value="#438EB9">#438EB9</option>
+          <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+          <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+          <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+        </select>
+      </div>
+      <span>&nbsp; Choose Skin</span>
+    </div>
+
+    <div>
+      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
+      <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+    </div>
+
+    <div>
+      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
+      <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+    </div>
+
+    <div>
+      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
+      <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+    </div>
+
+    <div>
+      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
+      <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+    </div>
+  </div>
+</div>
+<!--/#ace-settings-container-->
+</div>
+<!--/.main-content-->
 </div><!--/.main-container-->
 
 <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
@@ -170,6 +248,12 @@
 <script type="text/javascript" src="/assets/js/spin.min.js"></script>
 <script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
+
+    function isValidForm() {
+        if ($('.post_body').length > 1) return true;
+        if ($('.post_body') > '') return true;
+        return false;
+    }
 
     $(function () {
 

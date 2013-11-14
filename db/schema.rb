@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131103221339) do
+ActiveRecord::Schema.define(:version => 20131111170741) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(:version => 20131103221339) do
   end
 
   add_index "milestones", ["project_id"], :name => "index_milestones_on_project_id"
+
+  create_table "posts", :force => true do |t|
+    t.integer  "issue_id"
+    t.integer  "member_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "name"

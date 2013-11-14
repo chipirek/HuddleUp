@@ -19,6 +19,7 @@ class IssuesController < ApplicationController
   def show
     @project = Project.find(params[:project_id])
     @issue = Issue.find(params[:id])
+    @post = Post.new
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
 
     respond_to do |format|

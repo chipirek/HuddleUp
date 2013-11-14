@@ -10,7 +10,8 @@ class Member < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
   has_many :todos
-  has_many :tasks
+  has_many :posts
+  has_many :issues
   has_one :invitation
 
   def is_blocked?
