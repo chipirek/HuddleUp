@@ -126,6 +126,9 @@ class IssuesController < ApplicationController
     @item.update_attribute('is_resolved', true)
     @item.save!
 
+    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    Post.create(:issue_id=>@item.id, :member_id=>@member.id, :body=>@member.user.name + ' resolved this issue.')
+
     redirect_to request.referrer, notice: 'Issue has been resolved.'
   end
 
@@ -135,6 +138,9 @@ class IssuesController < ApplicationController
     @item = Issue.find(params[:id])
     @item.update_attribute('is_resolved', nil)
     @item.save!
+
+    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    Post.create(:issue_id=>@item.id, :member_id=>@member.id, :body=>@member.user.name + ' re-opened this issue.')
 
     redirect_to request.referrer, notice: 'Issue has been re-opened.'
   end

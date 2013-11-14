@@ -82,7 +82,7 @@ class PostsController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @post.update_attributes(params[:post])
 
-    target_url = project_issue_posts_path(@project, @issue)
+    target_url = project_issue_path(@project, @issue)
     if params[:target_view] == 'dashboard'
       target_url = project_path(@project)
     end
@@ -92,7 +92,7 @@ class PostsController < ApplicationController
         format.html { redirect_to target_url, notice: 'Post was successfully updated.' }
         format.json { render json: @post, status: :created, location: @post }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
