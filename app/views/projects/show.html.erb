@@ -11,7 +11,7 @@
     <div class="container-fluid">
 
       <a class="brand" href="#">
-        <small><i class="icon-check"></i> HuddleUp</small>
+        <small><i class="icon-check"></i> HuddleUp - <%= @project.name %></small>
       </a>
 
       <%= render :partial => 'top_nav', :locals => {:post => 'foo'} %>
@@ -42,16 +42,13 @@
 
 <div class="page-content">
 <div class="page-header position-relative">
-  <h1>
-    <i class="icon-list-alt"></i> <%= @project.name %>
-    <small>
-      <i class="icon-double-angle-right"></i>
-      Project Dashboard
+  <h1><i class="icon-list-alt"></i>Project Dashboard
       <% if @member.is_admin? %>
-          <i class='icon-double-angle-right'></i>
-          <a href="/projects/<%= @project.id %>/edit">Edit this project's definition</a>
+            <small>
+            <i class='icon-double-angle-right'></i>
+            <a href="/projects/<%= @project.id %>/edit">Edit this project's definition</a>
+            </small>
       <% end %>
-    </small>
   </h1>
 
 </div>
