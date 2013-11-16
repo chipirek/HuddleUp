@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111170741) do
+ActiveRecord::Schema.define(:version => 20131116170153) do
+
+  create_table "action_items", :force => true do |t|
+    t.integer  "issue_id"
+    t.integer  "member_id"
+    t.text     "subject"
+    t.boolean  "is_complete"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"

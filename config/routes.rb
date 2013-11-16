@@ -6,10 +6,9 @@ HuddleUp::Application.routes.draw do
     resources :todos
     resources :issues do
       resources :posts
+      resources :action_items
     end
-    resources :milestones do
-      resources :tasks
-    end
+    resources :milestones
   end
 
   #devise_for :users

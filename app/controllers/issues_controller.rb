@@ -20,6 +20,7 @@ class IssuesController < ApplicationController
     @project = Project.find(params[:project_id])
     @issue = Issue.find(params[:id])
     @post = Post.new
+    @action_item = ActionItem.new
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
 
     respond_to do |format|
