@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
 
-=begin
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @project = Project.find(params[:project_id])
+    @issue = Issue.find(params[:issue_id])
+    @post = Post.new
+    @action_item = ActionItem.new
+    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    @posts = @issue.posts.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,6 +17,7 @@ class PostsController < ApplicationController
     end
   end
 
+=begin
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -57,10 +63,7 @@ class PostsController < ApplicationController
     @project = Project.find(params[:project_id])
     @post.issue_id = params[:issue_id]
 
-    target_url = project_issue_path(@project, @issue)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
+    target_url = request.referrer
 
     respond_to do |format|
       if @post.save
@@ -82,10 +85,7 @@ class PostsController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @post.update_attributes(params[:post])
 
-    target_url = project_issue_path(@project, @issue)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
+    target_url = request.referrer
 
     respond_to do |format|
       if @post.save
@@ -107,8 +107,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
+    target_url = request.referrer
+
     respond_to do |format|
-      format.html { redirect_to project_issue_path(@project, @issue), notice: 'Post was successfully deleted.' }
+      format.html { redirect_to target_url, notice: 'Post was successfully deleted.' }
       format.json { head :no_content }
     end
   end

@@ -1,5 +1,19 @@
 class ActionItemsController < ApplicationController
 
+  def index
+    @project = Project.find(params[:project_id])
+    @issue = Issue.find(params[:issue_id])
+    @post = Post.new
+    @action_item = ActionItem.new
+    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    @action_items = @issue.action_items
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
+  end
+
 
   # GET /action_items/new
   # GET /action_items/new.json
@@ -33,10 +47,7 @@ class ActionItemsController < ApplicationController
     @project = Project.find(params[:project_id])
     @action_item.issue_id = params[:issue_id]
 
-    target_url = project_issue_path(@project, @issue)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
+    target_url = request.referrer
 
     respond_to do |format|
       if @action_item.save
@@ -58,10 +69,7 @@ class ActionItemsController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @action_item.update_attributes(params[:action_item])
 
-    target_url = project_issue_path(@project, @issue)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
+    target_url = request.referrer
 
     respond_to do |format|
       if @action_item.save
@@ -83,8 +91,10 @@ class ActionItemsController < ApplicationController
     @action_item = ActionItem.find(params[:id])
     @action_item.destroy
 
+    target_url = request.referrer
+
     respond_to do |format|
-      format.html { redirect_to project_issue_path(@project, @issue), notice: 'Action Item was successfully deleted.' }
+      format.html { redirect_to target_url, notice: 'Action Item was successfully deleted.' }
       format.json { head :no_content }
     end
   end

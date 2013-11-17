@@ -1,29 +1,301 @@
-<h1>Listing action_items</h1>
+<div class="navbar">
 
-<table>
-  <tr>
-    <th>Issue</th>
-    <th>Member</th>
-    <th>Subject</th>
-    <th>Is complete</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <script type="text/javascript">
+      try {
+          ace.settings.check('navbar', 'fixed')
+      } catch (e) {
+      }
+  </script>
 
-<% @action_items.each do |action_item| %>
-  <tr>
-    <td><%= action_item.issue_id %></td>
-    <td><%= action_item.member_id %></td>
-    <td><%= action_item.subject %></td>
-    <td><%= action_item.is_complete %></td>
-    <td><%= link_to 'Show', action_item %></td>
-    <td><%= link_to 'Edit', edit_action_item_path(action_item) %></td>
-    <td><%= link_to 'Destroy', action_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  <div class="navbar-inner">
+    <div class="container-fluid">
 
-<br />
+      <a class="brand" href="#">
+        <small><i class="icon-check"></i> HuddleUp - <%= @project.name %></small>
+      </a>
 
-<%= link_to 'New Action item', new_action_item_path %>
+      <%= render :partial => '/projects/top_nav', :locals => {:post => 'foo'} %>
+
+    </div>
+    <!--/.container-fluid-->
+  </div>
+  <!--/.navbar-inner-->
+
+</div>
+
+
+<div class="main-container container-fluid">
+<a class="menu-toggler" id="menu-toggler" href="#">
+  <span class="menu-text"></span>
+</a>
+
+<%= render :partial => '/projects/side_nav_1', :locals => {:component => 'issues', :project_id => @project.id} %>
+
+<div class="main-content">
+
+
+<% crumbs = [['Projects', projects_path],
+             [@project.name, project_path(@project)],
+             ['Issues', project_issues_path(@project)]] %>
+
+<%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => @issue.description} %>
+
+<div class="page-content">
+  <div class="page-header position-relative">
+    <h1><i class="icon-wrench"></i> Issue Details</h1>
+  </div>
+  <!--/.page-header-->
+
+  <% if flash[:notice] %>
+      <div class='alert alert-block alert-success'>
+        <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+        <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
+      </div>
+  <% end %>
+
+  <div class="span11" style='padding-bottom: 20px;'>
+    <h4><%= @issue.description %></h4>
+    &nbsp;
+    <% if @issue.is_resolved? %>
+        <span class="badge badge-grey">This issue has been resolved</span>
+    <% else %>
+        <span class="badge badge-grey">This issue is not resolved</span>
+    <% end %>
+    &nbsp;
+    <span class="badge badge-grey"><%= 'Assigned to ' + @issue.member.user.name unless @issue.member.nil? %></span>
+
+
+    <div class="pull-right position-relative">
+      <% if !@issue.is_resolved? %>
+          &nbsp;
+          <button class="btn btn-mini btn-success"
+                  onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= @issue.id %>'"
+                  data-placement="left"
+                  data-rel="tooltip"
+                  title="Mark as Resolved"><i class='icon-ok'></i>Resolve
+          </button>
+      <% else %>
+          &nbsp;
+          <button class="btn btn-mini btn-danger"
+                  onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= @issue.id %>'"
+                  data-placement="left"
+                  data-rel="tooltip"
+                  title="Mark as Un-Resolved"><i class='icon-remove'></i>Re-Open
+          </button>
+      <% end %>
+      &nbsp;
+      <a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>"
+         class="btn btn-mini btn-danger"
+         data-confirm="Are you sure you want to delete <%= @issue.description %>?"
+         data-method="delete"
+         data-placement="left"
+         data-rel="tooltip"
+         rel="nofollow"
+         title="Delete">
+        <span><i class='icon-trash'></i></span>
+      </a>
+      &nbsp;
+      <button class="btn btn-mini btn-info icon-edit"
+              onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/edit'"
+              data-placement="left"
+              data-rel="tooltip"
+              title="Edit">
+      </button>
+      &nbsp;
+    </div>
+  </div>
+</div>
+<!--/.page-header-->
+
+<div class="row-fluid">
+  <div class="span12">
+    <!--PAGE CONTENT BEGINS-->
+
+    <div class="span9 offset1">
+      <ul class="nav nav-pills">
+        <li>
+          <a href='<%= project_issue_posts_path(@project, @issue) %>'>Posts</a>
+        </li>
+
+        <li class="active">
+          <a href='#'>Action Items</a>
+        </li>
+      </ul>
+
+      <div id="action-items" class="tab-pane">
+        <ul id="issues" class="item-list">
+          <% @issue.action_items.each do |item| %>
+              <li class="<%= get_action_item_color(item) %> clearfix <%= 'selected' unless !item.is_complete? %>" data-pk='<%= item.id %>' id="task_<%= item.id %>">
+                <label class="inline"><i class='icon-legal'></i>&nbsp;&nbsp;<%= item.subject %></label>
+                <span class="badge badge-grey"><%= item.member.user.name unless item.member.nil? %></span>
+                <div class="inline pull-right position-relative">
+                  <% if !item.is_complete? %>
+                      &nbsp;
+                      <button class="btn btn-mini btn-success"
+                              onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= item.id %>'"
+                              data-placement="left"
+                              data-rel="tooltip"
+                              title="Mark as Resolved"><i class='icon-ok'></i> Resolve
+                      </button>
+                  <% else %>
+                      &nbsp;
+                      <button class="btn btn-mini btn-danger"
+                              onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= item.id %>'"
+                              data-placement="left"
+                              data-rel="tooltip"
+                              title="Mark as Un-Resolved"><i class='icon-remove'></i> Re-Open
+                      </button>
+                  <% end %>
+                  &nbsp;
+                  <a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>/action_items/<%= item.id %>"
+                     class="btn btn-mini btn-danger"
+                     data-confirm="Are you sure you want to delete <%= item.subject %>?"
+                     data-method="delete"
+                     data-placement="left"
+                     data-rel="tooltip"
+                     rel="nofollow"
+                     title="Delete">
+                    <span><i class='icon-trash'></i></span>
+                  </a>
+                  &nbsp;
+                  <a class='btn btn-mini btn-info icon-edit' data-placement="left" title='Edit' data-rel='tooltip'
+                     href="#modal-form-<%= item.id %>" role="button" data-toggle="modal"></a>
+                </div>
+              </li>
+          <% end %>
+        </ul >
+
+        <p>
+          <%= form_for [@project, @issue, @action_item], :html => {:class => 'form-actions input-append offset1 span10',
+                                                                   :onsubmit => 'return isValidForm2();'} do |f| %>
+              <input class="width-75" type="text" id='action_item_subject' name='action_item[subject]' placeholder="Define a new action item here ..."></input>
+              <br />
+              <%= select('action_item', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
+              <button type='submit' class="btn btn-small btn-info no-radius"> Ok</button>
+          <% end %>
+        </p>
+
+        <% @issue.action_items.each do |action_item| %>
+            <div id="modal-form-<%= action_item.id %>" class="modal hide" tabindex="-1">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="blue bigger">Edit this action_item</h4>
+              </div>
+
+              <div class="modal-body overflow-visible">
+                <div class="row-fluid">
+
+                  <% @action_item = action_item %>
+                  <%= render 'action_item_edit_form' %>
+
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn btn-small" data-dismiss="modal">
+                  <i class="icon-remove"></i>
+                  Cancel
+                </button>
+
+                <button class="btn btn-small btn-primary" onclick="javascript:$('#edit_action_item_<%= action_item.id %>').submit();">
+                  <i class="icon-ok"></i>
+                  Save
+                </button>
+              </div>
+            </div>
+        <% end %>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+<!--/span-->
+
+
+<!--PAGE CONTENT ENDS-->
+</div>
+
+<!--/.span-->
+</div>
+<!--/.row-fluid-->
+</div>
+<!--/.page-content-->
+
+<div class="ace-settings-container" id="ace-settings-container">
+  <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
+    <i class="icon-cog bigger-150"></i>
+  </div>
+
+  <div class="ace-settings-box" id="ace-settings-box">
+    <div>
+      <div class="pull-left">
+        <select id="skin-colorpicker" class="hide">
+          <option data-skin="default" value="#438EB9">#438EB9</option>
+          <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+          <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+          <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+        </select>
+      </div>
+      <span>&nbsp; Choose Skin</span>
+    </div>
+
+    <div>
+      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
+      <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+    </div>
+
+    <div>
+      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
+      <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+    </div>
+
+    <div>
+      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
+      <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+    </div>
+
+    <div>
+      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
+      <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+    </div>
+  </div>
+</div>
+<!--/#ace-settings-container-->
+</div>
+<!--/.main-content-->
+</div><!--/.main-container-->
+
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
+  <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript" src="/assets/js/spin.min.js"></script>
+<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+        $('.date-picker').datepicker();
+
+        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
+        $('[data-rel="tooltip"]').tooltip();
+
+        $('#modal-add-form').on('shown', function () {
+            $(this).find($('#action_item_subject')).focus();
+        });
+
+        <% @issue.action_items.each do |action_item| %>
+        $('#modal-form-<%= action_item.id %>').on('shown', function () {
+            $(this).find("[autofocus]:first").focus();
+        });
+        <% end %>
+
+    });
+
+
+</script>
