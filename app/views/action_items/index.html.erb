@@ -132,15 +132,15 @@
                   <% if !item.is_complete? %>
                       &nbsp;
                       <button class="btn btn-mini btn-success"
-                              onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= item.id %>'"
+                              onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/action_items/mark_complete/<%= item.id %>'"
                               data-placement="left"
                               data-rel="tooltip"
-                              title="Mark as Resolved"><i class='icon-ok'></i> Resolve
+                              title="Mark as Resolved"><i class='icon-ok'></i> Complete
                       </button>
                   <% else %>
                       &nbsp;
                       <button class="btn btn-mini btn-danger"
-                              onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= item.id %>'"
+                              onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/action_items/mark_incomplete/<%= item.id %>'"
                               data-placement="left"
                               data-rel="tooltip"
                               title="Mark as Un-Resolved"><i class='icon-remove'></i> Re-Open

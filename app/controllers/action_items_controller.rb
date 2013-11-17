@@ -99,4 +99,26 @@ class ActionItemsController < ApplicationController
     end
   end
 
+
+  def mark_complete
+    @project = Project.find(params[:project_id])
+    @issue = Issue.find(params[:issue_id])
+    @action_item = ActionItem.find(params[:id])
+    @action_item.update_attribute('is_complete', true)
+    @action_item.save!
+
+    redirect_to request.referrer, notice: 'Action Item was marked complete.'
+  end
+
+
+  def mark_incomplete
+    @project = Project.find(params[:project_id])
+    @issue = Issue.find(params[:issue_id])
+    @action_item = ActionItem.find(params[:id])
+    @action_item.update_attribute('is_complete', nil)
+    @action_item.save!
+
+    redirect_to request.referrer, notice: 'Action Item was marked complete.'
+  end
+
 end
