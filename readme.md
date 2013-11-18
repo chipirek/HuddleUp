@@ -4,7 +4,7 @@ Simple team collaboration project
 
 ###### v0.7 - Theme: Prototype
 ###### v0.8 - Theme: Ensure Usefulness
-###### v0.9 - Theme: Harden _*in progress_
+###### v0.9 - Theme: Harden __ * in progress * __
 ###### v1.0 - Theme: Commercialize
 ###### v1.1 - Theme: Be Competitive
 
