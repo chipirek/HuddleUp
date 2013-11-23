@@ -51,7 +51,9 @@ class ActionItemsController < ApplicationController
 
     respond_to do |format|
       if @action_item.save
-        format.html { redirect_to target_url, notice: 'Action Item was successfully created.' }
+        @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' added an action item.')
+        format.html { redirect_to target_url, notice: 'Action item was successfully created.' }
         format.json { render json: @action_item, status: :created, location: @action_item }
       else
         format.html { redirect_to target_url, alert: 'Action Item was not created.'  }
@@ -73,7 +75,9 @@ class ActionItemsController < ApplicationController
 
     respond_to do |format|
       if @action_item.save
-        format.html { redirect_to target_url, notice: 'Action Item was successfully updated.' }
+        @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' updated an action item.')
+        format.html { redirect_to target_url, notice: 'Action item was successfully updated.' }
         format.json { render json: @action_item, status: :created, location: @action_item }
       else
         format.html { render action: 'new' }
@@ -107,6 +111,9 @@ class ActionItemsController < ApplicationController
     @action_item.update_attribute('is_complete', true)
     @action_item.save!
 
+    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' completed the action item.')
+
     redirect_to request.referrer, notice: 'Action Item was marked complete.'
   end
 
@@ -118,7 +125,10 @@ class ActionItemsController < ApplicationController
     @action_item.update_attribute('is_complete', nil)
     @action_item.save!
 
-    redirect_to request.referrer, notice: 'Action Item was marked complete.'
+    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' re-opened an action item.')
+
+    redirect_to request.referrer, notice: 'Action Item was marked incomplete.'
   end
 
 end
