@@ -53,7 +53,7 @@
       </div>
   <% end %>
 
-  <div class="span11" style='padding-bottom: 20px;'>
+  <div class="well well-large span11" style='padding-bottom: 20px;'>
     <h4><%= @issue.description %></h4>
     &nbsp;
     <% if @issue.is_resolved? %>
@@ -113,6 +113,10 @@
 
 <div class="span9 offset1">
   <ul class="nav nav-pills">
+    <li>
+      <a href='<%= project_issue_path(@project, @issue) %>'>Summary</a>
+    </li>
+
     <li class="active">
       <a href="#">Posts</a>
     </li>
@@ -121,13 +125,6 @@
       <a href='<%= project_issue_action_items_path(@project, @issue) %>'>Action Items</a>
     </li>
   </ul>
-
-  <%= form_for [@project, @issue, @post], :html => {:class => 'form-actions input-append offset1 span10',
-                                                    :onsubmit => 'return isValidForm();'} do |f| %>
-      <input type="hidden" id='post_member_id' name='post[member_id]' value='<%= @member.id %>'></input>
-      <input class="width-75" type="text" id='post_body' name='post[body]' placeholder="Post an update here ..."></input>
-      <button type='submit' class="btn btn-small btn-info no-radius"> Post!</button>
-  <% end %>
 
   <div id="timeline-1">
     <div class="row-fluid">
@@ -197,6 +194,17 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <p></p>
+  <div class='well well-large'>
+    <h4 class="blue bigger">Add an update</h4>
+    <%= form_for [@project, @issue, @post], :html => {:class => 'form-actions input-append ',
+                                                      :onsubmit => 'return isValidForm();'} do |f| %>
+        <input type="hidden" id='post_member_id' name='post[member_id]' value='<%= @member.id %>'></input>
+        <input class="width-75" type="text" id='post_body' name='post[body]' placeholder="Post an update here ..."></input>
+        <button type='submit' class="btn btn-small btn-info no-radius"> Post!</button>
+    <% end %>
   </div>
 
   <% @issue.posts.each do |post| %>

@@ -53,7 +53,7 @@
       </div>
   <% end %>
 
-  <div class="span11" style='padding-bottom: 20px;'>
+  <div class="well well-large span11" style='padding-bottom: 20px;'>
     <h4><%= @issue.description %></h4>
     &nbsp;
     <% if @issue.is_resolved? %>
@@ -114,6 +114,10 @@
     <div class="span9 offset1">
       <ul class="nav nav-pills">
         <li>
+          <a href='<%= project_issue_path(@project, @issue) %>'>Summary</a>
+        </li>
+
+        <li>
           <a href='<%= project_issue_posts_path(@project, @issue) %>'>Posts</a>
         </li>
 
@@ -165,21 +169,23 @@
           <% end %>
         </ul >
 
-        <p>
-          <%= form_for [@project, @issue, @action_item], :html => {:class => 'form-actions input-append offset1 span10',
+        <p></p>
+        <div class='well well-large'>
+            <h4 class="blue bigger">Create a new action item</h4>
+          <%= form_for [@project, @issue, @action_item], :html => {:class => 'form-actions input-append ',
                                                                    :onsubmit => 'return isValidForm2();'} do |f| %>
               <input class="width-75" type="text" id='action_item_subject' name='action_item[subject]' placeholder="Define a new action item here ..."></input>
               <br />
               <%= select('action_item', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
               <button type='submit' class="btn btn-small btn-info no-radius"> Ok</button>
           <% end %>
-        </p>
+        </div>
 
         <% @issue.action_items.each do |action_item| %>
             <div id="modal-form-<%= action_item.id %>" class="modal hide" tabindex="-1">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="blue bigger">Edit this action_item</h4>
+                <h4 class="blue bigger">Edit this action item</h4>
               </div>
 
               <div class="modal-body overflow-visible">
