@@ -23,6 +23,14 @@ class IssuesController < ApplicationController
     @action_item = ActionItem.new
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
 
+    sql = "select *
+            from (select 'ACTION_ITEM' ""mytype"", issue_id, subject ""description"", created_at, is_complete from action_items where issue_id=" + @issue.id.to_s
+    sql += " union
+              select 'POST', issue_id, body ""description"", created_at, null from posts where issue_id=" + @issue.id.to_s
+    sql += " ) as history order by created_at"
+    @history_items = ActionItem.find_by_sql(sql)
+    @history_days = @history_items.group_by { |t| t.created_at.beginning_of_day }
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @issue }

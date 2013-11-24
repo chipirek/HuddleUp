@@ -108,27 +108,75 @@
 <!--/.page-header-->
 
 <div class="row-fluid">
-  <div class="span12">
-    <!--PAGE CONTENT BEGINS-->
+<div class="span12">
+<!--PAGE CONTENT BEGINS-->
 
-    <div class="span9 offset1">
-      <ul class="nav nav-pills">
-        <li class="active">
-          <a href='<%= project_issue_path(@project, @issue) %>'>Summary</a>
-        </li>
+<div class="span9 offset1">
+    <ul class="nav nav-pills">
+      <li class="active">
+        <a href='<%= project_issue_path(@project, @issue) %>'>Summary</a>
+      </li>
 
-        <li>
-          <a href="#">Posts</a>
-        </li>
+      <li>
+        <a href='<%= project_issue_posts_path(@project, @issue) %>'>Posts</a>
+      </li>
 
-        <li>
-          <a href='<%= project_issue_action_items_path(@project, @issue) %>'>Action Items</a>
-        </li>
-      </ul>
+      <li>
+        <a href='<%= project_issue_action_items_path(@project, @issue) %>'>Action Items</a>
+      </li>
+    </ul>
+
+
+<div id="timeline-2b">
+    <div class="row-fluid">
+        <div class="offset1 span10">
+
+        <% @history_days.sort.each do |day, items| %>
+            <div class="timeline-container timeline-style2">
+                <span class="timeline-label">
+                    <b><%= day.strftime('%b %d') %></b>
+                </span>
+
+              <div class="timeline-items">
+
+                <% items.each do |item| %>
+                <div class="timeline-item clearfix">
+                  <div class="timeline-info">
+                    <span class="timeline-date"><%= item.created_at.strftime('%l:%M%P') %></span>
+
+                    <i class="timeline-indicator btn btn-info no-hover"></i>
+                  </div>
+
+                  <div class="widget-box transparent">
+                    <div class="widget-body">
+                      <div class="widget-main no-padding">
+                        <% if item.mytype == 'POST' %>
+                            <%= item.description %>
+                        <% else %>
+                            <% if item.is_complete %>
+                                <i class='icon-check'></i> <%= item.description %>
+                            <% else %>
+                                <i class='icon-check-empty'></i> <%= item.description %>
+                            <% end %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <% end %>
+
+              </div><!--/.timeline-items-->
+            </div><!--/.timeline-container-->
+        <% end %>
+
+        </div>
 
     </div>
+</div>
 
-  </div>
+
+
 
 </div>
 <!--/span-->
@@ -202,10 +250,6 @@
 
         var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
         $('[data-rel="tooltip"]').tooltip();
-
-        $('#modal-add-form').on('shown', function () {
-            $(this).find($('#post_body')).focus();
-        });
 
     });
 
