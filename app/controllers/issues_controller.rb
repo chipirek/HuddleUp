@@ -24,12 +24,12 @@ class IssuesController < ApplicationController
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
 
     sql = "select *
-            from (select 'ACTION_ITEM' ""mytype"", issue_id, subject ""description"", created_at, is_complete from action_items where issue_id=" + @issue.id.to_s
+            from (select 'ACTION_ITEM' ""mytype"", issue_id, subject ""description"", updated_at, is_complete from action_items where issue_id=" + @issue.id.to_s
     sql += " union
-              select 'POST', issue_id, body ""description"", created_at, null from posts where issue_id=" + @issue.id.to_s
-    sql += " ) as history order by created_at"
+              select 'POST' ""mytype"", issue_id, body ""description"", updated_at, null from posts where issue_id=" + @issue.id.to_s
+    sql += " ) as history order by updated_at"
     @history_items = ActionItem.find_by_sql(sql)
-    @history_days = @history_items.group_by { |t| t.created_at.beginning_of_day }
+    @history_days = @history_items.group_by { |t| t.updated_at.beginning_of_day }
 
     respond_to do |format|
       format.html # show.html.erb

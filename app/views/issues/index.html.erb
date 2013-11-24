@@ -63,7 +63,7 @@
 
                 <li class="<%= get_issue_status_color2(issue) %> clearfix <%= 'selected' unless !issue.is_resolved? %>" data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
                   <i class='icon-wrench'></i>
-                  <a href='<%= project_issue_path(@project, issue) %>'>&nbsp;&nbsp;<%= issue.description %></a>
+                  <a href='<%= project_issue_path(@project, issue) %>'>&nbsp;&nbsp;<%= issue.description.truncate(150) %></a>
                   <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
                   <div class="inline pull-right position-relative">
                     <% if !issue.is_resolved? %>

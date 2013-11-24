@@ -130,7 +130,13 @@
         <ul id="issues" class="item-list">
           <% @issue.action_items.each do |item| %>
               <li class="<%= get_action_item_color(item) %> clearfix <%= 'selected' unless !item.is_complete? %>" data-pk='<%= item.id %>' id="task_<%= item.id %>">
-                <label class="inline"><i class='icon-legal'></i>&nbsp;&nbsp;<%= item.subject %></label>
+                <label class="inline">
+                  <% if item.is_complete %>
+                      <i class='icon-check'></i>&nbsp;&nbsp;<%= item.subject.truncate(100) %>
+                  <% else %>
+                      <i class='icon-check-empty'></i>&nbsp;&nbsp;<%= item.subject.truncate(100) %>
+                  <% end %>
+                </label>
                 <span class="badge badge-grey"><%= item.member.user.name unless item.member.nil? %></span>
                 <div class="inline pull-right position-relative">
                   <% if !item.is_complete? %>
@@ -153,7 +159,7 @@
                   &nbsp;
                   <a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>/action_items/<%= item.id %>"
                      class="btn btn-mini btn-danger"
-                     data-confirm="Are you sure you want to delete <%= item.subject %>?"
+                     data-confirm="Are you sure you want to delete <%= item.subject.truncate(150) %>?"
                      data-method="delete"
                      data-placement="left"
                      data-rel="tooltip"

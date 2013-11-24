@@ -52,7 +52,7 @@ class ActionItemsController < ApplicationController
     respond_to do |format|
       if @action_item.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' added an action item.')
+        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' added the action item "' + @action_item.subject.truncate(100) + '".')
         format.html { redirect_to target_url, notice: 'Action item was successfully created.' }
         format.json { render json: @action_item, status: :created, location: @action_item }
       else
@@ -76,7 +76,7 @@ class ActionItemsController < ApplicationController
     respond_to do |format|
       if @action_item.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' updated an action item.')
+        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' updated the action item "' + @action_item.subject.truncate(100) + '".')
         format.html { redirect_to target_url, notice: 'Action item was successfully updated.' }
         format.json { render json: @action_item, status: :created, location: @action_item }
       else
@@ -112,7 +112,7 @@ class ActionItemsController < ApplicationController
     @action_item.save!
 
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' completed the action item.')
+    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' completed the action item "' + @action_item.subject.truncate(100) + '".')
 
     redirect_to request.referrer, notice: 'Action Item was marked complete.'
   end
@@ -126,7 +126,7 @@ class ActionItemsController < ApplicationController
     @action_item.save!
 
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' re-opened an action item.')
+    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' re-opened an action item "' + @action_item.subject.truncate(100) + '".')
 
     redirect_to request.referrer, notice: 'Action Item was marked incomplete.'
   end

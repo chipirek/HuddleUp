@@ -86,7 +86,7 @@
       &nbsp;
       <a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>"
          class="btn btn-mini btn-danger"
-         data-confirm="Are you sure you want to delete <%= @issue.description %>?"
+         data-confirm="Are you sure you want to delete <%= @issue.description.truncate(50) %>?"
          data-method="delete"
          data-placement="left"
          data-rel="tooltip"
@@ -142,7 +142,7 @@
                 <% items.each do |item| %>
                 <div class="timeline-item clearfix">
                   <div class="timeline-info">
-                    <span class="timeline-date"><%= item.created_at.strftime('%l:%M%P') %></span>
+                    <span class="timeline-date"><%= item.updated_at.strftime('%l:%M%P') %></span>
 
                     <i class="timeline-indicator btn btn-info no-hover"></i>
                   </div>
@@ -151,12 +151,12 @@
                     <div class="widget-body">
                       <div class="widget-main no-padding">
                         <% if item.mytype == 'POST' %>
-                            <%= item.description %>
+                            <%= item.description.truncate(150) %>
                         <% else %>
                             <% if item.is_complete %>
-                                <i class='icon-check'></i> <%= item.description %>
+                                <i class='icon-check'></i> <%= item.description.truncate(150) %>
                             <% else %>
-                                <i class='icon-check-empty'></i> <%= item.description %>
+                                <i class='icon-check-empty'></i> <%= item.description.truncate(150) %>
                             <% end %>
                         <% end %>
                       </div>
