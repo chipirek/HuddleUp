@@ -47,12 +47,12 @@ class ActionItemsController < ApplicationController
     @project = Project.find(params[:project_id])
     @action_item.issue_id = params[:issue_id]
 
-    target_url = request.referrer
+    target_url = project_issue_action_items_path(@project, @issue) #request.referrer
 
     respond_to do |format|
       if @action_item.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' added the action item "' + @action_item.subject.truncate(100) + '".')
+        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' added the action item "' + @action_item.subject.truncate(100) + '".') unless @member.nil?
         format.html { redirect_to target_url, notice: 'Action item was successfully created.' }
         format.json { render json: @action_item, status: :created, location: @action_item }
       else
@@ -71,12 +71,12 @@ class ActionItemsController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @action_item.update_attributes(params[:action_item])
 
-    target_url = request.referrer
+    target_url = project_issue_action_items_path(@project, @issue) #request.referrer
 
     respond_to do |format|
       if @action_item.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' updated the action item "' + @action_item.subject.truncate(100) + '".')
+        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' updated the action item "' + @action_item.subject.truncate(100) + '".') unless @member.nil?
         format.html { redirect_to target_url, notice: 'Action item was successfully updated.' }
         format.json { render json: @action_item, status: :created, location: @action_item }
       else

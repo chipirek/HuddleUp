@@ -75,7 +75,7 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        Post.create(:issue_id=>@item.id, :member_id=>@member.id, :body=>@member.user.name + ' added this issue.')
+        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' added this issue.') unless @member.nil?
         format.html { redirect_to target_url, notice: 'Issue was successfully created.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
@@ -103,7 +103,7 @@ class IssuesController < ApplicationController
       # if @issue.update_attributes(params[:issue])
       if @issue.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        Post.create(:issue_id=>@item.id, :member_id=>@member.id, :body=>@member.user.name + ' updated this issue.')
+        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' updated this issue.')
         format.html { redirect_to target_url, notice: 'Issue was successfully updated.' }
         format.json { head :no_content }
       else

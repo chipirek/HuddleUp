@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+issue_one:
   project_id: 1
-  description: MyString
+  description: 'This is my issue'
   is_resolved: false
   member_id: 1
 
-two:
+issue_two:
   project_id: 1
-  description: MyString
+  description: 'This is another issue'
   is_resolved: false
   member_id: 1

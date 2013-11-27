@@ -62,8 +62,9 @@ class PostsController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @project = Project.find(params[:project_id])
     @post.issue_id = params[:issue_id]
-
-    target_url = request.referrer
+    member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    @post.member_id=member.id unless member.nil?
+    target_url = project_issue_posts_path(@project, @issue) #request.referrer
 
     respond_to do |format|
       if @post.save
@@ -84,8 +85,10 @@ class PostsController < ApplicationController
     @project = Project.find(params[:project_id])
     @issue = Issue.find(params[:issue_id])
     @post.update_attributes(params[:post])
+    member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+    @post.member_id=member.id unless member.nil?
 
-    target_url = request.referrer
+    target_url = project_issue_posts_path(@project, @issue) #request.referrer
 
     respond_to do |format|
       if @post.save

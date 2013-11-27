@@ -224,5 +224,95 @@ class SmokeTest < ActionDispatch::IntegrationTest
   end
 
 
+  test 'add an issue to a project' do
+    p = Project.first
+
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+
+    #-- get the issues index
+    get project_issues_path (p)
+    assert_response :success
+    assert assigns(:issues)
+
+    #-- get the add page
+    get new_project_issue_path (p)
+    assert_response :success
+
+    #-- post the form / add the object
+    post_via_redirect project_issues_path (p), 'issue[description]' => 'This is my issue'
+
+    #-- get the fresh copy from the database
+    p = Project.first
+    i = p.issues.first
+    assert_equal i.description, 'This is my issue'
+    assert_not_equal p.issues.count, 0
+  end
+
+
+  test 'add an action_item to an issue' do
+    prj = Project.first
+    #p '>>> The Project ID is ' + prj.id.to_s
+
+    iss = prj.issues.last
+    assert_equal prj.issues.count, 2
+    #p '>>> The Issue ID is ' + iss.id.to_s
+
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+
+    #-- post the form / add the object
+    post_via_redirect project_issue_action_items_path(prj, iss), 'action_item[subject]' => 'This is my action_item'
+
+    #-- get the fresh copy from the database
+    prj = Project.first
+    iss = prj.issues.last
+    assert_equal iss.action_items.count, 1
+    act = iss.action_items.last
+    assert_equal act.subject, 'This is my action_item'
+
+  end
+
+
+  test 'add an post to an issue' do
+    prj = Project.first
+    #p '>>> The Project ID is ' + prj.id.to_s
+
+    iss = prj.issues.last
+    assert_equal prj.issues.count, 2
+    #p '>>> The Issue ID is ' + iss.id.to_s
+
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+
+    #-- post the form / add the object
+    post_via_redirect project_issue_posts_path(prj, iss), 'post[body]' => 'This is my post'
+    #pst2 = iss.posts.create(:body=>'This is my post')
+    #pst2.save!
+    #assert_not_equal(pst2,nil)
+    #p '>>> post-id is ' + pst2.id.to_s
+    #p '>>> post-body is ' + pst2.body
+
+    #-- get the fresh copy from the database
+    prj = Project.first
+    iss = prj.issues.last
+    assert_equal 1, iss.posts.count
+    pst = iss.posts.last
+    assert_equal pst.body, 'This is my post'
+  end
+
+
 end
 
