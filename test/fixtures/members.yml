@@ -3,7 +3,14 @@ first_member:
   project_id: 1
   is_admin: true
   joined_date: 2013-05-13
+  status_code: '1'
 
+second_member:
+  user_id: 1
+  project_id: 2
+  is_admin: true
+  joined_date: 2013-05-13
+  status_code: '1'
 
 
 

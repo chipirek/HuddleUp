@@ -63,6 +63,12 @@
               </div>
           <% end %>
 
+          <% if flash[:error] %>
+              <div class='alert alert-block alert-error'>
+                <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+                <strong><i class="icon-ok"></i> <%= flash[:error] %></strong>
+              </div>
+          <% end %>
 
 
           <% @projects.each do |project| %>

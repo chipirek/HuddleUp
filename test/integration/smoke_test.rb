@@ -4,6 +4,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   fixtures :all
 
+
   test 'login and get to index' do
     #@user = users(:me)
 
@@ -71,8 +72,6 @@ class SmokeTest < ActionDispatch::IntegrationTest
   
   test 'create new project' do
 
-    #-- p 'Logging in...'
-
     #-- login
     get '/users/sign_in'
     assert_response :success
@@ -80,17 +79,11 @@ class SmokeTest < ActionDispatch::IntegrationTest
     post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
     assert_equal '/', path
 
-    #-- p flash
-    #assert_equal 'Welcome david!', flash[:notice]
-
     #-- get the index
-    #-- p 'Getting index...'
     get '/projects'
     assert_response :success
     assert assigns(:projects)
 
-    #-- get the add page
-    #-- p 'Getting new project form...'
     get '/projects/new'
     assert_response :success
 
@@ -110,11 +103,10 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
     post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
     assert_equal '/', path
-    #p flash
-    #assert_equal 'Welcome david!', flash[:notice]
 
     #-- get the edit page
     prj = Project.find(1)  #where('name=?', 'Project fixture 1').first
+    assert_equal 1, prj.id
     assert_equal prj.name, 'Project fixture 1'
 
     get '/projects/' + prj.id.to_s + '/edit'
@@ -135,9 +127,8 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
     post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
     assert_equal '/', path
-    #p flash
-    #assert_equal 'Welcome david!', flash[:notice]
 
+    count_before_delete = Project.all.count
     p = Project.last
 
     #-- get the index
@@ -149,8 +140,10 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
     assert_equal '/projects', path
 
-    new_p = Project.last
-    assert_not_equal p.id, new_p.id
+    #new_p = Project.last
+    #assert_not_equal p.id, new_p.id
+    count_after_delete = Project.all.count
+    assert_not_equal count_before_delete, count_after_delete
   end
 
 
@@ -312,7 +305,6 @@ class SmokeTest < ActionDispatch::IntegrationTest
     pst = iss.posts.last
     assert_equal pst.body, 'This is my post'
   end
-
 
 end
 
