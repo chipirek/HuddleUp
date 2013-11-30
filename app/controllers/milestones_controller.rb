@@ -1,10 +1,15 @@
 class MilestonesController < ApplicationController
 
+  load_and_authorize_resource :project
+  load_and_authorize_resource :milestone, :through => :project
+
   # GET /milestones
   # GET /milestones.json
   def index
-    @project = Project.find(params[:project_id])
-    @milestones = Milestone.where('project_id=?', params[:project_id]).order('event_date')
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @milestones = Milestone.where('project_id=?', params[:project_id]).order('event_date')
+    @milestones = @project.milestones.order('event_date')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,8 +21,9 @@ class MilestonesController < ApplicationController
   # GET /milestones/1
   # GET /milestones/1.json
   def show
-    @project = Project.find(params[:project_id])
-    @milestone = Milestone.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @milestone = Milestone.find(params[:id])
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
 
     respond_to do |format|
@@ -30,8 +36,9 @@ class MilestonesController < ApplicationController
   # GET /milestones/new
   # GET /milestones/new.json
   def new
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
     @milestone = Milestone.new
-    @project = Project.find(params[:project_id])
     @milestone.event_date = Date.today
     @milestone.project_id = params[:project_id]
     @milestone.percent_complete = 0
@@ -46,8 +53,9 @@ class MilestonesController < ApplicationController
 
   # GET /milestones/1/edit
   def edit
-    @project = Project.find(params[:project_id])
-    @milestone = Milestone.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @milestone = Milestone.find(params[:id])
     @milestone.project_id = params[:project_id]
   end
 
@@ -55,8 +63,9 @@ class MilestonesController < ApplicationController
   # POST /milestones
   # POST /milestones.json
   def create
-    @project = Project.find(params[:project_id])
-    @milestone = Milestone.new(params[:milestone])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @milestone = Milestone.new(params[:milestone])
     @milestone.project_id = params[:project_id]
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
@@ -83,10 +92,10 @@ class MilestonesController < ApplicationController
   # PUT /milestones/1
   # PUT /milestones/1.json
   def update
-    @project = Project.find(params[:project_id])
-    @milestone = Milestone.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @milestone = Milestone.find(params[:id])
     @milestone.update_attributes(params[:milestone])
-    # @milestone.project_id = params[:project_id]
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
     buffer = params[:milestone][:event_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
@@ -98,7 +107,6 @@ class MilestonesController < ApplicationController
     end
 
     respond_to do |format|
-      # if @milestone.update_attributes(params[:milestone])
       if @milestone.save
         format.html { redirect_to target_url, notice: 'Milestone was successfully updated.' }
         format.json { head :no_content }
@@ -113,8 +121,9 @@ class MilestonesController < ApplicationController
   # DELETE /milestones/1
   # DELETE /milestones/1.json
   def destroy
-    @project = Project.find(params[:project_id])
-    @milestone = Milestone.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @milestone = Milestone.find(params[:id])
     @milestone.destroy
 
     target_url = project_milestones_path(@project)

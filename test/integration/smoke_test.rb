@@ -43,6 +43,8 @@ class SmokeTest < ActionDispatch::IntegrationTest
   end
 
 
+=begin
+
   test 'registration OK' do
     get '/users/sign_up'
     assert_response :success
@@ -68,6 +70,8 @@ class SmokeTest < ActionDispatch::IntegrationTest
     post_via_redirect '/users', 'user[name]' => 'New User3','user[email]' => 'new_user3@gmail.com', 'user[password]' => 'lollip0p', 'user[password_confirmation]' => 'lollip0p'
     assert_equal '/users', path
   end
+
+=end
 
   
   test 'create new project' do
@@ -305,6 +309,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     pst = iss.posts.last
     assert_equal pst.body, 'This is my post'
   end
+
 
 end
 

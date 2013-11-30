@@ -35,6 +35,7 @@ GEM
       audited (= 3.0.0)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    cancan (1.6.9)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -122,6 +123,7 @@ PLATFORMS
 
 DEPENDENCIES
   audited-activerecord (~> 3.0)
+  cancan
   devise
   jquery-rails (~> 2.1)
   pg

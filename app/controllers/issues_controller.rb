@@ -1,11 +1,15 @@
 class IssuesController < ApplicationController
 
+  load_and_authorize_resource :project
+  load_and_authorize_resource :issue, :through => :project
 
   # GET /issues
   # GET /issues.json
   def index
-    @project = Project.find(params[:project_id])
-    @issues = Issue.where('project_id=?', params[:project_id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @issues = Issue.where('project_id=?', params[:project_id])
+    @issues = @project.issues
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,8 +21,9 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
-    @project = Project.find(params[:project_id])
-    @issue = Issue.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @issue = Issue.find(params[:id])
     @post = Post.new
     @action_item = ActionItem.new
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
@@ -41,8 +46,9 @@ class IssuesController < ApplicationController
   # GET /issues/new
   # GET /issues/new.json
   def new
+    # no longer needed, since authorization via CanCan loads these resources
+    #@project = Project.find(params[:project_id])
     @issue = Issue.new
-    @project = Project.find(params[:project_id])
     @issue.project_id = params[:project_id]
 
     respond_to do |format|
@@ -54,8 +60,9 @@ class IssuesController < ApplicationController
 
   # GET /issues/1/edit
   def edit
-    @project = Project.find(params[:project_id])
-    @issue = Issue.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @issue = Issue.find(params[:id])
     @issue.project_id = params[:project_id]
   end
 
@@ -63,8 +70,9 @@ class IssuesController < ApplicationController
   # POST /issues
   # POST /issues.json
   def create
-    @project = Project.find(params[:project_id])
-    @issue = Issue.new(params[:issue])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @issue = Issue.new(params[:issue])
     @issue.project_id = params[:project_id]
 
     target_url = project_issues_path(@project)
@@ -89,10 +97,10 @@ class IssuesController < ApplicationController
   # PUT /issues/1
   # PUT /issues/1.json
   def update
-    @project = Project.find(params[:project_id])
-    @issue = Issue.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @issue = Issue.find(params[:id])
     @issue.update_attributes(params[:issue])
-    # @issue.project_id = params[:project_id]
 
     target_url = project_issues_path(@project)
     if params[:target_view] == 'dashboard'
@@ -100,7 +108,6 @@ class IssuesController < ApplicationController
     end
 
     respond_to do |format|
-      # if @issue.update_attributes(params[:issue])
       if @issue.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
         Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' updated this issue.')
@@ -117,8 +124,9 @@ class IssuesController < ApplicationController
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
-    @project = Project.find(params[:project_id])
-    @issue = Issue.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @issue = Issue.find(params[:id])
     @issue.destroy
 
     target_url = project_issues_path(@project)
@@ -134,26 +142,28 @@ class IssuesController < ApplicationController
 
 
   def mark_resolved
-    @project = Project.find(params[:project_id])
-    @item = Issue.find(params[:id])
-    @item.update_attribute('is_resolved', true)
-    @item.save!
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @item = Issue.find(params[:id])
+    @issue.update_attribute('is_resolved', true)
+    @issue.save!
 
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-    Post.create(:issue_id=>@item.id, :member_id=>@member.id, :body=>@member.user.name + ' resolved this issue.')
+    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' resolved this issue.')
 
     redirect_to request.referrer, notice: 'Issue has been resolved.'
   end
 
 
   def mark_unresolved
-    @project = Project.find(params[:project_id])
-    @item = Issue.find(params[:id])
-    @item.update_attribute('is_resolved', nil)
-    @item.save!
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @item = Issue.find(params[:id])
+    @issue.update_attribute('is_resolved', nil)
+    @issue.save!
 
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-    Post.create(:issue_id=>@item.id, :member_id=>@member.id, :body=>@member.user.name + ' re-opened this issue.')
+    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' re-opened this issue.')
 
     redirect_to request.referrer, notice: 'Issue has been re-opened.'
   end

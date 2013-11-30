@@ -1,10 +1,15 @@
 class TodosController < ApplicationController
 
+  load_and_authorize_resource :project
+  load_and_authorize_resource :todo, :through => :project
+
   # GET /todos
   # GET /todos.json
   def index
-    @project = Project.find(params[:project_id])
-    @todos = Todo.where('project_id=?', params[:project_id]).order('position')
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @todos = Todo.where('project_id=?', params[:project_id]).order('position')
+    @todos = @project.todos.order('position')
 
     @todo = Todo.new
     @todo.project_id = params[:project_id]
@@ -19,8 +24,9 @@ class TodosController < ApplicationController
   # GET /todos/1
   # GET /todos/1.json
   def show
-    @project = Project.find(params[:project_id])
-    @todo = Todo.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @todo = Todo.find(params[:id])
     @todo.project_id = params[:project_id]
 
     respond_to do |format|
@@ -33,7 +39,8 @@ class TodosController < ApplicationController
   # GET /todos/new
   # GET /todos/new.json
   def new
-    @project = Project.find(params[:project_id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
     @todo = Todo.new
     @todo.project_id = params[:project_id]
 
@@ -46,8 +53,9 @@ class TodosController < ApplicationController
 
   # GET /todos/1/edit
   def edit
-    @project = Project.find(params[:project_id])
-    @todo = Todo.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @todo = Todo.find(params[:id])
     @todo.project_id = params[:project_id]
   end
 
@@ -55,8 +63,10 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
+    # no longer needed, since authorization via CanCan loads these resources
+    #@project = Project.find(params[:project_id])
+
     @todo = Todo.new(params[:todo])
-    @project = Project.find(params[:project_id])
     @todo.project_id = params[:project_id]
     @todo.position=99
 
@@ -86,19 +96,19 @@ class TodosController < ApplicationController
   # PUT /todos/1
   # PUT /todos/1.json
   def update
-    @project = Project.find(params[:project_id])
-    @todo = Todo.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @todo = Todo.find(params[:id])
     @todo.update_attributes(params[:todo])
     @todo.project_id = params[:project_id]
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
-    if params[:todo][:due_date]
+    if params[:todo][:due_date].length > 0
       buffer = params[:todo][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
       @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
     respond_to do |format|
-      # if @todo.update_attributes(params[:todo])
       if @todo.save
         format.html { redirect_to project_todos_path(@project), notice: 'Todo was successfully updated.' }
         format.json { head :no_content }
@@ -113,8 +123,9 @@ class TodosController < ApplicationController
   # DELETE /todos/1
   # DELETE /todos/1.json
   def destroy
-    @project = Project.find(params[:project_id])
-    @todo = Todo.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @todo = Todo.find(params[:id])
     @todo.destroy
 
     respond_to do |format|
@@ -125,22 +136,24 @@ class TodosController < ApplicationController
 
 
   def mark_complete
-    @project = Project.find(params[:project_id])
-    @item = Todo.find(params[:id])
-    @item.update_attribute('is_complete', true)
-    @item.update_attribute('completed_at', Time.now)
-    @item.save!
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @item = Todo.find(params[:id])
+    @todo.update_attribute('is_complete', true)
+    @todo.update_attribute('completed_at', Time.now)
+    @todo.save!
 
     redirect_to request.referrer, notice: 'Todo was marked complete.'
   end
 
 
   def mark_incomplete
-    @project = Project.find(params[:project_id])
-    @item = Todo.find(params[:id])
-    @item.update_attribute('is_complete', nil)
-    @item.update_attribute('completed_at', nil)
-    @item.save!
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:project_id])
+    # @item = Todo.find(params[:id])
+    @todo.update_attribute('is_complete', nil)
+    @todo.update_attribute('completed_at', nil)
+    @todo.save!
 
     redirect_to request.referrer, notice: 'Todo was marked incomplete.'
   end

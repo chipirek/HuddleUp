@@ -1,10 +1,13 @@
 class ProjectsController < ApplicationController
 
+  load_and_authorize_resource
+
   # GET /projects
   # GET /projects.json
   def index
-    @membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
-    @projects = Project.where('id in (?)', @membership)
+    # no longer needed, since authorization via CanCan loads these resources
+    # @membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
+    # @projects = Project.where('id in (?)', @membership)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,9 +19,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @project = Project.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:id])
     @member = @project.members.where('user_id=?', current_user.id).first
-
     @late_todos = @project.todos.where('is_complete is null').where('due_date < ?', Date.today)
 
     respond_to do |format|
@@ -43,7 +46,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @project = Project.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:id])
   end
 
 
@@ -68,7 +72,8 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
-    @project = Project.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:id])
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
@@ -85,7 +90,8 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project = Project.find(params[:id])
+    # no longer needed, since authorization via CanCan loads these resources
+    # @project = Project.find(params[:id])
     @project.destroy
 
     respond_to do |format|
@@ -93,4 +99,6 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 end
