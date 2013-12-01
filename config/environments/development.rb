@@ -40,8 +40,8 @@ HuddleUp::Application.configure do
       address:              'smtp.gmail.com',
       port:                 587,
       domain:               'example.com',
-      user_name:            'chip.irek',
-      password:             'Pentag0n!',
+      user_name:            ENV['GMAIL_USERNAME'],
+      password:             ENV['GMAIL_PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true  }
 
