@@ -84,15 +84,15 @@
                             <button class="btn btn-minier bigger btn-grey dropdown-toggle" data-toggle="dropdown"><i class="icon-angle-down icon-only"></i></button>
                             <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
                               <% if member.is_admin? %>
-                                  <li><a href="/projects/<%= @project.id %>/members/remove_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" title="Remove admin" data-placement="right"><span class="green"><i class="icon-certificate"></i></span></a></li>
+                                  <li><a href="/projects/<%= @project.id %>/members/remove_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" data-placement="right"><span class="green">Remove admin rights</span></a></li>
                               <% else %>
-                                  <li><a href="/projects/<%= @project.id %>/members/make_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" title="Make an admin" data-placement="right"><span class="green"><i class="icon-certificate"></i></span></a></li>
+                                  <li><a href="/projects/<%= @project.id %>/members/make_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" data-placement="right"><span class="green">Make an admin</span></a></li>
                               <% end %>
 
                               <% if member.is_blocked? %>
-                                  <li><a href="/projects/<%= @project.id %>/members/unblock/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" title="Unblock this user" data-placement="right"><span class="red"><i class="icon-remove"></i></span> </a></li>
+                                  <li><a href="/projects/<%= @project.id %>/members/unblock/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" data-placement="right"><span class="red">Unblock this user</span> </a></li>
                               <% else %>
-                                  <li><a href="/projects/<%= @project.id %>/members/block/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" title="Block this user" data-placement="right"><span class="red"><i class="icon-remove"></i></span> </a></li>
+                                  <li><a href="/projects/<%= @project.id %>/members/block/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" data-placement="right"><span class="red">Block this user</span> </a></li>
                               <% end %>
 
                             </ul>
