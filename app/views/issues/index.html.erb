@@ -57,7 +57,11 @@
               </div>
           <% end %>
 
-          <ul id="issues" class="item-list" style='margin-bottom: 50px;'>
+          <% if @project.issues.count == 0 %>
+              <div class='alert alert-info' style="margin-bottom: 50px;">None</div>
+          <% else %>
+
+        <ul id="issues" class="item-list" style='margin-bottom: 50px;'>
 
             <% @project.issues.order('is_resolved nulls first').each do |issue| %>
 
@@ -109,10 +113,13 @@
 
           </ul >
 
-          <a class='btn btn-success' href="/projects/<%= @project.id %>/issues/new">Create a new issue</a>
+          <% end %>
+
 
         </div>
         <!--/row-->
+
+        <a class='btn btn-success' href="/projects/<%= @project.id %>/issues/new">Create a new issue</a>
 
         <!--PAGE CONTENT ENDS-->
       </div>

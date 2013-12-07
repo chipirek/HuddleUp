@@ -56,11 +56,13 @@
               </div>
           <% end %>
 
+          <% if @todos.count == 0 %>
+              <div class='alert alert-info' style="margin-bottom: 50px;">None</div>
+          <% else %>
 
-          <div id="tasks-tab" class="tab-pane active" style="margin-bottom: 50px;">
+            <div id="tasks-tab" class="tab-pane active" style="margin-bottom: 50px;">
             <div class="clearfix">
-
-              <ul id="tasks" class="item-list">
+                <ul id="tasks" class="item-list">
 
                 <% @todos.each do |todo| %>
 
@@ -117,10 +119,10 @@
                 <% end %>
 
               </ul>
-
             </div>
           </div>
 
+          <% end %>
 
 
         </div>

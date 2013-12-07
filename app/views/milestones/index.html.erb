@@ -56,8 +56,12 @@
               </div>
           <% end %>
 
+          <% if @project.milestones.count == 0 %>
+              <div class='alert alert-info' style="margin-bottom: 50px;">None</div>
+          <% else %>
 
-          <div class='span7' style="margin-bottom: 50px;">
+
+            <div class='span7' style="margin-bottom: 50px;">
 
             <% @project.milestones.order('event_date').each do |milestone| %>
                 <div class="alert <%= get_milestone_status_color(milestone) %>">
@@ -94,19 +98,20 @@
                 </div>
             <% end %>
 
-            <a class='btn btn-success' href="/projects/<%= @project.id %>/milestones/new">Create a new milestone</a>
+
+
 
           </div>
 
+              <div class='span5' style="margin-bottom: 50px;">
+                <h1>pie chart here soon </h1>
+              </div>
 
-
-          <div class='span5' style="margin-bottom: 50px;">
-            <h1>pie chart here soon </h1>
-          </div>
+        <% end %>
 
         </div>
         <!--/row-->
-
+        <a class='btn btn-success' href="/projects/<%= @project.id %>/milestones/new">Create a new milestone</a>
         <!--PAGE CONTENT ENDS-->
       </div>
       <!--/.span-->
