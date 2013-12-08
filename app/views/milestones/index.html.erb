@@ -65,8 +65,21 @@
 
             <% @project.milestones.order('event_date').each do |milestone| %>
                 <div class="alert <%= get_milestone_status_color(milestone) %>">
-                  <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit"><i class="icon-calendar"></i> <%= milestone.subject %></a>
+                  <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><i class="icon-calendar"></i> <%= milestone.subject %></a>
+                  <br />
+                  <div class='badge badge-grey'>x tasks incomplete</div>
 
+                  <div class='pull-right' >
+                    <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit"
+                       class="btn btn-mini btn-success"
+                       data-placement="left"
+                       data-rel="tooltip"
+                       rel="nofollow"
+                       title="Edit">
+                      <span><i class='icon-edit'></i></span>
+                    </a>
+                  </div>
+                  <div class='pull-right'> &nbsp; </div>
                   <div class='pull-right' >
                     <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"
                        class="btn btn-mini btn-danger"
@@ -79,7 +92,6 @@
                       <span><i class='icon-trash'></i></span>
                     </a>
                   </div>
-                  <div class='pull-right'> &nbsp; </div>
                   <div class='pull-right'> &nbsp; </div>
                   <div class='pull-right smaller-80'>Due <%= milestone.event_date.strftime('%m/%d/%Y') %></div>
 
