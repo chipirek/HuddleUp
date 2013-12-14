@@ -64,14 +64,29 @@
             <div class='span7' style="margin-bottom: 50px;">
 
             <% @project.milestones.order('event_date').each do |milestone| %>
-                <div class="alert <%= get_milestone_status_color(milestone) %>">
-                  <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><i class="icon-calendar"></i> <%= milestone.subject %></a>
+                <div class="alert <%= get_milestone_status_color(milestone) %>" style='border-color:silver; padding-bottom:35px;'>
+                  <h4><a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>"><i class="icon-calendar"></i> &nbsp; <%= milestone.subject %></a></h4>
                   <br />
-                  <div class='badge badge-grey'>x tasks incomplete</div>
+                  <div class='pull-left badge badge-grey smaller-60'>x tasks incomplete</div>
+                  <div class='pull-left'> &nbsp; </div>
+                  <div class='pull-left badge badge-grey smaller-60'>Due <%= milestone.event_date.strftime('%m/%d/%Y') %></div>
+                  <div class='pull-left'> &nbsp; </div>
+                  <div class='pull-left'>
+                    <table>
+                      <tr>
+                        <td width='70px;'>
+                          <div class="progress" data-percent="<%= milestone.percent_complete %>%">
+                            <div class="bar" style="width:<%= milestone.percent_complete %>%;"></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
 
+                  <div class='pull-right'> &nbsp; </div>
                   <div class='pull-right' >
                     <a href="/projects/<%= @project.id %>/milestones/<%= milestone.id %>/edit"
-                       class="btn btn-mini btn-success"
+                       class="btn btn-mini btn-info"
                        data-placement="left"
                        data-rel="tooltip"
                        rel="nofollow"
@@ -93,20 +108,6 @@
                     </a>
                   </div>
                   <div class='pull-right'> &nbsp; </div>
-                  <div class='pull-right smaller-80'>Due <%= milestone.event_date.strftime('%m/%d/%Y') %></div>
-
-                  <div class='pull-right'> &nbsp; </div>
-                  <div class='pull-right'>
-                    <table>
-                      <tr>
-                        <td width='70px;'>
-                            <div class="progress" data-percent="<%= milestone.percent_complete %>%">
-                                <div class="bar" style="width:<%= milestone.percent_complete %>%;"></div>
-                            </div>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
                 </div>
             <% end %>
 
