@@ -101,9 +101,13 @@ class MilestonesController < ApplicationController
     # @milestone = Milestone.find(params[:id])
     @milestone.update_attributes(params[:milestone])
 
-    # TODO: hack to overcome Ruby 1.9 date parse bug
-    buffer = params[:milestone][:event_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
-    @milestone.event_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+    if params[:milestone][:event_date].length == 0
+      @milestone.errors.add(:event_date, 'Date is not valid.')
+    else
+      # TODO: hack to overcome Ruby 1.9 date parse bug
+      buffer = params[:milestone][:event_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
+      @milestone.event_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+    end
 
     target_url = project_milestones_path(@project)
     if params[:target_view] == 'dashboard'

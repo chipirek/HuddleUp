@@ -41,7 +41,7 @@
       <label class="control-label" for="milestone_event_date">Date</label>
         <div class="controls date">
             <span class='input-icon input-icon-right'>
-                <input class="date-picker" id="milestone_event_date" name='milestone[event_date]' type="text" data-date-format="mm/dd/yyyy" value='<%= @milestone.event_date.strftime("%m/%d/%Y") %>'>
+                <input class="date-picker" id="milestone_event_date" name='milestone[event_date]' type="text" data-date-format="mm/dd/yyyy" value='<%= @milestone.event_date.strftime("%m/%d/%Y") unless @milestone.event_date.nil? %>'>
                 <i class="icon-calendar"></i>
             </span>
         </div>
