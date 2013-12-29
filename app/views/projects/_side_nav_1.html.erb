@@ -96,6 +96,17 @@
     </li>
 
     <li
+    <% if component == 'activities' %>
+    class="active"
+    <% end %>
+    >
+      <a href="/projects/<%= project_id %>/activities">
+        <i class="icon-exchange"></i>
+        <span>Activities</span>
+      </a>
+    </li>
+
+    <li
     <% if component == 'settings' %>
     class="active"
     <% end %>
