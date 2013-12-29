@@ -24,6 +24,21 @@ module ProjectsHelper
     return 'label-important'
   end
 
+
+  def get_project_status_badge_color(p)
+    if p.status_code == 1
+      return 'btn-success'
+    end
+
+    if p.status_code == 2
+      return 'btn-yellow'
+    end
+
+    return 'btn-pink'
+  end
+
+
+
   def get_project_progress_color(p)
     if p.status_code == 1
       return 'rgb(130, 175, 111)'

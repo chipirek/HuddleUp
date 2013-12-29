@@ -232,7 +232,28 @@
             })
         }
         drawPieChart(placeholder, data);
+        placeholder.data('chart', data);
+        placeholder.data('draw', drawPieChart);
+
+
+
         var $tooltip = $("<div class='tooltip top in hide'><div class='tooltip-inner'></div></div>").appendTo('body');
+        var previousPoint = null;
+
+        placeholder.on('plothover', function (event, pos, item) {
+            if(item) {
+                if (previousPoint != item.seriesIndex) {
+                    previousPoint = item.seriesIndex;
+                    var tip = item.series['label'] + " : " + item.series['percent']+'%';
+                    $tooltip.show().children(0).text(tip);
+                }
+                $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
+            } else {
+                $tooltip.hide();
+                previousPoint = null;
+            }
+
+        });
 
     });
 
