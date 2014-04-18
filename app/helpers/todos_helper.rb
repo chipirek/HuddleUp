@@ -1,5 +1,13 @@
 module TodosHelper
 
+  def get_icon(todo)
+    if todo.is_complete
+      return 'icon-check'
+    else
+      return 'icon-check-empty'
+    end
+  end
+
   def get_item_color(todo)
     if todo.is_complete
       return 'item-green'
