@@ -1,4 +1,4 @@
-<%= form_for(@project, :html => {:class => 'form-horizontal '}) do |f| %>
+<%= form_for(@project, :html => {:class => 'form-horizontal'}) do |f| %>
     <% if @project.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
           <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
@@ -61,7 +61,7 @@
 
       <div class="controls">
         <textarea id="project_description" name='project[description]' style='display:none;'></textarea>
-        <div id="editor1" style='height: 125px;'></div>
+        <div class='wysiwyg-editor  ' id="editor1" style='height: 125px;'></div>
       </div>
     </div>
 
@@ -84,7 +84,7 @@
     </div>
 
     <!--[if lte IE 8]>
-    <script src="assets/js/excanvas.min.js"></script>
+    <script src="/assets/js/excanvas.min.js"></script>
     <![endif]-->
 
     <script src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
@@ -151,6 +151,7 @@
             $('#project_percent_complete').val(<%= @project.percent_complete %>);
             //$('#editor1').ace_wysiwyg();
             $('#editor1').html('<%= @project.description.html_safe %>');
+            //$('#editor1').ace_wysiwyg();
             $('#editor1').ace_wysiwyg({
                 toolbar:
                         [
