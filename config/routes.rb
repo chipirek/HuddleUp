@@ -5,10 +5,11 @@ HuddleUp::Application.routes.draw do
     resources :members
     resources :invitations
     resources :todos
-    resources :issues do
-      resources :posts
-      resources :action_items
-    end
+    resources :issues
+    #resources :issues do
+    #  resources :posts
+    #  resources :action_items
+    #end
     resources :milestones
   end
 

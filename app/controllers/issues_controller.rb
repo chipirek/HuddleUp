@@ -10,6 +10,7 @@ class IssuesController < ApplicationController
     # @project = Project.find(params[:project_id])
     # @issues = Issue.where('project_id=?', params[:project_id])
     @issues = @project.issues
+    @issue = Issue.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +25,9 @@ class IssuesController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @issue = Issue.find(params[:id])
+
+
+=begin
     @post = Post.new
     @action_item = ActionItem.new
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
@@ -35,6 +39,7 @@ class IssuesController < ApplicationController
     sql += " ) as history order by updated_at"
     @history_items = ActionItem.find_by_sql(sql)
     @history_days = @history_items.group_by { |t| t.updated_at.beginning_of_day }
+=end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -83,7 +88,6 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' added this issue.') unless @member.nil?
         format.html { redirect_to target_url, notice: 'Issue was successfully created.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
@@ -110,7 +114,6 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' updated this issue.')
         format.html { redirect_to target_url, notice: 'Issue was successfully updated.' }
         format.json { head :no_content }
       else
@@ -149,7 +152,6 @@ class IssuesController < ApplicationController
     @issue.save!
 
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' resolved this issue.')
 
     redirect_to request.referrer, notice: 'Issue has been resolved.'
   end
@@ -163,7 +165,6 @@ class IssuesController < ApplicationController
     @issue.save!
 
     @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-    Post.create(:issue_id=>@issue.id, :member_id=>@member.id, :body=>@member.user.name + ' re-opened this issue.')
 
     redirect_to request.referrer, notice: 'Issue has been re-opened.'
   end

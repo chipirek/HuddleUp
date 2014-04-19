@@ -150,17 +150,10 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
   puts ' '
   puts 'Seeding issues to AlphaSim...'
-  Post.destroy_all
   Issue.destroy_all
 
   m = project1.issues.create(:description=>'This is an unresolved issue')
   puts '   Added issue ' + m.description
-
-  p = m.posts.create(:body=>'I have a lovely bunch of coconuts', :member_id=>project1.members.first.id)
-  puts '        Added post ' + p.body
-
-  p = m.posts.create(:body=>'What does the fox say?', :member_id=>project1.members.first.id)
-  puts '        Added post ' + p.body
 
   m = project1.issues.create(:description=>'This is a resolved issue', :is_resolved=>true)
   puts '   Added issue ' + m.description

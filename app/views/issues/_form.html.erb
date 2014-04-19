@@ -1,8 +1,9 @@
+
 <%= form_for [@project, @issue], :html => {:class => 'form-horizontal'} do |f| %>
     <% if @issue.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
           <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-          <h4>Ooops, <%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h4>
+          <h4>Ooops, <%= pluralize(@issue.errors.count, "error") %> prohibited this todo from being saved:</h4>
 
           <ul>
             <% @issue.errors.full_messages.each do |msg| %>
@@ -27,18 +28,16 @@
 
     <% end %>
 
-    <input type='hidden' id='target_view' name='target_view' value='<%= params[:target_view] %>' />
-
-    <div class="control-group" id='issue_subject_controlGroup'>
-      <label class="control-label" for="issue_description">Description</label>
+    <div class="control-group" id='issue_description_controlGroup'>
+      <label class="control-label" for="issue_description">Subject</label>
 
       <div class="controls">
-        <input type="text" id="issue_description" name='issue[description]' placeholder="enter the issue name" value='<%= @issue.description %>'  class='span8' style='font-size:2em; height:40px;'>
+        <input type="text" id="issue_description" name='issue[description]' placeholder="describe the issue" autofocus="true" value='<%= @issue.description %>' class='span8' style='font-size:2em; height:40px; width:300px;'>
       </div>
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="task_points">Assigned To</label>
+      <label class="control-label" for="x">Assigned To</label>
       <div class="controls">
         <%= select('issue', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
       </div>
@@ -46,15 +45,7 @@
 
     <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
-      <a href='javascript:window.history.back();' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
+      <a href='/projects/<%= @project.id %>/issues' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
     </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-            $('.date-picker').datepicker();
-        });
-
-    </script>
 
 <% end %>

@@ -1,3 +1,23 @@
+<style>
+    .no_underscore a {
+        text-decoration: none;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .hidden-767 {
+            display: none !important;
+        }
+    }
+
+    form
+    {
+        border: 3px solid #DDD;
+        background-color: #EEE;
+        padding: 20px 20px 20px 20px;
+    }
+</style>
+
+
 <div class="navbar">
 
   <script type="text/javascript">
@@ -67,7 +87,7 @@
 
                 <li class="<%= get_issue_status_color2(issue) %> clearfix <%= 'selected' unless !issue.is_resolved? %>" data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
                   <i class='icon-exclamation-sign' style='font-size: 2em;'></i>
-                  <a href='<%= project_issue_path(@project, issue) %>'>&nbsp;&nbsp;<%= issue.description.truncate(150) %></a>
+                  &nbsp;&nbsp;<%= issue.description.truncate(150) %>
                   <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
                   <div class="inline pull-right position-relative">
                     <% if !issue.is_resolved? %>
@@ -115,11 +135,11 @@
 
           <% end %>
 
+          <h4>Quickly add an Issue...</h4>
+          <%= render 'form' %>
 
         </div>
         <!--/row-->
-
-        <a class='btn btn-success' href="/projects/<%= @project.id %>/issues/new">Create a new issue</a>
 
         <!--PAGE CONTENT ENDS-->
       </div>
