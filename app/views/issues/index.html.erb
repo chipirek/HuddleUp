@@ -41,7 +41,7 @@
 
     <div class="page-content">
       <div class="page-header position-relative">
-        <h1><i class="icon-wrench"></i> Issues</h1>
+        <h1><i class="icon-exclamation-sign"></i> Issues</h1>
 
       </div>
       <!--/.page-header-->
@@ -66,7 +66,7 @@
             <% @project.issues.order('is_resolved nulls first').each do |issue| %>
 
                 <li class="<%= get_issue_status_color2(issue) %> clearfix <%= 'selected' unless !issue.is_resolved? %>" data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
-                  <i class='icon-wrench'></i>
+                  <i class='icon-exclamation-sign' style='font-size: 2em;'></i>
                   <a href='<%= project_issue_path(@project, issue) %>'>&nbsp;&nbsp;<%= issue.description.truncate(150) %></a>
                   <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
                   <div class="inline pull-right position-relative">
