@@ -29,7 +29,7 @@
     <span class="menu-text"></span>
   </a>
 
-  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'activities', :project_id => @project.id } %>
+  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'activities', :project_id => @project.id} %>
 
   <div class="main-content">
 
@@ -56,19 +56,35 @@
               </div>
           <% end %>
 
-          <ul class='unstyled space2'>
-            <% @project.audits.each do |a| %>
-                <li><i class="icon-circle green"></i><%= User.find(a.user_id).name %> <%= a.action %>d
-                  this <%= a.auditable_type.downcase %> <%= time_ago_in_words(a.created_at) %> ago
-                </li>
-            <% end %>
-            <% @project.associated_audits.each do |a| %>
-                <li><i class="icon-circle green"></i><%= User.find(a.user_id).name %> <%= a.action %>d
-                  a <%= a.auditable_type.downcase %> <%= time_ago_in_words(a.created_at) %> ago
-                </li>
-            <% end %>
-          </ul>
+          <div class='offset1 span10'>
 
+            <div class="timeline-container timeline-style2">
+											<span class="timeline-label">
+												<b>Timeline</b>
+											</span>
+
+              <% @audits.each do |a| %>
+                  <div class="timeline-items">
+                    <div class="timeline-item clearfix">
+                      <div class="timeline-info">
+                        <span class="timeline-date"><%= a.created_at.strftime("%m/%d/%Y %M:%H") %></span>
+
+                        <i class="timeline-indicator btn btn-info no-hover"></i>
+                      </div>
+
+                      <div class="widget-box transparent">
+                        <div class="widget-body">
+                          <div class="widget-main no-padding"><i><%= time_ago_in_words(a.created_at) %> ago</i>
+                            - <%= a.full_message %></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/.timeline-items-->
+              <% end %>
+            </div>
+
+          </div>
         </div>
         <!--/row-->
         <!--PAGE CONTENT ENDS-->
@@ -139,18 +155,19 @@
         var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
         $('[data-rel="tooltip"]').tooltip();
 
-        var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'150px'});
+        var placeholder = $('#piechart-placeholder').css({'width': '90%', 'min-height': '150px'});
         var data = [
             <% @project.milestones.order('event_date').each do |milestone| %>
-            { label: '<%= milestone.subject %>',  data: <%= milestone.points %>},
+            { label: '<%= milestone.subject %>', data: <%= milestone.points %>},
             <% end %>
         ]
+
         function drawPieChart(placeholder, data, position) {
             $.plot(placeholder, data, {
                 series: {
                     pie: {
                         show: true,
-                        tilt:0.8,
+                        tilt: 0.8,
                         highlight: {
                             opacity: 0.25
                         },
@@ -165,32 +182,31 @@
                     show: true,
                     position: position || "ne",
                     labelBoxBorderColor: null,
-                    margin:[-30,15]
-                }
-                ,
+                    margin: [-30, 15]
+                },
                 grid: {
                     hoverable: true,
                     clickable: true
                 }
             })
         }
+
         drawPieChart(placeholder, data);
         placeholder.data('chart', data);
         placeholder.data('draw', drawPieChart);
-
 
 
         var $tooltip = $("<div class='tooltip top in hide'><div class='tooltip-inner'></div></div>").appendTo('body');
         var previousPoint = null;
 
         placeholder.on('plothover', function (event, pos, item) {
-            if(item) {
+            if (item) {
                 if (previousPoint != item.seriesIndex) {
                     previousPoint = item.seriesIndex;
-                    var tip = item.series['label'] + " : " + item.series['percent']+'%';
+                    var tip = item.series['label'] + " : " + item.series['percent'] + '%';
                     $tooltip.show().children(0).text(tip);
                 }
-                $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
+                $tooltip.css({top: pos.pageY + 10, left: pos.pageX + 10});
             } else {
                 $tooltip.hide();
                 previousPoint = null;
