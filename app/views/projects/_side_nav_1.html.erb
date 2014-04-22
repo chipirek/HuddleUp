@@ -48,6 +48,7 @@
       <a href="/projects/<%= project_id %>/issues">
         <i class="icon-exclamation-sign"></i>
         <span>Issues</span>
+        <span class="badge badge-important"><%= @project.issues.where('is_resolved is NULL').count %></span>
       </a>
     </li>
 
@@ -59,6 +60,7 @@
       <a href="/projects/<%= project_id %>/todos">
         <i class="icon-list"></i>
         <span>Todos</span>
+        <span class="badge badge-important"><%= @project.todos.where('is_complete is NULL').count %></span>
       </a>
     </li>
 

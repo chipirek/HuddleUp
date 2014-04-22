@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
 
   attr_accessible :description, :name, :status_code, :token_for_disqus, :percent_complete
 
+  attr_accessor :active_todos, :open_issues
+
   validates_presence_of :name
 
   #belongs_to :user
