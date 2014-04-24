@@ -1,3 +1,12 @@
+<style>
+
+    .message-item .time
+    {
+        width: 300px;
+    }
+</style>
+
+
 <div class="navbar">
 
   <script type="text/javascript">
@@ -61,19 +70,68 @@
               <div class='alert alert-info' style="margin-bottom: 50px;">None</div>
           <% else %>
 
-              <ul id="messages" class="item-list" style='margin-bottom: 50px;'>
+              <div class="message-list-container" style='margin-bottom: 50px;'>
+                <div class="message-list" id="message-list">
 
-                <% @project.messages.order('created_at desc').each do |message| %>
+                  <% @project.messages.order('created_at desc').each do |message| %>
 
-                    <li>
-                      <%= message.subject %>
-                    </li>
+                      <div class="message-item message-unread">
+                        <label class="inline">
+                          <input type="checkbox" class="ace" />
+                          <span class="lbl"></span>
+                        </label>
 
-                <% end %>
+                        <i class="message-star icon-star orange2"></i>
+                        <span class="sender"><%= message.member.user.name %> </span>
+                        <span class="time"><%= time_ago_in_words(message.created_at) + " ago at " + message.created_at.strftime("%m/%d/%Y %H:%M") %></span>
 
-              </ul >
+                        <span class="summary">
+                            <span class="text">
+                                <%= link_to message.subject, project_message_path(@project, message) %>
+                            </span>
+                        </span>
+                      </div>
 
-          <% end %>
+                  <% end %>
+
+                  <div class="message-item message-unread">
+                    <label class="inline">
+                      <input type="checkbox" class="ace" />
+                      <span class="lbl"></span>
+                    </label>
+
+                    <i class="message-star icon-star orange2"></i>
+                    <span class="sender" title="Alex John Red Smith">Alex John Red Smith </span>
+                    <span class="time">1:33 pm</span>
+
+                    <span class="summary">
+                        <span class="text">
+                            Click to open this message
+                        </span>
+                    </span>
+                  </div>
+
+                  <div class="message-item message-read">
+                    <label class="inline">
+                      <input type="checkbox" class="ace" />
+                      <span class="lbl"></span>
+                    </label>
+
+                    <i class="message-star icon-star orange2"></i>
+                    <span class="sender" title="Alex John Red Smith">Joe H Sender </span>
+                    <span class="time">4:09 pm</span>
+
+                    <span class="summary">
+                        <span class="text">
+                            Hey, where's my subject?
+                        </span>
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+
+        <% end %>
 
           <a href='/projects/<%= @project.id %>/messages/new' class='btn btn-success'>Create a new message for the team</a>
 

@@ -10,7 +10,7 @@ class Member < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
   has_many :todos
-  has_many :posts
+  has_many :messages
   has_many :issues
   has_one :invitation
 

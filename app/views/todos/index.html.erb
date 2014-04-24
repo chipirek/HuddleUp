@@ -198,12 +198,6 @@
             $(this).find($('#todo_subject')).focus();
         });
 
-        <% @todos.each do |todo| %>
-        $('#modal-form-<%= todo.id %>').on('shown', function () {
-            $(this).find("[autofocus]:first").focus();
-        });
-        <% end %>
-
         var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
         $('[data-rel="tooltip"]').tooltip();
 
