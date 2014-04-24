@@ -7,8 +7,6 @@ class Project < ActiveRecord::Base
 
   attr_accessible :description, :name, :status_code, :token_for_disqus, :percent_complete
 
-  attr_accessor :active_todos, :open_issues
-
   validates_presence_of :name
 
   #belongs_to :user
@@ -16,6 +14,7 @@ class Project < ActiveRecord::Base
   has_many :milestones
   has_many :todos
   has_many :issues
+  has_many :messages
 
 
   def create_disqus_token

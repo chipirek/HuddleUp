@@ -29,20 +29,21 @@
     <span class="menu-text"></span>
   </a>
 
-  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'issues', :project_id => @project.id } %>
+  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'messages', :project_id => @project.id} %>
 
   <div class="main-content">
 
 
     <% crumbs = [['Projects', projects_path],
-                 [@project.name, project_path(@project)]] %>
+                 [@project.name, project_path(@project)],
+                 ['Messages', project_messages_path(@project)],
+                 [@message.description, project_message_path(@project, @message)]] %>
 
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Issues'} %>
+    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Edit this message'} %>
 
     <div class="page-content">
       <div class="page-header position-relative">
-        <h1><i class="icon-exclamation-sign"></i> Issues</h1>
-
+        <h1><i class="icon-exclamation-sign"></i> Edit this message</h1>
       </div>
       <!--/.page-header-->
 
@@ -57,65 +58,6 @@
               </div>
           <% end %>
 
-          <% if @project.issues.count == 0 %>
-              <div class='alert alert-info' style="margin-bottom: 50px;">None</div>
-          <% else %>
-
-        <ul id="issues" class="item-list" style='margin-bottom: 50px;'>
-
-            <% @project.issues.order('is_resolved nulls first').each do |issue| %>
-
-                <li class="<%= get_issue_status_color2(issue) %> clearfix <%= 'selected' unless !issue.is_resolved? %>" data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
-                  <i class='icon-exclamation-sign' style='font-size: 2em;'></i>
-                  &nbsp;&nbsp;<%= issue.description.truncate(150) %>
-                  <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
-                  <div class="inline pull-right position-relative">
-                    <% if !issue.is_resolved? %>
-                        &nbsp;
-                        <button class="btn btn-mini btn-success"
-                                onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= issue.id %>'"
-                                data-placement="left"
-                                data-rel="tooltip"
-                                title="Mark as Resolved"><i class='icon-ok'></i> Resolve
-                        </button>
-                    <% else %>
-                        &nbsp;
-                        <button class="btn btn-mini btn-danger"
-                                onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= issue.id %>'"
-                                data-placement="left"
-                                data-rel="tooltip"
-                                title="Mark as Un-Resolved"><i class='icon-remove'></i> Re-Open
-                        </button>
-                    <% end %>
-                    &nbsp;
-                    <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"
-                       class="btn btn-mini btn-danger"
-                       data-confirm="Are you sure you want to delete <%= issue.description %>?"
-                       data-method="delete"
-                       data-placement="left"
-                       data-rel="tooltip"
-                       rel="nofollow"
-                       title="Delete">
-                      <span><i class='icon-trash'></i></span>
-                    </a>
-                    &nbsp;
-                    <button class="btn btn-mini btn-info icon-edit"
-                            onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= issue.id %>/edit'"
-                            data-placement="left"
-                            data-rel="tooltip"
-                            title="Edit">
-                    </button>
-                    &nbsp;
-                  </div>
-                </li>
-
-            <% end %>
-
-          </ul >
-
-          <% end %>
-
-          <h4>Quickly add an Issue...</h4>
           <%= render 'form' %>
 
         </div>
@@ -177,7 +119,8 @@
 </a>
 
 <!-- inline scripts related to this page -->
-<script type="text/javascript" src="/assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="/assets/js/fuelux/fuelux.spinner.min.js"></script>
+<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
 
     $(function () {
