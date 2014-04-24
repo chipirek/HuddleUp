@@ -37,7 +37,7 @@
     <% crumbs = [['Projects', projects_path],
                  [@project.name, project_path(@project)],
                  ['Messages', project_messages_path(@project)],
-                 [@message.description, project_message_path(@project, @message)]] %>
+                 [@message.subject, project_message_path(@project, @message)]] %>
 
     <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Edit this message'} %>
 

@@ -40,6 +40,7 @@ class MessagesController < ApplicationController
     #@project = Project.find(params[:project_id])
     @message = Message.new
     @message.project_id = params[:project_id]
+    @message.body=''
 
     respond_to do |format|
       format.html # new.html.erb
