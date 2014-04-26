@@ -5,6 +5,8 @@ require 'audited/auditor'
 require 'audited/adapters/active_record/audit'
 
 puts 'Seeding users...'
+ReadReceipt.destroy_all
+Member.destroy_all
 User.destroy_all
 
 u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p' )  # no, not my real password

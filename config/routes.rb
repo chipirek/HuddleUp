@@ -1,8 +1,5 @@
 HuddleUp::Application.routes.draw do
 
-  resources :messages
-
-
   resources :projects do
     resources :activities
     resources :members

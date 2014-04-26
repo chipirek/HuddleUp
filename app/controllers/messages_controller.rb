@@ -10,6 +10,24 @@ class MessagesController < ApplicationController
     # @project = Project.find(params[:project_id])
     # @messages = Message.where('project_id=?', params[:project_id])
     @messages = @project.messages
+    @current_member_id = Member.where('user_id=?', current_user.id).where('project_id=?', params[:project_id]).first().id
+
+=begin
+    @messages.each do |m|
+        current_member_id = Member.where('user_id=?', current_user.id).where('project_id=?', params[:project_id]).first().id
+        puts '------------'
+        puts 'message id=' + m.id.to_s
+        count = m.read_receipts.where('member_id=?', current_member_id).count()
+        puts 'member id=' + current_member_id.to_s
+        if count == 0
+          m.is_unread == true
+        else
+          m.is_unread == false
+        end
+        puts 'is_unread=' + m.is_unread
+    end
+=end
+
     @message = Message.new
 
     respond_to do |format|
@@ -25,6 +43,11 @@ class MessagesController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @message = Message.find(params[:id])
+
+    r = ReadReceipt.new
+    r.member_id=Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first().id
+    r.message_id=params[:id]
+    r.save
 
     respond_to do |format|
       format.html # show.html.erb
@@ -69,7 +92,13 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
+
+        r = ReadReceipt.new
+        r.member_id=@message.member.id
+        r.message_id=@message.id
+        r.save
+
+        @member = @message.member
         format.html { redirect_to project_messages_path(@project), notice: 'Message was successfully created.' }
         format.json { render json: @message, status: :created, location: @message }
       else

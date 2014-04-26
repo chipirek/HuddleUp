@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140423115332) do
+ActiveRecord::Schema.define(:version => 20140425105653) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -96,6 +96,13 @@ ActiveRecord::Schema.define(:version => 20140423115332) do
     t.string   "token_for_disqus"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "read_receipts", :force => true do |t|
+    t.integer  "member_id"
+    t.integer  "message_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "todos", :force => true do |t|

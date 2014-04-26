@@ -75,13 +75,14 @@
 
                   <% @project.messages.order('created_at desc').each do |message| %>
 
-                      <div class="message-item message-unread">
-                        <label class="inline">
-                          <input type="checkbox" class="ace" />
-                          <span class="lbl"></span>
-                        </label>
+                      <div class="message-item <%= get_read_status(message) %>">
 
-                        <i class="message-star icon-star orange2"></i>
+                        <% if message.is_unread?(@current_member_id) %>
+                            <i class="message-star icon-star orange2"></i>
+                        <% else %>
+                            <i class="message-star icon-star white"></i>
+                        <% end %>
+
                         <span class="sender"><%= message.member.user.name %> </span>
                         <span class="time"><%= time_ago_in_words(message.created_at) + " ago at " + message.created_at.strftime("%m/%d/%Y %H:%M") %></span>
 
@@ -93,40 +94,6 @@
                       </div>
 
                   <% end %>
-
-                  <div class="message-item message-unread">
-                    <label class="inline">
-                      <input type="checkbox" class="ace" />
-                      <span class="lbl"></span>
-                    </label>
-
-                    <i class="message-star icon-star orange2"></i>
-                    <span class="sender" title="Alex John Red Smith">Alex John Red Smith </span>
-                    <span class="time">1:33 pm</span>
-
-                    <span class="summary">
-                        <span class="text">
-                            Click to open this message
-                        </span>
-                    </span>
-                  </div>
-
-                  <div class="message-item message-read">
-                    <label class="inline">
-                      <input type="checkbox" class="ace" />
-                      <span class="lbl"></span>
-                    </label>
-
-                    <i class="message-star icon-star orange2"></i>
-                    <span class="sender" title="Alex John Red Smith">Joe H Sender </span>
-                    <span class="time">4:09 pm</span>
-
-                    <span class="summary">
-                        <span class="text">
-                            Hey, where's my subject?
-                        </span>
-                    </span>
-                  </div>
 
                 </div>
               </div>
