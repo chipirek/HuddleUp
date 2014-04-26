@@ -14,9 +14,9 @@ class Message < ActiveRecord::Base
 
 
   def is_unread?(for_member_id)
-    puts '----------------------'
-    puts 'message_id=' + id.to_s
-    puts 'read-receipts=' + read_receipts.where('member_id=?', for_member_id).count.to_s
+    #puts '----------------------'
+    #puts 'message_id=' + id.to_s
+    #puts 'read-receipts=' + read_receipts.where('member_id=?', for_member_id).count.to_s
     if read_receipts.where('member_id=?', for_member_id).count > 0
       return false
     else

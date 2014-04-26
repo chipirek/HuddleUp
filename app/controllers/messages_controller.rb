@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   load_and_authorize_resource :project
   load_and_authorize_resource :message, :through => :project
 
+
   # GET /messages
   # GET /messages.json
   def index
@@ -10,24 +11,6 @@ class MessagesController < ApplicationController
     # @project = Project.find(params[:project_id])
     # @messages = Message.where('project_id=?', params[:project_id])
     @messages = @project.messages
-    @current_member_id = Member.where('user_id=?', current_user.id).where('project_id=?', params[:project_id]).first().id
-
-=begin
-    @messages.each do |m|
-        current_member_id = Member.where('user_id=?', current_user.id).where('project_id=?', params[:project_id]).first().id
-        puts '------------'
-        puts 'message id=' + m.id.to_s
-        count = m.read_receipts.where('member_id=?', current_member_id).count()
-        puts 'member id=' + current_member_id.to_s
-        if count == 0
-          m.is_unread == true
-        else
-          m.is_unread == false
-        end
-        puts 'is_unread=' + m.is_unread
-    end
-=end
-
     @message = Message.new
 
     respond_to do |format|
