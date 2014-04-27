@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :make_sure_there_is_a_working_date
   before_filter :build_my_notifications
-  before_filter :determine_current_membership
 
   protect_from_forgery
 
@@ -46,21 +45,6 @@ class ApplicationController < ActionController::Base
       @my_active_todos = []
     end
 
-  end
-
-
-  def determine_current_membership
-    @current_membership_id = nil
-
-    if current_user.nil?
-      return
-    end
-
-    if params[:project_id].nil?
-      return
-    end
-
-    @current_membership_id = Member.where('user_id=?', current_user.id).where('project_id=?', params[:project_id]).first().id
   end
 
 end

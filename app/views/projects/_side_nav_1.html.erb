@@ -48,8 +48,8 @@
       <a href="/projects/<%= project_id %>/issues">
         <i class="icon-exclamation-sign"></i>
         <span>Issues</span>
-        <% if @project.issues.where('is_resolved is NULL').count > 0 %>
-            <span class="badge badge-important"><%= @project.issues.where('is_resolved is NULL').count %></span>
+        <% if @project.how_many_issues_for_this_member() > 0 %>
+            <span class="badge badge-important"><%= @project.how_many_issues_for_this_member() %></span>
         <% end %>
       </a>
     </li>
@@ -62,8 +62,8 @@
       <a href="/projects/<%= project_id %>/todos">
         <i class="icon-list"></i>
         <span>Todos</span>
-        <% if @project.todos.where('is_complete is NULL').count > 0 %>
-            <span class="badge badge-important"><%= @project.todos.where('is_complete is NULL').count %></span>
+        <% if @project.how_many_issues_for_this_member() > 0 %>
+            <span class="badge badge-important"><%= @project.how_many_issues_for_this_member() %></span>
         <% end %>
       </a>
     </li>
@@ -98,13 +98,8 @@
       <a href="/projects/<%= project_id %>/messages">
         <i class="icon-envelope"></i>
         <span>Messages</span>
-        <% messages_current_user_has_read = 0
-           @project.messages.each do |m|
-             messages_current_user_has_read += m.read_receipts.where('member_id=?', @current_membership_id).count
-           end
-           messages_unread = @project.messages.count - messages_current_user_has_read
-           if messages_unread > 0 %>
-            <span class="badge badge-important"><%= messages_unread %></span>
+        <% if @project.how_many_unread_messages_for_this_member(current_user.id) > 0 %>
+            <span class="badge badge-important"><%= @project.how_many_unread_messages_for_this_member(current_user.id) %></span>
         <% end %>
       </a>
     </li>
