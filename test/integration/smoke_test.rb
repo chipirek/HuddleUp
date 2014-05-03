@@ -250,14 +250,10 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_not_equal p.issues.count, 0
   end
 
+  test 'create new message' do
 
-  test 'add an action_item to an issue' do
-    prj = Project.first
-    #p '>>> The Project ID is ' + prj.id.to_s
-
-    iss = prj.issues.last
-    assert_equal prj.issues.count, 2
-    #p '>>> The Issue ID is ' + iss.id.to_s
+    #p = projects(:project1)
+    p = Project.first
 
     #-- login
     get '/users/sign_in'
@@ -265,50 +261,34 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
     post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
     assert_equal '/', path
+    #p flash
+    #assert_equal 'Welcome david!', flash[:notice]
 
-    #-- post the form / add the object
-    post_via_redirect project_issue_action_items_path(prj, iss), 'action_item[subject]' => 'This is my action_item'
+    #-- get the index
+    get project_messages_path (p)
+    assert_response :success
+    assert assigns(:messages)
 
-    #-- get the fresh copy from the database
-    prj = Project.first
-    iss = prj.issues.last
-    assert_equal iss.action_items.count, 1
-    act = iss.action_items.last
-    assert_equal act.subject, 'This is my action_item'
-
-  end
-
-
-  test 'add an post to an issue' do
-    prj = Project.first
-    #p '>>> The Project ID is ' + prj.id.to_s
-
-    iss = prj.issues.last
-    assert_equal prj.issues.count, 2
-    #p '>>> The Issue ID is ' + iss.id.to_s
-
-    #-- login
-    get '/users/sign_in'
+    #-- get the add page
+    get new_project_message_path (p)
     assert_response :success
 
-    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
-    assert_equal '/', path
-
     #-- post the form / add the object
-    post_via_redirect project_issue_posts_path(prj, iss), 'post[body]' => 'This is my post'
-    #pst2 = iss.posts.create(:body=>'This is my post')
-    #pst2.save!
-    #assert_not_equal(pst2,nil)
-    #p '>>> post-id is ' + pst2.id.to_s
-    #p '>>> post-body is ' + pst2.body
+    # p project_todos_path (p)
+    # p p.name
+    post_via_redirect project_messages_path (p), 'message[subject]' => 'My Message'
 
     #-- get the fresh copy from the database
-    prj = Project.first
-    iss = prj.issues.last
-    assert_equal 1, iss.posts.count
-    pst = iss.posts.last
-    assert_equal pst.body, 'This is my post'
+    #p = projects(:project1)
+    p = Project.first
+
+    assert_equal 1, p.messages.count
+
+    t = p.messages.first
+    assert_equal 'My Message', t.subject
+
   end
+
 
 
 end

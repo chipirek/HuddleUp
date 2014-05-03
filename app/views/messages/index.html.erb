@@ -83,8 +83,8 @@
                             <i class="message-star icon-star white"></i>
                         <% end %>
 
-                        <span class="sender"><%= message.member.user.name %> </span>
-                        <span class="time"><%= time_ago_in_words(message.created_at) + " ago at " + message.created_at.strftime("%m/%d/%Y %H:%M") %></span>
+                        <span class="sender"><%= message.member.user.name  unless message.member.nil? %> </span>
+                        <span class="time"><%= time_ago_in_words(message.created_at) + " ago (" + message.created_at.strftime("%m/%d/%Y %I:%M %P") %>)</span>
 
                         <span class="summary">
                             <span class="text">

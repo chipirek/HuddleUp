@@ -69,7 +69,7 @@ class MessagesController < ApplicationController
   def create
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    # @message = Message.new(params[:message])
+    @message = Message.new(params[:message])
     @message.project_id = params[:project_id]
     @message.member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
 
