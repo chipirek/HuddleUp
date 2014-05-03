@@ -62,8 +62,8 @@
       <a href="/projects/<%= project_id %>/todos">
         <i class="icon-list"></i>
         <span>Todos</span>
-        <% if @project.how_many_issues_for_this_member() > 0 %>
-            <span class="badge badge-important"><%= @project.how_many_issues_for_this_member() %></span>
+        <% if @project.how_many_todos_for_this_member() > 0 %>
+            <span class="badge badge-important"><%= @project.how_many_todos_for_this_member() %></span>
         <% end %>
       </a>
     </li>

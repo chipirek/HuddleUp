@@ -19,11 +19,12 @@ class Project < ActiveRecord::Base
 
   def how_many_todos_for_this_member
     return todos.where('is_complete is NULL').count
+    #return Todo.where('project_id=?', id).where('is_complete is NULL').count
   end
 
 
   def how_many_issues_for_this_member
-    issues.where('is_resolved is NULL').count
+    return issues.where('is_resolved is NULL').count
   end
 
 
