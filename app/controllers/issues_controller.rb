@@ -80,15 +80,10 @@ class IssuesController < ApplicationController
     # @issue = Issue.new(params[:issue])
     @issue.project_id = params[:project_id]
 
-    target_url = project_issues_path(@project)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
-
     respond_to do |format|
       if @issue.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        format.html { redirect_to target_url, notice: 'Issue was successfully created.' }
+        format.html { redirect_to project_issues_path(@project), notice: 'Issue was successfully created.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
         format.html { render action: "new" }
@@ -106,15 +101,10 @@ class IssuesController < ApplicationController
     # @issue = Issue.find(params[:id])
     @issue.update_attributes(params[:issue])
 
-    target_url = project_issues_path(@project)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
-
     respond_to do |format|
       if @issue.save
         @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-        format.html { redirect_to target_url, notice: 'Issue was successfully updated.' }
+        format.html { redirect_to project_issues_path(@project), notice: 'Issue was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -132,13 +122,8 @@ class IssuesController < ApplicationController
     # @issue = Issue.find(params[:id])
     @issue.destroy
 
-    target_url = project_issues_path(@project)
-    if params[:target_view] == 'dashboard'
-      target_url = project_path(@project)
-    end
-
     respond_to do |format|
-      format.html { redirect_to target_url, notice: 'Issue was successfully deleted.' }
+      format.html { redirect_to project_issues_path(@project), notice: 'Issue was successfully deleted.' }
       format.json { head :no_content }
     end
   end
