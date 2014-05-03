@@ -37,11 +37,11 @@
     <% crumbs = [['Projects', projects_path],
                  [@project.name, project_path(@project)]] %>
 
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Activities'} %>
+    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Timeline'} %>
 
     <div class="page-content">
       <div class="page-header position-relative">
-        <h1><i class="icon-exchange"></i> Activities </h1>
+        <h1><i class="icon-exchange"></i> Timeline </h1>
       </div>
       <!--/.page-header-->
 
@@ -58,31 +58,44 @@
 
           <div class='offset1 span10'>
 
-            <div class="timeline-container timeline-style2">
-											<span class="timeline-label">
-												<b>Timeline</b>
-											</span>
 
+              <% day_buffer = '' %>
+              <% close_div = false %>
               <% @audits.each do |a| %>
+                  <% if day_buffer != a.created_at.strftime("%m/%d/%Y") %>
+                      <% day_buffer = a.created_at.strftime("%m/%d/%Y") %>
+                        <div class="timeline-container timeline-style2">
+                                                <span class="timeline-label">
+                                                    <b><%= day_buffer %></b>
+                                                </span>
+
+                      <% close_div = true %>
+                  <% end %>
                   <div class="timeline-items">
                     <div class="timeline-item clearfix">
                       <div class="timeline-info">
-                        <span class="timeline-date"><%= a.created_at.strftime("%m/%d/%Y %M:%H") %></span>
+                        <span class="timeline-date"><%= a.created_at.strftime("%I:%M %P") %></span>
 
                         <i class="timeline-indicator btn btn-info no-hover"></i>
                       </div>
 
                       <div class="widget-box transparent">
                         <div class="widget-body">
-                          <div class="widget-main no-padding"><i><%= time_ago_in_words(a.created_at) %> ago</i>
-                            - <%= a.full_message %></div>
+                          <div class="widget-main no-padding">
+                            <%= a.full_message.html_safe %>
+                            <i> (<%= time_ago_in_words(a.created_at) %> ago</i>)<p></p></div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!--/.timeline-items-->
               <% end %>
+
             </div>
+            <% if close_div %>
+                </div>
+                <% close_div = false %>
+            <% end %>
 
           </div>
         </div>
