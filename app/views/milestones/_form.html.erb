@@ -13,7 +13,7 @@
 
         <script type="text/javascript">
             $(function () {
-                $('#milestone_subject_controlGroup').addClass('error');
+                $('#milestone_title_controlGroup').addClass('error');
             });
         </script>
 
@@ -21,64 +21,49 @@
 
         <script type="text/javascript">
             $(function () {
-                $('#milestone_subject').focus();
+                $('#milestone_title').focus();
             });
         </script>
 
     <% end %>
 
-    <input type='hidden' id='target_view' name='target_view' value='<%= params[:target_view] %>' />
-
-    <div class="control-group" id='milestone_subject_controlGroup'>
-      <label class="control-label" for="milestone_name">Milestone</label>
+    <div class="control-group" id='milestone_title_controlGroup'>
+      <label class="control-label" for="milestone_title">Milestone</label>
 
       <div class="controls">
-        <input type="text" id="milestone_subject" name='milestone[subject]' placeholder="enter the milestone name" value='<%= @milestone.subject %>'  class='span8' style='font-size:2em; height:40px;'>
+        <input type="text" id="milestone_title" name='milestone[title]' placeholder="enter the milestone name" value='<%= @milestone.title %>'  class='span8' style='font-size:2em; height:40px;'>
       </div>
     </div>
 
-    <div class="control-group" id='milestone_subject_controlGroup'>
-      <label class="control-label" for="milestone_event_date">Date</label>
+    <div class="control-group" id='milestone_start_controlGroup'>
+      <label class="control-label" for="milestone_start">Start Date</label>
         <div class="controls date">
             <span class='input-icon input-icon-right'>
-                <input class="date-picker" id="milestone_event_date" name='milestone[event_date]' type="text" data-date-format="mm/dd/yyyy" value='<%= @milestone.event_date.strftime("%m/%d/%Y") unless @milestone.event_date.nil? %>'>
+                <input class="date-picker" id="milestone_start" name='milestone[start]' type="text" data-date-format="mm/dd/yyyy" value='<%= @milestone.start.strftime("%m/%d/%Y") unless @milestone.start.nil? %>'>
                 <i class="icon-calendar"></i>
             </span>
         </div>
     </div>
 
-    <div class="control-group">
-      <label class="control-label" for="milestone_points">% of Overall Project</label>
-
-      <div class="controls">
-        <div class='ace-spinner'>
-          <input type="text" class="input-mini spinner-input" id="milestone_points" name='milestone[points]' maxlength="3" style="width: 30px;">
-        </div>
+    <div class="control-group" id='milestone_end_controlGroup'>
+      <label class="control-label" for="milestone_end">End Date</label>
+      <div class="controls date">
+            <span class='input-icon input-icon-right'>
+                <input class="date-picker" id="milestone_end" name='milestone[end]' type="text" data-date-format="mm/dd/yyyy" value='<%= @milestone.end.strftime("%m/%d/%Y") unless @milestone.end.nil? %>'>
+                <i class="icon-calendar"></i>
+            </span>
       </div>
     </div>
 
-    <div class="control-group">
-      <label class="control-label" for="milestone_percent_complete">% Complete</label>
 
-      <div class="controls">
-        <div class='ace-spinner'>
-          <input type="text" class="input-mini spinner-input" id="milestone_percent_complete" name='milestone[percent_complete]' maxlength="3" style="width: 30px;">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-actions">
+   <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
-      <a href='javascript:window.history.back();' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
+      <a href='/projects/<%= @project.id.to_s %>/milestones' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
     </div>
 
     <script type="text/javascript">
 
         $(function () {
-            $('#milestone_percent_complete').ace_spinner({value: 0, min: 0, max: 100, step: 5, btn_up_class: 'btn-info', btn_down_class: 'btn-info'});
-            $('#milestone_points').ace_spinner({value: 0, min: 0, max: 100, step: 5, btn_up_class: 'btn-info', btn_down_class: 'btn-info'});
-            $('#milestone_percent_complete').val('<%= @milestone.percent_complete %>');
-            $('#milestone_points').val('<%= @milestone.points %>');
             $('.date-picker').datepicker();
         });
 

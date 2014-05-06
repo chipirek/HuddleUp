@@ -95,6 +95,8 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts '   Added milestone ' + m.title
   m = project1.milestones.create(:title=>'Sprint 3 review', :start=>Date.tomorrow)
   puts '   Added milestone ' + m.title
+  m = project1.milestones.create(:title=>'Signoff', :start=>Time.now.advance(:days=>7).to_date, :all_day=>true)
+  puts '   Added milestone ' + m.title
 
   m = project5.milestones.create(:title=>'Initial Design', :start=>100.days.ago, :end=>98.days.ago)
   puts '   Added milestone ' + m.title

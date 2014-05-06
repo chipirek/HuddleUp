@@ -71,21 +71,21 @@
               </div>
           <% end %>
 
-          <% @milestones.each do |m| %>
-            <%= m.title %><br />
-          <% end %>
-
           <div class="row-fluid">
-            <div class="span12">
-              <div class="space"></div>
-
+            <div class="span8">
               <div id="calendar"></div>
             </div>
-
-
+            <div class="span4">
+              <div>
+                <h4>List View</h4>
+                <ul>
+                <% @milestones.each do |m| %>
+                    <li><a href=''><%= m.title %></a></li>
+                <% end %>
+                </ul>
+              </div>
+            </div>
           </div>
-
-
 
         </div>
         <!--/row-->
@@ -162,7 +162,8 @@
 
             eventClick: function(event) {
                 // opens events in a popup window
-                window.open(event.url, 'gcalevent', 'width=700,height=600');
+                // alert(event.id);
+                window.location.href = '/projects/<%= @project.id %>/milestones/' + event.id + '/edit';
                 return false;
             }
         });

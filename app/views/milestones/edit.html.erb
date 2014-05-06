@@ -37,7 +37,7 @@
     <% crumbs = [['Projects', projects_path],
                  [@project.name, project_path(@project)],
                  ['Milestones', project_milestones_path(@project)],
-                 [@milestone.subject, project_milestone_path(@project, @milestone)]] %>
+                 [@milestone.title, project_milestone_path(@project, @milestone)]] %>
 
     <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Edit this milestone'} %>
 
