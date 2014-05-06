@@ -8,5 +8,9 @@ class CreateIssues < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :issues, :member_id #, :unique => true
+    add_index :issues, :project_id #, :unique => true
+
   end
 end

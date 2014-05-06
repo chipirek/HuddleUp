@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(:version => 20140425105653) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "issues", ["member_id"], :name => "index_issues_on_member_id"
+  add_index "issues", ["project_id"], :name => "index_issues_on_project_id"
+
   create_table "members", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
@@ -76,14 +79,18 @@ ActiveRecord::Schema.define(:version => 20140425105653) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "messages", ["member_id"], :name => "index_messages_on_member_id"
+  add_index "messages", ["project_id"], :name => "index_messages_on_project_id"
+
   create_table "milestones", :force => true do |t|
     t.integer  "project_id"
-    t.string   "subject"
-    t.date     "event_date"
-    t.integer  "percent_complete"
-    t.integer  "points"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "title"
+    t.date     "start"
+    t.date     "end"
+    t.string   "css_class"
+    t.boolean  "all_day"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "milestones", ["project_id"], :name => "index_milestones_on_project_id"
@@ -92,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20140425105653) do
     t.string   "name"
     t.text     "description",      :default => ""
     t.integer  "status_code"
-    t.integer  "percent_complete"
+    t.boolean  "is_complete"
     t.string   "token_for_disqus"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
@@ -104,6 +111,9 @@ ActiveRecord::Schema.define(:version => 20140425105653) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "read_receipts", ["member_id"], :name => "index_read_receipts_on_member_id"
+  add_index "read_receipts", ["message_id"], :name => "index_read_receipts_on_message_id"
 
   create_table "todos", :force => true do |t|
     t.integer  "project_id"

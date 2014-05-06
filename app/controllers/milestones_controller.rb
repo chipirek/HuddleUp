@@ -9,7 +9,7 @@ class MilestonesController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @milestones = Milestone.where('project_id=?', params[:project_id]).order('event_date')
-    @milestones = @project.milestones.order('event_date')
+    @milestones = @project.milestones  #.order('event_date')
 
     respond_to do |format|
       format.html # index.html.erb

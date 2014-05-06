@@ -32,15 +32,15 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
   # an agile project, a traditional project, a honey-do list, planning a party
 
-  project1 = Project.create(:name=>"AlphaSim v0.9 (An agile software development project)", :status_code=>1, :percent_complete=>90)
+  project1 = Project.create(:name=>"AlphaSim v0.9 (An agile software development project)", :status_code=>1, :is_complete=>false)
   puts '   Added project ' + Project.all.first.name
-  project2 = Project.create(:name=>"You should NOT see this project!!", :status_code=>2, :percent_complete=>9)
+  project2 = Project.create(:name=>"You should NOT see this project!!", :status_code=>2, :is_complete=>false)
   puts '   Added project ' + Project.last.name
-  project3 = Project.create(:name=>"Mom's 50th Birthday party", :status_code=>2, :percent_complete=>15, :description=>'This is a description')
+  project3 = Project.create(:name=>"Mom's 50th Birthday party", :status_code=>2, :is_complete=>true, :description=>'This is a description')
   puts '   Added project ' + Project.last.name
-  project4 = Project.create(:name=>"Weekend chores (A 'honey-do' list)", :status_code=>1, :percent_complete=>35)
+  project4 = Project.create(:name=>"Weekend chores (A 'honey-do' list)", :status_code=>1, :is_complete=>false)
   puts '   Added project ' + Project.last.name
-  project5 = Project.create(:name=>"Build the shed (A traditional project)", :status_code=>1, :percent_complete=>60)
+  project5 = Project.create(:name=>"Build the shed (A traditional project)", :status_code=>1, :is_complete=>false)
   puts '   Added project ' + Project.last.name
 
   puts ' '
@@ -84,30 +84,23 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts 'Seeding milestones to AlphaSim...'
   Milestone.destroy_all
 
-  m = project1.milestones.create(:subject=>'Sprint planning completed - ready to start', :event_date=>100.days.ago, :percent_complete=>100, :points=>1)
-  puts '   Added milestone ' + m.subject
+  m = project1.milestones.create(:title=>'Sprint planning completed - ready to start', :start=>100.days.ago)
+  puts '   Added milestone ' + m.title
 
-  m = project1.milestones.create(:subject=>'Sprint 1 complete', :event_date=>3.months.ago, :percent_complete=>100, :points=>33)
-  puts '   Added milestone ' + m.subject
-  m = project1.milestones.create(:subject=>'Sprint 2 complete', :event_date=>35.days.ago, :percent_complete=>100, :points=>33)
-  puts '   Added milestone ' + m.subject
-  m = project1.milestones.create(:subject=>'Sprint 3 complete', :event_date=>Date.tomorrow, :percent_complete=>75, :points=>33)
-  puts '   Added milestone ' + m.subject
+  m = project1.milestones.create(:title=>'Sprint 1 complete', :start=>3.months.ago)
+  puts '   Added milestone ' + m.title
+  m = project1.milestones.create(:title=>'Sprint 2 complete', :start=>35.days.ago)
+  puts '   Added milestone ' + m.title
+  m = project1.milestones.create(:title=>'Sprint 3 complete', :start=>Date.tomorrow)
+  puts '   Added milestone ' + m.title
+  m = project1.milestones.create(:title=>'Sprint 3 review', :start=>Date.tomorrow)
+  puts '   Added milestone ' + m.title
 
-  m = project5.milestones.create(:subject=>'Initial Design', :event_date=>100.days.ago, :percent_complete=>100, :points=>1)
-  puts '   Added milestone ' + m.subject
+  m = project5.milestones.create(:title=>'Initial Design', :start=>100.days.ago, :end=>98.days.ago)
+  puts '   Added milestone ' + m.title
 
-  m = project5.milestones.create(:subject=>'Engineering Design', :event_date=>90.days.ago, :percent_complete=>100, :points=>5)
-  puts '   Added milestone ' + m.subject
-
-  m = project5.milestones.create(:subject=>'Construction', :event_date=>80.days.ago, :percent_complete=>50, :points=>60)
-  puts '   Added milestone ' + m.subject
-
-  m = project5.milestones.create(:subject=>'Punchlist / Final Inspection', :event_date=>Date.tomorrow, :percent_complete=>0, :points=>33)
-  puts '   Added milestone ' + m.subject
-
-  m = project5.milestones.create(:subject=>'Signoff', :event_date=>Time.now.advance(:days=>7).to_date, :percent_complete=>0, :points=>1)
-  puts '   Added milestone ' + m.subject
+  m = project5.milestones.create(:title=>'Signoff', :start=>Time.now.advance(:days=>7).to_date, :all_day=>true)
+  puts '   Added milestone ' + m.title
 
   puts ' '
   puts 'Seeding todos for AlphaSim...'

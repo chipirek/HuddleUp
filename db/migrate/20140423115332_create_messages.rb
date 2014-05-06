@@ -8,5 +8,9 @@ class CreateMessages < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :messages, :member_id #, :unique => true
+    add_index :messages, :project_id #, :unique => true
+
   end
 end

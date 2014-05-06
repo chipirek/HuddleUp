@@ -2,10 +2,11 @@ class CreateMilestones < ActiveRecord::Migration
   def change
     create_table :milestones do |t|
       t.integer :project_id
-      t.string :subject
-      t.date :event_date
-      t.integer :percent_complete
-      t.integer :points
+      t.string :title
+      t.date :start
+      t.date :end
+      t.string :css_class
+      t.boolean :all_day
       t.timestamps
     end
 
