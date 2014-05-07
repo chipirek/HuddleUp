@@ -53,6 +53,11 @@ class Project < ActiveRecord::Base
   end
 
 
+  def how_many_milestones_left
+    return milestones.where('start>=?', Date.today).count
+  end
+
+
   def create_disqus_token
     update_attributes!(:token_for_disqus => SecureRandom.hex)
   end

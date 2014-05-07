@@ -37,6 +37,9 @@
       <a href="/projects/<%= project_id %>/milestones">
         <i class="icon-calendar"></i>
         <span>Milestones</span>
+        <% if @project.how_many_milestones_left > 0 %>
+            <span class="badge badge-important"><%= @project.how_many_milestones_left %></span>
+        <% end %>
       </a>
     </li>
 

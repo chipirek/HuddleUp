@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20140425105653) do
     t.string   "title"
     t.date     "start"
     t.date     "end"
-    t.string   "cssclass"
+    t.string   "class_name"
     t.boolean  "all_day"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

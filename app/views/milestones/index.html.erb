@@ -148,8 +148,17 @@
 
             // US Holidays
             //events: 'http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic',
-            events: <%= @milestones.to_json.to_s.html_safe %>,
 
+            events: [<% @milestones.each do |m| %>
+                        {"all_day":<%= m.all_day? %>,
+                         "className":"<%= m.class_name %>",
+                         "end":"<%= m.end %>",
+                         "id":<%= m.id %>,
+                         "project_id":<%= m.project_id %>,
+                         "start":"<%= m.start %>",
+                         "title":"<%= m.title %>" },
+                    <% end %>
+            ],
             eventClick: function(event) {
                 // opens events in a popup window
                 // alert(event.id);

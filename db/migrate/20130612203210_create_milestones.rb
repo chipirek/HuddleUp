@@ -5,7 +5,7 @@ class CreateMilestones < ActiveRecord::Migration
       t.string :title
       t.date :start
       t.date :end
-      t.string :cssclass
+      t.string :class_name
       t.boolean :all_day
       t.timestamps
     end

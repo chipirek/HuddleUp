@@ -58,9 +58,8 @@
 
     <div class="control-group">
       <label class="control-label" for="milestone_color">Color</label>
-
       <div class="controls">
-        <%= select('milestone', 'cssclass', [['None', 0], ['Daily', 1], ['Weekly', 2], ['Every 2 weeks', 3]], {}, {'data-placeholder' => 'Repeats...'}) %>
+        <%= select('milestone', 'class_name', [['Default', 'label-info'], ['Grey', 'label-grey'], ['Green', 'label-success'], ['Red', 'label-important'], ['Purple', 'label-purple'], ['Yellow', 'label-Yellow'], ['Pink', 'label-Pink']], {}, {'data-placeholder' => 'Repeats...'}) %>
       </div>
     </div>
 
