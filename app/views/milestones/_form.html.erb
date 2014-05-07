@@ -56,6 +56,15 @@
     </div>
 
 
+    <div class="control-group">
+      <label class="control-label" for="milestone_color">Color</label>
+
+      <div class="controls">
+        <%= select('milestone', 'cssclass', [['None', 0], ['Daily', 1], ['Weekly', 2], ['Every 2 weeks', 3]], {}, {'data-placeholder' => 'Repeats...'}) %>
+      </div>
+    </div>
+
+
    <div class="form-actions">
       <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
       <a href='/projects/<%= @project.id.to_s %>/milestones' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>

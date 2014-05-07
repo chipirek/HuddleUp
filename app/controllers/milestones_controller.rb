@@ -80,7 +80,7 @@ class MilestonesController < ApplicationController
     else
       # TODO: hack to overcome Ruby 1.9 date parse bug
       buffer = params[:milestone][:end].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
-      @milestone.start = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+      @milestone.end = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
     respond_to do |format|
@@ -116,7 +116,7 @@ class MilestonesController < ApplicationController
     else
       # TODO: hack to overcome Ruby 1.9 date parse bug
       buffer = params[:milestone][:end].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
-      @milestone.start = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+      @milestone.end = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
     respond_to do |format|

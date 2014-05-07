@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130612203210_create_milestones.rb" afterPath="$PROJECT_DIR$/db/migrate/20130612203210_create_milestones.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/edit.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/milestones/index.html.erb" afterPath="$PROJECT_DIR$/app/views/milestones/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/milestones_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/milestones_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
@@ -15,10 +15,10 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385922106187" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372857294277" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399338401822" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399341388779" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399244138325" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398346664184" ignored="false" />
-    <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399340172462" ignored="false" />
+    <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399424593371" ignored="false" />
     <file path="/new.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398347118884" ignored="false" />
     <file path="/sessions.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372602892174" ignored="false" />
     <file path="/index.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399341280868" ignored="false" />
@@ -35,7 +35,7 @@
     <file path="/routes.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398255170473" ignored="false" />
     <file path="/member.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398350158432" ignored="false" />
     <file path="/members_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385911839451" ignored="false" />
-    <file path="/milestones_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399339895009" ignored="false" />
+    <file path="/milestones_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399423257722" ignored="false" />
     <file path="/milestone.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399331425100" ignored="false" />
     <file path="/_side_nav.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371333094389" ignored="false" />
     <file path="/_side_nav_1.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399114512922" ignored="false" />
@@ -45,7 +45,7 @@
     <file path="/tasks_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371415346335" ignored="false" />
     <file path="/tasks_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1378037482585" ignored="false" />
     <file path="/20130616203723_create_tasks.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371921386912" ignored="false" />
-    <file path="/20130612203210_create_milestones.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399331398834" ignored="false" />
+    <file path="/20130612203210_create_milestones.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399424431179" ignored="false" />
     <file path="/20130611130434_create_members.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372542410483" ignored="false" />
     <file path="/_top_nav.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1377433518354" ignored="false" />
     <file path="/registrations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372973755330" ignored="false" />
@@ -117,19 +117,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="14" selection-start="4832" selection-end="4832" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/milestones/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="89" selection-start="5235" selection-end="5235" vertical-scroll-proportion="-8.875">
+            <state line="73" column="0" selection-start="1999" selection-end="1999" vertical-scroll-proportion="-1.25">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
@@ -137,13 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/milestones/edit.html.erb">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/milestones/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="78" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.4827586">
-              <folding>
-                <marker date="1399341321000" expanded="false" signature="4062:4075" placeholder="..." />
-              </folding>
+            <state line="62" column="38" selection-start="2557" selection-end="2557" vertical-scroll-proportion="0.73275864">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,7 +140,16 @@
       <file leaf-file-name="milestones_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/milestones_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="50" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
+            <state line="118" column="0" selection-start="4167" selection-end="4167" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20130612203210_create_milestones.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20130612203210_create_milestones.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="21" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -189,13 +187,13 @@
         <option value="$PROJECT_DIR$/db/migrate/20130608175748_create_projects.rb" />
         <option value="$PROJECT_DIR$/app/models/project.rb" />
         <option value="$PROJECT_DIR$/app/views/projects/show.html.erb" />
-        <option value="$PROJECT_DIR$/db/migrate/20130612203210_create_milestones.rb" />
         <option value="$PROJECT_DIR$/app/models/milestone.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/milestones_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/milestones/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/milestones/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/milestones/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/milestones/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/milestones_controller.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20130612203210_create_milestones.rb" />
+        <option value="$PROJECT_DIR$/app/views/milestones/_form.html.erb" />
       </list>
     </option>
   </component>
@@ -268,6 +266,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HuddleUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HuddleUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -370,7 +386,7 @@
       <recent name="$PROJECT_DIR$/app/views/layouts" />
     </key>
   </component>
-  <component name="RunManager" selected="Rake.db:seed">
+  <component name="RunManager" selected="Rails.Development: HuddleUp">
     <configuration default="false" name="db:migrate" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="HuddleUp" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -1320,13 +1336,18 @@
       <created>1399134593821</created>
       <updated>1399134593821</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="Building out milestones calendar">
+      <created>1399341395253</created>
+      <updated>1399341395253</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="93" width="1367" height="696" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1341,7 +1362,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325811" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1389,7 +1409,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing sidebar badges bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Building out milestones calendar" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1403,7 +1423,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="v0.9.2 - add CanCan authorization" />
     <MESSAGE value="v0.9.3 - cannot remove all admins, and cannot block yourself" />
     <MESSAGE value="v0.9.4 - added figaro to protect assets" />
     <MESSAGE value="v1.0 - Theme: Commercialize" />
@@ -1428,25 +1447,12 @@
     <MESSAGE value="Refactoring issues controller" />
     <MESSAGE value="Added messages module to smoke test" />
     <MESSAGE value="Fixing sidebar badges bug" />
+    <MESSAGE value="Building out milestones calendar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="14" selection-start="4832" selection-end="4832" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/milestones_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="50" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/issues/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.3230767">
@@ -1461,28 +1467,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/milestones/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/milestones/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="0" selection-start="2386" selection-end="2386" vertical-scroll-proportion="0.7844828">
+        <state line="43" column="78" selection-start="1217" selection-end="1217" vertical-scroll-proportion="1.8534483">
+          <folding>
+            <marker date="1399341321000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/milestones_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="0" selection-start="4167" selection-end="4167" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="14" selection-start="4832" selection-end="4832" vertical-scroll-proportion="0.5157593">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/milestones/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="89" selection-start="5235" selection-end="5235" vertical-scroll-proportion="-8.875">
+        <state line="73" column="0" selection-start="1999" selection-end="1999" vertical-scroll-proportion="-1.25">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/milestones/edit.html.erb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130612203210_create_milestones.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="78" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.4827586">
-          <folding>
-            <marker date="1399341321000" expanded="false" signature="4062:4075" placeholder="..." />
-          </folding>
+        <state line="7" column="21" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/milestones/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="38" selection-start="2557" selection-end="2557" vertical-scroll-proportion="0.73275864">
+          <folding />
         </state>
       </provider>
     </entry>
