@@ -56,7 +56,23 @@ class ActivitiesController < ApplicationController
           end
 
         when 'milestone'
-          a.full_message = 'some milestone shit'
+          case a.action
+            when 'create'
+              a.title = a.audited_changes.split(/\r?\n/)[2].split(':')[1]
+              a.full_message = a.username + ' added the milestone "' + a.title.slice(1, a.title.length) + '"'
+            when 'destroy'
+              a.title = a.audited_changes.split(/\r?\n/)[2].split(':')[1]
+              a.full_message = a.username + ' deleted the milestone "' + a.title.slice(1, a.title.length) + '"'
+            when 'update'
+              a.did_what = 'updated'
+              h = a.audited_changes.split(/\r?\n/)
+              h.each do |s|
+                a.title += '<br />' + s unless s == '---'
+              end
+              a.full_message = a.username + ' ' + a.did_what + ' an milestone ' + a.title
+            else
+              a.full_message='Unknown action on milestone ' + a.id.to_s
+          end
 
         when 'issue'
           case a.action
