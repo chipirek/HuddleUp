@@ -35,7 +35,6 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
-    @project.percent_complete = 0
 
     respond_to do |format|
       format.html # new.html.erb

@@ -44,19 +44,6 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="project_percent_complete">% Complete</label>
-
-      <div class="controls">
-        <div class='ace-spinner'>
-          <input type="text" class="input-mini spinner-input" id="project_percent_complete" name='project[percent_complete]' maxlength="3" style="width: 30px;">
-        </div>
-        <% if !@project.id.nil? %>
-            &nbsp;&nbsp;&nbsp;<a href='javascript:showReCalc();'>(Re-)Calculate using info from the milestones</a>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="control-group">
       <label class="control-label" for="project_description">Description</label>
 
       <div class="controls">
@@ -66,12 +53,10 @@
     </div>
 
 
-
     <div style='display: none;'>
       <ul id="children">
         <% @project.milestones.each do |m| %>
             <li data-completed='<%= m.is_complete? %>'
-                data-points='<%= m.points %>'
                 id="milestone_<%= m.id %>">Complete?--><%= m.is_complete? %> Size--><%= m.points.to_s %> </li>
         <% end %>
       </ul>
@@ -128,28 +113,8 @@
         }
 
 
-        function showReCalc()
-        {
-            var total = 0;
-            var completed = 0;
-            var percent = 0;
-            $('#children li').each(function(index, value)
-            {
-                total += parseInt($(this).attr('data-points'));
-                if ($(this).attr('data-completed') == 'true')
-                    completed += parseInt($(this).attr('data-points'));
-            });
-            if (total > 0)
-                percent = ((completed / total) * 100).toFixed(0);
-            $('#project_percent_complete').val(percent);
-        }
-
         $(function () {
 
-            $('#project_percent_complete').ace_spinner({value: 0, min: 0, max: 100, step: 5, btn_up_class: 'btn-info', btn_down_class: 'btn-info'});
-            //$(".chzn-select").chosen();
-            $('#project_percent_complete').val(<%= @project.percent_complete %>);
-            //$('#editor1').ace_wysiwyg();
             $('#editor1').html('<%= @project.description.html_safe %>');
             //$('#editor1').ace_wysiwyg();
             $('#editor1').ace_wysiwyg({

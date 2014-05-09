@@ -291,5 +291,76 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
 
 
+  test 'create new milestone' do
+
+    #p = projects(:project1)
+    p = Project.first
+
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+    #p flash
+    #assert_equal 'Welcome david!', flash[:notice]
+
+    #-- get the index
+    get project_milestones_path (p)
+    assert_response :success
+    assert assigns(:milestones)
+
+    #-- get the add page
+    get new_project_milestone_path (p)
+    assert_response :success
+
+    #-- post the form / add the object
+    post_via_redirect project_milestones_path (p), 'milestone[title]' => 'Milestone due today', 'milestone[start]' => '12/23/2013', 'milestone[end]' => ''
+
+    post_via_redirect project_milestones_path (p), 'milestone[title]' => 'Milestone due tomorrow', 'milestone[start]' => '12/24/2013', 'milestone[end]' => ''
+
+    #-- get the fresh copy from the database
+    #p = projects(:project1)
+    p = Project.first
+    assert_equal 2, p.milestones.count
+    t = p.milestones.order('start').first
+    assert_equal t.title, 'Milestone due today'
+
+  end
+
+
+  test 'update a milestone' do
+
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+    #p flash
+    #assert_equal 'Welcome david!', flash[:notice]
+
+    #-- create a working project
+    post_via_redirect '/projects', 'project[name]' => 'My Working Project'
+    p = Project.last
+
+    #-- create a milestone to work with
+    post_via_redirect '/projects/' + p.id.to_s + '/milestones', 'milestone[title]' => 'Some milestone', 'milestone[start]' => '12/25/13', 'milestone[end]' => ''
+
+    #-- now get the edit page for that item
+    get edit_project_milestone_path(p, p.milestones.first.id)
+    assert_response :success
+
+    #-- post the form
+    put_via_redirect '/projects/' + p.id.to_s + '/milestones/' + p.milestones.first.id.to_s, 'milestone[title]' => '-e', 'milestone[start]' => '12/25/13', 'milestone[end]' => ''
+
+    #-- get the fresh copy from the database
+    p = Project.last
+    t = p.milestones.first
+    assert_equal t.title, '-e'
+
+  end
+
+
 end
 
