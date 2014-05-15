@@ -23,7 +23,7 @@ class Project < ActiveRecord::Base
   end
 
 
-  def how_many_issues_for_this_member
+  def how_many_issues_left
     return issues.where('is_resolved is NULL').count
   end
 

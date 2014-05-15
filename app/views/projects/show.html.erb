@@ -42,12 +42,9 @@
 
 <div class="page-content">
 <div class="page-header position-relative">
-  <h1><i class="icon-list-alt"></i> Project Dashboard
+  <h1><i class="icon-list-alt"></i> Summary
       <% if @member.is_admin? %>
-            <small>
-            <i class='icon-double-angle-right'></i>
-            <a href="/projects/<%= @project.id %>/edit">Edit this project's definition</a>
-            </small>
+        <a class='btn btn-info btn-small pull-right' href="/projects/<%= @project.id %>/edit">Edit this project's definition</a>
       <% end %>
   </h1>
 
@@ -65,71 +62,207 @@
     </div>
 <% end %>
 
-<% if @project.description.nil? %>
 <p>
-<div class='well'><%= @project.description.html_safe unless @project.description.nil? %></div>
+<div class='well'>
+  <h1><%= @project.name %></h1>
+  <%= @project.description.html_safe unless @project.description.nil? %></div>
 </p>
-<% end %>
 
 <div class='row-fluid'>
 
 <div class="span6" id='left-column'>
 
 
-<!-- widget -->
-<div class="widget-box transparent">
-
-  <div class="widget-header">
-    <h4 class="lighter smaller"><i class="icon-bar-chart"></i> DASHBOARD</h4>
-
-    <div class="widget-toolbar no-border">
+  <div class="widget-box">
+    <div class="widget-header widget-header-small header-color-dark">
+      <h6>At a glance</h6>
     </div>
-  </div>
 
-  <div class="widget-body">
-    <div class="widget-main padding-5">
-      <div class="tab-content padding-8">
-        <span class="btn btn-app btn-small btn-yellow no-hover">
-            <span class="bigger-175"> <%= @project.milestones.count %> </span>
+    <div class="widget-body">
+      <div class="widget-main padding-4">
+        <div class="slim-scroll" data-height="125">
+          <div class="content">
+
+            <span class="btn btn-app btn-small btn-purple no-hover">
+              <% if @project.how_many_milestones_left > 0 %>
+                <span class="badge badge-important"><%= @project.how_many_milestones_left %></span>
+              <% end %>
+
+              <span class="bigger-300"> <%= @project.milestones.count %> </span>
                 <br/>
-                <span class="smaller-90"> Project Milestones </span>
-            </span>
+                <span class="smaller-90"> Key <br />Dates </span>
+                </span>
 
-            <span class="btn btn-app btn-small btn-pink no-hover">
-                <span class="bigger-175"> 0 </span>
-                <br/>
-                <span class="smaller-90"> Project Alerts </span>
-            </span>
+                <span class="btn btn-app btn-small btn-pink no-hover">
+                    <span class="bigger-300"> 0 </span>
+                    <br/>
+                    <span class="smaller-90"> Total <br />Alerts </span>
+                </span>
 
-            <span class="btn btn-app btn-small btn-grey no-hover">
-                <span class="bigger-175"> <%= @project.todos.where('is_complete is null or is_complete = false').count %> </span>
-                <br/>
-                <span class="smaller-90"> Incomplete Todos </span>
-            </span>
+                <span class="btn btn-app btn-small btn-grey no-hover">
+                    <% if @project.how_many_todos_for_this_member() > 0 %>
+                        <span class="badge badge-important"><%= @project.how_many_todos_for_this_member() %></span>
+                    <% end %>
+                  <span class="bigger-300"> <%= @project.todos.count %> </span>
+                    <br/>
+                    <span class="smaller-90"> Total <br />Todos </span>
+                </span>
 
-            <span class="btn btn-app btn-small btn-success no-hover">
-                <span class="bigger-175"> <%= @project.issues.where('is_resolved is null').count %> </span>
-                <br/>
-                <span class="smaller-90"> Open Issues </span>
-            </span>
+                <span class="btn btn-app btn-small btn-primary no-hover">
+                    <% if @project.how_many_issues_left > 0 %>
+                        <span class="badge badge-important"><%= @project.how_many_issues_left %></span>
+                    <% end %>
 
-            <span class="btn btn-app btn-small btn-primary no-hover">
-                <span class="bigger-175"> 0 </span>
-                <br/>
-                <span class="smaller-90"> Unread Messages </span>
-            </span>
+                  <span class="bigger-300"> <%= @project.issues.count %> </span>
+                    <br/>
+                    <span class="smaller-90"> Total <br />Issues </span>
+                </span>
 
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- end widget -->
+
+
+  <div class="widget-box">
+    <div class="widget-header widget-header-small header-color-dark">
+      <h6>Status</h6>
+    </div>
+
+    <div class="widget-body">
+      <div class="widget-main padding-4">
+        <div class="slim-scroll" data-height="125">
+          <div class="content">
+            <% if @project.status_code==1 %>
+                <div class='alert alert-block alert-success bigger-300'>We are on track</div>
+            <% elsif @project.status_code==2 %>
+                <div class='alert alert-block alert-warning bigger-300'>Project is troubled</div>
+            <% else %>
+                <div class='alert alert-block alert-error bigger-300'>Project is late or failing</div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div class="widget-box">
+    <div class="widget-header widget-header-small header-color-dark">
+      <h6>Issues</h6>
+    </div>
+
+    <div class="widget-body">
+      <div class="widget-main padding-4">
+        <div class="slim-scroll" data-height="125">
+            <div class="content">
+
+            <% @project.issues.order('created_at').each do |i| %>
+
+                  <% if i.is_resolved? %>
+                      <div class="alert alert-success">
+                  <% else %>
+                      <div class="alert alert-info">
+                  <% end %>
+                        <%= link_to i.description, edit_project_issue_path(@project, i) %>
+                    </div> <p></p>
+
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>
 
 <div class="span6" id='right-column'>
 
-hello
+  <div class="widget-box">
+    <div class="widget-header widget-header-small header-color-dark">
+      <h6>Alerts</h6>
+    </div>
+
+    <div class="widget-body">
+      <div class="widget-main padding-4">
+        <div class="slim-scroll" data-height="125">
+          <div class="content">
+            <div class='alert alert-success'>None. There are no alerts at this time!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="widget-box">
+    <div class="widget-header widget-header-small header-color-dark">
+      <h6>Key Dates</h6>
+    </div>
+
+    <div class="widget-body">
+      <div class="widget-main padding-4">
+        <div class="slim-scroll" data-height="125">
+          <div class="content">
+            <div class="message-list" id="message-list">
+
+              <% @project.milestones.order('start').each do |m| %>
+
+                  <div class="message-item">
+                    <span class="text">
+                        <%= link_to m.title, edit_project_milestone_path(@project, m) %>
+                      &nbsp; <span class="badge badge-grey">Start: <%= m.start.strftime("%m/%d/%Y") %></span>
+                      &nbsp; <span class="badge badge-grey"><%= 'End: ' + m.end.strftime("%m/%d/%Y") unless m.end.nil? %></span>
+                    </span>
+                  </div>
+
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="widget-box">
+    <div class="widget-header widget-header-small header-color-dark">
+      <h6>Todos</h6>
+    </div>
+
+    <div class="widget-body">
+      <div class="widget-main padding-4">
+        <div class="slim-scroll" data-height="125">
+          <div class="content">
+
+            <% @project.todos.order('created_at').each do |t| %>
+
+                <% if t.is_complete? %>
+                    <div class="alert alert-success">
+                <% else %>
+                    <div class="alert alert-info">
+                <% end %>
+                <%= link_to t.subject, edit_project_todo_path(@project, t) %>
+                </div> <p></p>
+
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
 
 
 </div>
@@ -200,10 +333,20 @@ hello
 </a>
 
 <!-- inline scripts related to this page -->
+<script src="/assets/js/jquery.slimscroll.min.js"></script>
 
 <script type="text/javascript">
 
     $(function () {
+
+        // scrollables
+        $('.slim-scroll').each(function () {
+            var $this = $(this);
+            $this.slimScroll({
+                height: $this.data('height') || 100,
+                railVisible:true
+            });
+        });
 
     });
 

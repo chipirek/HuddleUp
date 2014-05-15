@@ -25,7 +25,7 @@
     >
       <a href="/projects/<%= project_id %>">
         <i class="icon-dashboard"></i>
-        <span>Dashboard</span>
+        <span>Summary</span>
       </a>
     </li>
 
@@ -51,8 +51,8 @@
       <a href="/projects/<%= project_id %>/issues">
         <i class="icon-exclamation-sign"></i>
         <span>Issues</span>
-        <% if @project.how_many_issues_for_this_member() > 0 %>
-            <span class="badge badge-important"><%= @project.how_many_issues_for_this_member() %></span>
+        <% if @project.how_many_issues_left > 0 %>
+            <span class="badge badge-important"><%= @project.how_many_issues_left %></span>
         <% end %>
       </a>
     </li>

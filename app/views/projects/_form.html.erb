@@ -53,16 +53,6 @@
     </div>
 
 
-    <div style='display: none;'>
-      <ul id="children">
-        <% @project.milestones.each do |m| %>
-            <li data-completed='<%= m.is_complete? %>'
-                id="milestone_<%= m.id %>">Complete?--><%= m.is_complete? %> Size--><%= m.points.to_s %> </li>
-        <% end %>
-      </ul>
-    </div>
-
-
     <div class="form-actions">
       <button type='submit' class='btn btn-success' onclick='javascript:getWysiwyg()'><i class="icon-ok"></i> Save</button>
       <a href='javascript:window.history.back();' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
