@@ -43,9 +43,10 @@
 <div class="page-content">
 <div class="page-header position-relative">
   <h1><i class="icon-list-alt"></i> Summary
-      <% if @member.is_admin? %>
-        <a class='btn btn-info btn-small pull-right' href="/projects/<%= @project.id %>/edit">Edit this project's definition</a>
-      <% end %>
+    <% if @member.is_admin? %>
+        <a class='btn btn-info btn-small pull-right' href="/projects/<%= @project.id %>/edit">Edit this project's
+          definition</a>
+    <% end %>
   </h1>
 
 </div>
@@ -63,6 +64,7 @@
 <% end %>
 
 <p>
+
 <div class='well'>
   <h1><%= @project.name %></h1>
   <%= @project.description.html_safe unless @project.description.nil? %></div>
@@ -73,15 +75,15 @@
 <div class="span6" id='left-column'>
 
 
-  <div class="widget-box">
-    <div class="widget-header widget-header-small header-color-dark">
-      <h6>At a glance</h6>
-    </div>
+<div class="widget-box">
+  <div class="widget-header widget-header-small header-color-dark">
+    <h6>At a glance</h6>
+  </div>
 
-    <div class="widget-body">
-      <div class="widget-main padding-4">
-        <div class="slim-scroll" data-height="125">
-          <div class="content">
+  <div class="widget-body">
+    <div class="widget-main padding-4">
+      <div class="slim-scroll" data-height="125">
+        <div class="content">
 
             <span class="btn btn-app btn-small btn-purple no-hover">
               <% if @project.how_many_milestones_left > 0 %>
@@ -90,13 +92,13 @@
 
               <span class="bigger-300"> <%= @project.milestones.count %> </span>
                 <br/>
-                <span class="smaller-90"> Key <br />Dates </span>
+                <span class="smaller-90"> Key <br/>Dates </span>
                 </span>
 
                 <span class="btn btn-app btn-small btn-pink no-hover">
                     <span class="bigger-300"> 0 </span>
                     <br/>
-                    <span class="smaller-90"> Total <br />Alerts </span>
+                    <span class="smaller-90"> Total <br/>Alerts </span>
                 </span>
 
                 <span class="btn btn-app btn-small btn-grey no-hover">
@@ -105,7 +107,7 @@
                     <% end %>
                   <span class="bigger-300"> <%= @project.todos.count %> </span>
                     <br/>
-                    <span class="smaller-90"> Total <br />Todos </span>
+                    <span class="smaller-90"> Total <br/>Todos </span>
                 </span>
 
                 <span class="btn btn-app btn-small btn-primary no-hover">
@@ -115,64 +117,69 @@
 
                   <span class="bigger-300"> <%= @project.issues.count %> </span>
                     <br/>
-                    <span class="smaller-90"> Total <br />Issues </span>
+                    <span class="smaller-90"> Total <br/>Issues </span>
                 </span>
 
-          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget-box">
+  <div class="widget-header widget-header-small header-color-dark">
+    <h6>Status</h6>
+  </div>
+
+  <div class="widget-body">
+    <div class="widget-main padding-4">
+      <div class="slim-scroll" data-height="125">
+        <div class="content">
+          <% if @project.status_code==1 %>
+              <div class='alert alert-block alert-success bigger-300'>We are on track</div>
+          <% elsif @project.status_code==2 %>
+              <div class='alert alert-block alert-warning bigger-300'>Project is troubled</div>
+          <% else %>
+              <div class='alert alert-block alert-error bigger-300'>Project is late or failing</div>
+          <% end %>
+
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="widget-box">
-    <div class="widget-header widget-header-small header-color-dark">
-      <h6>Status</h6>
-    </div>
-
-    <div class="widget-body">
-      <div class="widget-main padding-4">
-        <div class="slim-scroll" data-height="125">
-          <div class="content">
-            <% if @project.status_code==1 %>
-                <div class='alert alert-block alert-success bigger-300'>We are on track</div>
-            <% elsif @project.status_code==2 %>
-                <div class='alert alert-block alert-warning bigger-300'>Project is troubled</div>
-            <% else %>
-                <div class='alert alert-block alert-error bigger-300'>Project is late or failing</div>
-            <% end %>
-
-          </div>
-        </div>
-      </div>
-    </div>
+</div>
 
 
+<div class="widget-box">
+  <div class="widget-header widget-header-small header-color-dark">
+    <h6>Issues</h6>
   </div>
 
+  <div class="widget-body">
+    <div class="widget-main padding-4">
+      <div class="slim-scroll" data-height="125">
+        <div class="content">
 
-  <div class="widget-box">
-    <div class="widget-header widget-header-small header-color-dark">
-      <h6>Issues</h6>
-    </div>
+          <% if @project.issues.count == 0 %>
+              <div class='well well-large'>None. There are no issues at this time!</div>
+          <% else %>
 
-    <div class="widget-body">
-      <div class="widget-main padding-4">
-        <div class="slim-scroll" data-height="125">
-            <div class="content">
-
-            <% @project.issues.order('created_at').each do |i| %>
+              <% @project.issues.order('created_at').each do |i| %>
 
                   <% if i.is_resolved? %>
                       <div class="alert alert-success">
                   <% else %>
                       <div class="alert alert-info">
                   <% end %>
-                        <%= link_to i.description, edit_project_issue_path(@project, i) %>
-                    </div> <p></p>
+                  <%= link_to i.description, edit_project_issue_path(@project, i) %>
+                  </div> <p></p>
 
               <% end %>
-            </div>
+          <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -192,13 +199,12 @@
       <div class="widget-main padding-4">
         <div class="slim-scroll" data-height="125">
           <div class="content">
-            <div class='alert alert-success'>None. There are no alerts at this time!</div>
+            <div class='well well-large'>None. There are no alerts at this time!</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 
 
   <div class="widget-box">
@@ -212,16 +218,20 @@
           <div class="content">
             <div class="message-list" id="message-list">
 
-              <% @project.milestones.order('start').each do |m| %>
+              <% if @project.milestones.count == 0 %>
+                  <div class='well well-large'>None. There are no key dates at this time!</div>
+              <% else %>
+                  <% @project.milestones.order('start').each do |m| %>
 
-                  <div class="message-item">
+                      <div class="message-item">
                     <span class="text">
                         <%= link_to m.title, edit_project_milestone_path(@project, m) %>
                       &nbsp; <span class="badge badge-grey">Start: <%= m.start.strftime("%m/%d/%Y") %></span>
                       &nbsp; <span class="badge badge-grey"><%= 'End: ' + m.end.strftime("%m/%d/%Y") unless m.end.nil? %></span>
                     </span>
-                  </div>
+                      </div>
 
+                  <% end %>
               <% end %>
 
             </div>
@@ -242,16 +252,20 @@
         <div class="slim-scroll" data-height="125">
           <div class="content">
 
-            <% @project.todos.order('created_at').each do |t| %>
+            <% if @project.todos.count == 0 %>
+                <div class='well well-large'>None. There are no todos at this time!</div>
+            <% else %>
+                <% @project.todos.order('created_at').each do |t| %>
 
-                <% if t.is_complete? %>
-                    <div class="alert alert-success">
-                <% else %>
-                    <div class="alert alert-info">
+                    <% if t.is_complete? %>
+                        <div class="alert alert-success">
+                    <% else %>
+                        <div class="alert alert-info">
+                    <% end %>
+                    <%= link_to t.subject, edit_project_todo_path(@project, t) %>
+                    </div> <p></p>
+
                 <% end %>
-                <%= link_to t.subject, edit_project_todo_path(@project, t) %>
-                </div> <p></p>
-
             <% end %>
             </div>
           </div>
@@ -262,7 +276,6 @@
 
   </div>
 </div>
-
 
 
 </div>
@@ -344,7 +357,7 @@
             var $this = $(this);
             $this.slimScroll({
                 height: $this.data('height') || 100,
-                railVisible:true
+                railVisible: true
             });
         });
 
