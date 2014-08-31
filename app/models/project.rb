@@ -10,11 +10,11 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
 
   #belongs_to :user
-  has_many :members
-  has_many :milestones
-  has_many :todos
-  has_many :issues
-  has_many :messages
+  has_many :members, :dependent => :destroy
+  has_many :milestones, :dependent => :destroy
+  has_many :todos, :dependent => :destroy
+  has_many :issues, :dependent => :destroy
+  has_many :messages, :dependent => :destroy
 
 
   def how_many_todos_for_this_member

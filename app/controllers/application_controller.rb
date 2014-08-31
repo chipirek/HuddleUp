@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     puts '>>> UNAUTHORIZED: ' + exception.message
     flash[:error] = 'You do not have access to the project requested.'
-    redirect_to '/projects'
+    # redirect_to '/projects'
+    # redirect_to new_user_session_path
+    redirect_to '/500.html'
   end
 
 
@@ -39,17 +41,23 @@ class ApplicationController < ActionController::Base
     if !current_user.nil?
       @my_unread_messages = []
       my_member_ids = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:id)
+      puts '====== Application Controller ======'
+      puts '====== membership called ======'
+      my_member_ids.each do |m|
+        puts 'm=' + m.to_s
+      end
+
       @my_late_todos = Todo.where('member_id in (?)', my_member_ids).where('is_complete is null').where('due_date < ?', Date.today)
       @my_active_todos = Todo.where('member_id in (?)', my_member_ids).where('is_complete is null')
 
       Member.where('user_id=?', current_user.id).each do |mbr|
-        puts 'member id=' + mbr.id.to_s
-        puts 'project id=' + mbr.project_id.to_s
+        #puts 'member id=' + mbr.id.to_s
+        #puts 'project id=' + mbr.project_id.to_s
         project = Project.find(mbr.project_id)
-        puts 'project=' + project.name
-        puts 'messages count=' + project.messages.count.to_s
+        #puts 'project=' + project.name
+        #puts 'messages count=' + project.messages.count.to_s
         project.messages.each do |m|
-          puts 'message member id=' + m.member_id.to_s
+          #puts 'message member id=' + m.member_id.to_s
           #if m.member_id != mbr.id
             if m.read_receipts.where('member_id = ?', mbr.id).count == 0
               puts 'adding message ' + m.subject
