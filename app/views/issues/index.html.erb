@@ -41,7 +41,7 @@
 
     <div class="page-content">
       <div class="page-header position-relative">
-        <h1><i class="icon-exclamation-sign"></i> Issues</h1>
+        <h1><i class="icon-flag"></i> Issues</h1>
 
       </div>
       <!--/.page-header-->
@@ -66,7 +66,11 @@
             <% @project.issues.order('is_resolved nulls first').each do |issue| %>
 
                 <li class="<%= get_issue_status_color2(issue) %> clearfix <%= 'selected' unless !issue.is_resolved? %>" data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
-                  <i class='icon-exclamation-sign' style='font-size: 2em;'></i>
+                  <% if !issue.is_resolved? %>
+                      <i class='icon-flag' style='font-size: 2em;'></i>
+                  <% else %>
+                      <i class='icon-flag-alt' style='font-size: 2em;'></i>
+                  <% end %>
                   &nbsp;&nbsp;<%= issue.description.truncate(150) %>
                   <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
                   <div class="inline pull-right position-relative">
@@ -76,7 +80,7 @@
                                 onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= issue.id %>'"
                                 data-placement="left"
                                 data-rel="tooltip"
-                                title="Mark as Resolved"><i class='icon-ok'></i> Resolve
+                                title="Mark as Resolved"><i class='icon-ok'></i> Marl as resolved
                         </button>
                     <% else %>
                         &nbsp;
@@ -84,7 +88,7 @@
                                 onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= issue.id %>'"
                                 data-placement="left"
                                 data-rel="tooltip"
-                                title="Mark as Un-Resolved"><i class='icon-remove'></i> Re-Open
+                                title="Mark as Un-Resolved"><i class='icon-remove'></i> Re-open
                         </button>
                     <% end %>
                     &nbsp;
@@ -115,8 +119,7 @@
 
           <% end %>
 
-          <h4>Quickly add an Issue...</h4>
-          <%= render 'form' %>
+          <%= link_to 'Create a new new issue', new_project_issue_path(@project), {:class=>'btn btn-success' } %>
 
         </div>
         <!--/row-->
