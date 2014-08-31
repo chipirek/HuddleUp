@@ -79,23 +79,6 @@
 
                     <div class="inline pull-right position-relative">
 
-                      <% if !todo.is_complete? %>
-                          &nbsp;
-                          <button class="btn btn-mini btn-success"
-                                  onclick="window.location.href='/projects/<%= @project.id %>/todos/mark_complete/<%= todo.id %>'"
-                                  data-placement="left"
-                                  data-rel="tooltip"
-                                  title="Mark as Complete"><i class='icon-ok'></i>Complete
-                          </button>
-                      <% else %>
-                          &nbsp;
-                          <button class="btn btn-mini btn-danger"
-                                  onclick="window.location.href='/projects/<%= @project.id %>/todos/mark_incomplete/<%= todo.id %>'"
-                                  data-placement="left"
-                                  data-rel="tooltip"
-                                  title="Mark as Incomplete"><i class='icon-remove'></i>Re-Open
-                          </button>
-                      <% end %>
                       &nbsp;
                       <a href="/projects/<%= @project.id %>/todos/<%= todo.id %>"
                          class="btn btn-mini btn-danger"
@@ -124,9 +107,7 @@
 
         <% end %>
 
-
-        <h4>Quickly add a Todo...</h4>
-        <%= render 'form' %>
+        <%= link_to 'Create a new Todo', new_project_todo_path(@project), {:class => 'btn btn-success'} %>
 
       </div>
       <!--/row-->

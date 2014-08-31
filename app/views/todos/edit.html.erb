@@ -39,11 +39,11 @@
                  ['Todos', project_todos_path(@project)],
                  [@todo.subject, project_todo_path(@project, @todo)]] %>
 
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Edit this issue'} %>
+    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Edit this todo'} %>
 
     <div class="page-content">
       <div class="page-header position-relative">
-        <h1><i class="icon-exclamation-sign"></i> Edit this todo</h1>
+        <h1><i class="icon-list-alt"></i> Edit this todo</h1>
       </div>
       <!--/.page-header-->
 
