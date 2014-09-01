@@ -8,6 +8,11 @@ puts 'Seeding users...'
 ReadReceipt.destroy_all
 Member.destroy_all
 User.destroy_all
+Project.destroy_all
+Milestone.destroy_all
+Todo.destroy_all
+Invitation.destroy_all
+Issue.destroy_all
 
 u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p' )  # no, not my real password
 puts '   Added user ' + User.first.name
@@ -23,6 +28,7 @@ u5=User.create( :name => 'Tony Mandalay', :email => 'd@gmail.com', :password => 
 puts '   Added user ' + User.last.name
 u6=User.create( :name => 'Edgar Edge', :email => 'e@gmail.com', :password => 'lollip0p' )
 puts '   Added user ' + User.last.name
+
 
 Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
@@ -164,22 +170,18 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts ' '
   puts 'Creating load testing / performance testing bulk data...'
 
-
-  j=0
   10000.times do |i|
     u = User.create( :name => "User " + i.to_s, :email => i.to_s + '_user@gmail.com', :password => "lollip0p" )
-    p = Project.create(:name=>"Project " + i.to_s, :status_code=>2, :percent_complete=>10)
+    p = Project.create(:name=>"Project " + i.to_s, :status_code=>2)
     mb = p.members.create(:user_id=>u.id, :joined_date=>3.hours.ago, :is_admin=>false, :status_code=>1)
-    m = p.milestones.create(:subject=>"Milestone " + i.to_s, :event_date=>80.days.ago, :percent_complete=>50, :points=>60)
-    td = m.tasks.create(:subject=>"Task " + i.to_s, :due_date=>80.days.ago, :position=>1, :points=>1, :is_complete=>true)
-    ts = p.todos.create(:subject=>"Todo " + i.to_s, :due_date=>Time.now.to_date, :position=>1, :member_id=>mb.id)
-    j=j+1
-    if j==100
-      puts '...working, i=' + i.to_s + '...'
-      j=0
+
+    15.times do |z|
+      ts = p.todos.create(:subject=>"Todo " + z.to_s, :due_date=>Time.now.to_date, :position=>1, :member_id=>mb.id)
     end
+
   end
 =end
+
 
   puts ' '
   puts 'Done.'

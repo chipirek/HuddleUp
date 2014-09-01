@@ -59,6 +59,13 @@
     </div>
 <% end %>
 
+<% if flash[:alert] %>
+    <div class='alert alert-block alert-error'>
+      <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+      <strong><i class="icon-remove"></i> <%= flash[:alert] %></strong>
+    </div>
+<% end %>
+
 <p>
 
 <div class='well'>

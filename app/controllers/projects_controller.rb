@@ -89,15 +89,28 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    # no longer needed, since authorization via CanCan loads these resources
-    # @project = Project.find(params[:id])
-    @project.destroy
+
+    block_delete_on_last_project = false
+    membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
+    projects = Project.where('id in (?)', membership)
+    if projects.count == 1
+      block_delete_on_last_project = true
+    else
+      # no longer needed, since authorization via CanCan loads these resources
+      # @project = Project.find(params[:id])
+      @project.destroy
+    end
 
     respond_to do |format|
-      format.html { redirect_to projects_path }
-      format.json { head :no_content }
+      if block_delete_on_last_project
+        puts 'You must have at least one active project - cannot delete the last one.'
+        format.html { redirect_to @project, :alert => 'You must have at least one active project - cannot delete the last one.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to projects_path, notice: 'Project was successfully deleted.' }
+        format.json { head :no_content }
+      end
     end
   end
-
 
 end
