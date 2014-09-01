@@ -170,16 +170,16 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts ' '
   puts 'Creating load testing / performance testing bulk data...'
 
-  #5000.times do |i|
-  #  u = User.create( :name => "User " + i.to_s, :email => i.to_s + '_user@gmail.com', :password => "lollip0p" )
-  #  p = Project.create(:name=>"Project " + i.to_s, :status_code=>2)
-  #  mb = p.members.create(:user_id=>u.id, :joined_date=>3.hours.ago, :is_admin=>false, :status_code=>1)
-  #
-  #  15.times do |z|
-  #    ts = p.todos.create(:subject=>"Todo " + z.to_s, :due_date=>Time.now.to_date, :position=>1, :member_id=>mb.id)
-  #  end
-  #
-  #end
+  15.times do |i|
+    u = User.create( :name => "User " + i.to_s, :email => i.to_s + '_user@gmail.com', :password => "lollip0p" )
+    p = Project.create(:name=>"Project " + i.to_s, :status_code=>2)
+    mb = p.members.create(:user_id=>u.id, :joined_date=>3.hours.ago, :is_admin=>false, :status_code=>1)
+
+    15.times do |z|
+      ts = p.todos.create(:subject=>"Todo " + z.to_s, :due_date=>Time.now.to_date, :position=>1, :member_id=>mb.id)
+    end
+
+  end
 
 
 

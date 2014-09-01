@@ -19,6 +19,7 @@ HuddleUp::Application.routes.draw do
 
   root :to => 'projects#index'
 
+  match '/users/:id', :to => 'users#show', :as => :user
   match '/projects/:project_id/issues/:issue_id/:controller/:action(/:id)'
   match '/projects/:project_id/:controller/:action(/:id)'
   #match ':controller(/:action(/:id(.:format)))'

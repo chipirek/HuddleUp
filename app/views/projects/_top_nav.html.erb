@@ -10,8 +10,9 @@
         <i class="icon-ok"></i> <%= @my_active_todos.count %> thing(s) assigned to me
       </li>
 
-      <% @my_active_todos.each do |t| %>
-          <li>
+      <% @my_active_todos.each_with_index do |t, i| %>
+          <% if i < 5 %>
+            <li>
             <a href='/projects/<%= t.project.id.to_s %>/todos'>
               <div class="clearfix">
                 <span><b><i class='icon-check-empty btn btn-mini btn-info'></i><%= t.subject %></b></span>
@@ -24,14 +25,15 @@
                 </span>
               </div>
             </a>
-          </li>
+            </li>
+          <% end %>
+          <% if i == 5 %>
+              <li>...</li>
+          <% end %>
       <% end %>
 
       <li>
-        <a href="#">
-          Close
-          <i class="icon-arrow-right"></i>
-        </a>
+        <%= link_to 'See all...', current_user %>
       </li>
     </ul>
   </li>
@@ -47,8 +49,9 @@
         <i class="icon-warning-sign"></i> <%= @my_late_todos.count %> alert(s) for me
       </li>
 
-      <% @my_late_todos.each do |t| %>
-          <li>
+      <% @my_late_todos.each_with_index do |t, i| %>
+          <% if i< 5 %>
+            <li>
             <a href='/projects/<%= t.project.id.to_s %>/todos'>
               <div class="clearfix">
                 <span><b><i class='icon-check-empty btn btn-mini btn-pink'></i><%= t.subject %></b></span>
@@ -62,6 +65,7 @@
               </div>
             </a>
           </li>
+          <% end %>
       <% end %>
 
       <li>
@@ -84,8 +88,9 @@
         <i class="icon-envelope"></i> <%= @my_unread_messages.count %> Unread Messages
       </li>
 
-      <% @my_unread_messages.each do |m| %>
-      <li>
+      <% @my_unread_messages.each_with_index do |m, i| %>
+          <% if i<5 %>
+            <li>
         <a href='/projects/<%= m.project.id.to_s %>/messages/<%= m.id %>'>
           <span class="msg-body">
             <span class="msg-title">
@@ -98,6 +103,7 @@
           </span>
         </a>
       </li>
+          <% end %>
       <% end %>
 
       <li>
