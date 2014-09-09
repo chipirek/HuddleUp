@@ -1,79 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us" id="extr-page">
 <head>
-  <meta charset="utf-8"/>
-  <title>HuddleUp</title>
-  <meta name="description" content="Simple time management"/>
+  <meta charset="utf-8">
+  <title> HuddleUp </title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- #CSS Links -->
+  <!-- Basic Styles -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/font-awesome.min.css">
 
-  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="/assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/smartadmin-production.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/smartadmin-skins.min.css">
 
-  <!--[if IE 7]>
-  <link rel="stylesheet" href="/assets/css/font-awesome-ie7.min.css" />
-  <![endif]-->
+  <!-- SmartAdmin RTL Support is under construction
+       This RTL CSS will be released in version 1.5
+  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/smartadmin-rtl.min.css"> -->
 
-  <!--page specific plugin styles-->
+  <!-- We recommend you use "your_style.css" to override SmartAdmin
+       specific styles this will also ensure you retrain your customization with each SmartAdmin update. -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/your_style.css">
 
-  <!--fonts-->
+  <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/demo.min.css">
 
-  <link rel="stylesheet" href="/assets/css/ace-fonts.css" />
+  <!-- #FAVICONS -->
+  <link rel="shortcut icon" href="/SmartAdmin/img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/SmartAdmin/img/favicon/favicon.ico" type="image/x-icon">
 
-  <!--ace styles-->
+  <!-- #GOOGLE FONT -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
-  <link rel="stylesheet" href="/assets/css/ace.min.css" />
-  <link rel="stylesheet" href="/assets/css/ace-responsive.min.css" />
-  <link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
+  <!-- #APP SCREEN / ICONS -->
+  <!-- Specifying a Webpage Icon for Web Clip
+       Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+  <link rel="apple-touch-icon" href="/SmartAdmin/img/splash/sptouch-icon-iphone.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/SmartAdmin/img/splash/touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/SmartAdmin/img/splash/touch-icon-iphone-retina.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/SmartAdmin/img/splash/touch-icon-ipad-retina.png">
 
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/assets/css/ace-ie.min.css" />
-  <![endif]-->
+  <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-
-  <!--basic scripts-->
-
-  <!--[if !IE]>-->
-
-  <script type="text/javascript">
-      window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
-  </script>
-
-  <!--<![endif]-->
-
-  <!--[if IE]>
-  <script type="text/javascript">
-      window.jQuery || document.write("<script src='/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
-  </script>
-  <![endif]-->
-
-  <script type="text/javascript">
-      if("ontouchend" in document) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-  </script>
-  <script src="/assets/js/bootstrap.min.js"></script>
-
-  <script src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-  <script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
-
-
-  <!--page specific plugin scripts-->
-
-  <!--ace scripts-->
-
-  <script src="/assets/js/ace-elements.min.js"></script>
-  <script src="/assets/js/ace.min.js"></script>
-
-  <script src="/assets/js/ace-extra.min.js"></script>
-
-  <%= javascript_include_tag "rails" %>
-  <%= csrf_meta_tag %>
+  <!-- Startup image for web apps -->
+  <link rel="apple-touch-startup-image" href="/SmartAdmin/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+  <link rel="apple-touch-startup-image" href="/SmartAdmin/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+  <link rel="apple-touch-startup-image" href="/SmartAdmin/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 
 </head>
 
-<body class='login-layout'>
+<body class="animated fadeInDown">
+
+<header id="header">
+
+        <span id="logo" class='font-xl'>
+            <i class='fa fa-check-square-o'></i> HuddleUp
+        </span>
+
+  <span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
+
+</header>
+
+<div id="main" role="main">
 
 <%= yield %>
+
+</div>
+
+
+  <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+  <!-- <script src="/SmartAdmin/js/plugin/pace/pace.min.js"></script> -->
+
+  <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script>
+      if (!window.jQuery) {
+          document.write('<script src="/SmartAdmin/js/libs/jquery-2.0.2.min.js"><\/script>');
+      }
+  </script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script>
+      if (!window.jQuery.ui) {
+          document.write('<script src="/SmartAdmin/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+      }
+  </script>
+
+  <!-- IMPORTANT: APP CONFIG -->
+  <script src="/SmartAdmin/js/app.config.js"></script>
+
+  <!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+  <script src="/SmartAdmin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+
+  <!-- BOOTSTRAP JS -->
+  <script src="/SmartAdmin/js/bootstrap/bootstrap.min.js"></script>
+
+  <!-- CUSTOM NOTIFICATION -->
+  <script src="/SmartAdmin/js/notification/SmartNotification.min.js"></script>
+
+  <!-- JARVIS WIDGETS -->
+  <script src="/SmartAdmin/js/smartwidgets/jarvis.widget.min.js"></script>
+
+  <!-- EASY PIE CHARTS -->
+  <script src="/SmartAdmin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+  <!-- SPARKLINES -->
+  <script src="/SmartAdmin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+  <!-- JQUERY VALIDATE -->
+  <script src="/SmartAdmin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+  <!-- JQUERY MASKED INPUT -->
+  <script src="/SmartAdmin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+  <!-- JQUERY SELECT2 INPUT -->
+  <script src="/SmartAdmin/js/plugin/select2/select2.min.js"></script>
+
+  <!-- JQUERY UI + Bootstrap Slider -->
+  <script src="/SmartAdmin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+  <!-- browser msie issue fix -->
+  <script src="/SmartAdmin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+  <!-- FastClick: For mobile devices -->
+  <script src="/SmartAdmin/js/plugin/fastclick/fastclick.min.js"></script>
+
+  <!--[if IE 8]>
+
+  <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+  <![endif]-->
+
+  <!-- Demo purpose only -->
+  <script src="/SmartAdmin/js/demo.min.js"></script>
+
+  <!-- MAIN APP JS FILE -->
+  <script src="/SmartAdmin/js/app.min.js"></script>
+
+  <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+  <!-- Voice command : plugin -->
+  <script src="/SmartAdmin/js/speech/voicecommand.min.js"></script>
+
+  <!-- PAGE RELATED PLUGIN(S)
+  <script src="..."></script>-->
+  <!-- PAGE RELATED PLUGIN(S) -->
+  <script src="/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
+
+  <script type="text/javascript">
+      pageSetUp();
+      runAllForms();
+
+      $(function() {
+
+          // Validation
+          $("#login-form").validate({
+              // Rules for form validation
+              rules : {
+                  "user[email]" : {
+                      required : true,
+                      email : true
+                  },
+                  "user[password]" : {
+                      required : true,
+                      minlength : 3,
+                      maxlength : 20
+                  }
+              },
+
+              // Messages for form validation
+              messages : {
+                  "user[email]" : {
+                      required : 'Please enter your email address',
+                      email : 'Please enter a VALID email address'
+                  },
+                  "user[password]" : {
+                      required : 'Please enter your password'
+                  }
+              },
+
+              // Do not change code below
+              errorPlacement : function(error, element) {
+                  error.insertAfter(element.parent());
+              }
+          });
+      });
+  </script>
 
 </body>
 </html>
