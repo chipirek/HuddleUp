@@ -39,6 +39,15 @@
   </well>
   <!-- end widget grid -->
 
+  <p> </p>
+  <a href="/projects/<%= @project.id %>"
+     class="btn btn-danger"
+     data-confirm="Are you sure you want to delete <%= @project.name %>?"
+     data-method="delete"
+     title="Delete">
+    Delete this project
+  </a>
+
 </div>
 
 <%= render :partial => '/projects/scripts' %>
