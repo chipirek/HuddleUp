@@ -14,7 +14,7 @@ class MembersController < ApplicationController
     @i_am_an_admin = my_member.is_admin
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index2.html.erb
       format.json { render json: @members }
     end
   end

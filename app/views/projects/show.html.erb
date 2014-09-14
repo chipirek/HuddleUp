@@ -1,384 +1,109 @@
-<div class="navbar">
+<p>project show id= <%= @project.id %></p>
+<p><%= controller_name %></p>
 
-  <script type="text/javascript">
-      try {
-          ace.settings.check('navbar', 'fixed')
-      } catch (e) {
-      }
-  </script>
+<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+<script data-pace-options='{ "restartOnRequestAfter": true }' src="/SmartAdmin/js/plugin/pace/pace.min.js"></script>
 
-  <div class="navbar-inner">
-    <div class="container-fluid">
+<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="/SmartAdmin/js/libs/jquery-2.0.2.min.js"><\/script>');
+    }
+</script>
 
-      <a class="brand" href="#">
-        <small><i class="icon-check"></i> HuddleUp - <%= @project.name %></small>
-      </a>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+    if (!window.jQuery.ui) {
+        document.write('<script src="/SmartAdmin/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+    }
+</script>
 
-      <%= render :partial => 'top_nav', :locals => {:post => 'foo'} %>
+<!-- IMPORTANT: APP CONFIG -->
+<script src="/SmartAdmin/js/app.config.js"></script>
 
-    </div>
-    <!--/.container-fluid-->
-  </div>
-  <!--/.navbar-inner-->
+<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+<script src="/SmartAdmin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
 
-</div>
+<!-- BOOTSTRAP JS -->
+<script src="/SmartAdmin/js/bootstrap/bootstrap.min.js"></script>
 
+<!-- CUSTOM NOTIFICATION -->
+<script src="/SmartAdmin/js/notification/SmartNotification.min.js"></script>
 
-<div class="main-container container-fluid">
-<a class="menu-toggler" id="menu-toggler" href="#">
-  <span class="menu-text"></span>
-</a>
-
-<%= render :partial => 'side_nav_1', :locals => {:component => 'project', :project_id => @project.id} %>
+<!-- JARVIS WIDGETS -->
+<script src="/SmartAdmin/js/smartwidgets/jarvis.widget.min.js"></script>
 
-
-
-<div class="main-content">
-
-
-<% crumbs = [['Projects', projects_path]] %>
-
-<%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => @project.name} %>
-
-<div class="page-content">
-<div class="page-header position-relative">
-  <h1><i class="icon-list-alt"></i> Summary
-  </h1>
-
-</div>
-<!--/.page-header-->
-
-<div class="row-fluid">
-<div class="span12">
-<!--PAGE CONTENT BEGINS-->
-
-<% if flash[:notice] %>
-    <div class='alert alert-block alert-success'>
-      <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-      <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
-    </div>
-<% end %>
-
-<% if flash[:alert] %>
-    <div class='alert alert-block alert-error'>
-      <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-      <strong><i class="icon-remove"></i> <%= flash[:alert] %></strong>
-    </div>
-<% end %>
-
-<p>
-
-<div class='well'>
-  <h1><%= @project.name %></h1>
-  <%= @project.description.html_safe unless @project.description.nil? %>
-  <% if @member.is_admin? %>
-      <span>&nbsp;</span>
-      <a href="/projects/<%= @project.id %>"
-         class="btn btn-danger btn-small pull-right"
-         data-confirm="Are you sure you want to delete <%= @project.name %>?"
-         data-method="delete"
-         data-placement="right"
-         data-rel="tooltip"
-         rel="nofollow"
-         title="Delete">
-        <span><i class='icon-trash'></i> Delete this project</span>
-      </a>
-      <a class='btn btn-info btn-small pull-right' href="/projects/<%= @project.id %>/edit">
-        <i class='icon-pencil'></i> Edit this project's definition</a><br />
-  <% end %>
-
-</div>
-</p>
-
-<div class='row-fluid'>
-
-<div class="span6" id='left-column'>
-
-
-<div class="widget-box">
-  <div class="widget-header widget-header-small header-color-dark">
-    <h6>At a glance</h6>
-  </div>
-
-  <div class="widget-body">
-    <div class="widget-main padding-4">
-      <div class="slim-scroll" data-height="125">
-        <div class="content">
-
-            <span class="btn btn-app btn-small btn-purple no-hover">
-              <% if @project.how_many_milestones_left > 0 %>
-                <span class="badge badge-important"><%= @project.how_many_milestones_left %></span>
-              <% end %>
-
-              <span class="bigger-300"> <%= @project.milestones.count %> </span>
-                <br/>
-                <span class="smaller-90"> Key <br/>Dates </span>
-                </span>
-
-                <span class="btn btn-app btn-small btn-pink no-hover">
-                    <span class="bigger-300"> 0 </span>
-                    <br/>
-                    <span class="smaller-90"> Total <br/>Alerts </span>
-                </span>
-
-                <span class="btn btn-app btn-small btn-grey no-hover">
-                    <% if @project.how_many_todos_for_this_member() > 0 %>
-                        <span class="badge badge-important"><%= @project.how_many_todos_for_this_member() %></span>
-                    <% end %>
-                  <span class="bigger-300"> <%= @project.todos.count %> </span>
-                    <br/>
-                    <span class="smaller-90"> Total <br/>Todos </span>
-                </span>
-
-                <span class="btn btn-app btn-small btn-primary no-hover">
-                    <% if @project.how_many_issues_left > 0 %>
-                        <span class="badge badge-important"><%= @project.how_many_issues_left %></span>
-                    <% end %>
-
-                  <span class="bigger-300"> <%= @project.issues.count %> </span>
-                    <br/>
-                    <span class="smaller-90"> Total <br/>Issues </span>
-                </span>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="widget-box">
-  <div class="widget-header widget-header-small header-color-dark">
-    <h6>Status</h6>
-  </div>
-
-  <div class="widget-body">
-    <div class="widget-main padding-4">
-      <div class="slim-scroll" data-height="125">
-        <div class="content">
-          <% if @project.status_code==1 %>
-              <div class='alert alert-block alert-success bigger-300'>We are on track</div>
-          <% elsif @project.status_code==2 %>
-              <div class='alert alert-block alert-warning bigger-300'>Project is troubled</div>
-          <% else %>
-              <div class='alert alert-block alert-error bigger-300'>Project is late or failing</div>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-</div>
-
-
-<div class="widget-box">
-  <div class="widget-header widget-header-small header-color-dark">
-    <h6>Issues</h6>
-  </div>
-
-  <div class="widget-body">
-    <div class="widget-main padding-4">
-      <div class="slim-scroll" data-height="125">
-        <div class="content">
-
-          <% if @project.issues.count == 0 %>
-              <div class='well well-large'>None. There are no issues at this time!</div>
-          <% else %>
-
-              <% @project.issues.order('created_at').each do |i| %>
-
-                  <% if i.is_resolved? %>
-                      <div class="alert alert-success">
-                  <% else %>
-                      <div class="alert alert-info">
-                  <% end %>
-                  <%= link_to i.description, edit_project_issue_path(@project, i) %>
-                  </div> <p></p>
-
-              <% end %>
-          <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-</div>
-
-<div class="span6" id='right-column'>
-
-  <div class="widget-box">
-    <div class="widget-header widget-header-small header-color-dark">
-      <h6>Alerts</h6>
-    </div>
-
-    <div class="widget-body">
-      <div class="widget-main padding-4">
-        <div class="slim-scroll" data-height="125">
-          <div class="content">
-            <div class='well well-large'>None. There are no alerts at this time!</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="widget-box">
-    <div class="widget-header widget-header-small header-color-dark">
-      <h6>Key Dates</h6>
-    </div>
-
-    <div class="widget-body">
-      <div class="widget-main padding-4">
-        <div class="slim-scroll" data-height="125">
-          <div class="content">
-            <div class="message-list" id="message-list">
-
-              <% if @project.milestones.count == 0 %>
-                  <div class='well well-large'>None. There are no key dates at this time!</div>
-              <% else %>
-                  <% @project.milestones.order('start').each do |m| %>
-
-                      <div class="message-item">
-                    <span class="text">
-                        <%= link_to m.title, edit_project_milestone_path(@project, m) %>
-                      &nbsp; <span class="badge badge-grey">Start: <%= m.start.strftime("%m/%d/%Y") %></span>
-                      &nbsp; <span class="badge badge-grey"><%= 'End: ' + m.end.strftime("%m/%d/%Y") unless m.end.nil? %></span>
-                    </span>
-                      </div>
-
-                  <% end %>
-              <% end %>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="widget-box">
-    <div class="widget-header widget-header-small header-color-dark">
-      <h6>Todos</h6>
-    </div>
-
-    <div class="widget-body">
-      <div class="widget-main padding-4">
-        <div class="slim-scroll" data-height="125">
-          <div class="content">
-
-            <% if @project.todos.count == 0 %>
-                <div class='well well-large'>None. There are no todos at this time!</div>
-            <% else %>
-                <% @project.todos.order('created_at').each do |t| %>
-
-                    <% if t.is_complete? %>
-                        <div class="alert alert-success">
-                    <% else %>
-                        <div class="alert alert-info">
-                    <% end %>
-                    <%= link_to t.subject, edit_project_todo_path(@project, t) %>
-                    </div> <p></p>
-
-                <% end %>
-            <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-</div>
-
-
-</div>
-
-</div>
-
-
-</div>
-<!--/row-->
-
-
-<!--PAGE CONTENT ENDS-->
-</div>
-<!--/.span-->
-</div>
-<!--/.row-fluid-->
-</div>
-<!--/.page-content-->
-
-<div class="ace-settings-container" id="ace-settings-container">
-  <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-    <i class="icon-cog bigger-150"></i>
-  </div>
-
-  <div class="ace-settings-box" id="ace-settings-box">
-    <div>
-      <div class="pull-left">
-        <select id="skin-colorpicker" class="hide">
-          <option data-skin="default" value="#438EB9">#438EB9</option>
-          <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-          <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-          <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-        </select>
-      </div>
-      <span>&nbsp; Choose Skin</span>
-    </div>
-
-    <div>
-      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-      <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-    </div>
-
-    <div>
-      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-      <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-    </div>
-
-    <div>
-      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-      <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-    </div>
-
-    <div>
-      <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-      <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-    </div>
-  </div>
-</div>
-<!--/#ace-settings-container-->
-</div><!--/.main-content-->
-</div><!--/.main-container-->
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
-  <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
-
-<!-- inline scripts related to this page -->
-<script src="/assets/js/jquery.slimscroll.min.js"></script>
+<!-- EASY PIE CHARTS -->
+<script src="/SmartAdmin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+<!-- SPARKLINES -->
+<script src="/SmartAdmin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+<!-- JQUERY VALIDATE -->
+<script src="/SmartAdmin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+<!-- JQUERY MASKED INPUT -->
+<script src="/SmartAdmin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+<!-- JQUERY SELECT2 INPUT -->
+<script src="/SmartAdmin/js/plugin/select2/select2.min.js"></script>
+
+<!-- JQUERY UI + Bootstrap Slider -->
+<script src="/SmartAdmin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+<!-- browser msie issue fix -->
+<script src="/SmartAdmin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+<!-- FastClick: For mobile devices -->
+<script src="/SmartAdmin/js/plugin/fastclick/fastclick.min.js"></script>
+
+<!--[if IE 8]>
+
+<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+<![endif]-->
+
+<!-- Demo purpose only -->
+<script src="/SmartAdmin/js/demo.min.js"></script>
+
+<!-- MAIN APP JS FILE -->
+<script src="/SmartAdmin/js/app.min.js"></script>
+
+<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+<!-- Voice command : plugin -->
+<script src="/SmartAdmin/js/speech/voicecommand.min.js"></script>
+
+<!-- PAGE RELATED PLUGIN(S)
+<script src="..."></script>-->
+<!-- PAGE RELATED PLUGIN(S) -->
+<script src="/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
 
 <script type="text/javascript">
 
-    $(function () {
+    $(document).ready(function () {
 
-        // scrollables
-        $('.slim-scroll').each(function () {
-            var $this = $(this);
-            $this.slimScroll({
-                height: $this.data('height') || 100,
-                railVisible: true
-            });
+        pageSetUp();
+
         });
 
-    });
+</script>
 
+<%= javascript_include_tag "rails" %>
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>

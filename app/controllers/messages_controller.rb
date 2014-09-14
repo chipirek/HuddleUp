@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
     @message = Message.new
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index2.html.erb
       format.json { render json: @messages }
     end
   end

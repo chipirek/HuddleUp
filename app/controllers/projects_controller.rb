@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     # @projects = Project.where('id in (?)', @membership)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index2.html.erb
       format.json { render json: @projects }
     end
   end

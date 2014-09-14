@@ -12,7 +12,7 @@ class MilestonesController < ApplicationController
     @milestones = @project.milestones.order('start')
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index2.html.erb
       format.json { render json: @milestones }
     end
   end

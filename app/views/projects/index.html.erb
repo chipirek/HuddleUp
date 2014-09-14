@@ -1,168 +1,213 @@
-<div class="navbar">
+<!-- row -->
+<div class="row">
 
-  <script type="text/javascript">
-      try {
-          ace.settings.check('navbar', 'fixed')
-      } catch (e) {
-      }
-  </script>
-
-  <div class="navbar-inner">
-    <div class="container-fluid">
-
-      <a class="brand" href="#">
-        <small><i class="icon-check"></i> HuddleUp</small>
-      </a>
-
-      <%= render :partial => 'top_nav', :locals => {:post => 'foo'} %>
-
-    </div>
-    <!--/.container-fluid-->
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <h1 class="page-title txt-color-blueDark">
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-road"></i>
+      My Projects
+    </h1>
   </div>
-  <!--/.navbar-inner-->
+  <!-- end col -->
 
+</div>
+<!-- end row -->
+
+<div class="col-sm-12">
+
+  <div class="well">
+
+    <table class="table table-striped table-forum">
+      <thead>
+      <tr>
+        <th colspan="4">Projects</th>
+        <th class="hidden-xs hidden-sm" style="width: 200px;">Last Activity</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <% @projects.each do |project| %>
+          <!-- TR -->
+          <tr>
+            <td colspan="4">
+              <h4><a href='/projects/<%= project.id %>'>
+                <%= project.name %>
+              </a>
+                <small><%= project.description.html_safe %> Created on <%= project.created_at.strftime("%m/%d/%Y") %>.</small>
+              </h4>
+            </td>
+            <td class="hidden-xs hidden-sm">by
+              <a href="javascript:void(0);">John Doe</a>
+              <br>
+              <small><i>January 1, 2014</i></small>
+            </td>
+          </tr>
+          <!-- end TR -->
+      <% end %>
+
+      <!-- TR -->
+      <tr>
+        <td colspan="4">
+          <h4><a href="forum-post.html">
+            Consectetuer adipiscing elit
+          </a>
+            <small><a href="profile.html">John Doe</a> on <em>January 1, 2014</em></small>
+          </h4>
+        </td>
+        <td class="hidden-xs hidden-sm">by
+          <a href="javascript:void(0);">John Doe</a>
+          <br>
+          <small><i>January 1, 2014</i></small>
+        </td>
+      </tr>
+      <!-- end TR -->
+
+      <!-- TR -->
+      <tr class="locked">
+        <td colspan="4">
+          <h4><a href="forum-post.html">
+            This is a locked topic!
+          </a>
+            <small><a href="profile.html">John Doe</a> on <em>January 1, 2014</em></small>
+          </h4>
+        </td>
+        <td class="hidden-xs hidden-sm">by
+          <a href="javascript:void(0);">John Doe</a>
+          <br>
+          <small><i>January 1, 2014</i></small>
+        </td>
+      </tr>
+      <!-- end TR -->
+
+      <!-- TR -->
+      <tr class="closed">
+        <td colspan="4">
+          <h4><a href="forum-post.html">
+            This is a closed topic!
+          </a>
+            <small><a href="javascript:void(0);">John Doe</a> on <em>January 1, 2014</em></small>
+          </h4>
+        </td>
+        <td class="hidden-xs hidden-sm">by
+          <a href="javascript:void(0);">John Doe</a>
+          <br>
+          <small><i>January 1, 2014</i></small>
+        </td>
+      </tr>
+      <!-- end TR -->
+
+      </tbody>
+    </table>
+
+
+  </div>
 </div>
 
 
-<div class="main-container container-fluid">
-  <a class="menu-toggler" id="menu-toggler" href="#">
-    <span class="menu-text"></span>
-  </a>
+<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+<script data-pace-options='{ "restartOnRequestAfter": true }' src="/SmartAdmin/js/plugin/pace/pace.min.js"></script>
 
-  <%= render :partial => 'side_nav_0' %>
+<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="/SmartAdmin/js/libs/jquery-2.0.2.min.js"><\/script>');
+    }
+</script>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+    if (!window.jQuery.ui) {
+        document.write('<script src="/SmartAdmin/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+    }
+</script>
 
+<!-- IMPORTANT: APP CONFIG -->
+<script src="/SmartAdmin/js/app.config.js"></script>
 
-  <div class="main-content">
+<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+<script src="/SmartAdmin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
 
+<!-- BOOTSTRAP JS -->
+<script src="/SmartAdmin/js/bootstrap/bootstrap.min.js"></script>
 
-    <% crumbs = [] %>
+<!-- CUSTOM NOTIFICATION -->
+<script src="/SmartAdmin/js/notification/SmartNotification.min.js"></script>
 
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Projects'} %>
+<!-- JARVIS WIDGETS -->
+<script src="/SmartAdmin/js/smartwidgets/jarvis.widget.min.js"></script>
 
-    <div class="page-content">
-      <div class="page-header position-relative">
-        <h1>
-          Projects
-          <small>
-            <i class="icon-double-angle-right"></i>
-            List of projects I'm working on...
-          </small>
-        </h1>
-      </div>
-      <!--/.page-header-->
+<!-- EASY PIE CHARTS -->
+<script src="/SmartAdmin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
 
-      <div class="row-fluid">
-        <div class="span12">
-          <!--PAGE CONTENT BEGINS-->
+<!-- SPARKLINES -->
+<script src="/SmartAdmin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
 
-          <% if flash[:notice] %>
-              <div class='alert alert-block alert-success'>
-                <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-                <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
-              </div>
-          <% end %>
+<!-- JQUERY VALIDATE -->
+<script src="/SmartAdmin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
 
-          <% if flash[:error] %>
-              <div class='alert alert-block alert-error'>
-                <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-                <strong><i class="icon-ok"></i> <%= flash[:error] %></strong>
-              </div>
-          <% end %>
+<!-- JQUERY MASKED INPUT -->
+<script src="/SmartAdmin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
 
-          <% if @projects.count == 0 %>
-              <div class='alert alert-info' style="margin-bottom: 50px;">None</div>
-          <% else %>
-            <% @projects.each do |project| %>
-              <div class="well ">
-                <h4 class="blue"><a href='/projects/<%= project.id %>'><%= project.name %> </a></h4>
-                <%= project.description.html_safe %>
-              </div>
-            <% end %>
-          <% end %>
+<!-- JQUERY SELECT2 INPUT -->
+<script src="/SmartAdmin/js/plugin/select2/select2.min.js"></script>
 
+<!-- JQUERY UI + Bootstrap Slider -->
+<script src="/SmartAdmin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
 
-          <p><a class='btn btn-success' href="/projects/new">Create a new project</a></p>
+<!-- browser msie issue fix -->
+<script src="/SmartAdmin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
 
-        </div>
-        <!--/row-->
+<!-- FastClick: For mobile devices -->
+<script src="/SmartAdmin/js/plugin/fastclick/fastclick.min.js"></script>
 
-        <!--PAGE CONTENT ENDS-->
-      </div>
-      <!--/.span-->
-    </div>
-    <!--/.row-fluid-->
-  </div>
-  <!--/.page-content-->
+<!--[if IE 8]>
 
-  <div class="ace-settings-container" id="ace-settings-container">
-    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-      <i class="icon-cog bigger-150"></i>
-    </div>
+<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 
-    <div class="ace-settings-box" id="ace-settings-box">
-      <div>
-        <div class="pull-left">
-          <select id="skin-colorpicker" class="hide">
-            <option data-skin="default" value="#438EB9">#438EB9</option>
-            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-          </select>
-        </div>
-        <span>&nbsp; Choose Skin</span>
-      </div>
+<![endif]-->
 
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-      </div>
+<!-- Demo purpose only -->
+<script src="/SmartAdmin/js/demo.min.js"></script>
 
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-      </div>
+<!-- MAIN APP JS FILE -->
+<script src="/SmartAdmin/js/app.min.js"></script>
 
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-      </div>
+<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+<!-- Voice command : plugin -->
+<script src="/SmartAdmin/js/speech/voicecommand.min.js"></script>
 
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-      </div>
-    </div>
-  </div>
-  <!--/#ace-settings-container-->
-</div><!--/.main-content-->
-</div><!--/.main-container-->
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
-  <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
-
-<!-- inline scripts related to this page -->
+<!-- PAGE RELATED PLUGIN(S)
+<script src="..."></script>-->
+<!-- PAGE RELATED PLUGIN(S) -->
+<script src="/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
 
 <script type="text/javascript">
 
-    $(function () {
+    $(document).ready(function () {
 
-        $('.dialogs,.comments').slimScroll({
-            height: '300px'
-        });
-
-        $('.date-picker').datepicker();
-
-        $(".chzn-select").chosen();
-
-        var oldie = $.browser.msie && $.browser.version < 9;
-
-        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
-        $('[data-rel="tooltip"]').tooltip();
-
+        pageSetUp();
 
     });
 
+</script>
+
+<%= javascript_include_tag "rails" %>
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>

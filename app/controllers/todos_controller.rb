@@ -15,7 +15,7 @@ class TodosController < ApplicationController
     @todo.project_id = params[:project_id]
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index2.html.erb
       format.json { render json: @todos }
     end
   end

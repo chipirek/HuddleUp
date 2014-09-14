@@ -1,0 +1,72 @@
+<!-- #NAVIGATION -->
+<!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+<aside id="left-panel">
+
+
+  <!-- NAVIGATION : This navigation is also responsive -->
+    <nav>
+        <ul>
+            <% if !@project.nil? %>
+              <li <%= "class='active'".html_safe unless controller_name != 'projects' %> >
+                <a href="/projects/<%= @project.id %>" title="Dashboard"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
+                  <span class="menu-item-parent">Summary</span></a>
+              </li>
+
+              <li <%= "class='active'".html_safe unless controller_name != 'milestones' %> >
+                <a href="/projects/<%= @project.id %>/milestones" title="Milestones"><i class="fa fa-lg fa-fw fa-calendar"></i>
+                  <span class="menu-item-parent">Milestones</span>
+                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_milestones_left unless @project.how_many_milestones_left == 0 %></span></a>
+              </li>
+
+              <li <%= "class='active'".html_safe unless controller_name != 'issues' %> >
+                <a href="/projects/<%= @project.id %>/issues" title="Milestones"><i class="fa fa-lg fa-fw fa-bug"></i>
+                  <span class="menu-item-parent">Issues</span>
+                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_issues_left unless @project.how_many_issues_left == 0 %></span></a>
+              </li>
+
+              <li <%= "class='active'".html_safe unless controller_name != 'todos' %> >
+                <a href="/projects/<%= @project.id %>/todos" title="Todos"><i class="fa fa-lg fa-fw fa-check-square-o"></i>
+                  <span class="menu-item-parent">Todos</span>
+                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_todos_for_this_member unless @project.how_many_todos_for_this_member == 0 %></span></a>
+              </li>
+
+              <li <%= "class='active'".html_safe unless controller_name != 'members' %> >
+                <a href="/projects/<%= @project.id %>/members" title="Members"><i class="fa fa-lg fa-fw fa-group"></i>
+                  <span class="menu-item-parent">Members</span>
+                </a>
+              </li>
+
+              <li <%= "class='active'".html_safe unless controller_name != 'alerts' %> >
+                <a href="/projects/<%= @project.id %>/alerts" title="Alerts"><i class="fa fa-lg fa-fw fa-warning"></i>
+                  <span class="menu-item-parent">Alerts</span>
+                </a>
+              </li>
+
+              <li <%= "class='active'".html_safe unless controller_name != 'messages' %> >
+                <a href="/projects/<%= @project.id %>/messages" title="Messages"><i class="fa fa-lg fa-fw fa-inbox"></i>
+                  <span class="menu-item-parent">Messages</span>
+                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_unread_messages_for_this_member(current_user.id) unless @project.how_many_unread_messages_for_this_member(current_user.id) == 0 %></span></a>
+              </li>
+
+              <li <%= "class='active'".html_safe unless controller_name != 'activities' %> >
+                <a href="/projects/<%= @project.id %>/activities" title="Alerts"><i class="fa fa-lg fa-fw fa-road"></i>
+                  <span class="menu-item-parent">Timeline</span>
+                </a>
+              </li>
+
+              <li <%= "class='active'".html_safe unless controller_name != 'settings' %> >
+                <a href="/projects/<%= @project.id %>/settings" title="Alerts"><i class="fa fa-lg fa-fw fa-cog"></i>
+                  <span class="menu-item-parent">Settings</span>
+                </a>
+              </li>
+
+        <% end %>
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu">
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>
+
+</aside>
+<!-- END NAVIGATION -->
