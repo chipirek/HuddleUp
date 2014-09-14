@@ -11,6 +11,11 @@
   </div>
   <!-- end col -->
 
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+    <!-- Button trigger modal -->
+    <%= link_to 'Create a new project', new_project_path, :class=>'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+  </div>
+
 </div>
 <!-- end row -->
 
@@ -34,7 +39,7 @@
               <h4><a href='/projects/<%= project.id %>'>
                 <%= project.name %>
               </a>
-                <small><%= project.description.html_safe %> Created on <%= project.created_at.strftime("%m/%d/%Y") %>.</small>
+                <small><%= project.description.html_safe %> <i>Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.</small>
               </h4>
             </td>
             <td class="hidden-xs hidden-sm">by
@@ -104,84 +109,7 @@
   </div>
 </div>
 
-
-<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-<script data-pace-options='{ "restartOnRequestAfter": true }' src="/SmartAdmin/js/plugin/pace/pace.min.js"></script>
-
-<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script>
-    if (!window.jQuery) {
-        document.write('<script src="/SmartAdmin/js/libs/jquery-2.0.2.min.js"><\/script>');
-    }
-</script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<script>
-    if (!window.jQuery.ui) {
-        document.write('<script src="/SmartAdmin/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
-    }
-</script>
-
-<!-- IMPORTANT: APP CONFIG -->
-<script src="/SmartAdmin/js/app.config.js"></script>
-
-<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-<script src="/SmartAdmin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
-
-<!-- BOOTSTRAP JS -->
-<script src="/SmartAdmin/js/bootstrap/bootstrap.min.js"></script>
-
-<!-- CUSTOM NOTIFICATION -->
-<script src="/SmartAdmin/js/notification/SmartNotification.min.js"></script>
-
-<!-- JARVIS WIDGETS -->
-<script src="/SmartAdmin/js/smartwidgets/jarvis.widget.min.js"></script>
-
-<!-- EASY PIE CHARTS -->
-<script src="/SmartAdmin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
-
-<!-- SPARKLINES -->
-<script src="/SmartAdmin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
-
-<!-- JQUERY VALIDATE -->
-<script src="/SmartAdmin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
-
-<!-- JQUERY MASKED INPUT -->
-<script src="/SmartAdmin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
-
-<!-- JQUERY SELECT2 INPUT -->
-<script src="/SmartAdmin/js/plugin/select2/select2.min.js"></script>
-
-<!-- JQUERY UI + Bootstrap Slider -->
-<script src="/SmartAdmin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
-
-<!-- browser msie issue fix -->
-<script src="/SmartAdmin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
-
-<!-- FastClick: For mobile devices -->
-<script src="/SmartAdmin/js/plugin/fastclick/fastclick.min.js"></script>
-
-<!--[if IE 8]>
-
-<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-<![endif]-->
-
-<!-- Demo purpose only -->
-<script src="/SmartAdmin/js/demo.min.js"></script>
-
-<!-- MAIN APP JS FILE -->
-<script src="/SmartAdmin/js/app.min.js"></script>
-
-<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-<!-- Voice command : plugin -->
-<script src="/SmartAdmin/js/speech/voicecommand.min.js"></script>
-
-<!-- PAGE RELATED PLUGIN(S)
-<script src="..."></script>-->
-<!-- PAGE RELATED PLUGIN(S) -->
-<script src="/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
+<%= render :partial => '/projects/scripts' %>
 
 <script type="text/javascript">
 

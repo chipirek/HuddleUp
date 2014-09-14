@@ -17,34 +17,31 @@
     <fieldset>
         <div class='row'>
       <section class="col col-6">
-        <label class="input"> <i class="icon-append fa fa-user"></i>
+        <label class="label">Project Name</label>
+        <label class="input">
           <input type="text" name="project[name]" placeholder="Project name..." id='project_name' value='<%= @project.name %>'>
-          <b class="tooltip tooltip-bottom-right">Give your project a short name</b> </label>
+          <b class="tooltip tooltip-bottom-left">Give your project a short name</b> </label>
         </section>
 
         <section class="col col-6">
-        <label class="select">
-          <%= select('project', 'status_code', [['On track', 1], ['Troubled', 2], ['Late', 3]], {}) %>
-        </label>
+            <label class="label">Status</label>
+            <label class="select">
+            <%= select('project', 'status_code', [['On track', 1], ['Troubled', 2], ['Late', 3]], {}) %>
+            </label>
 
       </section>
         </div>
 
       <section>
-        <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
-          <input type="textarea" name="project[description]" placeholder="Description" id='project_description' value='<%= @project.description %>'>
-          <b class="tooltip tooltip-bottom-right">Give your project a description</b> </label>
+        <label class="label">Comment</label>
+        <label class="textarea"><textarea rows="4" name="project[description]" id="project_description"><%= @project.description %></textarea> </label>
       </section>
-
 
     </fieldset>
 
     <footer>
       <button type="submit" class="btn btn-success">
         Save
-      </button>
-      <button class="btn btn-primary">
-        Cancel
       </button>
     </footer>
 

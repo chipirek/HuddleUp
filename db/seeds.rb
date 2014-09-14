@@ -166,6 +166,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   m = project1.issues.create(:description=>'This is a resolved issue', :is_resolved=>true)
   puts '   Added issue ' + m.description
 
+=begin
 
   puts ' '
   puts 'Creating load testing / performance testing bulk data...'
@@ -181,6 +182,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
   end
 
+=end
 
 
   puts ' '

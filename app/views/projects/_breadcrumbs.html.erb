@@ -1,47 +1,48 @@
 <ol class="breadcrumb">
   <li><%= link_to current_user.name, '/users/edit' %></li>
   <li><%= link_to 'Projects', '/projects' %></li>
-  <% if !@project.nil? %>
-    <li><%= link_to @project.name, project_path(@project) %></li>
+  <% if !@project.nil? && !@project.id.nil? %>
 
-    <% if controller_name == 'todos' %>
-      <li><%= link_to 'Todos', project_todos_path(@project) %></li>
-      <% if !@todo.id.nil? %>
-          <li><a href='/projects/<%= @project.id %>/todos/<%= @todo.id %>/edit'><%= @todo.subject %>x</a></li>
+      <li><%= link_to @project.name, project_path(@project) %></li>
+
+      <% if controller_name == 'todos' %>
+          <li><%= link_to 'Todos', project_todos_path(@project) %></li>
+          <% if !@todo.id.nil? %>
+              <li><a href='/projects/<%= @project.id %>/todos/<%= @todo.id %>/edit'><%= @todo.subject %>x</a></li>
+          <% end %>
       <% end %>
-    <% end %>
 
-    <% if controller_name == 'milestones' %>
-      <li><%= link_to 'Milestones', project_milestones_path(@project) %></li>
-      <% if !@milestone.nil? %>
-          <li><a href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/edit'><%= @milstone.subject %></a></li>
+      <% if controller_name == 'milestones' %>
+          <li><%= link_to 'Milestones', project_milestones_path(@project) %></li>
+          <% if !@milestone.nil? %>
+              <li><a href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/edit'><%= @milstone.subject %></a></li>
+          <% end %>
       <% end %>
-    <% end %>
 
-    <% if controller_name == 'issues' %>
-      <li><%= link_to 'Issues', project_issues_path(@project) %></li>
-      <% if !@issue.id.nil? %>
-          <li><a href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/edit'><%= @issue.description %></a></li>
+      <% if controller_name == 'issues' %>
+          <li><%= link_to 'Issues', project_issues_path(@project) %></li>
+          <% if !@issue.id.nil? %>
+              <li><a href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/edit'><%= @issue.description %></a></li>
+          <% end %>
       <% end %>
-    <% end %>
 
-    <% if controller_name == 'members' %>
-      <li><%= link_to 'Members', project_members_path(@project) %></li>
-      <% if !@member.nil? %>
-          <li><a href='/projects/<%= @project.id %>/members/<%= @member.id %>/edit'><%= @member.name %></a></li>
+      <% if controller_name == 'members' %>
+          <li><%= link_to 'Members', project_members_path(@project) %></li>
+          <% if !@member.nil? %>
+              <li><a href='/projects/<%= @project.id %>/members/<%= @member.id %>/edit'><%= @member.name %></a></li>
+          <% end %>
       <% end %>
-    <% end %>
 
-    <% if controller_name == 'messages' %>
-      <li><%= link_to 'Messages', project_messages_path(@project) %></li>
-      <% if !@member.nil? %>
-          <li><a href='/projects/<%= @project.id %>/messages/<%= @message.id %>/edit'><%= @message.subject %></a></li>
+      <% if controller_name == 'messages' %>
+          <li><%= link_to 'Messages', project_messages_path(@project) %></li>
+          <% if !@member.nil? %>
+              <li><a href='/projects/<%= @project.id %>/messages/<%= @message.id %>/edit'><%= @message.subject %></a></li>
+          <% end %>
       <% end %>
-    <% end %>
 
-    <% if controller_name == 'activities' %>
-      <li><%= link_to 'Timeline', project_activities_path(@project) %></li>
-    <% end %>
+      <% if controller_name == 'activities' %>
+          <li><%= link_to 'Timeline', project_activities_path(@project) %></li>
+      <% end %>
 
-<% end %>
+  <% end %>
 </ol>
