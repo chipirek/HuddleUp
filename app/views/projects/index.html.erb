@@ -42,7 +42,7 @@
                 <small><%= project.description.html_safe %> <i>Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.</small>
               </h4>
             </td>
-            <td class="hidden-xs hidden-sm">by <%= get_last_updated_by(project.id) %></i></small>
+            <td class="hidden-xs hidden-sm"><small><i>by <%= get_last_updated_by(project.id) %></i></small>
             </td>
           </tr>
           <!-- end TR -->

@@ -40,13 +40,15 @@
               <h4><a href='/projects/<%= @project.id %>/issues/<%= issue.id %>'>
                 <%= issue.description.html_safe %>
               </a>
-                <small><i>Created on <%= issue.created_at.strftime("%m/%d/%Y") %></i>.</small>
+                <small><i>Created on <%= issue.created_at.strftime("%m/%d/%Y") %>.
+                  <% if issue.is_resolved? %>
+                      Closed on <%= issue.updated_at.strftime("%m/%d/%Y") %>.
+                  <% end %>
+                  </i>
+                </small>
               </h4>
             </td>
-            <td class="hidden-xs hidden-sm">by
-              <a href="javascript:void(0);">John Doe</a>
-              <br>
-              <small><i>January 1, 2014</i></small>
+            <td class="hidden-xs hidden-sm"><small><i>by <%= get_issue_last_updated_by(issue.id) %></i></small>
             </td>
             <td>
               <% if !issue.is_resolved? %>
