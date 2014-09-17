@@ -1,194 +1,100 @@
-<div class="navbar">
+<!-- row -->
+<div class="row">
 
-  <script type="text/javascript">
-      try {
-          ace.settings.check('navbar', 'fixed')
-      } catch (e) {
-      }
-  </script>
-
-  <div class="navbar-inner">
-    <div class="container-fluid">
-
-      <a class="brand" href="#">
-        <small><i class="icon-check"></i> HuddleUp - <%= @project.name %></small>
-      </a>
-
-      <%= render :partial => '/projects/top_nav', :locals => {:post => 'foo'} %>
-
-    </div>
-    <!--/.container-fluid-->
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <h1 class="page-title txt-color-blueDark">
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-bug"></i>
+      Issues
+    </h1>
   </div>
-  <!--/.navbar-inner-->
+  <!-- end col -->
+
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+    <!-- Button trigger modal -->
+    <%= link_to 'Create a new issue', new_project_issue_path(@project), :class=>'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+  </div>
 
 </div>
+<!-- end row -->
+
+<div class="col-sm-12">
+
+  <div class="well">
+
+    <table class="table table-striped table-forum">
+      <thead>
+      <tr>
+        <th colspan="3">Issues</th>
+        <th class="hidden-xs hidden-sm" style="width: 200px;">Last Activity</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <% @project.issues.order('is_resolved nulls first').each do |issue| %>
+          <!-- TR -->
+          <tr <%= "class='closed'".html_safe unless !issue.is_resolved? %>>
+            <td colspan="3">
+              <h4><a href='/projects/<%= @project.id %>/issues/<%= issue.id %>'>
+                <%= issue.description.html_safe %>
+              </a>
+                <small><i>Created on <%= issue.created_at.strftime("%m/%d/%Y") %></i>.</small>
+              </h4>
+            </td>
+            <td class="hidden-xs hidden-sm">by
+              <a href="javascript:void(0);">John Doe</a>
+              <br>
+              <small><i>January 1, 2014</i></small>
+            </td>
+            <td>
+              <% if !issue.is_resolved? %>
+                <a href='/projects/<%= @project.id %>/issues/mark_resolved/<%= issue.id %>' class='btn btn-lg btn-success'>Close</a>
+              <% else %>
+                <a href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= issue.id %>' class='btn btn-lg btn-danger'>Re-open</a>
+              <% end %>
+              <a href='/projects/<%= @project.id %>/issues/<%= issue.id %>/edit' class='btn btn-lg btn-default'>Edit</a>
+            </td>
+          </tr>
+          <!-- end TR -->
+      <% end %>
+
+      </tbody>
+    </table>
 
 
-<div class="main-container container-fluid">
-  <a class="menu-toggler" id="menu-toggler" href="#">
-    <span class="menu-text"></span>
-  </a>
-
-  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'issues', :project_id => @project.id } %>
-
-  <div class="main-content">
-
-
-    <% crumbs = [['Projects', projects_path],
-                 [@project.name, project_path(@project)]] %>
-
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Issues'} %>
-
-    <div class="page-content">
-      <div class="page-header position-relative">
-        <h1><i class="icon-flag"></i> Issues</h1>
-
-      </div>
-      <!--/.page-header-->
-
-      <div class="row-fluid">
-        <div class="span12">
-          <!--PAGE CONTENT BEGINS-->
-
-          <% if flash[:notice] %>
-              <div class='alert alert-block alert-success'>
-                <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-                <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
-              </div>
-          <% end %>
-
-          <% if @project.issues.count == 0 %>
-              <div class='alert alert-info' style="margin-bottom: 50px;">None</div>
-          <% else %>
-
-        <ul id="issues" class="item-list" style='margin-bottom: 50px;'>
-
-            <% @project.issues.order('is_resolved nulls first').each do |issue| %>
-
-                <li class="<%= get_issue_status_color2(issue) %> clearfix <%= 'selected' unless !issue.is_resolved? %>" data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
-                  <% if !issue.is_resolved? %>
-                      <i class='icon-flag' style='font-size: 2em;'></i>
-                  <% else %>
-                      <i class='icon-flag-alt' style='font-size: 2em;'></i>
-                  <% end %>
-                  &nbsp;&nbsp;<%= issue.description.truncate(150) %>
-                  <span class="badge badge-grey"><%= issue.member.user.name unless issue.member.nil? %></span>
-                  <div class="inline pull-right position-relative">
-                    <% if !issue.is_resolved? %>
-                        &nbsp;
-                        <button class="btn btn-mini btn-success"
-                                onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_resolved/<%= issue.id %>'"
-                                data-placement="left"
-                                data-rel="tooltip"
-                                title="Mark as Resolved"><i class='icon-ok'></i> Marl as resolved
-                        </button>
-                    <% else %>
-                        &nbsp;
-                        <button class="btn btn-mini btn-danger"
-                                onclick="window.location.href='/projects/<%= @project.id %>/issues/mark_unresolved/<%= issue.id %>'"
-                                data-placement="left"
-                                data-rel="tooltip"
-                                title="Mark as Un-Resolved"><i class='icon-remove'></i> Re-open
-                        </button>
-                    <% end %>
-                    &nbsp;
-                    <a href="/projects/<%= @project.id %>/issues/<%= issue.id %>"
-                       class="btn btn-mini btn-danger"
-                       data-confirm="Are you sure you want to delete <%= issue.description %>?"
-                       data-method="delete"
-                       data-placement="left"
-                       data-rel="tooltip"
-                       rel="nofollow"
-                       title="Delete">
-                      <span><i class='icon-trash'></i></span>
-                    </a>
-                    &nbsp;
-                    <button class="btn btn-mini btn-info icon-edit"
-                            onclick="window.location.href='/projects/<%= @project.id %>/issues/<%= issue.id %>/edit'"
-                            data-placement="left"
-                            data-rel="tooltip"
-                            title="Edit">
-                    </button>
-                    &nbsp;
-                  </div>
-                </li>
-
-            <% end %>
-
-          </ul >
-
-          <% end %>
-
-          <%= link_to 'Create a new new issue', new_project_issue_path(@project), {:class=>'btn btn-success' } %>
-
-        </div>
-        <!--/row-->
-
-        <!--PAGE CONTENT ENDS-->
-      </div>
-      <!--/.span-->
-    </div>
-    <!--/.row-fluid-->
   </div>
-  <!--/.page-content-->
+</div>
 
-  <div class="ace-settings-container" id="ace-settings-container">
-    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-      <i class="icon-cog bigger-150"></i>
-    </div>
+<%= render :partial => '/projects/scripts' %>
 
-    <div class="ace-settings-box" id="ace-settings-box">
-      <div>
-        <div class="pull-left">
-          <select id="skin-colorpicker" class="hide">
-            <option data-skin="default" value="#438EB9">#438EB9</option>
-            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-          </select>
-        </div>
-        <span>&nbsp; Choose Skin</span>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-      </div>
-    </div>
-  </div>
-  <!--/#ace-settings-container-->
-</div><!--/.main-content-->
-</div><!--/.main-container-->
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
-  <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
-
-<!-- inline scripts related to this page -->
-<script type="text/javascript" src="/assets/js/jquery.easy-pie-chart.min.js"></script>
 <script type="text/javascript">
 
-    $(function () {
+    $(document).ready(function () {
 
-        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
-        $('[data-rel="tooltip"]').tooltip();
+        pageSetUp();
 
     });
 
+</script>
+
+<%= javascript_include_tag "rails" %>
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>
+
