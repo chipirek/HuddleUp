@@ -1,133 +1,97 @@
-<div class="navbar">
+<div id="content">
 
-  <script type="text/javascript">
-      try {
-          ace.settings.check('navbar', 'fixed')
-      } catch (e) {
-      }
-  </script>
+  <!-- row -->
+  <div class="row">
 
-  <div class="navbar-inner">
-    <div class="container-fluid">
+    <!-- col -->
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+      <h1 class="page-title txt-color-blueDark">
 
-      <a class="brand" href="#">
-        <small><i class="icon-check"></i> HuddleUp - <%= @project.name %></small>
-      </a>
+        <!-- PAGE HEADER -->
+        <i class="fa-fw fa fa-bug"></i>
+        New Issue
 
-      <%= render :partial => '/projects/top_nav', :locals => {:post => 'foo'} %>
+      </h1>
+    </div>
+    <!-- end col -->
+
+  </div>
+  <!-- end row -->
+
+
+  <!-- widget grid -->
+  <well>
+
+    <!-- row -->
+
+    <div class="row" style='background-color: #fff;'>
+
+      <div class="widget-body">
+
+        <%= render 'form' %>
+
+      </div>
 
     </div>
-    <!--/.container-fluid-->
-  </div>
-  <!--/.navbar-inner-->
+
+    <!-- end row -->
+
+  </well>
+  <!-- end widget grid -->
 
 </div>
 
+<%= render :partial => '/projects/scripts' %>
 
-<div class="main-container container-fluid">
-  <a class="menu-toggler" id="menu-toggler" href="#">
-    <span class="menu-text"></span>
-  </a>
-
-  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'issues', :project_id => @project.id} %>
-
-  <div class="main-content">
-
-
-    <% crumbs = [['Projects', projects_path],
-                 [@project.name, project_path(@project)],
-                 ['Issues', project_issues_path(@project)]] %>
-
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Create a new issue'} %>
-
-    <div class="page-content">
-      <div class="page-header position-relative">
-        <h1><i class="icon-flag"></i> Create a new issue</h1>
-      </div>
-      <!--/.page-header-->
-
-      <div class="row-fluid">
-        <div class="span12">
-          <!--PAGE CONTENT BEGINS-->
-
-          <% if flash[:notice] %>
-              <div class='alert alert-block alert-success'>
-                <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-                <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
-              </div>
-          <% end %>
-
-          <%= render 'form' %>
-
-        </div>
-        <!--/row-->
-
-        <!--PAGE CONTENT ENDS-->
-      </div>
-      <!--/.span-->
-    </div>
-    <!--/.row-fluid-->
-  </div>
-  <!--/.page-content-->
-
-  <div class="ace-settings-container" id="ace-settings-container">
-    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-      <i class="icon-cog bigger-150"></i>
-    </div>
-
-    <div class="ace-settings-box" id="ace-settings-box">
-      <div>
-        <div class="pull-left">
-          <select id="skin-colorpicker" class="hide">
-            <option data-skin="default" value="#438EB9">#438EB9</option>
-            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-          </select>
-        </div>
-        <span>&nbsp; Choose Skin</span>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-      </div>
-    </div>
-  </div>
-  <!--/#ace-settings-container-->
-</div><!--/.main-content-->
-</div><!--/.main-container-->
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
-  <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
-
-<!-- inline scripts related to this page -->
-<script src="/assets/js/fuelux/fuelux.spinner.min.js"></script>
-<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
 
-    $(function () {
+    $(document).ready(function () {
 
-        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
-        $('[data-rel="tooltip"]').tooltip();
+        pageSetUp();
 
-    });
+        $('#project_name').focus();
 
+        var $projectForm = $("#project_form").validate({
+
+            // Rules for form validation
+            rules: {
+                'issue[description]': {
+                    required: true,
+                    minlength: 3
+                }
+            },
+
+            // Messages for form validation
+            messages: {
+                'issue[description]': {
+                    required: 'Please enter a short description for your issue'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+    })
+
+</script>
+
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>
