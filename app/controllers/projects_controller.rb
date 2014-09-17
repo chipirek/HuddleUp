@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
     # @membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
     # @projects = Project.where('id in (?)', @membership)
 
+
     respond_to do |format|
       format.html # index2.html.erb
       format.json { render json: @projects }
