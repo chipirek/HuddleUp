@@ -1,1 +1,159 @@
-todos
+<!-- row -->
+<div class="row">
+
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <h1 class="page-title txt-color-blueDark">
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-check-square-o"></i>
+      Todos
+    </h1>
+  </div>
+  <!-- end col -->
+
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+    <!-- Button trigger modal -->
+    <%= link_to 'Create a new todo', new_project_todo_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+  </div>
+
+</div>
+<!-- end row -->
+
+<div class="col-sm-12">
+  <div class="well">
+    <div class="widget-body no-padding smart-form">
+      <!-- content goes here -->
+      <h5 class="todo-group-title"><i class="fa fa-warning"></i> Critical Tasks (<small class="num-of-tasks">0</small>)
+      </h5>
+      <ul id="sortable1" class="todo">
+      </ul>
+
+      <h5 class="todo-group-title"><i class="fa fa-exclamation"></i> Important Tasks (<small class="num-of-tasks"><%= @todos.where('is_complete != true or is_complete is null').count %></small>)
+      </h5>
+      <ul id="sortable2" class="todo">
+        <% @todos.where('is_complete != true or is_complete is null').each do |todo| %>
+            <li data-pk='<%= todo.id %>'>
+                <span class="handle">
+                  <label class="checkbox">
+                  <input type="checkbox" name="checkbox-inline">
+                  <i></i> </label>
+                </span>
+
+                <p>
+                    <strong> #<%= todo.id %></strong> - <%= todo.subject %>
+                    <%= link_to '[More Details]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
+                    <span class="text-muted">Sea deep blessed bearing under darkness from God air living isn't. </span>
+                    <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                </p>
+            </li>
+        <% end %>
+      </ul>
+
+      <h5 class="todo-group-title"><i class="fa fa-check"></i> Completed Tasks (<small class="num-of-tasks"><%= @todos.where('is_complete=true').count %></small>)
+      </h5>
+      <ul id="sortable3" class="todo">
+        <% @todos.where('is_complete=true').each do |todo| %>
+            <li class="complete">
+                <span class="handle" style="display:none"> <label class="checkbox state-disabled">
+                    <input type="checkbox" name="checkbox-inline" checked="checked" disabled="disabled">
+                    <i></i> </label> </span>
+
+                <p>
+                    <strong> #<%= todo.id %></strong> - <%= todo.subject %>
+                    [<a href="javascript:void(0);" class="font-xs">More Details</a>]
+                    <span class="text-muted">Sea deep blessed bearing under darkness from God air living isn't. </span>
+                    <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                </p>
+            </li>
+        <% end %>
+      </ul>
+
+      <!-- end content -->
+    </div>
+  </div>
+</div>
+
+<%= render :partial => '/projects/scripts' %>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        pageSetUp();
+
+        // initialize sortable
+        $(function () {
+            $("#sortable1, #sortable2").sortable({
+                handle: '.handle',
+                connectWith: ".todo",
+                update: countTasks
+            }).disableSelection();
+        });
+
+        // check and uncheck
+        $('.todo .checkbox > input[type="checkbox"]').click(function () {
+            var $this = $(this).parent().parent().parent();
+
+            if ($(this).prop('checked')) {
+                $this.addClass("complete");
+
+                // remove this if you want to undo a check list once checked
+                //$(this).attr("disabled", true);
+                $(this).parent().hide();
+
+                // once clicked - add class, copy to memory then remove and add to sortable3
+                $this.slideUp(500, function () {
+                    $this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
+                    $this.remove();
+                    countTasks();
+                });
+
+                // ajax update back to database
+                var pk = $this.attr('data-pk');
+                var url = '/projects/<%= @project.id %>/todos/mark_complete/' + pk;
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: { _method:'PUT' },
+                    success: function(msg) {
+                        console.log( "Data Saved: " + msg );
+                    }
+                });
+            } else {
+                // insert undo code here...
+            }
+
+        })
+        // count tasks
+        function countTasks() {
+
+            $('.todo-group-title').each(function () {
+                var $this = $(this);
+                $this.find(".num-of-tasks").text($this.next().find("li").size());
+            });
+
+        }
+
+    });
+
+</script>
+
+
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+

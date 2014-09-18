@@ -1,5 +1,4 @@
-
-<%= form_for [@project, @todo], :html => {:class => 'form-horizontal'} do |f| %>
+<%= form_for [@project, @todo], :html => {:class => 'smart-form', :id => 'todo_form'} do |f| %>
     <% if @todo.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
           <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
@@ -12,51 +11,46 @@
           </ul>
         </div>
 
-        <script type="text/javascript">
-            $(function () {
-                $('#todo_subject_controlGroup').addClass('error');
-            });
-        </script>
-
-    <% else %>
-
-        <script type="text/javascript">
-            $(function () {
-                $('#todo_subject').focus();
-            });
-        </script>
-
     <% end %>
 
-    <div class="control-group" id='todo_subject_controlGroup'>
-      <label class="control-label" for="todo_name">Subject</label>
 
-      <div class="controls">
-        <input type="text" id="todo_subject" name='todo[subject]' placeholder="describe the todo" autofocus="true" value='<%= @todo.subject %>' class='span8' style='font-size:2em; height:40px; width:300px;'>
+    <fieldset>
+        <section>
+          <label class="label">Subject</label>
+          <label class="input">
+            <input class='input-lg' type="text" name="todo[subject]" placeholder="Project name..." id='todo_subject' value='<%= @todo.subject %>'>
+            <b class="tooltip tooltip-bottom-left">Give your todo a subject</b> </label>
+        </section>
+
+      <div class='row'>
+        <section class="col col-6">
+          <label class="label">Due Date</label>
+          <label class="input"> <i class="icon-append fa fa-calendar"></i>
+            <input type="text" name="todo[due_date]" id="todo_due_date" placeholder="Due date" value='<%= @todo.due_date.strftime("%m/%d/%Y") unless @todo.due_date.nil? %>'>
+          </label>
+        </section>
+
+        <section class="col col-6">
+          <label class="label">Assigned To</label>
+          <label class="select">
+            <%= select('todo', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
+          </label>
+
+        </section>
       </div>
-    </div>
 
-    <div class="control-group" id='todo_subject_controlGroup'>
-      <label class="control-label" for="todo_due_date">Due Date</label>
-      <div class="controls date">
-            <span class='input-icon input-icon-right'>
-                <input class="date-picker" id="todo_due_date" name='todo[due_date]' type="text" data-date-format="mm/dd/yyyy"
-                       value='<%= @todo.due_date.strftime("%m/%d/%Y") unless @todo.due_date.nil? %>'>
-                <i class="icon-calendar"></i>
-            </span>
-      </div>
-    </div>
+      <section>
+        <label class="label">Description</label>
+        <label class="textarea"><textarea rows="4" name="todo[description]" id="todo_description"></textarea> </label>
+      </section>
 
-    <div class="control-group">
-      <label class="control-label" for="task_points">Assigned To</label>
-      <div class="controls">
-        <%= select('todo', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
-      </div>
-    </div>
+    </fieldset>
 
-    <div class="form-actions">
-      <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
-      <a href='/projects/<%= @project.id %>/todos' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
-    </div>
+    <footer>
+      <button type="submit" class="btn btn-success">
+        Save
+      </button>
+    </footer>
 
 <% end %>
+
