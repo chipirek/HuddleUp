@@ -49,13 +49,13 @@
 
         pageSetUp();
 
-        $('#project_name').focus();
+        $('#issue_subject').focus();
 
-        var $projectForm = $("#project_form").validate({
+        var $issueForm = $("#issue_form").validate({
 
             // Rules for form validation
             rules: {
-                'issue[description]': {
+                'issue[subject]': {
                     required: true,
                     minlength: 3
                 }
@@ -63,8 +63,8 @@
 
             // Messages for form validation
             messages: {
-                'issue[description]': {
-                    required: 'Please enter a short description for your issue'
+                'issue[subject]': {
+                    required: 'Please enter a short name for your issue'
                 }
             },
 

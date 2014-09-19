@@ -28,7 +28,7 @@
       <tr>
         <th colspan="3">Issues</th>
         <th class="hidden-xs hidden-sm" style="width: 200px;">Last Activity</th>
-        <th></th>
+        <th style="width: 200px;"></th>
       </tr>
       </thead>
       <tbody>
@@ -38,7 +38,7 @@
           <tr <%= "class='closed'".html_safe unless !issue.is_resolved? %>>
             <td colspan="3">
               <h4><a href='/projects/<%= @project.id %>/issues/<%= issue.id %>'>
-                <%= issue.description.html_safe %>
+                <%= issue.subject.html_safe %>
               </a>
                 <small><i>Created on <%= issue.created_at.strftime("%m/%d/%Y") %>.
                   <% if issue.is_resolved? %>
@@ -48,7 +48,7 @@
                 </small>
               </h4>
             </td>
-            <td class="hidden-xs hidden-sm"><small><i>by <%= get_issue_last_updated_by(issue.id) %></i></small>
+            <td class="hidden-xs hidden-sm font-sm"><small><i>by <%= get_issue_last_updated_by(issue.id) %></i></small>
             </td>
             <td>
               <% if !issue.is_resolved? %>
