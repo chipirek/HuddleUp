@@ -7,7 +7,7 @@
   <!-- NAVIGATION : This navigation is also responsive -->
     <nav>
         <ul>
-            <% if !@project.nil? && action_name != 'new' %>
+            <% if !@project.nil? && !@project.id.nil? %>
               <li <%= "class='active'".html_safe unless controller_name != 'projects' %> >
                 <a href="/projects/<%= @project.id %>" title="Dashboard"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
                   <span class="menu-item-parent">Summary</span></a>
