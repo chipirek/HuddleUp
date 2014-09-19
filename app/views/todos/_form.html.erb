@@ -18,7 +18,7 @@
         <section>
           <label class="label">Subject</label>
           <label class="input">
-            <input class='input-lg' type="text" name="todo[subject]" placeholder="Project name..." id='todo_subject' value='<%= @todo.subject %>'>
+            <input class='input-lg' type="text" name="todo[subject]" placeholder="Subject of the todo..." id='todo_subject' value='<%= @todo.subject %>'>
             <b class="tooltip tooltip-bottom-left">Give your todo a subject</b> </label>
         </section>
 
@@ -26,7 +26,7 @@
         <section class="col col-6">
           <label class="label">Due Date</label>
           <label class="input"> <i class="icon-append fa fa-calendar"></i>
-            <input type="text" name="todo[due_date]" id="todo_due_date" placeholder="Due date" value='<%= @todo.due_date.strftime("%m/%d/%Y") unless @todo.due_date.nil? %>'>
+            <input type="text" name="todo[due_date]" id="todo_due_date" placeholder="Due date..." value='<%= @todo.due_date.strftime("%m/%d/%Y") unless @todo.due_date.nil? %>'>
           </label>
         </section>
 
@@ -42,6 +42,12 @@
       <section>
         <label class="label">Description</label>
         <label class="textarea"><textarea rows="4" name="todo[description]" id="todo_description"><%= @todo.description %></textarea> </label>
+      </section>
+
+      <section>
+        <label class="checkbox">
+          <input type="checkbox" name="todo[is_complete]" id="todo_is_complete" >
+          <i></i>This task is complete.</label>
       </section>
 
     </fieldset>

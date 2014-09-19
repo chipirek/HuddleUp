@@ -99,8 +99,10 @@ class TodosController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @todo = Todo.find(params[:id])
+
     @todo.update_attributes(params[:todo])
     @todo.project_id = params[:project_id]
+    @todo.is_complete = !params[:todo]['is_complete'].nil?
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
     if params[:todo][:due_date].length > 0

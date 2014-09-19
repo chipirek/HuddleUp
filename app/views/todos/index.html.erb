@@ -60,7 +60,7 @@
 
                 <p>
                     <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                    [<a href="javascript:void(0);" class="font-xs">More Details</a>]
+                    <%= link_to '[More Details]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
                     <span class="text-muted"><%= todo.description %> </span>
                     <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
                 </p>

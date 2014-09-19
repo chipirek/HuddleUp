@@ -58,7 +58,17 @@
 
         pageSetUp();
 
-        $('#todo_name').focus();
+        var isComplete = <%= @todo.is_complete? %>;
+        if (isComplete)
+        {
+            $('#todo_is_complete').prop('checked', 'checked');
+        }
+        else
+        {
+            $('#todo_is_complete').removeProp('checked');
+        }
+
+        $('#todo_subject').focus();
 
         var $todoForm = $("#todo_form").validate({
 
