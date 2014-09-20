@@ -81,6 +81,8 @@ class MilestonesController < ApplicationController
       @milestone.end = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
+    @milestone.class_name='bg-color-blue'
+
     respond_to do |format|
       if @milestone.save
         format.html { redirect_to project_milestones_path(@project), notice: 'Milestone was successfully created.' }
