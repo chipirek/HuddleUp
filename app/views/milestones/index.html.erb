@@ -1,19 +1,28 @@
-<div class="well">
-  <!-- content goes here -->
-  <div class="widget-body-toolbar">
+<div class="row">
 
-    <div id="calendar-buttons">
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <h1 class="page-title txt-color-blueDark">
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-calendar"></i>
+      Milestones
+    </h1>
+  </div>
+  <!-- end col -->
 
-      <div class="btn-group">
-        <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
-        <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
-      </div>
-    </div>
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+    <!-- Button trigger modal -->
+    <%= link_to 'Create a new milestone', new_project_milestone_path(@project), :class=>'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
   </div>
 
-  <div id="calendar"></div>
+</div>
 
-  <!-- end content -->
+<div class="well">
+
+    <div class="widget-body no-padding">
+      <div id="calendar"></div>
+    </div>
+
 </div>
 
 <%= render :partial => '/projects/scripts' %>
@@ -35,7 +44,7 @@
             var calendar = $('#calendar').fullCalendar({
 
                 editable: true,
-                draggable: true,
+                //draggable: true,
                 selectable: false,
                 selectHelper: true,
                 unselectAuto: false,
@@ -44,21 +53,7 @@
                 header: {
                     left: 'title', //,today
                     center: 'prev, next, today',
-                    right: 'month, agendaWeek, agenDay' //month, agendaDay,
-                },
-
-                select: function (start, end, allDay) {
-                    var title = prompt('Event Title:');
-                    if (title) {
-                        calendar.fullCalendar('renderEvent', {
-                                    title: title,
-                                    start: start,
-                                    end: end,
-                                    allDay: allDay
-                                }, true // make the event "stick"
-                        );
-                    }
-                    calendar.fullCalendar('unselect');
+                    right: 'month, agendaWeek, agendaDay' //month, agendaDay,
                 },
 
                 events: [
@@ -93,41 +88,7 @@
 
         };
 
-        /* hide default buttons */
-        $('.fc-header-right, .fc-header-center').hide();
 
-        // calendar prev
-        $('#calendar-buttons #btn-prev').click(function() {
-            $('.fc-button-prev').click();
-            return false;
-        });
-
-        // calendar next
-        $('#calendar-buttons #btn-next').click(function() {
-            $('.fc-button-next').click();
-            return false;
-        });
-
-        // calendar today
-        $('#calendar-buttons #btn-today').click(function() {
-            $('.fc-button-today').click();
-            return false;
-        });
-
-        // calendar month
-        $('#mt').click(function() {
-            $('#calendar').fullCalendar('changeView', 'month');
-        });
-
-        // calendar agenda week
-        $('#ag').click(function() {
-            $('#calendar').fullCalendar('changeView', 'agendaWeek');
-        });
-
-        // calendar agenda day
-        $('#td').click(function() {
-            $('#calendar').fullCalendar('changeView', 'agendaDay');
-        });
 
     });
 

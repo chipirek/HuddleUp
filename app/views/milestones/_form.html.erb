@@ -1,3 +1,11 @@
+<!-- background colors for events
+bg-color-greenLight
+bg-color-red
+bg-color-blue
+bg-color-darken
+-->
+
+
 <%= form_for [@project, @milestone], :html => {:class => 'smart-form', :id => 'milstone_form'} do |f| %>
     <% if @milestone.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
