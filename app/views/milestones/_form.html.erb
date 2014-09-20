@@ -1,4 +1,4 @@
-<%= form_for [@project, @milestone], :html => {:class => 'form-horizontal'} do |f| %>
+<%= form_for [@project, @milestone], :html => {:class => 'smart-form', :id => 'milstone_form'} do |f| %>
     <% if @milestone.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
           <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
@@ -11,71 +11,41 @@
           </ul>
         </div>
 
-        <script type="text/javascript">
-            $(function () {
-                $('#milestone_title_controlGroup').addClass('error');
-            });
-        </script>
-
-    <% else %>
-
-        <script type="text/javascript">
-            $(function () {
-                $('#milestone_title').focus();
-            });
-        </script>
-
     <% end %>
 
-    <div class="control-group" id='milestone_title_controlGroup'>
-      <label class="control-label" for="milestone_title">Milestone</label>
 
-      <div class="controls">
-        <input type="text" id="milestone_title" name='milestone[title]' placeholder="enter the milestone name" value='<%= @milestone.title %>'  class='span8' style='font-size:2em; height:40px;'>
+    <fieldset>
+      <section>
+        <label class="label">Title</label>
+        <label class="input">
+          <input class='input-lg' type="text" name="milestone[title]" placeholder="Title of the milestone..." id='milestone_title' value='<%= @milestone.title %>'>
+          <b class="tooltip tooltip-bottom-left">Give your milestone a title</b> </label>
+      </section>
+
+      <div class='row'>
+        <section class="col col-6">
+          <label class="label">Start Date</label>
+          <label class="input"> <i class="icon-append fa fa-calendar"></i>
+            <input type="text" name="milestone[start]" id="milestone_start" placeholder="Start date..." value='<%= @milestone.start.strftime("%m/%d/%Y") unless @milestone.start.nil? %>'>
+          </label>
+        </section>
+
+        <section class="col col-6">
+          <label class="label">End Date</label>
+          <label class="input"> <i class="icon-append fa fa-calendar"></i>
+            <input type="text" name="milestone[end]" id="milestone_end" placeholder="End date..." value='<%= @milestone.end.strftime("%m/%d/%Y") unless @milestone.end.nil? %>'>
+          </label>
+        </section>
+
       </div>
-    </div>
 
-    <div class="control-group" id='milestone_start_controlGroup'>
-      <label class="control-label" for="milestone_start">Start Date</label>
-        <div class="controls date">
-            <span class='input-icon input-icon-right'>
-                <input class="date-picker" id="milestone_start" name='milestone[start]' type="text" data-date-format="mm/dd/yyyy" value='<%= @milestone.start.strftime("%m/%d/%Y") unless @milestone.start.nil? %>'>
-                <i class="icon-calendar"></i>
-            </span>
-        </div>
-    </div>
+    </fieldset>
 
-    <div class="control-group" id='milestone_end_controlGroup'>
-      <label class="control-label" for="milestone_end">End Date</label>
-      <div class="controls date">
-            <span class='input-icon input-icon-right'>
-                <input class="date-picker" id="milestone_end" name='milestone[end]' type="text" data-date-format="mm/dd/yyyy" value='<%= @milestone.end.strftime("%m/%d/%Y") unless @milestone.end.nil? %>'>
-                <i class="icon-calendar"></i>
-            </span>
-      </div>
-    </div>
-
-
-    <div class="control-group">
-      <label class="control-label" for="milestone_color">Color</label>
-      <div class="controls">
-        <%= select('milestone', 'class_name', [['Default', 'label-info'], ['Grey', 'label-grey'], ['Green', 'label-success'], ['Red', 'label-important'], ['Purple', 'label-purple'], ['Yellow', 'label-yellow'], ['Pink', 'label-pink']], {}, {'data-placeholder' => 'Repeats...'}) %>
-      </div>
-    </div>
-
-
-   <div class="form-actions">
-      <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
-      <a href='/projects/<%= @project.id.to_s %>/milestones' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
-      <a href='/projects/<%= @project.id.to_s %>/milestones/<%= @milestone.id %>' data-method="delete" class='btn btn-danger'><i class="icon-trash"></i> Delete</a>
-   </div>
-
-    <script type="text/javascript">
-
-        $(function () {
-            $('.date-picker').datepicker();
-        });
-
-    </script>
+    <footer>
+      <button type="submit" class="btn btn-success">
+        Save
+      </button>
+    </footer>
 
 <% end %>
+

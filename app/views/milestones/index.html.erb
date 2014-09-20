@@ -1,1 +1,134 @@
-hello world
+<div class="well">
+  <!-- content goes here -->
+  <div class="widget-body-toolbar">
+
+    <div id="calendar-buttons">
+
+      <div class="btn-group">
+        <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
+        <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div id="calendar"></div>
+
+  <!-- end content -->
+</div>
+
+<%= render :partial => '/projects/scripts' %>
+<!-- Full Calendar -->
+<script src="/SmartAdmin/js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        pageSetUp();
+
+        if ($("#calendar").length) {
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+
+            var calendar = $('#calendar').fullCalendar({
+
+                editable: true,
+                draggable: true,
+                selectable: false,
+                selectHelper: true,
+                unselectAuto: false,
+                disableResizing: false,
+
+                header: {
+                    left: 'title', //,today
+                    center: 'prev, next, today',
+                    right: 'month, agendaWeek, agenDay' //month, agendaDay,
+                },
+
+                select: function (start, end, allDay) {
+                    var title = prompt('Event Title:');
+                    if (title) {
+                        calendar.fullCalendar('renderEvent', {
+                                    title: title,
+                                    start: start,
+                                    end: end,
+                                    allDay: allDay
+                                }, true // make the event "stick"
+                        );
+                    }
+                    calendar.fullCalendar('unselect');
+                },
+
+                events: [
+                    <% @milestones.each do |m| %>
+                        {"all_day":<%= m.all_day? %>,
+                        "className":"<%= m.class_name %>",
+                        "end":"<%= m.end %>",
+                        "id":<%= m.id %>,
+                        "project_id":<%= m.project_id %>,
+                        "start":"<%= m.start %>",
+                        "title":"<%= m.title %>" },
+                    <% end %>
+                    ],
+
+                eventRender : function(event, element, icon) {
+                    if (!event.description == "") {
+                        element.find('.fc-event-title').append("<br/><span class='ultra-light'>" + event.description + "</span>");
+                    }
+                    if (!event.icon == "") {
+                        element.find('.fc-event-title').append("<i class='air air-top-right fa " + event.icon + " '></i>");
+                    }
+                },
+
+                eventClick: function(event) {
+                    // opens events in a popup window
+                    // alert(event.id);
+                    window.location.href = '/projects/<%= @project.id %>/milestones/' + event.id + '/edit';
+                    return false;
+                }
+
+            });
+
+        };
+
+        /* hide default buttons */
+        $('.fc-header-right, .fc-header-center').hide();
+
+        // calendar prev
+        $('#calendar-buttons #btn-prev').click(function() {
+            $('.fc-button-prev').click();
+            return false;
+        });
+
+        // calendar next
+        $('#calendar-buttons #btn-next').click(function() {
+            $('.fc-button-next').click();
+            return false;
+        });
+
+        // calendar today
+        $('#calendar-buttons #btn-today').click(function() {
+            $('.fc-button-today').click();
+            return false;
+        });
+
+        // calendar month
+        $('#mt').click(function() {
+            $('#calendar').fullCalendar('changeView', 'month');
+        });
+
+        // calendar agenda week
+        $('#ag').click(function() {
+            $('#calendar').fullCalendar('changeView', 'agendaWeek');
+        });
+
+        // calendar agenda day
+        $('#td').click(function() {
+            $('#calendar').fullCalendar('changeView', 'agendaDay');
+        });
+
+    });
+
+</script>

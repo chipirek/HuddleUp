@@ -18,7 +18,7 @@
       <% if controller_name == 'milestones' %>
           <li><%= link_to 'Milestones', project_milestones_path(@project) %></li>
           <% if !@milestone.nil? %>
-              <li><a href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/edit'><%= @milstone.subject %></a></li>
+              <li><a href='/projects/<%= @project.id %>/milestones/<%= @milestone.id %>/edit'><%= @milestone.title %></a></li>
           <% end %>
           <% if action_name == 'new' %>
               <li>New</li>
