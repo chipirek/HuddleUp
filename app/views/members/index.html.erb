@@ -1,189 +1,123 @@
-<div class="navbar">
+<!-- row -->
+<div class="row">
 
-  <script type="text/javascript">
-      try {
-          ace.settings.check('navbar', 'fixed')
-      } catch (e) {
-      }
-  </script>
-
-  <div class="navbar-inner">
-    <div class="container-fluid">
-
-      <a class="brand" href="#">
-        <small><i class="icon-check"></i> HuddleUp - <%= @project.name %></small>
-      </a>
-
-      <%= render :partial => '/projects/top_nav', :locals => {:post => 'foo'} %>
-
-    </div>
-    <!--/.container-fluid-->
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <h1 class="page-title txt-color-blueDark">
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-user"></i>
+      Members
+    </h1>
   </div>
-  <!--/.navbar-inner-->
+  <!-- end col -->
 
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+    <!-- Button trigger modal -->
+    <%= link_to 'Invite someone else', new_project_invitation_path(@project), :class=>'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+  </div>
+
+</div>
+<!-- end row -->
+
+
+<div class="table-responsive">
+
+<table id="resultTable" class="table table-striped table-bordered table-hover">
+  <thead>
+  <tr>
+    <th style="width:30px">Pic</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Joined Project</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @project.members.each do |member| %>
+
+      <tr <%= "class='success'".html_safe unless !member.is_admin? %>>
+        <td><img src="img/avatars/male.png" alt="" width="20"></td>
+        <td><%=  member.user.name %></td>
+        <td><%=  member.user.email %></td>
+        <td>
+          <% if member.is_blocked? %>
+              <span class="label label-danger">Blocked</span>
+          <% elsif !member.joined_date.nil? %>
+              <span class="label label-success">Active</span>
+          <% else %>
+              <span class="label label-warning">Invitation pending</span>
+          <% end %>
+
+          <% if member.is_admin? %>
+              <span class="label label-success">ADMIN</span>
+          <% end %>
+          </td>
+        <td><%= time_ago_in_words(member.joined_date) + ' ago' unless member.joined_date.nil? %></td>
+        <td>
+          <% if @i_am_an_admin == true %>
+              <div class="btn-group">
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Action <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <% if member.is_admin? %>
+                      <% if @project.members.where('is_admin=true').count > 1 %>
+                          <li><a href="/projects/<%= @project.id %>/members/remove_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" data-placement="right"><span class="green">Remove admin rights</span></a></li>
+                      <% end %>
+                  <% else %>
+                      <li><a href="/projects/<%= @project.id %>/members/make_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" data-placement="right"><span class="green">Make an admin</span></a></li>
+                  <% end %>
+
+                  <% if member.is_blocked? %>
+                      <li><a href="/projects/<%= @project.id %>/members/unblock/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" data-placement="right"><span class="red">Unblock this user</span> </a></li>
+                  <% else %>
+                      <% if member.user.id != current_user.id %>
+                          <li><a href="/projects/<%= @project.id %>/members/block/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" data-placement="right"><span class="red">Block this user</span> </a></li>
+                      <% end %>
+                  <% end %>
+                </ul>
+              </div>
+
+          <% end %>
+        </td>
+      </tr>
+
+  <% end %>
+
+  </tbody>
+</table>
 </div>
 
 
-<div class="main-container container-fluid">
-  <a class="menu-toggler" id="menu-toggler" href="#">
-    <span class="menu-text"></span>
-  </a>
 
-  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'members', :project_id => @project.id } %>
-
-  <div class="main-content">
-
-    <% crumbs = [['Projects', projects_path],
-                 [@project.name, project_path(@project)]] %>
-
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Members'} %>
-
-    <div class="page-content">
-      <div class="page-header position-relative">
-        <h1><i class="icon-group"></i> Members</h1>
-      </div>
-      <!--/.page-header-->
-
-      <div class="row-fluid">
-        <div class="span12">
-          <!--PAGE CONTENT BEGINS-->
-
-          <% if flash[:notice] %>
-              <div class='alert alert-block alert-success'>
-                <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-                <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
-              </div>
-          <% end %>
-
-          <div id="member-tab" class="tab-pane active" style='margin-bottom: 100px;'>
-            <div class="clearfix">
-
-              <% @members.each do |member| %>
-
-                  <div class="itemdiv memberdiv">
-                    <div class="user">
-                      <%= image_tag('avatar2.png') %>
-                    </div>
-
-                    <div class="body">
-                      <div class="name"><a href="#"><%=  member.user.name %></a></div>
-                      <div class="time"><i class="icon-time"></i> <span class="green"><%= time_ago_in_words(member.joined_date) + ' ago' unless member.joined_date.nil? %> </span></div>
-                      <% if member.is_admin? %>
-                          <div class="label label-yellow">Admin</div>
-                      <% end %>
-                      <% if member.is_blocked? %>
-                          <div class="label label-important">Blocked</div>
-                      <% elsif !member.joined_date.nil? %>
-                          <div class="label label-success">Active</div>
-                      <% else %>
-                          <div class="label label-warning">Invited</div>
-                      <% end %>
-
-                      <% if @i_am_an_admin == true %>
-                          <div class="inline position-relative">
-                            <button class="btn btn-minier bigger btn-grey dropdown-toggle" data-toggle="dropdown"><i class="icon-angle-down icon-only"></i></button>
-                            <ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
-                              <% if member.is_admin? %>
-                                  <% if @project.members.where('is_admin=true').count > 1 %>
-                                    <li><a href="/projects/<%= @project.id %>/members/remove_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" data-placement="right"><span class="green">Remove admin rights</span></a></li>
-                                  <% end %>
-                              <% else %>
-                                  <li><a href="/projects/<%= @project.id %>/members/make_admin/<%= member.id %>" data-method='put' class="tooltip-success" data-rel="tooltip" data-placement="right"><span class="green">Make an admin</span></a></li>
-                              <% end %>
-
-                              <% if member.is_blocked? %>
-                                  <li><a href="/projects/<%= @project.id %>/members/unblock/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" data-placement="right"><span class="red">Unblock this user</span> </a></li>
-                              <% else %>
-                                  <% if member.user.id != current_user.id %>
-                                    <li><a href="/projects/<%= @project.id %>/members/block/<%= member.id %>" data-method='put' class="tooltip-error" data-rel="tooltip" data-placement="right"><span class="red">Block this user</span> </a></li>
-                                  <% end %>
-                              <% end %>
-
-                            </ul>
-                          </div>
-                      <% end %>
-
-                    </div>
-                  </div>
-
-              <% end %>
-
-            </div><!-- member-tab -->
-
-            <!-- END -->
-
-          </div>
-
-          <a class='btn btn-success' href="/projects/<%= @project.id %>/invitations/new">Invite someone else</a>
-
-        </div>
-        <!--/row-->
-
-        <!--PAGE CONTENT ENDS-->
-      </div>
-      <!--/.span-->
-    </div>
-    <!--/.row-fluid-->
-  </div>
-  <!--/.page-content-->
-
-  <div class="ace-settings-container" id="ace-settings-container">
-    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-      <i class="icon-cog bigger-150"></i>
-    </div>
-
-    <div class="ace-settings-box" id="ace-settings-box">
-      <div>
-        <div class="pull-left">
-          <select id="skin-colorpicker" class="hide">
-            <option data-skin="default" value="#438EB9">#438EB9</option>
-            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-          </select>
-        </div>
-        <span>&nbsp; Choose Skin</span>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-      </div>
-    </div>
-  </div>
-  <!--/#ace-settings-container-->
-</div><!--/.main-content-->
-</div><!--/.main-container-->
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
-  <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
-
-<!-- inline scripts related to this page -->
+<%= render :partial => '/projects/scripts' %>
 
 <script type="text/javascript">
 
-    $(function () {
+    $(document).ready(function () {
 
-        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
-        $('[data-rel="tooltip"]').tooltip();
+        pageSetUp();
 
     });
 
+</script>
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>
+
