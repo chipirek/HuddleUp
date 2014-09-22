@@ -1,172 +1,115 @@
-<style>
+<div class="row">
 
-    .message-item .time
-    {
-        width: 300px;
-    }
-</style>
-
-
-<div class="navbar">
-
-  <script type="text/javascript">
-      try {
-          ace.settings.check('navbar', 'fixed')
-      } catch (e) {
-      }
-  </script>
-
-  <div class="navbar-inner">
-    <div class="container-fluid">
-
-      <a class="brand" href="#">
-        <small><i class="icon-check"></i> HuddleUp - <%= @project.name %></small>
-      </a>
-
-      <%= render :partial => '/projects/top_nav', :locals => {:post => 'foo'} %>
-
-    </div>
-    <!--/.container-fluid-->
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <h1 class="page-title txt-color-blueDark">
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-bullhorn"></i>
+      Messages
+    </h1>
   </div>
-  <!--/.navbar-inner-->
+  <!-- end col -->
+
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+    <!-- Button trigger modal -->
+    <%= link_to 'Create a new message', new_project_message_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+  </div>
 
 </div>
 
-
-<div class="main-container container-fluid">
-  <a class="menu-toggler" id="menu-toggler" href="#">
-    <span class="menu-text"></span>
-  </a>
-
-  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'messages', :project_id => @project.id } %>
-
-  <div class="main-content">
+<div class="well">
 
 
-    <% crumbs = [['Projects', projects_path],
-                 [@project.name, project_path(@project)]] %>
+  <table id="inbox-table" class="table table-striped table-hover">
+    <tbody>
 
-    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => 'Messages'} %>
+    <% @project.messages.order('created_at desc').each do |message| %>
 
-    <div class="page-content">
-      <div class="page-header position-relative">
-        <h1><i class="icon-envelope"></i> Messages</h1>
+        <tr class="<%= get_read_status(message) %>">
 
-      </div>
-      <!--/.page-header-->
+          <td class="inbox-data-from hidden-xs hidden-sm">
+            <div>
+              <%= message.member.user.name unless message.member.nil? %>
+            </div>
+          </td>
+          <td class="inbox-data-message">
+            <div>
+              <%= link_to message.subject, project_message_path(@project, message) %>
+            </div>
+            <div style="color: #8a8a8a; height: 27px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">
+              <%= message.body.truncate(80) %>
+            </div>
+          </td>
+          <td class="inbox-data-date hidden-xs" style='width:150px;'>
+            <div>
+              <%= message.created_at.strftime("%m/%d/%Y %I:%M %P") %>
+            </div>
+          </td>
+        </tr>
+    <% end %>
 
-      <div class="row-fluid">
-        <div class="span12">
-          <!--PAGE CONTENT BEGINS-->
 
-          <% if flash[:notice] %>
-              <div class='alert alert-block alert-success'>
-                <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-                <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
-              </div>
-          <% end %>
+    </tbody>
+  </table>
 
-          <% if @project.messages.count == 0 %>
-              <div class='alert alert-info' style="margin-bottom: 50px;">None</div>
-          <% else %>
+  <script>
 
-              <div class="message-list-container" style='margin-bottom: 50px;'>
-                <div class="message-list" id="message-list">
+      //Gets tooltips activated
+      $("#inbox-table [rel=tooltip]").tooltip();
 
-                  <% @project.messages.order('created_at desc').each do |message| %>
+      $("#inbox-table input[type='checkbox']").change(function () {
+          $(this).closest('tr').toggleClass("highlight", this.checked);
+      });
 
-                      <div class="message-item <%= get_read_status(message) %>">
+      $("#inbox-table .inbox-data-message").click(function () {
+          $this = $(this);
+          getMail($this);
+      })
+      $("#inbox-table .inbox-data-from").click(function () {
+          $this = $(this);
+          getMail($this);
+      })
+      function getMail($this) {
+          //console.log($this.closest("tr").attr("id"));
+          loadURL("ajax/email-opened.html", $('#inbox-content > .table-wrap'));
+      }
 
-                        <% if message.is_unread?(@project.determine_current_membership(current_user.id)) %>
-                            <i class="message-star icon-star orange2"></i>
-                        <% else %>
-                            <i class="message-star icon-star white"></i>
-                        <% end %>
 
-                        <span class="sender"><%= message.member.user.name  unless message.member.nil? %> </span>
-                        <span class="time"><%= time_ago_in_words(message.created_at) + " ago (" + message.created_at.strftime("%m/%d/%Y %I:%M %P") %>)</span>
+      $('.inbox-table-icon input:checkbox').click(function () {
+          enableDeleteButton();
+      })
 
-                        <span class="summary">
-                            <span class="text">
-                                <%= link_to message.subject, project_message_path(@project, message) %>
-                            </span>
-                        </span>
-                      </div>
+      $(".deletebutton").click(function () {
+          $('#inbox-table td input:checkbox:checked').parents("tr").rowslide();
+          //$(".inbox-checkbox-triggered").removeClass('visible');
+          //$("#compose-mail").show();
+      });
 
-                  <% end %>
+      function enableDeleteButton() {
+          var isChecked = $('.inbox-table-icon input:checkbox').is(':checked');
 
-                </div>
-              </div>
+          if (isChecked) {
+              $(".inbox-checkbox-triggered").addClass('visible');
+              //$("#compose-mail").hide();
+          } else {
+              $(".inbox-checkbox-triggered").removeClass('visible');
+              //$("#compose-mail").show();
+          }
+      }
 
-        <% end %>
+  </script>
 
-          <a href='/projects/<%= @project.id %>/messages/new' class='btn btn-success'>Create a new message for the team</a>
+</div>
 
-        </div>
-        <!--/row-->
+<%= render :partial => '/projects/scripts' %>
+<!-- Full Calendar -->
+<script src="/SmartAdmin/js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
 
-        <!--PAGE CONTENT ENDS-->
-      </div>
-      <!--/.span-->
-    </div>
-    <!--/.row-fluid-->
-  </div>
-  <!--/.page-content-->
-
-  <div class="ace-settings-container" id="ace-settings-container">
-    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-      <i class="icon-cog bigger-150"></i>
-    </div>
-
-    <div class="ace-settings-box" id="ace-settings-box">
-      <div>
-        <div class="pull-left">
-          <select id="skin-colorpicker" class="hide">
-            <option data-skin="default" value="#438EB9">#438EB9</option>
-            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-          </select>
-        </div>
-        <span>&nbsp; Choose Skin</span>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-      </div>
-    </div>
-  </div>
-  <!--/#ace-settings-container-->
-</div><!--/.main-content-->
-</div><!--/.main-container-->
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
-  <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
-
-<!-- inline scripts related to this page -->
 <script type="text/javascript">
 
-    $(function () {
+    $(document).ready(function () {
 
-        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
-        $('[data-rel="tooltip"]').tooltip();
+        pageSetUp();
 
     });
 

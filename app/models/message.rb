@@ -13,11 +13,8 @@ class Message < ActiveRecord::Base
   has_many :read_receipts
 
 
-  def is_unread?(for_member_id)
-    #puts '----------------------'
-    #puts 'message_id=' + id.to_s
-    #puts 'read-receipts=' + read_receipts.where('member_id=?', for_member_id).count.to_s
-    if read_receipts.where('member_id=?', for_member_id).count > 0
+  def is_unread_by?(member_id)
+    if read_receipts.where('member_id=?', member_id).count > 0
       return false
     else
       return true
