@@ -1,83 +1,459 @@
-<p>project show id= <%= @project.id %></p>
-<p><%= controller_name %></p>
+<!-- row -->
+<div class="row">
 
-<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-<script data-pace-options='{ "restartOnRequestAfter": true }' src="/SmartAdmin/js/plugin/pace/pace.min.js"></script>
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <h1 class="page-title txt-color-blueDark">
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-road"></i>
+      Summary at a Glance
+    </h1>
+  </div>
+  <!-- end col -->
 
-<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script>
-    if (!window.jQuery) {
-        document.write('<script src="/SmartAdmin/js/libs/jquery-2.0.2.min.js"><\/script>');
-    }
-</script>
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+    <!-- Button trigger modal -->
 
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<script>
-    if (!window.jQuery.ui) {
-        document.write('<script src="/SmartAdmin/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
-    }
-</script>
+        <%= link_to 'Admin: Edit this project definition', edit_project_path, :class => 'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
 
-<!-- IMPORTANT: APP CONFIG -->
-<script src="/SmartAdmin/js/app.config.js"></script>
+  </div>
 
-<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-<script src="/SmartAdmin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+</div>
+<!-- end row -->
 
-<!-- BOOTSTRAP JS -->
-<script src="/SmartAdmin/js/bootstrap/bootstrap.min.js"></script>
 
-<!-- CUSTOM NOTIFICATION -->
-<script src="/SmartAdmin/js/notification/SmartNotification.min.js"></script>
+<!-- -------------------------------------------------------------------------------------------- -->
+<div class="row">
 
-<!-- JARVIS WIDGETS -->
-<script src="/SmartAdmin/js/smartwidgets/jarvis.widget.min.js"></script>
+<article class="col-sm-12 col-md-12 col-lg-6">
 
-<!-- EASY PIE CHARTS -->
-<script src="/SmartAdmin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+<!-- new widget -->
+<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false" data-widget-fullscreenbutton="false">
 
-<!-- SPARKLINES -->
-<script src="/SmartAdmin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+  <!-- widget options:
+  usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
-<!-- JQUERY VALIDATE -->
-<script src="/SmartAdmin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+  data-widget-colorbutton="false"
+  data-widget-editbutton="false"
+  data-widget-togglebutton="false"
+  data-widget-deletebutton="false"
+  data-widget-fullscreenbutton="false"
+  data-widget-custombutton="false"
+  data-widget-collapsed="true"
+  data-widget-sortable="false"
 
-<!-- JQUERY MASKED INPUT -->
-<script src="/SmartAdmin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+  -->
 
-<!-- JQUERY SELECT2 INPUT -->
-<script src="/SmartAdmin/js/plugin/select2/select2.min.js"></script>
+  <header>
+    <span class="widget-icon"> <i class="fa fa-comments txt-color-white"></i> </span>
 
-<!-- JQUERY UI + Bootstrap Slider -->
-<script src="/SmartAdmin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+    <h2> SmartChat </h2>
 
-<!-- browser msie issue fix -->
-<script src="/SmartAdmin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+    <div class="widget-toolbar">
+      <!-- add: non-hidden - to disable auto hide -->
 
-<!-- FastClick: For mobile devices -->
-<script src="/SmartAdmin/js/plugin/fastclick/fastclick.min.js"></script>
+      <div class="btn-group">
+        <button class="btn dropdown-toggle btn-xs btn-success" data-toggle="dropdown">
+          Status <i class="fa fa-caret-down"></i>
+        </button>
+        <ul class="dropdown-menu pull-right js-status-update">
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-circle txt-color-green"></i> Online</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-circle txt-color-red"></i> Busy</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-circle txt-color-orange"></i> Away</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="javascript:void(0);"><i class="fa fa-power-off"></i> Log Off</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-<!--[if IE 8]>
+  <!-- widget div-->
+  <div>
+    <!-- widget edit box -->
+    <div class="jarviswidget-editbox">
+      <div>
+        <label>Title:</label>
+        <input type="text"/>
+      </div>
+    </div>
+    <!-- end widget edit box -->
 
-<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+    <div class="widget-body widget-hide-overflow no-padding">
+      <!-- content goes here -->
 
-<![endif]-->
+      <!-- CHAT CONTAINER -->
+      <div id="chat-container">
+        <span class="chat-list-open-close"><i class="fa fa-user"></i><b>!</b></span>
 
-<!-- Demo purpose only -->
-<script src="/SmartAdmin/js/demo.min.js"></script>
+        <div class="chat-list-body custom-scroll">
+          <ul id="chat-users">
+            <li>
+              <a href="javascript:void(0);"><img src="img/avatars/5.png" alt="">Robin Berry
+                <span class="badge badge-inverse">23</span><span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Mark Zeukartech
+                <span class="state"><i class="last-online pull-right">2hrs</i></span></a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Belmain Dolson
+                <span class="state"><i class="last-online pull-right">45m</i></span></a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Galvitch Drewbery
+                <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Sadi Orlaf
+                <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Markus
+                <span class="state"><i class="last-online pull-right">2m</i></span> </a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><img src="img/avatars/sunny.png" alt="">Sunny
+                <span class="state"><i class="last-online pull-right">2m</i></span> </a>
+            </li>
+            <li>
+              <a href="javascript:void(0);"><img src="img/avatars/male.png" alt="">Denmark
+                <span class="state"><i class="last-online pull-right">2m</i></span> </a>
+            </li>
+          </ul>
+        </div>
+        <div class="chat-list-footer">
 
-<!-- MAIN APP JS FILE -->
-<script src="/SmartAdmin/js/app.min.js"></script>
+          <div class="control-group">
 
-<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-<!-- Voice command : plugin -->
-<script src="/SmartAdmin/js/speech/voicecommand.min.js"></script>
+            <form class="smart-form">
 
-<!-- PAGE RELATED PLUGIN(S)
-<script src="..."></script>-->
-<!-- PAGE RELATED PLUGIN(S) -->
-<script src="/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
+              <section>
+                <label class="input">
+                  <input type="text" id="filter-chat-list" placeholder="Filter">
+                </label>
+              </section>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CHAT BODY -->
+      <div id="chat-body" class="chat-body custom-scroll">
+        <ul>
+          <li class="message">
+            <img src="img/avatars/5.png" class="online" alt="">
+
+            <div class="message-text">
+              <time>
+                2014-01-13
+              </time>
+              <a href="javascript:void(0);" class="username">Sadi Orlaf</a> Hey did you meet the new board of director?
+              He's a bit of an arse if you ask me...anyway here is the report you requested. I am off to launch with
+              Lisa and Andrew, you wanna join?
+              <p class="chat-file row">
+                <b class="pull-left col-sm-6"> <!--<i class="fa fa-spinner fa-spin"></i>--> <i class="fa fa-file"></i>
+                  report-2013-demographic-report-annual-earnings.xls </b>
+                <span class="col-sm-6 pull-right"> <a href="javascript:void(0);" class="btn btn-xs btn-default">cancel</a> <a href="javascript:void(0);" class="btn btn-xs btn-success">save</a> </span>
+              </p>
+
+              <p class="chat-file row">
+                <b class="pull-left col-sm-6"> <i class="fa fa-ok txt-color-green"></i> tobacco-report-2012.doc </b>
+                <span class="col-sm-6 pull-right"> <a href="javascript:void(0);" class="btn btn-xs btn-primary">open</a> </span>
+              </p></div>
+          </li>
+          <li class="message">
+            <img src="img/avatars/sunny.png" class="online" alt="">
+
+            <div class="message-text">
+              <time>
+                2014-01-13
+              </time>
+              <a href="javascript:void(0);" class="username">John Doe</a> Haha! Yeah I know what you mean. Thanks for
+              the file Sadi! <i class="fa fa-smile-o txt-color-orange"></i>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- CHAT FOOTER -->
+      <div class="chat-footer">
+
+        <!-- CHAT TEXTAREA -->
+        <div class="textarea-div">
+
+          <div class="typearea">
+            <textarea placeholder="Write a reply..." id="textarea-expand" class="custom-scroll"></textarea>
+          </div>
+
+        </div>
+
+        <!-- CHAT REPLY/SEND -->
+											<span class="textarea-controls">
+												<button class="btn btn-sm btn-primary pull-right">
+                                                  Reply
+                                                </button> <span class="pull-right smart-form" style="margin-top: 3px; margin-right: 10px;"> <label class="checkbox pull-right">
+                                              <input type="checkbox" name="subscription" id="subscription">
+                                              <i></i>Press <strong> ENTER </strong> to send
+                                            </label> </span> <a href="javascript:void(0);" class="pull-left"><i class="fa fa-camera fa-fw fa-lg"></i></a> </span>
+
+      </div>
+
+      <!-- end content -->
+    </div>
+
+  </div>
+  <!-- end widget div -->
+</div>
+<!-- end widget -->
+
+<!-- new widget -->
+<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-3" data-widget-colorbutton="false">
+
+  <!-- widget options:
+  usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+  data-widget-colorbutton="false"
+  data-widget-editbutton="false"
+  data-widget-togglebutton="false"
+  data-widget-deletebutton="false"
+  data-widget-fullscreenbutton="false"
+  data-widget-custombutton="false"
+  data-widget-collapsed="true"
+  data-widget-sortable="false"
+
+  -->
+  <header>
+    <span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
+
+    <h2> My Events </h2>
+
+    <div class="widget-toolbar">
+      <!-- add: non-hidden - to disable auto hide -->
+      <div class="btn-group">
+        <button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
+          Showing <i class="fa fa-caret-down"></i>
+        </button>
+        <ul class="dropdown-menu js-status-update pull-right">
+          <li>
+            <a href="javascript:void(0);" id="mt">Month</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" id="ag">Agenda</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" id="td">Today</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- widget div-->
+  <div>
+    <!-- widget edit box -->
+    <div class="jarviswidget-editbox">
+
+      <input class="form-control" type="text">
+
+    </div>
+    <!-- end widget edit box -->
+
+    <div class="widget-body no-padding">
+      <!-- content goes here -->
+      <div class="widget-body-toolbar">
+
+        <div id="calendar-buttons">
+
+          <div class="btn-group">
+            <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
+            <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div id="calendar"></div>
+
+      <!-- end content -->
+    </div>
+
+  </div>
+  <!-- end widget div -->
+</div>
+<!-- end widget -->
+
+</article>
+
+<article class="col-sm-12 col-md-12 col-lg-6">
+
+  <!-- new widget -->
+  <div class="jarviswidget jarviswidget-color-blue" id="wid-id-0"
+       data-widget-colorbutton="false"
+       data-widget-editbutton="false"
+       data-widget-togglebutton="true"
+       data-widget-deletebutton="true"
+       data-widget-fullscreenbutton="true"
+       data-widget-collapsed="true"
+  >
+
+    <header>
+      <span class="widget-icon"> <i class="fa fa-map-marker"></i> </span>
+
+      <h2>Some Widget</h2>
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+      <div class="widget-body no-padding">
+
+        <!-- content goes here -->
+
+        widget body, eh?
+
+        <!-- end content -->
+
+      </div>
+
+    </div>
+    <!-- end widget div -->
+  </div>
+  <!-- end widget -->
+
+  <!-- new widget -->
+  <div class="jarviswidget jarviswidget-color-blue" id="wid-id-4"
+       data-widget-colorbutton="false"
+       data-widget-editbutton="false"
+       data-widget-togglebutton="true"
+       data-widget-deletebutton="true"
+       data-widget-fullscreenbutton="true"
+       data-widget-collapsed="true"
+  >
+
+
+    <header>
+      <span class="widget-icon"> <i class="fa fa-check txt-color-white"></i> </span>
+      <h2> ToDo's </h2>
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+      <div class="widget-body no-padding smart-form">
+        <!-- content goes here -->
+        <h5 class="todo-group-title"><i class="fa fa-warning"></i> Critical Tasks (
+          <small class="num-of-tasks">1</small>
+          )
+        </h5>
+        <ul id="sortable1" class="todo">
+          <li>
+												<span class="handle"> <label class="checkbox">
+                                                  <input type="checkbox" name="checkbox-inline">
+                                                  <i></i> </label> </span>
+
+            <p>
+              <strong>Ticket #17643</strong> - Hotfix for WebApp interface issue
+              [<a href="javascript:void(0);" class="font-xs">More Details</a>]
+              <span class="text-muted">Sea deep blessed bearing under darkness from God air living isn't. </span>
+              <span class="date">Jan 1, 2014</span>
+            </p>
+          </li>
+        </ul>
+        <h5 class="todo-group-title"><i class="fa fa-exclamation"></i> Important Tasks (
+          <small class="num-of-tasks">3</small>
+          )
+        </h5>
+        <ul id="sortable2" class="todo">
+          <li>
+												<span class="handle"> <label class="checkbox">
+                                                  <input type="checkbox" name="checkbox-inline">
+                                                  <i></i> </label> </span>
+
+            <p>
+              <strong>Ticket #1347</strong> - Inbox email is being sent twice
+              <small>(bug fix)</small>
+              [<a href="javascript:void(0);" class="font-xs">More Details</a>] <span class="date">Nov 22, 2013</span>
+            </p>
+          </li>
+          <li>
+												<span class="handle"> <label class="checkbox">
+                                                  <input type="checkbox" name="checkbox-inline">
+                                                  <i></i> </label> </span>
+
+            <p>
+              <strong>Ticket #1314</strong> - Call customer support re: Issue
+              <a href="javascript:void(0);" class="font-xs">#6134</a>
+              <small>(code review)</small>
+              <span class="date">Nov 22, 2013</span>
+            </p>
+          </li>
+          <li>
+												<span class="handle"> <label class="checkbox">
+                                                  <input type="checkbox" name="checkbox-inline">
+                                                  <i></i> </label> </span>
+
+            <p>
+              <strong>Ticket #17643</strong> - Hotfix for WebApp interface issue
+              [<a href="javascript:void(0);" class="font-xs">More Details</a>]
+              <span class="text-muted">Sea deep blessed bearing under darkness from God air living isn't. </span>
+              <span class="date">Jan 1, 2014</span>
+            </p>
+          </li>
+        </ul>
+
+        <h5 class="todo-group-title"><i class="fa fa-check"></i> Completed Tasks (
+          <small class="num-of-tasks">1</small>
+          )
+        </h5>
+        <ul id="sortable3" class="todo">
+          <li class="complete">
+												<span class="handle" style="display:none"> <label class="checkbox state-disabled">
+                                                  <input type="checkbox" name="checkbox-inline" checked="checked" disabled="disabled">
+                                                  <i></i> </label> </span>
+
+            <p>
+              <strong>Ticket #17643</strong> - Hotfix for WebApp interface issue
+              [<a href="javascript:void(0);" class="font-xs">More Details</a>]
+              <span class="text-muted">Sea deep blessed bearing under darkness from God air living isn't. </span>
+              <span class="date">Jan 1, 2014</span>
+            </p>
+          </li>
+        </ul>
+
+        <!-- end content -->
+      </div>
+
+    </div>
+    <!-- end widget div -->
+  </div>
+  <!-- end widget -->
+
+</article>
+
+</div>
+
+<!-- end row -->
+
+</section>
+<!-- end widget grid -->
+
+</div>
+
+<!-- -------------------------------------------------------------------------------------------- -->
+
+
+<%= render :partial => '/projects/scripts' %>
 
 <script type="text/javascript">
 
@@ -85,11 +461,9 @@
 
         pageSetUp();
 
-        });
+    });
 
 </script>
-
-<%= javascript_include_tag "rails" %>
 
 <!-- Your GOOGLE ANALYTICS CODE Below -->
 <script type="text/javascript">
