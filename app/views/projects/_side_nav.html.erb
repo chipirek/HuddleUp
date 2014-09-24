@@ -28,7 +28,7 @@
               <li <%= "class='active'".html_safe unless controller_name != 'todos' %> >
                 <a href="/projects/<%= @project.id %>/todos" title="Todos"><i class="fa fa-lg fa-fw fa-check-square-o"></i>
                   <span class="menu-item-parent">Todos</span>
-                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_todos_for_this_member unless @project.how_many_todos_for_this_member == 0 %></span></a>
+                  <span class="badge pull-right inbox-badge bg-color-red" id='badgeTodosCount'><%= @project.how_many_todos_for_this_member unless @project.how_many_todos_for_this_member == 0 %></span></a>
               </li>
 
               <li <%= "class='active'".html_safe unless controller_name != 'members' %> >
@@ -38,7 +38,7 @@
               </li>
 
               <li <%= "class='active'".html_safe unless controller_name != 'alerts' %> >
-                <a href="/projects/<%= @project.id %>/alerts" title="Alerts"><i class="fa fa-lg fa-fw fa-warning"></i>
+                <a href="/projects/<%= @project.id %>/alerts" title="Alerts"><i class="fa fa-lg fa-fw fa-bell"></i>
                   <span class="menu-item-parent">Alerts</span>
                 </a>
               </li>
