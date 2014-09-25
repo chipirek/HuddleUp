@@ -52,21 +52,7 @@
   <!-- -------------------------------------------------------------------------------------------- -->
   <!-- milestones widget -->
   <!-- -------------------------------------------------------------------------------------------- -->
-  <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-2" data-widget-colorbutton="false">
-
-    <!-- widget options:
-    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-    data-widget-colorbutton="false"
-    data-widget-editbutton="false"
-    data-widget-togglebutton="false"
-    data-widget-deletebutton="false"
-    data-widget-fullscreenbutton="false"
-    data-widget-custombutton="false"
-    data-widget-collapsed="true"
-    data-widget-sortable="false"
-
-    -->
+  <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
     <header>
       <span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
 
@@ -149,13 +135,12 @@
         <% @project.issues.where('is_resolved is null').order('is_resolved nulls first').each do |issue| %>
             <!-- TR -->
             <tr>
-              <td colspan="3">
+              <td>
                 <i class="fa fa-bug"></i>
                 <a href='/projects/<%= @project.id %>/issues/<%= issue.id %>'>
-                  <%= issue.subject.html_safe %>
-                </a>
-              </td>
-              <td class="hidden-xs hidden-sm"><i class='font-xs'>Last updated by <%= get_issue_last_updated_by(issue.id) %></i>
+                  <%= issue.subject.html_safe %></a>
+                <br />
+                <span style='color: #bfbfbf; font-size: 10px; padding-left: 15px;'>Last updated by <%= get_issue_last_updated_by(issue.id) %></span>
               </td>
             </tr>
             <!-- end TR -->
