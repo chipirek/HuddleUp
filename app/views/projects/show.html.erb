@@ -132,18 +132,10 @@
   <!-- -------------------------------------------------------------------------------------------- -->
   <!-- issues widget -->
   <!-- -------------------------------------------------------------------------------------------- -->
-  <div class="jarviswidget jarviswidget-color-blue" id="wid-id-3"
-       data-widget-colorbutton="false"
-       data-widget-editbutton="false"
-       data-widget-togglebutton="true"
-       data-widget-deletebutton="true"
-       data-widget-fullscreenbutton="true"
-       data-widget-collapsed="true"
-  >
+  <div class="jarviswidget jarviswidget-color-blue" id="wid-id-3" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
     <header>
-      <span class="widget-icon"> <i class="fa fa-map-marker"></i> </span>
-
-      <h2>Issues</h2>
+      <span class="widget-icon"> <i class="fa fa-bug"></i> </span>
+        <h2>Open Issues</h2>
     </header>
 
     <!-- widget div-->
@@ -153,8 +145,22 @@
 
         <!-- content goes here -->
 
-        widget body, eh?
-
+        <div class='well'>
+        <% @project.issues.where('is_resolved is null').order('is_resolved nulls first').each do |issue| %>
+            <!-- TR -->
+            <tr>
+              <td colspan="3">
+                <i class="fa fa-bug"></i>
+                <a href='/projects/<%= @project.id %>/issues/<%= issue.id %>'>
+                  <%= issue.subject.html_safe %>
+                </a>
+              </td>
+              <td class="hidden-xs hidden-sm"><i class='font-xs'>Last updated by <%= get_issue_last_updated_by(issue.id) %></i>
+              </td>
+            </tr>
+            <!-- end TR -->
+        <% end %>
+        </div>
         <!-- end content -->
 
       </div>
@@ -170,7 +176,7 @@
   <div class="jarviswidget jarviswidget-color-blue" id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
     <header>
       <span class="widget-icon"> <i class="fa fa-check-square-o txt-color-white"></i> </span>
-      <h2> Todos </h2>
+      <h2> Incomplete Todos </h2>
     </header>
     <div>
       <div class="widget-body no-padding smart-form">
