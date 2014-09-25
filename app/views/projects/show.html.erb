@@ -3,11 +3,11 @@
 
   <!-- col -->
   <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-    <h1 class="page-title txt-color-blueDark">
+    <h6 class="page-title txt-color-blueDark">
       <!-- PAGE HEADER -->
       <i class="fa-fw fa fa-road"></i>
       Summary at a Glance
-    </h1>
+    </h6>
   </div>
   <!-- end col -->
 
@@ -20,6 +20,25 @@
 
 </div>
 <!-- end row -->
+
+<!-- row -->
+<div class="row">
+  <div class="col-sm-12">
+    <h3><%= @project.name %></h3>
+    <p><%= @project.description.html_safe unless @project.description.nil? %></p>
+    <p>
+        <% if @project.status_code==1 %>
+            <div class='alert alert-block alert-success'>We are on track</div>
+        <% elsif @project.status_code==2 %>
+            <div class='alert alert-block alert-warning'>Project is troubled</div>
+        <% else %>
+            <div class='alert alert-block alert-danger'>Project is late or failing</div>
+        <% end %>
+    </p>
+
+  </div>
+</div>
+
 
 
 <section id="widget-grid">
