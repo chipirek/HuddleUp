@@ -36,7 +36,7 @@
               <li <%= "class='active'".html_safe unless controller_name != 'issues' %> >
                 <a href="/projects/<%= @project.id %>/issues" title="Milestones"><i class="fa fa-lg fa-fw fa-bug"></i>
                   <span class="menu-item-parent">Issues</span>
-                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_issues_left unless @project.how_many_issues_left == 0 %></span></a>
+                  <span class="badge pull-right inbox-badge bg-color-red" id="badgeIssuesCount"><%= @project.how_many_issues_left unless @project.how_many_issues_left == 0 %></span></a>
               </li>
 
               <li <%= "class='active'".html_safe unless controller_name != 'todos' %> >

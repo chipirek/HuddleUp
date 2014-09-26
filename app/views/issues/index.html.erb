@@ -86,7 +86,7 @@
             $("#sortable1, #sortable2").sortable({
                 handle: '.handle',
                 connectWith: ".todo",
-                update: countTasks
+                update: countIssues
             }).disableSelection();
         });
 
@@ -105,7 +105,7 @@
                 $this.slideUp(500, function () {
                     $this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
                     $this.remove();
-                    countTasks();
+                    countIssues();
                 });
 
                 // ajax update back to database
@@ -125,12 +125,24 @@
 
         })
         // count tasks
-        function countTasks() {
+        function countIssues() {
 
             $('.todo-group-title').each(function () {
                 var $this = $(this);
                 $this.find(".num-of-tasks").text($this.next().find("li").size());
             });
+
+            var c = 0;
+            $('.todo-group-title').each(function () {
+                var $this = $(this);
+                if ($this.next().attr('id') != 'sortable3')
+                    c += $this.next().find("li").size();
+            });
+
+            if (c == 0)
+                $('#badgeIssuesCount').text("");
+            else
+                $('#badgeIssuesCount').text(c);
 
         }
 

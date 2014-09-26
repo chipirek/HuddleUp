@@ -132,6 +132,18 @@
                 $this.find(".num-of-tasks").text($this.next().find("li").size());
             });
 
+            var c = 0;
+            $('.todo-group-title').each(function () {
+                var $this = $(this);
+                if ($this.next().attr('id') != 'sortable3')
+                    c += $this.next().find("li").size();
+            });
+
+            if (c == 0)
+                $('#badgeTodosCount').text("");
+            else
+                $('#badgeTodosCount').text(c);
+
         }
 
     });

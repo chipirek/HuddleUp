@@ -18,7 +18,7 @@ class Project < ActiveRecord::Base
 
 
   def how_many_todos_for_this_member
-    return todos.where('is_complete is NULL').count
+    return todos.where('is_complete != true or is_complete is null').count
     #return Todo.where('project_id=?', id).where('is_complete is NULL').count
   end
 
