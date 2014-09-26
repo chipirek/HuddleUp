@@ -49,7 +49,7 @@
         <% end %>
       </ul>
 
-      <h5 class="todo-group-title"><i class="fa fa-check"></i> Completed Tasks (<small class="num-of-tasks"><%= @issues.where('is_resolved=true').count %></small>)
+      <h5 class="todo-group-title"><i class="fa fa-check"></i> Resolved Issues (<small class="num-of-tasks"><%= @issues.where('is_resolved=true').count %></small>)
       </h5>
       <ul id="sortable3" class="todo">
         <% @issues.where('is_resolved=true').each do |issue| %>
