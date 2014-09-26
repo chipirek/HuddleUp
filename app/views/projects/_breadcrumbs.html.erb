@@ -26,7 +26,7 @@
 
       <% if controller_name == 'issues' %>
           <li><%= link_to 'Issues', project_issues_path(@project) %></li>
-          <% if !@issue.id.nil? %>
+          <% if !@issue.nil? %>
               <li><a href='/projects/<%= @project.id %>/issues/<%= @issue.id %>/edit'><%= @issue.subject %></a></li>
           <% end %>
           <% if action_name == 'new' %>

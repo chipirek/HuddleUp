@@ -42,7 +42,7 @@
   <p> </p>
   <a href="/projects/<%= @project.id %>/issues/<%= @issue.id %>"
      class="btn btn-danger"
-     data-confirm="Are you sure you want to delete <%= @issue.description.truncate(50) %>?"
+     data-confirm="Are you sure you want to delete <%= @issue.subject.truncate(50) %>?"
      data-method="delete"
      title="Delete">
     Delete this issue
@@ -57,6 +57,16 @@
     $(document).ready(function () {
 
         pageSetUp();
+
+        var isResolved = <%= @issue.is_resolved? %>;
+        if (isResolved)
+        {
+            $('#issue_is_resolved').prop('checked', 'checked');
+        }
+        else
+        {
+            $('#issue_is_resolved').removeProp('checked');
+        }
 
         $('#issue_subject').focus();
 

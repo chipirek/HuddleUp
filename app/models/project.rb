@@ -24,7 +24,7 @@ class Project < ActiveRecord::Base
 
 
   def how_many_issues_left
-    return issues.where('is_resolved is NULL').count
+    return issues.where('is_resolved != true or is_resolved is null').count
   end
 
 

@@ -8,12 +8,11 @@ class IssuesController < ApplicationController
   def index
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    # @issues = Issue.where('project_id=?', params[:project_id])
-    @issues = @project.issues
-    @issue = Issue.new
+    # @issues = Issue.where('project_id=?', params[:project_id]).order('position')
+    @issues = @project.issues.order('position')
 
     respond_to do |format|
-      format.html # index2.html.erb
+      format.html
       format.json { render json: @issues }
     end
   end
@@ -25,21 +24,7 @@ class IssuesController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @issue = Issue.find(params[:id])
-
-
-=begin
-    @post = Post.new
-    @action_item = ActionItem.new
-    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-
-    sql = "select *
-            from (select 'ACTION_ITEM' ""mytype"", issue_id, subject ""description"", updated_at, is_complete from action_items where issue_id=" + @issue.id.to_s
-    sql += " union
-              select 'POST' ""mytype"", issue_id, body ""description"", updated_at, null from posts where issue_id=" + @issue.id.to_s
-    sql += " ) as history order by updated_at"
-    @history_items = ActionItem.find_by_sql(sql)
-    @history_days = @history_items.group_by { |t| t.updated_at.beginning_of_day }
-=end
+    @issue.project_id = params[:project_id]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -52,7 +37,7 @@ class IssuesController < ApplicationController
   # GET /issues/new.json
   def new
     # no longer needed, since authorization via CanCan loads these resources
-    #@project = Project.find(params[:project_id])
+    # @project = Project.find(params[:project_id])
     @issue = Issue.new
     @issue.project_id = params[:project_id]
 
@@ -76,13 +61,14 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     # no longer needed, since authorization via CanCan loads these resources
-    # @project = Project.find(params[:project_id])
-    # @issue = Issue.new(params[:issue])
+    #@project = Project.find(params[:project_id])
+
+    @issue = Issue.new(params[:issue])
     @issue.project_id = params[:project_id]
+    @issue.position=99
 
     respond_to do |format|
       if @issue.save
-        @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
         format.html { redirect_to project_issues_path(@project), notice: 'Issue was successfully created.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
@@ -99,11 +85,13 @@ class IssuesController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @issue = Issue.find(params[:id])
+
     @issue.update_attributes(params[:issue])
+    @issue.project_id = params[:project_id]
+    @issue.is_resolved = !params[:issue]['is_resolved'].nil?
 
     respond_to do |format|
       if @issue.save
-        @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
         format.html { redirect_to project_issues_path(@project), notice: 'Issue was successfully updated.' }
         format.json { head :no_content }
       else
@@ -129,29 +117,39 @@ class IssuesController < ApplicationController
   end
 
 
-  def mark_resolved
+  def mark_complete
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @item = Issue.find(params[:id])
     @issue.update_attribute('is_resolved', true)
+    @issue.update_attribute('resolved_at', Time.now)
     @issue.save!
 
-    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-
-    redirect_to request.referrer, notice: 'Issue has been resolved.'
+    redirect_to request.referrer, notice: 'Issue was marked complete.'
   end
 
 
-  def mark_unresolved
+  def mark_incomplete
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @item = Issue.find(params[:id])
     @issue.update_attribute('is_resolved', nil)
+    @issue.update_attribute('resolved_at', nil)
     @issue.save!
 
-    @member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
-
-    redirect_to request.referrer, notice: 'Issue has been re-opened.'
+    redirect_to request.referrer, notice: 'Issue was marked incomplete.'
   end
+
+
+  def sort
+    @issues = Issue.where('id in (?)', params['task'])
+    @issues.each do |w|
+      w.position = params['task'].index(w.id.to_s) + 1
+      w.save!
+    end
+
+    render :nothing => true
+  end
+
 
 end

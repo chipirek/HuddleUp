@@ -2,7 +2,7 @@
     <% if @issue.errors.any? %>
         <div id="error_explanation" class='alert alert-error'>
           <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-          <h4>Ooops, <%= pluralize(@issue.errors.count, "error") %> prohibited this todo from being saved:</h4>
+          <h4>Ooops, <%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h4>
 
           <ul>
             <% @issue.errors.full_messages.each do |msg| %>
@@ -15,17 +15,30 @@
 
 
     <fieldset>
-
       <section>
         <label class="label">Subject</label>
         <label class="input">
-          <input class='input-lg' type="text" name="issue[subject]" placeholder="Short name for the issue..." id='issue_subject' value='<%= @issue.subject %>'>
-          <b class="tooltip tooltip-bottom-left">Give your issue a short name</b> </label>
+          <input class='input-lg' type="text" name="issue[subject]" placeholder="Subject of the issue..." id='issue_subject' value='<%= @issue.subject %>'>
+          <b class="tooltip tooltip-bottom-left">Give your issue a subject</b> </label>
       </section>
+
+    <section>
+      <label class="label">Assigned To</label>
+      <label class="select">
+        <%= select('issue', 'member_id', @project.members.map { |m| [m.user.name, m.id] }, {:include_blank=>' -- Unassigned'}) %>
+      </label>
+
+    </section>
 
       <section>
         <label class="label">Description</label>
         <label class="textarea"><textarea rows="4" name="issue[description]" id="issue_description"><%= @issue.description %></textarea> </label>
+      </section>
+
+      <section>
+        <label class="checkbox">
+          <input type="checkbox" name="issue[is_resolved]" id="issue_is_resolved" >
+          <i></i>This issue is resolved.</label>
       </section>
 
     </fieldset>
