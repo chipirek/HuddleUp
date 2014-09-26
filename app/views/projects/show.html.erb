@@ -144,7 +144,7 @@
     <div>
       <div class="widget-body no-padding smart-form">
         <!-- content goes here -->
-        <h5 class="todo-group-title"> Incomplete Tasks (<small class="num-of-tasks"><%= @project.todos.where('is_complete != true or is_complete is null').count %></small>)
+        <h5 class="todo-group-title"> Incomplete Todos (<small class="num-of-tasks"><%= @project.todos.where('is_complete != true or is_complete is null').count %></small>)
         </h5>
         <ul id="sortable2" class="todo">
           <% @project.todos.where('is_complete != true or is_complete is null').each do |todo| %>

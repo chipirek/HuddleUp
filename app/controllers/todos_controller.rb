@@ -143,7 +143,7 @@ class TodosController < ApplicationController
     @todo.destroy
 
     respond_to do |format|
-      format.html { redirect_to request.referrer, notice: 'Todo was successfully deleted.' }
+      format.html { redirect_to project_todos_path(@project), notice: 'Todo was successfully deleted.' }
       format.json { head :no_content }
     end
   end
