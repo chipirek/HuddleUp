@@ -22,53 +22,59 @@
 <div class="col-sm-12">
   <div class="well">
     <div class="widget-body no-padding smart-form">
-      <!-- content goes here -->
-      <h5 class="todo-group-title"><i class="fa fa-warning"></i> Critical Tasks (<small class="num-of-tasks">0</small>)
-      </h5>
-      <ul id="sortable1" class="todo">
-      </ul>
 
-      <h5 class="todo-group-title"><i class="fa fa-exclamation"></i> Important Tasks (<small class="num-of-tasks"><%= @todos.where('is_complete != true or is_complete is null').count %></small>)
-      </h5>
-      <ul id="sortable2" class="todo">
-        <% @todos.where('is_complete != true or is_complete is null').each do |todo| %>
-            <li data-pk='<%= todo.id %>'>
-                <span class="handle">
-                  <label class="checkbox">
-                  <input type="checkbox" name="checkbox-inline">
-                  <i></i> </label>
-                </span>
+      <% if @todos.count == 0 %>
+          None
+      <% else %>
 
-                <p>
-                    <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                    <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
-                    <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
-                    <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
-                </p>
-            </li>
-        <% end %>
-      </ul>
+        <!-- content goes here -->
+          <h5 class="todo-group-title"><i class="fa fa-warning"></i> Critical Tasks (<small class="num-of-tasks">0</small>)
+          </h5>
+          <ul id="sortable1" class="todo">
+          </ul>
 
-      <h5 class="todo-group-title"><i class="fa fa-check"></i> Completed Tasks (<small class="num-of-tasks"><%= @todos.where('is_complete=true').count %></small>)
-      </h5>
-      <ul id="sortable3" class="todo">
-        <% @todos.where('is_complete=true').each do |todo| %>
-            <li class="complete">
-                <span class="handle" style="display:none"> <label class="checkbox state-disabled">
-                    <input type="checkbox" name="checkbox-inline" checked="checked" disabled="disabled">
-                    <i></i> </label> </span>
+          <h5 class="todo-group-title"><i class="fa fa-exclamation"></i> Important Tasks (<small class="num-of-tasks"><%= @todos.where('is_complete != true or is_complete is null').count %></small>)
+          </h5>
+          <ul id="sortable2" class="todo">
+            <% @todos.where('is_complete != true or is_complete is null').each do |todo| %>
+                <li data-pk='<%= todo.id %>'>
+                    <span class="handle">
+                      <label class="checkbox">
+                      <input type="checkbox" name="checkbox-inline">
+                      <i></i> </label>
+                    </span>
 
-                <p>
-                    <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                    <%= link_to '[More Details]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
-                    <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
-                    <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
-                </p>
-            </li>
-        <% end %>
-      </ul>
+                    <p>
+                        <strong> #<%= todo.id %></strong> - <%= todo.subject %>
+                        <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
+                        <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
+                        <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                    </p>
+                </li>
+            <% end %>
+          </ul>
 
-      <!-- end content -->
+          <h5 class="todo-group-title"><i class="fa fa-check"></i> Completed Tasks (<small class="num-of-tasks"><%= @todos.where('is_complete=true').count %></small>)
+          </h5>
+          <ul id="sortable3" class="todo">
+            <% @todos.where('is_complete=true').each do |todo| %>
+                <li class="complete">
+                    <span class="handle" style="display:none"> <label class="checkbox state-disabled">
+                        <input type="checkbox" name="checkbox-inline" checked="checked" disabled="disabled">
+                        <i></i> </label> </span>
+
+                    <p>
+                        <strong> #<%= todo.id %></strong> - <%= todo.subject %>
+                        <%= link_to '[More Details]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
+                        <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
+                        <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                    </p>
+                </li>
+            <% end %>
+          </ul>
+
+          <!-- end content -->
+      <% end %>
     </div>
   </div>
 </div>
