@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/projects/_top_nav.html.erb" afterPath="$PROJECT_DIR$/app/views/projects/_top_nav.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/css/your_style.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/css/your_style.css" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
     <ignored path="HuddleUp.iws" />
@@ -12,7 +10,7 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385922106187" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372857294277" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1411766466170" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1411826948493" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1409493608546" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410361494034" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1411744057309" ignored="false" />
@@ -1577,7 +1575,11 @@
       <created>1411753993515</created>
       <updated>1411753993515</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="Fix branding in the title bar">
+      <created>1411826955178</created>
+      <updated>1411826955178</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1646,7 +1648,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update badges for issues and todos when updated via ajax" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix branding in the title bar" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1660,7 +1662,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Started building user profile" />
     <MESSAGE value="Implmeneting new UX in login" />
     <MESSAGE value="Implementing new UX in project module" />
     <MESSAGE value="Implementing new UX in issues module" />
@@ -1685,6 +1686,7 @@
     <MESSAGE value="Fixing bugs in todos module" />
     <MESSAGE value="Replace issues UX with todos UX" />
     <MESSAGE value="Update badges for issues and todos when updated via ajax" />
+    <MESSAGE value="Fix branding in the title bar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
