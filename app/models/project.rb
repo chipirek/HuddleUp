@@ -33,6 +33,11 @@ class Project < ActiveRecord::Base
     return current_membership_id
   end
 
+  def current_user_is_project_admin?(current_user_id)
+    current_membership = Member.where('user_id=?', current_user_id).where('project_id=?', id).first()
+    return current_membership.is_admin?
+  end
+
 
   def how_many_unread_messages_for_this_member(current_user_id)
     #puts '-------------------'

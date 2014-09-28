@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate_user!
   before_filter :make_sure_there_is_a_working_date
-  before_filter :build_my_notifications
+  # before_filter :build_my_notifications
 
   protect_from_forgery
 
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   def catch_not_found
     yield
   rescue ActiveRecord::RecordNotFound
-    flash[:error] = 'Well, something went wrong. You tried to access a record that does not exist.'
+    flash[:error] = 'Well, something went wrong. Looks like you tried to access a record that does not exist.'
     redirect_to '/projects'
   end
 
@@ -36,6 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
 
+=begin
   def build_my_notifications
 
     if !current_user.nil?
@@ -74,5 +75,6 @@ class ApplicationController < ActionController::Base
     end
 
   end
+=end
 
 end

@@ -12,9 +12,10 @@
   <!-- end col -->
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
-    <!-- Button trigger modal -->
 
-    <%= link_to 'Admin: Edit this project definition', edit_project_path, :class => 'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+    <% if @project.current_user_is_project_admin?(current_user.id) %>
+        <%= link_to 'Admin: Edit this project definition', edit_project_path, :class => 'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+    <% end %>
 
   </div>
 
