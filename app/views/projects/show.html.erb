@@ -109,19 +109,19 @@
         <% else %>
 
           <!-- content goes here -->
-            <h5 class="todo-group-title"> Unresolved Issues (<small class="num-of-tasks"><%= @project.issues.where('is_resolved != true or is_resolved is null').count %></small>)
-            </h5>
-            <ul id="sortable2" class="todo">
-              <% @project.issues.where('is_resolved != true or is_resolved is null').each do |issue| %>
-                  <li data-pk='<%= issue.id %>'>
-                    <span class="handle" style="display:none"> <label class="checkbox state-disabled">
-                      <input type="checkbox" name="checkbox-inline" checked="checked" disabled="disabled">
-                      <i></i> </label> </span>
+            <ul id="issues" class="todo">
+              <% @project.issues.where('is_resolved != true or is_resolved is null').order('position').each do |issue| %>
+                  <li data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
+                    <span class="handle">
+                      <label class="checkbox">
+                        <input type="checkbox" name="checkbox-inline">
+                        <i></i> </label>
+                    </span>
 
                     <p>
                       <strong> #<%= issue.id %></strong> - <%= issue.subject %>
                       <%= link_to '[More...]', edit_project_issue_path(@project, issue), {:class=>'font-xs'} %>
-                      <span class="text-muted"><%= issue.description %> </span>
+                      <span class="text-muted"><%= "Assigned to " + issue.member.user.name + "." unless issue.member.nil? %> <%= issue.description %> </span>
                       <span class="date">Created <%= time_ago_in_words(issue.created_at) %> ago.</span>
                     </p>
                   </li>
@@ -150,11 +150,9 @@
         <% else %>
 
           <!-- content goes here -->
-            <h5 class="todo-group-title"> Incomplete Todos (<small class="num-of-tasks"><%= @project.todos.where('is_complete != true or is_complete is null').count %></small>)
-            </h5>
-            <ul id="sortable2" class="todo">
-              <% @project.todos.where('is_complete != true or is_complete is null').each do |todo| %>
-                  <li data-pk='<%= todo.id %>'>
+            <ul id="todos" class="todo">
+              <% @project.todos.where('is_complete != true or is_complete is null').order('position').each do |todo| %>
+                  <li data-pk='<%= todo.id %>' id="task_<%= todo.id %>">
                     <span class="handle">
                       <label class="checkbox">
                         <input type="checkbox" name="checkbox-inline">
@@ -164,7 +162,7 @@
                     <p>
                       <strong> #<%= todo.id %></strong> - <%= todo.subject %>
                       <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
-                      <span class="text-muted"><%= todo.description %> </span>
+                      <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
                       <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
                     </p>
                   </li>
@@ -203,10 +201,42 @@
 
         // initialize sortable
         $(function () {
-            $("#sortable1, #sortable2").sortable({
+            $("#todos").sortable({
                 handle: '.handle',
                 connectWith: ".todo",
-                update: countTasks
+                axis: 'y',
+                items: 'li',
+                update: function () {
+                    $.ajax({
+                        type: 'post',
+                        data: $('#todos').sortable('serialize'),
+                        dataType: 'script',
+                        complete: function (request) {
+                            $('#todos').effect('highlight');
+                        },
+                        url: '/projects/<%= @project.id %>/todos/sort'});
+                    countTasks();
+                }
+            }).disableSelection();
+        });
+
+        $(function () {
+            $("#issues").sortable({
+                handle: '.handle',
+                connectWith: ".todo",
+                axis: 'y',
+                items: 'li',
+                update: function () {
+                    $.ajax({
+                        type: 'post',
+                        data: $('#issues').sortable('serialize'),
+                        dataType: 'script',
+                        complete: function (request) {
+                            $('#issues').effect('highlight');
+                        },
+                        url: '/projects/<%= @project.id %>/issues/sort'});
+                    countIssues();
+                }
             }).disableSelection();
         });
 
@@ -225,20 +255,25 @@
                 $this.slideUp(500, function () {
                     //$this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
                     $this.remove();
-                    countTasks();
                 });
 
                 // ajax update back to database
                 var pk = $this.attr('data-pk');
-                var url = '/projects/<%= @project.id %>/todos/mark_complete/' + pk;
+                var resourceName = $(this).parent().parent().parent().parent().attr('id');
+                //console.log(resourceName);
+                var url = '/projects/<%= @project.id %>/' + resourceName + '/mark_complete/' + pk;
+
                 $.ajax({
                     url: url,
                     type: 'POST',
-                    data: { _method:'PUT' },
                     success: function(msg) {
-                        console.log( "Data Saved: " + msg );
+                        console.log( "Data Saved." );
                     }
                 });
+
+                countTasks();
+                countIssues();
+
             } else {
                 // insert undo code here...
             }
@@ -247,22 +282,21 @@
         // count tasks
         function countTasks() {
 
-            $('.todo-group-title').each(function () {
-                var $this = $(this);
-                $this.find(".num-of-tasks").text($this.next().find("li").size());
-            });
-
-            var c = 0;
-            $('.todo-group-title').each(function () {
-                var $this = $(this);
-                if ($this.next().attr('id') != 'sortable3')
-                    c += $this.next().find("li").size();
-            });
-
+            var c = $('#tasks').find("li").size();
             if (c == 0)
                 $('#badgeTodosCount').text("");
             else
                 $('#badgeTodosCount').text(c);
+
+        }
+
+        function countIssues() {
+
+            var c = $('#issues').find("li").size();
+            if (c == 0)
+                $('#badgeIssuesCount').text("");
+            else
+                $('#badgeIssuesCount').text(c);
 
         }
 
