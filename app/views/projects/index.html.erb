@@ -39,7 +39,15 @@
               <h4><a href='/projects/<%= project.id %>'>
                 <%= project.name %>
               </a>
-                <small><%= project.description.html_safe %> <i>Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.</small>
+                <small>
+                  <% if project.status_code==1 %>
+                      <span class='label label-success'>We are on track</span>
+                  <% elsif project.status_code==2 %>
+                      <span class='label label-warning'>Project is troubled</span>
+                  <% else %>
+                      <span class='label label-danger'>Project is late or failing</span>
+                  <% end %>
+                  <%= " " + project.description.html_safe %> <i>Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.</small>
               </h4>
             </td>
             <td class="hidden-xs hidden-sm"><small><i>by <%= get_last_updated_by(project.id) %></i></small>
