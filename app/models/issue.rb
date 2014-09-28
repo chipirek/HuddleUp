@@ -2,7 +2,7 @@ class Issue < ActiveRecord::Base
 
   audited :associated_with => :project
 
-  attr_accessible :subject, :description, :is_resolved, :member_id, :project_id
+  attr_accessible :subject, :description, :is_resolved, :member_id, :project_id, :position
 
   validates_presence_of :subject
 
