@@ -12,7 +12,6 @@
   <!-- end col -->
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
-    <!-- Button trigger modal -->
     <%= link_to 'Create a new todo', new_project_todo_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
   </div>
 
@@ -28,16 +27,11 @@
       <% else %>
 
         <!-- content goes here -->
-          <h5 class="todo-group-title"><i class="fa fa-warning"></i> Critical Tasks (<small class="num-of-tasks">0</small>)
-          </h5>
-          <ul id="sortable1" class="todo">
-          </ul>
-
           <h5 class="todo-group-title"><i class="fa fa-exclamation"></i> Important Tasks (<small class="num-of-tasks"><%= @todos.where('is_complete != true or is_complete is null').count %></small>)
           </h5>
-          <ul id="sortable2" class="todo">
+          <ul id="tasks" class="todo">
             <% @todos.where('is_complete != true or is_complete is null').each do |todo| %>
-                <li data-pk='<%= todo.id %>'>
+                <li data-pk='<%= todo.id %>' class='task' id="task_<%= todo.id %>">
                     <span class="handle">
                       <label class="checkbox">
                       <input type="checkbox" name="checkbox-inline">
@@ -65,7 +59,7 @@
 
                     <p>
                         <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                        <%= link_to '[More Details]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
+                        <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
                         <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
                         <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
                     </p>
@@ -89,10 +83,22 @@
 
         // initialize sortable
         $(function () {
-            $("#sortable1, #sortable2").sortable({
+            $("#tasks").sortable({
                 handle: '.handle',
                 connectWith: ".todo",
-                update: countTasks
+                axis: 'y',
+                items: 'li',
+                update: function () {
+                    $.ajax({
+                        type: 'post',
+                        data: $('#tasks').sortable('serialize'),
+                        dataType: 'script',
+                        complete: function (request) {
+                            $('#tasks').effect('highlight');
+                        },
+                        url: '/projects/<%= @project.id %>/todos/sort'});
+                    countTasks();
+                }
             }).disableSelection();
         });
 

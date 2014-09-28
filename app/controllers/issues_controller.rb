@@ -142,8 +142,9 @@ class IssuesController < ApplicationController
 
 
   def sort
-    @issues = Issue.where('id in (?)', params['task'])
-    @issues.each do |w|
+    issues = Issue.where('id in (?)', params['task'])
+
+    issues.each do |w|
       w.position = params['task'].index(w.id.to_s) + 1
       w.save!
     end

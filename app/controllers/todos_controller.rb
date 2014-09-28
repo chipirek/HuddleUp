@@ -174,8 +174,9 @@ class TodosController < ApplicationController
 
 
   def sort
-    @todos = Todo.where('id in (?)', params['task'])
-    @todos.each do |w|
+    todos = Todo.where('id in (?)', params['task'])
+
+    todos.each do |w|
       w.position = params['task'].index(w.id.to_s) + 1
       w.save!
     end
