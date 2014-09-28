@@ -76,15 +76,38 @@
     <header>
       <span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
       <h2> My Events </h2>
+      <div class="widget-toolbar">
+            <div class="btn-group">
+              <button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
+                Showing <i class="fa fa-caret-down"></i>
+              </button>
+              <ul class="dropdown-menu js-status-update pull-right">
+                <li>
+                  <a href="javascript:void(0);" id="mt">Month</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" id="ag">Week</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" id="td">Today</a>
+                </li>
+              </ul>
+            </div>
+            </div>
     </header>
 
     <!-- widget div-->
     <div>
-      <div class="widget-body">
-        <div class='well'>
-            <div id="calendar" style='padding-top: 30px;'></div>
+      <div class="widget-body no-padding">
+        <div class="widget-body-toolbar">
+          <div id="calendar-buttons">
+            <div class="btn-group">
+              <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
+              <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
         </div>
-      </div>
+        <div id="calendar"></div>      </div>
     </div>
     <!-- end widget div -->
   </div>
@@ -300,6 +323,7 @@
 
         }
 
+
         if ($("#calendar").length) {
             var date = new Date();
             var d = date.getDate();
@@ -308,17 +332,31 @@
 
             var calendar = $('#calendar').fullCalendar({
 
-                editable: true,
-                //draggable: true,
-                selectable: false,
-                selectHelper: true,
-                unselectAuto: false,
-                disableResizing: false,
+                editable : true,
+                draggable : true,
+                selectable : false,
+                selectHelper : true,
+                unselectAuto : false,
+                disableResizing : false,
 
-                header: {
-                    left: 'title', //,today
-                    center: 'prev, next, today',
-                    right: 'month, agendaWeek, agendaDay' //month, agendaDay,
+                header : {
+                    left : 'title', //,today
+                    center : 'prev, next, today',
+                    right : 'month, agendaWeek, agenDay' //month, agendaDay,
+                },
+
+                select : function(start, end, allDay) {
+                    var title = prompt('Event Title:');
+                    if (title) {
+                        calendar.fullCalendar('renderEvent', {
+                                    title : title,
+                                    start : start,
+                                    end : end,
+                                    allDay : allDay
+                                }, true // make the event "stick"
+                        );
+                    }
+                    calendar.fullCalendar('unselect');
                 },
 
                 events: [
@@ -352,6 +390,42 @@
             });
 
         };
+
+        /* hide default buttons */
+        $('.fc-header-right, .fc-header-center').hide();
+
+        // calendar prev
+        $('#calendar-buttons #btn-prev').click(function() {
+            $('.fc-button-prev').click();
+            return false;
+        });
+
+        // calendar next
+        $('#calendar-buttons #btn-next').click(function() {
+            $('.fc-button-next').click();
+            return false;
+        });
+
+        // calendar today
+        $('#calendar-buttons #btn-today').click(function() {
+            $('.fc-button-today').click();
+            return false;
+        });
+
+        // calendar month
+        $('#mt').click(function() {
+            $('#calendar').fullCalendar('changeView', 'month');
+        });
+
+        // calendar agenda week
+        $('#ag').click(function() {
+            $('#calendar').fullCalendar('changeView', 'agendaWeek');
+        });
+
+        // calendar agenda day
+        $('#td').click(function() {
+            $('#calendar').fullCalendar('changeView', 'agendaDay');
+        });
 
     });
 
