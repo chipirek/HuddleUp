@@ -38,7 +38,11 @@
   <% @project.members.each do |member| %>
 
       <tr <%= "class='success'".html_safe unless !member.is_admin? %>>
-        <td><img src="img/avatars/male.png" alt="" width="20"></td>
+        <td><i class="fa-fw fa fa-user"></i>
+          <% if member.is_admin? %>
+              <span class="label label-success">ADMIN</span>
+          <% end %>
+        </td>
         <td><%=  member.user.name %></td>
         <td><%=  member.user.email %></td>
         <td>
@@ -49,11 +53,7 @@
           <% else %>
               <span class="label label-warning">Invitation pending</span>
           <% end %>
-
-          <% if member.is_admin? %>
-              <span class="label label-success">ADMIN</span>
-          <% end %>
-          </td>
+        </td>
         <td><%= time_ago_in_words(member.joined_date) + ' ago' unless member.joined_date.nil? %></td>
         <td>
           <% if @i_am_an_admin == true %>
