@@ -51,15 +51,26 @@
   <link rel="apple-touch-startup-image" href="/SmartAdmin/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
   <link rel="apple-touch-startup-image" href="/SmartAdmin/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 
+  <style>
+      #extr-page #header #logo img {
+          width: auto;
+      }  </style>
+
 </head>
 
 <body class="animated fadeInDown">
 
 <header id="header">
 
-        <span id="logo" class='font-xl'>
-            <i class='fa fa-check-square-o'></i> HuddleUp
-        </span>
+  <div id="logo-group">
+
+    <!-- PLACE YOUR LOGO HERE -->
+    <span id="logo" class='font-md'>
+      <img src="/SmartAdmin/img/logo2.png" alt="SmartAdmin">
+      <b><span class='text-primary'>Huddle</span><span class='txt-color-green'>Up</span></b>
+    </span>
+    <!-- END LOGO PLACEHOLDER -->
+  </div>
 
   <span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>
 
@@ -67,7 +78,7 @@
 
 <div id="main" role="main">
 
-<%= yield %>
+  <%= yield %>
 
 </div>
 
