@@ -3,11 +3,11 @@
 
   <!-- col -->
   <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-    <h6 class="page-title txt-color-blueDark">
+    <h1 class="page-title txt-color-blueDark">
       <!-- PAGE HEADER -->
-      <i class="fa-fw fa fa-road"></i>
+      <i class="fa-fw fa fa-bar-chart-o"></i>
       Summary at a Glance
-    </h6>
+    </h1>
   </div>
   <!-- end col -->
 
@@ -26,15 +26,17 @@
 <div class="row">
   <div class="col-sm-12">
     <h3><%= @project.name %></h3>
+
     <p><%= @project.description.html_safe unless @project.description.nil? %></p>
+
     <p>
-        <% if @project.status_code==1 %>
-            <div class='alert alert-block alert-success'>We are on track</div>
-        <% elsif @project.status_code==2 %>
-            <div class='alert alert-block alert-warning'>Project is troubled</div>
-        <% else %>
-            <div class='alert alert-block alert-danger'>Project is late or failing</div>
-        <% end %>
+      <% if @project.status_code==1 %>
+        <div class='alert alert-block alert-success'>We are on track</div>
+    <% elsif @project.status_code==2 %>
+        <div class='alert alert-block alert-warning'>Project is troubled</div>
+    <% else %>
+        <div class='alert alert-block alert-danger'>Project is late or failing</div>
+    <% end %>
     </p>
 
   </div>
@@ -44,39 +46,42 @@
 
 <section id="widget-grid">
 
-<div class="row">
+  <div class="row">
 
-<article class="col-sm-12 col-md-12 col-lg-6">
+    <article class="col-sm-12 col-md-12 col-lg-6">
 
-  <!-- -------------------------------------------------------------------------------------------- -->
-  <!-- alerts widget -->
-  <!-- -------------------------------------------------------------------------------------------- -->
-  <div class="jarviswidget jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-    <header>
-      <span class="widget-icon"> <i class="fa fa-bell"></i> </span>
-      <h2>Alerts</h2>
-    </header>
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- alerts widget -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
+        <header>
+          <span class="widget-icon"> <i class="fa fa-bell"></i> </span>
 
-    <!-- widget div-->
-    <div>
-      <div class="widget-body">
-        <!-- content goes here -->
-        <span class='margin-left:15px;'>Alerts are not running...</span>
-        <!-- end content -->
+          <h2>Alerts</h2>
+        </header>
+
+        <!-- widget div-->
+        <div>
+          <div class="widget-body">
+            <!-- content goes here -->
+            <span class='margin-left:15px;'>Alerts are not running...</span>
+            <!-- end content -->
+          </div>
+        </div>
+        <!-- end widget div -->
       </div>
-    </div>
-    <!-- end widget div -->
-  </div>
-  <!-- end widget -->
+      <!-- end widget -->
 
-  <!-- -------------------------------------------------------------------------------------------- -->
-  <!-- milestones widget -->
-  <!-- -------------------------------------------------------------------------------------------- -->
-  <div class="jarviswidget jarviswidget-color-blue" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-    <header>
-      <span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
-      <h2> My Events </h2>
-      <div class="widget-toolbar">
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- milestones widget -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
+        <header>
+          <span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
+
+          <h2> My Events </h2>
+
+          <div class="widget-toolbar">
             <div class="btn-group">
               <button class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown">
                 Showing <i class="fa fa-caret-down"></i>
@@ -93,117 +98,125 @@
                 </li>
               </ul>
             </div>
-            </div>
-    </header>
+          </div>
+        </header>
 
-    <!-- widget div-->
-    <div>
-      <div class="widget-body no-padding">
-        <div class="widget-body-toolbar">
-          <div id="calendar-buttons">
-            <div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
-              <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
+        <!-- widget div-->
+        <div>
+          <div class="widget-body no-padding">
+            <div class="widget-body-toolbar">
+              <div id="calendar-buttons">
+                <div class="btn-group">
+                  <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
+                  <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
+                </div>
+              </div>
             </div>
+            <div id="calendar"></div>
           </div>
         </div>
-        <div id="calendar"></div>      </div>
-    </div>
-    <!-- end widget div -->
-  </div>
-  <!-- end widget -->
+        <!-- end widget div -->
+      </div>
+      <!-- end widget -->
 
-</article>
+    </article>
 
-<article class="col-sm-12 col-md-12 col-lg-6">
+    <article class="col-sm-12 col-md-12 col-lg-6">
 
-  <!-- -------------------------------------------------------------------------------------------- -->
-  <!-- issues widget -->
-  <!-- -------------------------------------------------------------------------------------------- -->
-  <div class="jarviswidget jarviswidget-color-blue" id="wid-id-3" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-    <header>
-      <span class="widget-icon"> <i class="fa fa-bug txt-color-white"></i> </span>
-      <h2> Unresolved Issues </h2>
-    </header>
-    <div>
-      <div class="widget-body no-padding smart-form">
-        <% if @project.issues.where('is_resolved != true or is_resolved is null').count == 0 %>
-            <span style='margin-top:15px; margin-left:15px;'>None</span>
-        <% else %>
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- issues widget -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-3" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
+        <header>
+          <span class="widget-icon"> <i class="fa fa-bug txt-color-white"></i> </span>
 
-          <!-- content goes here -->
-            <ul id="issues" class="todo">
-              <% @project.issues.where('is_resolved != true or is_resolved is null').order('position').each do |issue| %>
-                  <li data-pk='<%= issue.id %>' id="task_<%= issue.id %>">
+          <h2> Unresolved Issues </h2>
+        </header>
+        <div>
+
+          <% if @project.issues.where('is_resolved != true or is_resolved is null').count == 0 %>
+              <div class="widget-body">
+                <!-- content goes here -->
+                <span class='margin-left:15px;'>None.</span>
+                <!-- end content -->
+              </div>
+          <% else %>
+              <div class="widget-body no-padding smart-form">
+                <ul id="issues" class="todo">
+                  <% @project.issues.where('is_resolved != true or is_resolved is null').order('position').each do |issue| %>
+                      <li data-pk='<%= issue.id %>' class='issue' id="task_<%= issue.id %>">
                     <span class="handle">
                       <label class="checkbox">
                         <input type="checkbox" name="checkbox-inline">
                         <i></i> </label>
                     </span>
 
-                    <p>
-                      <strong> #<%= issue.id %></strong> - <%= issue.subject %>
-                      <%= link_to '[More...]', edit_project_issue_path(@project, issue), {:class=>'font-xs'} %>
-                      <span class="text-muted"><%= "Assigned to " + issue.member.user.name + "." unless issue.member.nil? %> <%= issue.description %> </span>
-                      <span class="date">Created <%= time_ago_in_words(issue.created_at) %> ago.</span>
-                    </p>
-                  </li>
-              <% end %>
-            </ul>
-            <!-- end content -->
-        <% end %>
+                        <p>
+                          <strong> #<%= issue.id %></strong> - <%= issue.subject %>
+                          <%= link_to '[More...]', edit_project_issue_path(@project, issue), {:class => 'font-xs'} %>
+                          <span class="text-muted"><%= "Assigned to " + issue.member.user.name + "." unless issue.member.nil? %> <%= issue.description %> </span>
+                          <span class="date">Created <%= time_ago_in_words(issue.created_at) %> ago.</span>
+                        </p>
+                      </li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+        </div>
+        <!-- end widget div -->
       </div>
-    </div>
-    <!-- end widget div -->
-  </div>
-  <!-- end widget -->
+      <!-- end widget -->
 
-  <!-- -------------------------------------------------------------------------------------------- -->
-  <!-- todos widget -->
-  <!-- -------------------------------------------------------------------------------------------- -->
-  <div class="jarviswidget jarviswidget-color-blue" id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-    <header>
-      <span class="widget-icon"> <i class="fa fa-check-square-o txt-color-white"></i> </span>
-      <h2> Incomplete Todos </h2>
-    </header>
-    <div>
-      <div class="widget-body no-padding smart-form">
-        <% if @project.todos.where('is_complete != true or is_complete is null').count == 0 %>
-            <span style='margin-top:15px; margin-left:15px;'>None</span>
-        <% else %>
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- todos widget -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
+        <header>
+          <span class="widget-icon"> <i class="fa fa-check-square-o txt-color-white"></i> </span>
 
-          <!-- content goes here -->
-            <ul id="todos" class="todo">
-              <% @project.todos.where('is_complete != true or is_complete is null').order('position').each do |todo| %>
-                  <li data-pk='<%= todo.id %>' id="task_<%= todo.id %>">
+          <h2> Incomplete Todos </h2>
+        </header>
+        <div>
+
+          <% if @project.todos.where('is_complete != true or is_complete is null').count == 0 %>
+              <div class="widget-body">
+                <!-- content goes here -->
+                <span class='margin-left:15px;'>None.</span>
+                <!-- end content -->
+              </div>
+          <% else %>
+              <div class="widget-body no-padding smart-form">
+                <ul id="todos" class="todo">
+                  <% @project.todos.where('is_complete != true or is_complete is null').order('position').each do |todo| %>
+                      <li data-pk='<%= todo.id %>' class='task' id="task_<%= todo.id %>">
                     <span class="handle">
                       <label class="checkbox">
                         <input type="checkbox" name="checkbox-inline">
                         <i></i> </label>
                     </span>
 
-                    <p>
-                      <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                      <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
-                      <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
-                      <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
-                    </p>
-                  </li>
-              <% end %>
-            </ul>
-            <!-- end content -->
-        <% end %>
+                        <p>
+                          <strong> #<%= todo.id %></strong> - <%= todo.subject %>
+                          <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class => 'font-xs'} %>
+                          <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
+                          <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                        </p>
+                      </li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+        </div>
+        <!-- end widget div -->
       </div>
-    </div>
-    <!-- end widget div -->
+      <!-- end widget -->
+
+    </article>
+
   </div>
-  <!-- end widget -->
 
-</article>
-
-</div>
-
-<!-- end row -->
+  <!-- end row -->
 
 </section>
 <!-- end widget grid -->
@@ -278,6 +291,11 @@
                 $this.slideUp(500, function () {
                     //$this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
                     $this.remove();
+                    countTasks();
+                    console.log('todos count=' + $('#todos').find("li").size());
+                    countIssues();
+                    console.log('issues count=' + $('#issues').find("li").size());
+
                 });
 
                 // ajax update back to database
@@ -289,23 +307,21 @@
                 $.ajax({
                     url: url,
                     type: 'POST',
-                    success: function(msg) {
-                        console.log( "Data Saved." );
+                    success: function (msg) {
+                        console.log("Data Saved.");
+                        $('#' + resourceName).effect('highlight');
                     }
                 });
 
-                countTasks();
-                countIssues();
 
             } else {
                 // insert undo code here...
             }
 
         })
-        // count tasks
-        function countTasks() {
 
-            var c = $('#tasks').find("li").size();
+        function countTasks() {
+            var c = $('#todos').find("li").size();
             if (c == 0)
                 $('#badgeTodosCount').text("");
             else
@@ -314,7 +330,6 @@
         }
 
         function countIssues() {
-
             var c = $('#issues').find("li").size();
             if (c == 0)
                 $('#badgeIssuesCount').text("");
@@ -332,27 +347,27 @@
 
             var calendar = $('#calendar').fullCalendar({
 
-                editable : true,
-                draggable : true,
-                selectable : false,
-                selectHelper : true,
-                unselectAuto : false,
-                disableResizing : false,
+                editable: true,
+                draggable: true,
+                selectable: false,
+                selectHelper: true,
+                unselectAuto: false,
+                disableResizing: false,
 
-                header : {
-                    left : 'title', //,today
-                    center : 'prev, next, today',
-                    right : 'month, agendaWeek, agenDay' //month, agendaDay,
+                header: {
+                    left: 'title', //,today
+                    center: 'prev, next, today',
+                    right: 'month, agendaWeek, agenDay' //month, agendaDay,
                 },
 
-                select : function(start, end, allDay) {
+                select: function (start, end, allDay) {
                     var title = prompt('Event Title:');
                     if (title) {
                         calendar.fullCalendar('renderEvent', {
-                                    title : title,
-                                    start : start,
-                                    end : end,
-                                    allDay : allDay
+                                    title: title,
+                                    start: start,
+                                    end: end,
+                                    allDay: allDay
                                 }, true // make the event "stick"
                         );
                     }
@@ -362,16 +377,16 @@
                 events: [
                     <% @project.milestones.each do |m| %>
                     {"all_day":<%= m.all_day? %>,
-                        "className":"<%= m.class_name %>",
-                        "end":"<%= m.end %>",
+                        "className": "<%= m.class_name %>",
+                        "end": "<%= m.end %>",
                         "id":<%= m.id %>,
                         "project_id":<%= m.project_id %>,
-                        "start":"<%= m.start %>",
-                        "title":"<%= m.title %>" },
+                        "start": "<%= m.start %>",
+                        "title": "<%= m.title %>" },
                     <% end %>
                 ],
 
-                eventRender : function(event, element, icon) {
+                eventRender: function (event, element, icon) {
                     if (!event.description == "") {
                         element.find('.fc-event-title').append("<br/><span class='ultra-light'>" + event.description + "</span>");
                     }
@@ -380,7 +395,7 @@
                     }
                 },
 
-                eventClick: function(event) {
+                eventClick: function (event) {
                     // opens events in a popup window
                     // alert(event.id);
                     window.location.href = '/projects/<%= @project.id %>/milestones/' + event.id + '/edit';
@@ -389,41 +404,42 @@
 
             });
 
-        };
+        }
+        ;
 
         /* hide default buttons */
         $('.fc-header-right, .fc-header-center').hide();
 
         // calendar prev
-        $('#calendar-buttons #btn-prev').click(function() {
+        $('#calendar-buttons #btn-prev').click(function () {
             $('.fc-button-prev').click();
             return false;
         });
 
         // calendar next
-        $('#calendar-buttons #btn-next').click(function() {
+        $('#calendar-buttons #btn-next').click(function () {
             $('.fc-button-next').click();
             return false;
         });
 
         // calendar today
-        $('#calendar-buttons #btn-today').click(function() {
+        $('#calendar-buttons #btn-today').click(function () {
             $('.fc-button-today').click();
             return false;
         });
 
         // calendar month
-        $('#mt').click(function() {
+        $('#mt').click(function () {
             $('#calendar').fullCalendar('changeView', 'month');
         });
 
         // calendar agenda week
-        $('#ag').click(function() {
+        $('#ag').click(function () {
             $('#calendar').fullCalendar('changeView', 'agendaWeek');
         });
 
         // calendar agenda day
-        $('#td').click(function() {
+        $('#td').click(function () {
             $('#calendar').fullCalendar('changeView', 'agendaDay');
         });
 
