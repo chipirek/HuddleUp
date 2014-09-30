@@ -37,24 +37,30 @@ bg-color-darken
             <label style='color:#333;'>Icon</label>
 
             <div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
-              <label class="btn btn-default active">
-                <input type="radio" name="iconselect" id="icon-1" value="fa-info" checked>
+              <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-info' %>">
+                <input type="radio" name="milestone[icon]" id="icon-1" value="fa-info" checked>
                 <i class="fa fa-info text-muted"></i> </label>
-              <label class="btn btn-default">
-                <input type="radio" name="iconselect" id="icon-2" value="fa-warning">
+
+              <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-warning' %>">
+                <input type="radio" name="milestone[icon]" id="icon-2" value="fa-warning">
                 <i class="fa fa-warning text-muted"></i> </label>
-              <label class="btn btn-default">
-                <input type="radio" name="iconselect" id="icon-3" value="fa-check">
+
+              <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-check' %>">
+                <input type="radio" name="milestone[icon]" id="icon-3" value="fa-check">
                 <i class="fa fa-check text-muted"></i> </label>
-              <label class="btn btn-default">
-                <input type="radio" name="iconselect" id="icon-4" value="fa-user">
+
+              <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-user' %>">
+                <input type="radio" name="milestone[icon]" id="icon-4" value="fa-user">
                 <i class="fa fa-user text-muted"></i> </label>
-              <label class="btn btn-default">
-                <input type="radio" name="iconselect" id="icon-5" value="fa-lock">
+
+              <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-lock' %>">
+                <input type="radio" name="milestone[icon]" id="icon-5" value="fa-lock">
                 <i class="fa fa-lock text-muted"></i> </label>
-              <label class="btn btn-default">
-                <input type="radio" name="iconselect" id="icon-6" value="fa-clock-o">
+
+              <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-clock-o' %>">
+                <input type="radio" name="milestone[icon]" id="icon-6" value="fa-clock-o">
                 <i class="fa fa-clock-o text-muted"></i> </label>
+
             </div>
           </div>
         </section>
@@ -64,24 +70,31 @@ bg-color-darken
             <label style='color:#333;'>Priority</label>
 
             <div class="btn-group btn-group-justified btn-select-tick" data-toggle="buttons" style='height:30px;'>
-              <label class="btn bg-color-darken active">
-                <input type="radio" name="priority" id="option1" value="bg-color-darken txt-color-white" checked>
+
+              <label class="btn bg-color-darken <%= "active" unless @milestone.class_name != 'bg-color-darken txt-color-white' %>">
+                <input type="radio" name="milestone[class_name]" id="option1" value="bg-color-darken txt-color-white" <%= "checked" unless @milestone.class_name != 'bg-color-darken txt-color-white' %> >
                 <i class="fa fa-check txt-color-white"></i> </label>
-              <label class="btn bg-color-blue">
-                <input type="radio" name="priority" id="option2" value="bg-color-blue txt-color-white">
+
+              <label class="btn bg-color-blue <%= "active" unless @milestone.class_name != 'bg-color-blue txt-color-white' %>">
+                <input type="radio" name="milestone[class_name]" id="option2" value="bg-color-blue txt-color-white" <%= "checked" unless @milestone.class_name != 'bg-color-blue txt-color-white' %> >
                 <i class="fa fa-check txt-color-white"></i> </label>
-              <label class="btn bg-color-orange">
-                <input type="radio" name="priority" id="option3" value="bg-color-orange txt-color-white">
+
+              <label class="btn bg-color-orange <%= "active" unless @milestone.class_name != 'bg-color-orange txt-color-white' %>">
+                <input type="radio" name="milestone[class_name]" id="option3" value="bg-color-orange txt-color-white" <%= "checked" unless @milestone.class_name != 'bg-color-orange txt-color-white' %> >
                 <i class="fa fa-check txt-color-white"></i> </label>
-              <label class="btn bg-color-greenLight">
-                <input type="radio" name="priority" id="option4" value="bg-color-greenLight txt-color-white">
+
+              <label class="btn bg-color-greenLight <%= "active" unless @milestone.class_name != 'bg-color-greenLight txt-color-white' %>">
+                <input type="radio" name="milestone[class_name]" id="option4" value="bg-color-greenLight txt-color-white" <%= "checked" unless @milestone.class_name != 'bg-color-greenLight txt-color-white' %> >
                 <i class="fa fa-check txt-color-white"></i> </label>
-              <label class="btn bg-color-blueLight">
-                <input type="radio" name="priority" id="option5" value="bg-color-blueLight txt-color-white">
+
+              <label class="btn bg-color-blueLight <%= "active" unless @milestone.class_name != 'bg-color-blueLight txt-color-white' %>">
+                <input type="radio" name="milestone[class_name]" id="option5" value="bg-color-blueLight txt-color-white" <%= "checked" unless @milestone.class_name != 'bg-color-blueLight txt-color-white' %> >
                 <i class="fa fa-check txt-color-white"></i> </label>
-              <label class="btn bg-color-red">
-                <input type="radio" name="priority" id="option6" value="bg-color-red txt-color-white">
+
+              <label class="btn bg-color-red <%= "active" unless @milestone.class_name != 'bg-color-red txt-color-white' %>">
+                <input type="radio" name="milestone[class_name]" id="option6" value="bg-color-red txt-color-white" <%= "checked" unless @milestone.class_name != 'bg-color-red txt-color-white' %> >
                 <i class="fa fa-check txt-color-white"></i> </label>
+
             </div>
           </div>
         </section>
@@ -103,6 +116,11 @@ bg-color-darken
         </section>
 
       </div>
+
+      <section>
+        <label class="label">Description</label>
+        <label class="textarea"><textarea rows="4" name="milestone[description]" id="milestone_description"><%= @milestone.description %></textarea> </label>
+      </section>
 
     </fieldset>
 

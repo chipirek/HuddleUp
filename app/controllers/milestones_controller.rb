@@ -42,6 +42,8 @@ class MilestonesController < ApplicationController
     @milestone.start = Date.today
     @milestone.end = Date.today
     @milestone.project_id = params[:project_id]
+    @milestone.class_name='bg-color-blue txt-color-white'
+    @milestone.icon='fa-warning'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -80,8 +82,6 @@ class MilestonesController < ApplicationController
       buffer = params[:milestone][:end].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
       @milestone.end = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
-
-    @milestone.class_name='bg-color-blue'
 
     respond_to do |format|
       if @milestone.save

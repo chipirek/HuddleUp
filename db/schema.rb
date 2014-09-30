@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140930173218) do
+ActiveRecord::Schema.define(:version => 20140930224333) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(:version => 20140930173218) do
     t.datetime "updated_at",  :null => false
     t.string   "icon"
     t.string   "description"
-    t.string   "priority"
   end
 
   add_index "milestones", ["project_id"], :name => "index_milestones_on_project_id"
