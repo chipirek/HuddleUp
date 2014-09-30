@@ -90,29 +90,29 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts 'Seeding milestones to AlphaSim...'
   Milestone.destroy_all
 
-  m = project1.milestones.create(:title=>'Sprint planning completed - ready to start', :start=>100.days.ago)
+  m = project1.milestones.create(:title=>'Sprint planning completed - ready to start', :start=>100.days.ago, :end=>100.days.ago, :class_name=>'bg-color-blueLight')
   puts '   Added milestone ' + m.title
 
-  m = project1.milestones.create(:title=>'Sprint 1 complete', :start=>3.months.ago, :class_name=>'bg-color-blue')
+  m = project1.milestones.create(:title=>'Sprint 1 complete', :start=>3.months.ago, :end=>3.months.ago, :class_name=>'bg-color-blue')
   puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Sprint 2 complete', :start=>35.days.ago, :class_name=>'bg-color-blue')
+  m = project1.milestones.create(:title=>'Sprint 2 complete', :start=>35.days.ago, :end=>35.days.ago, :class_name=>'bg-color-blue')
   puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Sprint 3 complete', :start=>Date.tomorrow, :class_name=>'bg-color-blue')
+  m = project1.milestones.create(:title=>'Sprint 3 complete', :start=>Date.tomorrow, :end=>Date.tomorrow, :class_name=>'bg-color-blue')
   puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Sprint 3 review', :start=>Date.tomorrow, :class_name=>'bg-color-blue')
+  m = project1.milestones.create(:title=>'Sprint 3 review', :start=>Date.tomorrow, :end=>Date.tomorrow, :class_name=>'bg-color-red')
   puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Signoff', :start=>Time.now.advance(:days=>7).to_date, :all_day=>true, :class_name=>'bg-color-blue')
+  m = project1.milestones.create(:title=>'Signoff', :start=>Time.now.advance(:days=>7).to_date, :end=>Time.now.advance(:days=>7).to_date, :all_day=>true, :class_name=>'bg-color-blue')
   puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Grey', :start=>Time.now.to_date, :all_day=>true, :class_name=>'bg-color-blue')
-  puts '   Added milestone ' + m.title
-
-  m = project5.milestones.create(:title=>'Initial Design', :start=>100.days.ago, :end=>98.days.ago, :class_name=>'bg-color-blue')
+  m = project1.milestones.create(:title=>'Red?', :start=>Time.now.to_date, :end=>Time.now.to_date, :all_day=>true, :class_name=>'bg-color-red')
   puts '   Added milestone ' + m.title
 
   m = project5.milestones.create(:title=>'Initial Design', :start=>100.days.ago, :end=>98.days.ago, :class_name=>'bg-color-blue')
   puts '   Added milestone ' + m.title
 
-  m = project5.milestones.create(:title=>'Signoff', :start=>Time.now.advance(:days=>7).to_date, :all_day=>true, :class_name=>'bg-color-blue')
+  m = project5.milestones.create(:title=>'Initial Design', :start=>100.days.ago, :end=>98.days.ago, :class_name=>'bg-color-blue')
+  puts '   Added milestone ' + m.title
+
+  m = project5.milestones.create(:title=>'Signoff', :start=>Time.now.advance(:days=>7).to_date, :all_day=>true, :class_name=>'bg-color-blue', :icon=>'fa-user')
   puts '   Added milestone ' + m.title
 
   puts ' '

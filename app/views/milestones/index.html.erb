@@ -12,7 +12,7 @@
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
     <!-- Button trigger modal -->
-    <%= link_to 'Create a new milestone', new_project_milestone_path(@project), :class=>'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+    <%= link_to 'Create a new milestone', new_project_milestone_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
   </div>
 
 </div>
@@ -37,7 +37,8 @@
             <fieldset>
 
               <div class="form-group">
-                <label>Select Event Icon</label>
+                <label>Icon</label>
+
                 <div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
                   <label class="btn btn-default active">
                     <input type="radio" name="iconselect" id="icon-1" value="fa-info" checked>
@@ -62,16 +63,18 @@
 
               <div class="form-group">
                 <label>Title</label>
-                <input class="form-control"  id="title" name="title" maxlength="40" type="text" placeholder="Add a title...">
+                <input class="form-control" id="title" name="title" maxlength="40" type="text" placeholder="Add a title...">
               </div>
               <div class="form-group">
                 <label>Description</label>
                 <textarea class="form-control" placeholder="Brief description..." rows="3" maxlength="40" id="description"></textarea>
+
                 <p class="note">Max 40 characters</p>
               </div>
 
               <div class="form-group">
-                <label>Choose Color</label>
+                <label>Priority</label>
+
                 <div class="btn-group btn-group-justified btn-select-tick" data-toggle="buttons">
                   <label class="btn bg-color-darken active">
                     <input type="radio" name="priority" id="option1" value="bg-color-darken txt-color-white" checked>
@@ -98,7 +101,7 @@
             <div class="form-actions">
               <div class="row">
                 <div class="col-md-12">
-                  <button class="btn btn-default" type="button" id="add-event" >
+                  <button class="btn btn-default" type="button" id="add-event">
                     Add
                   </button>
                 </div>
@@ -122,7 +125,9 @@
 
       <header>
         <span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
+
         <h2> Milestones </h2>
+
         <div class="widget-toolbar">
           <!-- add: non-hidden - to disable auto hide -->
           <div class="btn-group">
@@ -240,26 +245,25 @@
 
         $('#add-event').click(function () {
             var title = $('#title').val(),
-                priority = $('input:radio[name=priority]:checked').val(),
-                description = $('#description').val(),
-                icon = $('input:radio[name=iconselect]:checked').val();
+                    priority = $('input:radio[name=priority]:checked').val(),
+                    description = $('#description').val(),
+                    icon = $('input:radio[name=iconselect]:checked').val();
 
 //            addEvent(title, priority, description, icon);
-            alert('Insert javascript here to push an ajax update...');
+            //alert('Insert javascript here to push an ajax update...');
             $('#calendar').fullCalendar('renderEvent', {
                         title: title,
                         start: "2014-10-03",
-                        //end: "2014-10-03",
+                        end: "2014-10-03",
                         allDay: false,
                         "className": priority,
-                        "id":"99",
-                        "project_id":"999",
+                        "id": "99",
+                        "project_id": "999",
                         "description": description,
                         "icon": icon
                     }, true // make the event "stick"
             );
             $('#calendar').fullCalendar('unselect');
-            //$('#calendar').fullCalendar('render');
         });
 
         /* initialize the calendar
@@ -316,15 +320,15 @@
 
             events: [
                 <% @milestones.each do |m| %>
-                    {"all_day":<%= m.all_day? %>,
-                    "className":"<%= m.class_name %>",
+                   {"all_day":<%= m.all_day? %>,
                     "id":<%= m.id %>,
                     "project_id":<%= m.project_id %>,
-                    "start":"<%= m.start %>",
-                    "end":"<%= m.end %>",
-                    "title":"<%= m.title %>",
-                    "description":"hello world",
-                    "icon":"fa-user"},
+                    "start": "<%= m.start %>",
+                    "end": "<%= m.end %>",
+                    "title": "<%= m.title %>",
+                    "description": "<%= m.description %>",
+                    "className":"<%= m.class_name %>",
+                    "icon": "<%= m.icon %>"},
                 <% end %>
             ],
 
@@ -339,7 +343,7 @@
                 }
             },
 
-            eventClick: function(event) {
+            eventClick: function (event) {
                 // opens events in a popup window
                 // alert(event.id);
                 window.location.href = '/projects/<%= @project.id %>/milestones/' + event.id + '/edit';
