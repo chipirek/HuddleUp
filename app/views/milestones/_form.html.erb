@@ -37,28 +37,33 @@ bg-color-darken
             <label style='color:#333;'>Icon</label>
 
             <div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
+
+              <label class="btn btn-default <%= "active" unless @milestone.icon != '' %>">
+                <input type="radio" name="milestone[icon]" id="icon-0" value="" <%= "checked" unless @milestone.icon != '' %>>
+                 </label>
+
               <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-info' %>">
-                <input type="radio" name="milestone[icon]" id="icon-1" value="fa-info" checked>
+                <input type="radio" name="milestone[icon]" id="icon-1" value="fa-info" <%= "active" unless @milestone.icon != 'fa-info' %>>
                 <i class="fa fa-info text-muted"></i> </label>
 
               <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-warning' %>">
-                <input type="radio" name="milestone[icon]" id="icon-2" value="fa-warning">
+                <input type="radio" name="milestone[icon]" id="icon-2" value="fa-warning" <%= "active" unless @milestone.icon != 'fa-warning' %>>
                 <i class="fa fa-warning text-muted"></i> </label>
 
               <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-check' %>">
-                <input type="radio" name="milestone[icon]" id="icon-3" value="fa-check">
+                <input type="radio" name="milestone[icon]" id="icon-3" value="fa-check" <%= "active" unless @milestone.icon != 'fa-check' %>>
                 <i class="fa fa-check text-muted"></i> </label>
 
               <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-user' %>">
-                <input type="radio" name="milestone[icon]" id="icon-4" value="fa-user">
+                <input type="radio" name="milestone[icon]" id="icon-4" value="fa-user" <%= "active" unless @milestone.icon != 'fa-user' %>>
                 <i class="fa fa-user text-muted"></i> </label>
 
               <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-lock' %>">
-                <input type="radio" name="milestone[icon]" id="icon-5" value="fa-lock">
+                <input type="radio" name="milestone[icon]" id="icon-5" value="fa-lock" <%= "active" unless @milestone.icon != 'fa-lock' %>>
                 <i class="fa fa-lock text-muted"></i> </label>
 
               <label class="btn btn-default <%= "active" unless @milestone.icon != 'fa-clock-o' %>">
-                <input type="radio" name="milestone[icon]" id="icon-6" value="fa-clock-o">
+                <input type="radio" name="milestone[icon]" id="icon-6" value="fa-clock-o" <%= "active" unless @milestone.icon != 'fa-clock-o' %>>
                 <i class="fa fa-clock-o text-muted"></i> </label>
 
             </div>
