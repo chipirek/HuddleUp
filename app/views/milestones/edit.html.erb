@@ -52,6 +52,7 @@
 </div>
 
 <%= render :partial => '/projects/scripts' %>
+<script src="/SmartAdmin/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 
 <script type="text/javascript">
 
@@ -71,7 +72,9 @@
             nextText : '<i class="fa fa-chevron-right"></i>'
         });
 
-        $('#milestone_title').focus();
+        $('#milestone_start_time').timepicker({ timeFormat: 'H:m' });
+        $('#milestone_end_time').timepicker({ timeFormat: 'H:m' });
+        //$('#milestone_title').focus();
 
         var $milestoneForm = $("#milestone_form").validate({
 
@@ -80,6 +83,9 @@
                 'milestone[title]': {
                     required: true,
                     minlength: 3
+                },
+                'milestone[start]': {
+                    required: true
                 }
             },
 
@@ -87,7 +93,10 @@
             messages: {
                 'milestone[title]': {
                     required: 'Please enter a short name for your milestone'
-                }
+                },
+                'milestone[start]': {
+                    required: 'Please enter at least a starting date for your milestone'
+                },
             },
 
             // Do not change code below

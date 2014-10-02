@@ -226,8 +226,17 @@
                    {"all_day":<%= m.all_day? %>,
                     "id":<%= m.id %>,
                     "project_id":<%= m.project_id %>,
-                    "start": "<%= m.start %>",
-                    "end": "<%= m.end %>",
+                    "start": new Date(<%= m.start.strftime("%Y") %>, <%= m.start.strftime("%m") %>-1, <%= m.start.strftime("%d") %>
+                                <%= ", " + m.start_time.strftime("%H,%M") unless m.start_time.nil? %>  ),
+
+                    <% if !m.end.nil? %>
+                       "end": new Date(<%= m.end.strftime("%Y") %>, <%= m.end.strftime("%m") %>-1, <%= m.end.strftime("%d") %>
+                               <%= ", " + m.end_time.strftime("%H,%M") unless m.end_time.nil? %>  ),
+                    <% end %>
+
+                    <% if !m.start_time.nil? || !m.end_time.nil? %>
+                       'allDay':false,
+                    <% end %>
                     "title": "<%= m.title %>",
                     "description": "<%= m.description %>",
                     "className":"<%= m.class_name %>",
