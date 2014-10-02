@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
 
-  default from: "notifications@example.com"
+  default from: 'HuddleUp Invitations <invitations@huddleup.com>'    #"invitations@huddleup.com"
 
 
   def welcome_new_user(member, project, url, temp_password)

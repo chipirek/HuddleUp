@@ -51,7 +51,7 @@ class InvitationsController < ApplicationController
 
       success_code = @invitation.save
       if success_code
-        url = 'http://localhost:3000/projects/' + @project.id.to_s + '/invitations/accept/' + @invitation.id.to_s
+        url = 'http://huddleup.herokuapp.com/projects/' + @project.id.to_s + '/invitations/accept/' + @invitation.id.to_s
         UserMailer.welcome_new_user(member, @project, url, temp_password).deliver
       end
     else
@@ -62,7 +62,7 @@ class InvitationsController < ApplicationController
       @invitation.member_id=member.id
       success_code = @invitation.save
       if success_code
-        url = 'http://localhost:3000/projects/' + @project.id.to_s + '/invitations/accept/' + @invitation.id.to_s
+        url = 'http://huddleup.herokuapp.com/projects/' + @project.id.to_s + '/invitations/accept/' + @invitation.id.to_s
         UserMailer.welcome_existing_user(member, @project, url).deliver
       end
     end
