@@ -41,7 +41,7 @@
               <%= link_to message.subject, project_message_path(@project, message) %>
             </div>
             <div style="color: #8a8a8a; height: 27px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;">
-              <%= message.body.truncate(80) %>
+              <%= truncate(message.body, length:80, separator:' ') %>
             </div>
           </td>
           <td class="inbox-data-date hidden-xs" style='width:150px;'>

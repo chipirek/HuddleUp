@@ -13,6 +13,7 @@ Milestone.destroy_all
 Todo.destroy_all
 Invitation.destroy_all
 Issue.destroy_all
+Audit.destroy_all
 
 u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p' )  # no, not my real password
 puts '   Added user ' + User.first.name

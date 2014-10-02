@@ -241,13 +241,15 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     #-- post the form / add the object
-    post_via_redirect project_issues_path (p), 'issue[description]' => 'This is my issue'
+    post_via_redirect project_issues_path (p), 'issue[subject]' => 'This is the THIRD issue...'
 
     #-- get the fresh copy from the database
     p = Project.first
-    i = p.issues.first
-    assert_equal i.description, 'This is my issue'
-    assert_not_equal p.issues.count, 0
+    assert_equal 3, p.issues.count
+
+    i = p.issues.last
+    assert_equal 'This is the THIRD issue...', i.subject
+
   end
 
   test 'create new message' do
@@ -361,6 +363,8 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   end
 
+=begin
+=end
 
 end
 

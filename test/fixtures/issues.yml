@@ -2,12 +2,12 @@
 
 issue_one:
   project_id: 1
-  description: 'This is my issue'
+  subject: 'This is my issue'
   is_resolved: false
   member_id: 1
 
 issue_two:
   project_id: 1
-  description: 'This is another issue'
+  subject: 'This is another issue'
   is_resolved: false
   member_id: 1
