@@ -72,9 +72,13 @@
             nextText : '<i class="fa fa-chevron-right"></i>'
         });
 
-        $('#milestone_start_time').timepicker({ timeFormat: 'H:m' });
-        $('#milestone_end_time').timepicker({ timeFormat: 'H:m' });
-        //$('#milestone_title').focus();
+        $('#milestone_start_time').timepicker();
+        $('#milestone_end_time').timepicker();
+        <% if @milestone.start_time.nil? %>
+            $('#milestone_start_time').val('');
+            $('#milestone_end_time').val('');
+        <% end %>
+
 
         var $milestoneForm = $("#milestone_form").validate({
 
@@ -96,7 +100,7 @@
                 },
                 'milestone[start]': {
                     required: 'Please enter at least a starting date for your milestone'
-                },
+                }
             },
 
             // Do not change code below

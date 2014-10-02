@@ -44,6 +44,8 @@ class MilestonesController < ApplicationController
     @milestone.project_id = params[:project_id]
     @milestone.class_name='bg-color-blue txt-color-white'
     @milestone.icon='fa-warning'
+    @milestone.start_time=nil
+    @milestone.end_time=nil
 
     respond_to do |format|
       format.html # new.html.erb
