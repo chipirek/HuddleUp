@@ -69,6 +69,7 @@ class TodosController < ApplicationController
     @todo = Todo.new(params[:todo])
     @todo.project_id = params[:project_id]
     @todo.position=99
+    #@todo.is_critical = !params[:todo]['is_critical'].nil?
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
     #puts '********************'

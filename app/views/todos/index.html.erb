@@ -65,6 +65,11 @@
                     <p>
                         <strong> #<%= todo.id %></strong> - <%= todo.subject %>
                         <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
+
+                        <% if todo.is_critical? %>
+                          <span class='badge bg-color-grey' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
+                        <% end %>
+
                         <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
                         <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
                     </p>
