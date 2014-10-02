@@ -68,6 +68,16 @@
             $('#issue_is_resolved').removeProp('checked');
         }
 
+        var isCritical = <%= @issue.is_critical? %>;
+        if (isCritical)
+        {
+            $('#issue_is_critical').prop('checked', 'checked');
+        }
+        else
+        {
+            $('#issue_is_critical').removeProp('checked');
+        }
+
         $('#issue_subject').focus();
 
         var $issueForm = $("#issue_form").validate({

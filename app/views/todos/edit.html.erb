@@ -68,6 +68,16 @@
             $('#todo_is_complete').removeProp('checked');
         }
 
+        var isCritical = <%= @todo.is_critical? %>;
+        if (isCritical)
+        {
+            $('#todo_is_critical').prop('checked', 'checked');
+        }
+        else
+        {
+            $('#todo_is_critical').removeProp('checked');
+        }
+
         $('#todo_subject').focus();
 
         var $todoForm = $("#todo_form").validate({

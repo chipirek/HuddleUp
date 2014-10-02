@@ -18,8 +18,8 @@
       <section>
         <label class="label">Subject</label>
         <label class="input">
-          <input class='input-lg' type="text" name="issue[subject]" placeholder="Subject of the issue..." id='issue_subject' value='<%= @issue.subject %>'>
-          <b class="tooltip tooltip-bottom-left">Give your issue a subject</b> </label>
+          <input class='input-lg' type="text" name="issue[subject]" placeholder="Give your issue a subject..." id='issue_subject' value='<%= @issue.subject %>'>
+          </label>
       </section>
 
     <section>
@@ -33,6 +33,12 @@
       <section>
         <label class="label">Description</label>
         <label class="textarea"><textarea rows="4" name="issue[description]" id="issue_description"><%= @issue.description %></textarea> </label>
+      </section>
+
+      <section>
+        <label class="checkbox">
+          <input type="checkbox" name="issue[is_critical]" id="issue_is_critical" >
+          <i></i>This task is critical!</label>
       </section>
 
       <section>

@@ -115,6 +115,7 @@ class TodosController < ApplicationController
     @todo.update_attributes(params[:todo])
     @todo.project_id = params[:project_id]
     @todo.is_complete = !params[:todo]['is_complete'].nil?
+    @todo.is_critical = !params[:todo]['is_critical'].nil?
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
     if params[:todo][:due_date].length > 0

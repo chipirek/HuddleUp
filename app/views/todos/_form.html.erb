@@ -18,8 +18,8 @@
         <section>
           <label class="label">Subject</label>
           <label class="input">
-            <input class='input-lg' type="text" name="todo[subject]" placeholder="Subject of the todo..." id='todo_subject' value='<%= @todo.subject %>'>
-            <b class="tooltip tooltip-bottom-left">Give your todo a subject</b> </label>
+            <input class='input-lg' type="text" name="todo[subject]" placeholder="Give your todo a subject..." id='todo_subject' value='<%= @todo.subject %>'>
+            </label>
         </section>
 
       <div class='row'>
@@ -42,6 +42,12 @@
       <section>
         <label class="label">Description</label>
         <label class="textarea"><textarea rows="4" name="todo[description]" id="todo_description"><%= @todo.description %></textarea> </label>
+      </section>
+
+      <section>
+        <label class="checkbox">
+          <input type="checkbox" name="todo[is_critical]" id="todo_is_critical" >
+          <i></i>This task is critical!</label>
       </section>
 
       <section>

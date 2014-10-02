@@ -89,6 +89,7 @@ class IssuesController < ApplicationController
     @issue.update_attributes(params[:issue])
     @issue.project_id = params[:project_id]
     @issue.is_resolved = !params[:issue]['is_resolved'].nil?
+    @issue.is_critical = !params[:issue]['is_critical'].nil?
 
     respond_to do |format|
       if @issue.save
