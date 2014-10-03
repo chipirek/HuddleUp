@@ -1,186 +1,200 @@
-<div class="navbar">
+<div id="content">
 
-  <script type="text/javascript">
-      try {
-          ace.settings.check('navbar', 'fixed')
-      } catch (e) {
-      }
-  </script>
+  <!-- row -->
+  <div class="row">
 
-  <div class="navbar-inner">
-    <div class="container-fluid">
+    <!-- col -->
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-9">
+      <h1 class="page-title txt-color-blueDark">
 
-      <a class="brand" href="#">
-        <small><i class="icon-check"></i> HuddleUp</small>
-      </a>
+        <!-- PAGE HEADER -->
+        <i class="fa-fw fa fa-user"></i>
+        <%= current_user.name %>'s HuddleUp Profile
 
+      </h1>
     </div>
-    <!--/.container-fluid-->
+    <!-- end col -->
+
   </div>
-  <!--/.navbar-inner-->
-
-</div>
+  <!-- end row -->
 
 
-<div class="main-container container-fluid">
-  <a class="menu-toggler" id="menu-toggler" href="#">
-    <span class="menu-text"></span>
-  </a>
+  <!-- widget grid -->
+  <well>
 
-  <div class="main-content">
+    <!-- row -->
 
-    <div id="page-content">
+    <div class="row" style='background-color: #fff;'>
+
+      <div class="widget-body">
+
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
+            <%= devise_error_messages! %>
 
 
-      <div class="row-fluid">
-        <div class="span8">
-          <div class="widget-box">
-            <div class="widget-header widget-header-blue widget-header-flat wi1dget-header-large">
-              <h4 class="lighter">My Settings</h4>
+            <div class="panel-group smart-accordion-default" id="accordion-2">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-2" href="#collapseOne-1"> <i class="fa fa-fw fa-plus-circle txt-color-green"></i> <i class="fa fa-fw fa-minus-circle txt-color-red"></i> Personal information </a></h4>
             </div>
+            <div id="collapseOne-1" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <fieldset>
+                  <section>
+                    <label class="label">Name</label>
+                    <label class="input">
+                      <%= f.text_field :name, :autofocus => true, :class => 'input-lg' %>
+                    </label>
+                  </section>
 
-            <div class="widget-body">
-              <div class="widget-main">
+                  <section>
+                    <label class="label">Email</label>
+                    <label class="input">
+                      <%= f.email_field :email, :class => 'input-lg' %>
+                    </label>
+                  </section>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-2" href="#collapseTwo-1" class="collapsed"> <i class="fa fa-fw fa-plus-circle txt-color-green"></i> <i class="fa fa-fw fa-minus-circle txt-color-red"></i> Password change area </a></h4>
+            </div>
+            <div id="collapseTwo-1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <fieldset>
+                  <section>
+                    <label class="label">New Password</label>
+                    <label class="input">
+                      <%= f.password_field :password, :class => 'input-lg', :autocomplete => "off" %> <i>(leave blank if you don't want to change it)</i>
+                    </label>
+                  </section>
 
-                <div class="row-fluid">
+                  <section>
+                    <label class="label">New Password Again for Confirmation</label>
+                    <label class="input">
+                      <%= f.password_field :password_confirmation, :class => 'input-lg' %>
+                    </label>
+                  </section>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-2" href="#collapseThree-1" class="collapsed"> <i class="fa fa-fw fa-plus-circle txt-color-green"></i> <i class="fa fa-fw fa-minus-circle txt-color-red"></i> Account info </a></h4>
+            </div>
+            <div id="collapseThree-1" class="panel-collapse collapse">
+              <div class="panel-body">
+                <fieldset>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                  </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-                  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class=>'form-horizontal' }) do |f| %>
-                      <%= devise_error_messages! %>
+<fieldset>
+                        <section>
+                          <label class="label">Current Password</label>
+                          <label class="input">
+                            <%= f.password_field :current_password, :class => 'input-lg', :placeholder=>'Please enter your current password so we can confirm your request...' %>
+                          </label>
+                        </section>
+                  </fieldset>
 
-                      <div class="control-group">
-                        <label class="control-label" for="email">Name</label>
-
-                        <div class="controls">
-                          <div class="span12">
-                            <%= f.text_field :name, :autofocus => true, :class => 'span4' %>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="email">Email Address</label>
-
-                        <div class="controls">
-                          <div class="span12">
-                            <%= f.email_field :email, :class => 'span6' %>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="email">Password</label>
-
-                        <div class="controls">
-                          <div class="span12">
-                            <%= f.password_field :password, :autocomplete => "off" %> <i>(leave blank if you don't want to change it)</i>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="email">Confirm Password</label>
-
-                        <div class="controls">
-                          <div class="span12">
-                            <%= f.password_field :password_confirmation %>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="control-group">
-                        <label class="control-label" for="email">Password</label>
-
-                        <div class="controls">
-                          <div class="span12">
-                            <%= f.password_field :current_password %>  <i>(we need your current password to confirm your changes)</i>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-actions">
-                        <button type='submit' class='btn btn-success'><i class="icon-ok"></i> Save</button>
-                        <a href='javascript:window.history.back();' class='btn btn-info'><i class="icon-backward"></i> Cancel</a>
-                      </div>
+            <footer>
+              <button type="submit" class="btn btn-success">
+                Save
+              </button>
+            </footer>
 
                   <% end %>
 
-                  <h3>Cancel my account</h3>
-
-                  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class=>'btn btn-danger' %></p>
-
-                </div>
-
-              </div>
-              <!--/widget-main-->
-            </div>
-            <!--/widget-body-->
-          </div>
-        </div>
       </div>
 
     </div>
 
-  </div>
-  <!--/.page-content-->
+    <!-- end row -->
 
-  <div class="ace-settings-container" id="ace-settings-container">
-    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
-      <i class="icon-cog bigger-150"></i>
-    </div>
+  </well>
+  <!-- end widget grid -->
 
-    <div class="ace-settings-box" id="ace-settings-box">
-      <div>
-        <div class="pull-left">
-          <select id="skin-colorpicker" class="hide">
-            <option data-skin="default" value="#438EB9">#438EB9</option>
-            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-          </select>
-        </div>
-        <span>&nbsp; Choose Skin</span>
-      </div>
+  <p> </p>
+  <h3>Cancel my account</h3>
 
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-      </div>
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class=>'btn btn-danger' %></p>
 
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-      </div>
+</div>
 
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-      </div>
-
-      <div>
-        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-      </div>
-    </div>
-  </div>
-  <!--/#ace-settings-container-->
-</div><!--/.main-content-->
-</div><!--/.main-container-->
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
-  <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
-
-<!-- inline scripts related to this page -->
+<%= render :partial => '/projects/scripts' %>
 
 <script type="text/javascript">
 
-    $(function () {
+    $(document).ready(function () {
 
-        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
-        $('[data-rel="tooltip"]').tooltip();
+        pageSetUp();
 
-    });
+        var $profileForm = $("#profile_form").validate({
 
+            // Rules for form validation
+            rules: {
+                'user[name]': {
+                    required: true,
+                    minlength: 3
+                },
+                'user[email]': {
+                    required: true,
+                    minlength: 8,
+                    email: true
+                },
+                'user[current_password]': {
+                    required: true,
+                    minlength: 8
+                }
+            },
+
+            // Messages for form validation
+            messages: {
+                'user[name]': {
+                    required: 'Please make sure your name is filled in.'
+                },
+                'user[email]': {
+                    required: 'Please make sure your email is filled in.',
+                    email: 'Please make sure your email is VALID.'
+                },
+                'user[current_password]': {
+                    required: 'Please enter your current password so we can validate your request.',
+                    minlength: 'Password is too short.'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+    })
+
+</script>
+
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
 </script>
