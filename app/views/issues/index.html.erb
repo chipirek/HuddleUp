@@ -26,7 +26,7 @@
           None
       <% else %>
         <!-- content goes here -->
-          <h5 class="todo-group-title"><i class="fa fa-exclamation"></i> Important Issues (<small class="num-of-tasks"><%= @issues.where('is_resolved != true or is_resolved is null').count %></small>)
+          <h5 class="todo-group-title"><i class="fa fa-exclamation"></i> Unresolved Issues (<small class="num-of-tasks"><%= @issues.where('is_resolved != true or is_resolved is null').count %></small>)
           </h5>
           <ul id="issues" class="todo">
             <% @issues.where('is_resolved != true or is_resolved is null').each do |issue| %>

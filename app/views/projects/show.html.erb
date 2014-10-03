@@ -25,20 +25,27 @@
 <!-- row -->
 <div class="row">
   <div class="col-sm-12">
-    <h3><%= @project.name %></h3>
+    <h3><%= @project.name %>
+
+        <p>
+            <% if @project.status_code==0 %>
+                <div class='label label-primary'>Not started</div>
+            <% elsif @project.status_code==1 %>
+                <div class='label label-success'>We are on track</div>
+            <% elsif @project.status_code==2 %>
+                <div class='label label-warning'>Project is troubled</div>
+            <% elsif @project.status_code==3 %>
+                <div class='label label-danger'>Project is late or failing</div>
+            <% elsif @project.status_code==4 %>
+                <div class='label label-info'>Locked / paused</div>
+            <% elsif @project.status_code==5 %>
+                <div class='label label-default'>Complete</div>
+            <% end %>
+        </p>
+
+    </h3>
 
     <p><%= @project.description.html_safe unless @project.description.nil? %></p>
-
-    <p>
-      <% if @project.status_code==1 %>
-        <div class='alert alert-block alert-success'>We are on track</div>
-    <% elsif @project.status_code==2 %>
-        <div class='alert alert-block alert-warning'>Project is troubled</div>
-    <% else %>
-        <div class='alert alert-block alert-danger'>Project is late or failing</div>
-    <% end %>
-    </p>
-
   </div>
 </div>
 
@@ -79,7 +86,7 @@
         <header>
           <span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
 
-          <h2> My Events </h2>
+          <h2> Schedule </h2>
 
           <div class="widget-toolbar">
             <div class="btn-group">
