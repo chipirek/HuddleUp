@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
   has_many :messages, :dependent => :destroy
 
 
-  def how_many_todos_for_this_member
+  def how_many_todos_left
     return todos.where('is_complete != true or is_complete is null').count
     #return Todo.where('project_id=?', id).where('is_complete is NULL').count
   end
@@ -28,10 +28,23 @@ class Project < ActiveRecord::Base
   end
 
 
+  def how_many_todos_left_for_this_member(current_user_id)
+    current_membership_id = determine_current_membership(current_user_id)
+    return todos.where('is_complete != true or is_complete is null').where('member_id=?', current_membership_id).count
+  end
+
+
+  def how_many_issues_left_for_this_member(current_user_id)
+    current_membership_id = determine_current_membership(current_user_id)
+    return issues.where('is_resolved != true or is_resolved is null').where('member_id=?', current_membership_id).count
+  end
+
+
   def determine_current_membership(current_user_id)
     current_membership_id = Member.where('user_id=?', current_user_id).where('project_id=?', id).first().id
     return current_membership_id
   end
+
 
   def current_user_is_project_admin?(current_user_id)
     current_membership = Member.where('user_id=?', current_user_id).where('project_id=?', id).first()

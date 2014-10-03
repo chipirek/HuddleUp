@@ -27,7 +27,8 @@
       <thead>
       <tr>
         <th colspan="4">My Projects</th>
-        <th class="hidden-xs hidden-sm" style="width: 200px;">Last Activity</th>
+        <th class="hidden-xs hidden-sm"></th>
+        <th class="hidden-xs hidden-sm" style="width: 150px;">Last Activity</th>
       </tr>
       </thead>
       <tbody>
@@ -36,9 +37,8 @@
           <!-- TR -->
           <tr>
             <td colspan="4">
-              <h4><a href='/projects/<%= project.id %>'>
-                <%= project.name %>
-              </a>
+              <h4>
+                <a href='/projects/<%= project.id %>'><%= project.name %></a>
                 <small>
                   <% if project.status_code==0 %>
                       <div class='label label-primary'>Not started</div>
@@ -53,11 +53,18 @@
                   <% elsif project.status_code==5 %>
                       <div class='label label-default'>Complete</div>
                   <% end %>
-                  <i> Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.<br /><br />
-                  <%= project.description.html_safe %></small>
+                  <i> Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.
+                </small>
               </h4>
+              <%= "<br />".html_safe + project.description.html_safe unless project.description.length == 0 %>
             </td>
-            <td class="hidden-xs hidden-sm"><small><i>by <%= get_last_updated_by(project.id) %></i></small>
+            <td>
+              <span class='font-xs hidden-sm'><span class="font-xs badge "><%= project.how_many_todos_left_for_this_member(current_user.id) %></span> incomplete todos assigned to me</span><br />
+              <span class='font-xs hidden-sm'><span class="font-xs badge "><%= project.how_many_issues_left_for_this_member(current_user.id) %></span> unresolved issues assigned to me</span><br />
+              <span class='font-xs hidden-sm'><span class="font-xs badge "><%= project.how_many_unread_messages_for_this_member(current_user.id) %></span> unread messages for me</span><br />
+              <span class='font-xs hidden-sm'><span class="font-xs badge ">0</span> alerts for me to see</span><br />
+            </td>
+            <td class="font-xs hidden-xs hidden-sm"><small><i>by <%= get_last_updated_by(project.id) %></small></i>
             </td>
           </tr>
           <!-- end TR -->
@@ -81,8 +88,6 @@
     });
 
 </script>
-
-<%= javascript_include_tag "rails" %>
 
 <!-- Your GOOGLE ANALYTICS CODE Below -->
 <script type="text/javascript">
