@@ -19,7 +19,7 @@ u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password
 puts '   Added user ' + User.first.name
 u1=User.create( :name => 'Max Power', :email => 'max.power@gmail.com', :password => 'lollip0p' )  # no, not my real password
 puts '   Added user ' + User.last.name
-u2=User.create( :name => 'Bob Doe', :email => 'a@gmail.com', :password => 'lollip0p' )
+u2=User.create( :name => 'Karthikkarthika Viswanathan', :email => 'kviswanathan@gmail.com', :password => 'lollip0p' )
 puts '   Added user ' + User.last.name
 u3=User.create( :name => 'John Doe', :email => 'j@gmail.com', :password => 'lollip0p' )
 puts '   Added user ' + User.last.name
@@ -161,7 +161,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts 'Seeding issues to AlphaSim...'
   Issue.destroy_all
 
-  m = project1.issues.create(:subject=>'This is an unresolved issue', :position=>1)
+  m = project1.issues.create(:subject=>'This is an unresolved issue', :position=>1, :member_id=>project1.members.first.id)
   puts '   Added issue ' + m.subject
 
   m = project1.issues.create(:subject=>'This is a resolved issue', :is_resolved=>true, :position=>1)
@@ -185,6 +185,33 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
 =end
 
+
+  Audited::Adapters::ActiveRecord::Audit.as_user(u2) do
+
+    puts ' '
+    puts 'Adding activity from another user...'
+
+    project1 = Project.first
+
+    puts ' '
+    puts 'Adding more milestones to AlphaSim...'
+
+    m = project1.milestones.create(:title=>'Karthika presentation', :start=>Date.tomorrow, :end=>Date.tomorrow, :class_name=>'bg-color-red txt-color-white', :icon=>'fa-user', :start_time=>'10:00', :end_time=>'10:30', :all_day=>false)
+    puts '   Added milestone ' + m.title
+
+    puts ' '
+    puts 'Adding more todos for AlphaSim...'
+
+    t = project1.todos.create(:subject=>'prepare the presentation',:due_date=>Time.now.to_date, :position=>1)
+    puts '   Added todo ' + t.subject
+
+    puts ' '
+    puts 'Adding more issues to AlphaSim...'
+
+    m = project1.issues.create(:subject=>'Cannot find my visa', :position=>1, :member_id=>project1.members.last.id)
+    puts '   Added issue ' + m.subject
+
+  end
 
   puts ' '
   puts 'Done.'

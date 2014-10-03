@@ -78,10 +78,10 @@ class ActivitiesController < ApplicationController
           case a.action
             when 'create'
               a.title = a.audited_changes.split(/\r?\n/)[2].split(':')[1]
-              a.full_message = a.username + ' added the todo "' + a.title.slice(1, a.title.length) + '"'
+              a.full_message = a.username + ' added the issue "' + a.title.slice(1, a.title.length) + '"'
             when 'destroy'
               a.title = a.audited_changes.split(/\r?\n/)[2].split(':')[1]
-              a.full_message = a.username + ' deleted the todo "' + a.title.slice(1, a.title.length) + '"'
+              a.full_message = a.username + ' deleted the issue "' + a.title.slice(1, a.title.length) + '"'
             when 'update'
               a.did_what = 'updated'
               h = a.audited_changes.split(/\r?\n/)
