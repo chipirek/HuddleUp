@@ -40,7 +40,7 @@
 
                     <p>
                         <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                        <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
+                        <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
 
                         <% if todo.is_critical? %>
                           <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
@@ -64,7 +64,7 @@
 
                     <p>
                         <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                        <%= link_to '[More...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
+                        <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class=>'font-xs'} %>
 
                         <% if todo.is_critical? %>
                           <span class='badge bg-color-grey' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>

@@ -24,7 +24,7 @@ class IssuesController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @issue = Issue.find(params[:id])
-    @issue.project_id = params[:project_id]
+    @comment = Comment.new
 
     respond_to do |format|
       format.html # show.html.erb

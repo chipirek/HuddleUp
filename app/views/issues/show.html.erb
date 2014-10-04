@@ -1,0 +1,141 @@
+<div id="content">
+
+  <!-- row -->
+  <div class="row">
+
+    <!-- col -->
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+      <h1 class="page-title txt-color-blueDark">
+
+        <!-- PAGE HEADER -->
+        <i class="fa-fw fa fa-bug"></i>
+        Issue #<%= @issue.id %>
+
+      </h1>
+    </div>
+    <!-- end col -->
+
+  </div>
+  <!-- end row -->
+
+
+  <!-- widget grid -->
+  <well>
+
+    <!-- row -->
+
+    <div class="row">
+
+      <div class="widget-body">
+
+        <h4 class='txt-color-grayDark'><%= @issue.subject %></h4>
+        <span class='text-md'><%= @issue.description %></span>
+
+        <div id="chat-body" class="chat-body custom-scroll">
+          <h3>Comments</h3>
+          <ul>
+
+            <% @issue.comments.order('created_at').each do |comment| %>
+            <li class="message">
+              <img src="/SmartAdmin/img/avatars/male.png" class="online" alt="">
+
+              <div class="message-text">
+                <time>
+                  <%= time_ago_in_words(comment.created_at) %> ago,
+                  <%= comment.created_at.strftime("%m/%d/%Y   %I:%M %p") %>
+                </time>
+                <a href="javascript:void(0);" class="username"><%= comment.member.user.name %></a>
+                <%= comment.body.html_safe %>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+
+        </div>
+
+        <%= form_for [@project, @issue, @comment], :html => {:class => '', :id => 'comment_form'} do |f| %>
+        <div class="chat-footer">
+            <div class="textarea-div">
+
+                <div class="typearea">
+                  <textarea autofocus="true" placeholder="<%= current_user.name %>, add a comment..." id="comment_body" name='comment[body]' class="custom-scroll"></textarea>
+                </div>
+
+            </div>
+
+            <span class="textarea-controls">
+                <button type='submit' class="btn btn-sm btn-primary pull-right">Reply</button>
+                <span class="pull-right smart-form" style="margin-top: 3px; margin-right: 10px;">
+                    <label class="checkbox pull-right">
+                    <input type="checkbox" name="subscription" id="subscription"></label> </span>
+            </span>
+
+        </div>
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+    <!-- end row -->
+
+  </well>
+  <!-- end widget grid -->
+
+</div>
+
+<%= render :partial => '/projects/scripts' %>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        pageSetUp();
+
+        $('#issue_subject').focus();
+
+        var $issueForm = $("#issue_form").validate({
+
+            // Rules for form validation
+            rules: {
+                'issue[subject]': {
+                    required: true,
+                    minlength: 3
+                }
+            },
+
+            // Messages for form validation
+            messages: {
+                'issue[subject]': {
+                    required: 'Please enter a short name for your issue'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+    })
+
+</script>
+
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
