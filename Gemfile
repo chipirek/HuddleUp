@@ -10,10 +10,13 @@ gem 'audited-activerecord', '~> 3.0'
 gem 'rails_12factor'
 gem 'cancan'
 gem 'figaro'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'taps'
   gem 'sqlite3'
+  gem 'ruby-prof'
+  gem 'test-unit'
 end
 
 group :assets do

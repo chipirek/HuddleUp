@@ -62,9 +62,11 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.6)
+    newrelic_rpm (3.9.5.251)
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
+    power_assert (0.1.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -97,6 +99,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-prof (0.15.1)
     sequel (3.20.0)
     sinatra (1.0)
       rack (>= 1.0)
@@ -111,6 +114,8 @@ GEM
       rest-client (>= 1.4.0, < 1.7.0)
       sequel (~> 3.20.0)
       sinatra (~> 1.0.0)
+    test-unit (3.0.1)
+      power_assert
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -136,10 +141,13 @@ DEPENDENCIES
   devise
   figaro
   jquery-rails (~> 2.1)
+  newrelic_rpm
   pg
   rails (= 3.2.12)
   rails_12factor
+  ruby-prof
   sqlite3
   taps
+  test-unit
   thin
   uglifier
