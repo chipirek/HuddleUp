@@ -64,7 +64,7 @@
               <span class='font-xs hidden-sm'><span class="font-xs badge "><%= project.how_many_unread_messages_for_this_member(current_user.id) %></span> unread messages for me</span><br />
               <span class='font-xs hidden-sm'><span class="font-xs badge ">0</span> alerts for me to see</span><br />
             </td>
-            <td class="font-xs hidden-xs hidden-sm"><small><i>by <%= get_last_updated_by(project.id) %></small></i>
+            <td class="font-xs hidden-xs hidden-sm"><small><i>by <%= project.get_last_updated_by %></small></i>
             </td>
           </tr>
           <!-- end TR -->

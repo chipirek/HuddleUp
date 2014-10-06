@@ -16,7 +16,7 @@ group :development do
   gem 'taps'
   gem 'sqlite3'
   gem 'ruby-prof'
-  gem 'test-unit'
+  #gem 'test-unit'
 end
 
 group :assets do

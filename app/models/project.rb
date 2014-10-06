@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+  include ActionView::Helpers::DateHelper
+
   after_create :create_disqus_token
 
   audited
@@ -15,6 +17,21 @@ class Project < ActiveRecord::Base
   has_many :todos, :dependent => :destroy
   has_many :issues, :dependent => :destroy
   has_many :messages, :dependent => :destroy
+
+
+  def get_last_updated_by
+    #last_updated = Audit.where('(auditable_type=? and auditable_id=?) or (associated_type=? and associated_id=?)', 'Project', id, 'Project', id).order('created_at desc').first
+
+    sql = "select * from audits where (auditable_type='Project' and auditable_id=" + id.to_s + ") union select * from audits where (associated_type='Project' and associated_id=" + id.to_s + ") order by created_at desc limit 1"
+    last_updated = Audit.find_by_sql(sql).first()
+
+    if last_updated.nil?
+      return ""
+    end
+
+    who = User.find(last_updated.user_id).name
+    return who + ', ' + time_ago_in_words(last_updated.created_at) + ' ago'
+  end
 
 
   def how_many_todos_left

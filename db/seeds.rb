@@ -168,6 +168,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts '   Added issue ' + m.subject
 
 
+=begin
 
   puts ' '
   puts 'Creating load testing / performance testing bulk data...'
@@ -183,7 +184,6 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
   end
 
-=begin
 =end
 
 
