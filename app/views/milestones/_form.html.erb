@@ -114,7 +114,7 @@ bg-color-darken
         </section>
 
         <section class="col col-6">
-          <label class="label">End Date <i>(Optional)</i></label>
+          <label class="label">End Date <i>(Optional.)</i></label>
           <label class="input"> <i class="icon-append fa fa-calendar"></i>
             <input type="text" name="milestone[end]" id="milestone_end" placeholder="End date..." value='<%= @milestone.end.strftime("%m/%d/%Y") unless @milestone.end.nil? %>'>
           </label>
@@ -123,16 +123,16 @@ bg-color-darken
 
       <div class='row'>
         <section class="col col-6">
-            <label class="label">Start Time <i>(Optional)</i></label>
+            <label class="label">Start Time <i>(24-hour format. Optional.)</i></label>
             <label class="input"> <i class="icon-append fa fa-clock-o"></i>
-              <input type="text" name="milestone[start_time]" id="milestone_start_time" placeholder="Start time..." value='<%= @milestone.start_time.strftime("%I:%M %P") unless @milestone.start_time.nil? %>'>
+              <input type="text" name="milestone[start_time]" id="milestone_start_time" placeholder="Start time..." value='<%= @milestone.start_time.strftime("%H:%M") unless @milestone.start_time.nil? %>'>
             </label>
         </section>
 
         <section class="col col-6">
-          <label class="label">End Time <i>(Optional)</i></label>
+          <label class="label">End Time <i>(24-hour format. Optional.)</i></label>
           <label class="input"> <i class="icon-append fa fa-clock-o"></i>
-            <input type="text" name="milestone[end_time]" id="milestone_end_time" placeholder="End time..." value='<%= @milestone.end_time.strftime("%I:%M %P") unless @milestone.end_time.nil? %>'>
+            <input type="text" name="milestone[end_time]" id="milestone_end_time" placeholder="End time..." value='<%= @milestone.end_time.strftime("%H:%M") unless @milestone.end_time.nil? %>'>
           </label>
         </section>
       </div>

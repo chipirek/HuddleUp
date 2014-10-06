@@ -29,7 +29,7 @@
 
         <p>
             <% if @project.status_code==0 %>
-                <div class='label label-primary'>Not started</div>
+                <div class='label label-default'>Not started</div>
             <% elsif @project.status_code==1 %>
                 <div class='label label-success'>We are on track</div>
             <% elsif @project.status_code==2 %>
@@ -39,7 +39,7 @@
             <% elsif @project.status_code==4 %>
                 <div class='label label-info'>Locked / paused</div>
             <% elsif @project.status_code==5 %>
-                <div class='label label-default'>Complete</div>
+                <div class='label label-darken' style='background-color:black;'>Complete</div>
             <% end %>
         </p>
 

@@ -52,7 +52,7 @@
 </div>
 
 <%= render :partial => '/projects/scripts' %>
-<script src="/SmartAdmin/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<script src="/SmartAdmin/js/plugin/clockpicker/clockpicker.min.js"></script>
 
 <script type="text/javascript">
 
@@ -72,8 +72,16 @@
             nextText : '<i class="fa fa-chevron-right"></i>'
         });
 
-        $('#milestone_start_time').timepicker();
-        $('#milestone_end_time').timepicker();
+        $('#milestone_start_time').clockpicker({
+            placement: 'top',
+            donetext: 'Done'
+        });
+
+        $('#milestone_end_time').clockpicker({
+            placement: 'top',
+            donetext: 'Done'
+        });
+
         <% if @milestone.start_time.nil? %>
             $('#milestone_start_time').val('');
             $('#milestone_end_time').val('');

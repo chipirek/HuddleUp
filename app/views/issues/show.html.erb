@@ -53,24 +53,21 @@
 
         </div>
 
-        <%= form_for [@project, @issue, @comment], :html => {:class => '', :id => 'comment_form'} do |f| %>
-        <div class="chat-footer">
-            <div class="textarea-div">
+        <%= form_for [@project, @issue, @comment], :html => {:class => 'smart-form', :id => 'comment_form'} do |f| %>
+            <fieldset>
 
-                <div class="typearea">
-                  <textarea autofocus="true" placeholder="<%= current_user.name %>, add a comment..." id="comment_body" name='comment[body]' class="custom-scroll"></textarea>
-                </div>
+              <section>
+                <label class="label">Add a Comment</label>
+                <label class="textarea"><textarea rows="4" name="comment[body]" id="comment_body" placeholder="<%= current_user.name %>, add a comment..."></textarea> </label>
+              </section>
 
-            </div>
+            </fieldset>
 
-            <span class="textarea-controls">
-                <button type='submit' class="btn btn-sm btn-primary pull-right">Reply</button>
-                <span class="pull-right smart-form" style="margin-top: 3px; margin-right: 10px;">
-                    <label class="checkbox pull-right">
-                    <input type="checkbox" name="subscription" id="subscription"></label> </span>
-            </span>
-
-        </div>
+            <footer>
+              <button type="submit" class="btn btn-success">
+                Save
+              </button>
+            </footer>
 
         <% end %>
 
@@ -95,20 +92,19 @@
 
         $('#issue_subject').focus();
 
-        var $issueForm = $("#issue_form").validate({
+        var $commentForm = $("#comment_form").validate({
 
             // Rules for form validation
             rules: {
-                'issue[subject]': {
-                    required: true,
-                    minlength: 3
+                'comment[body]': {
+                    required: true
                 }
             },
 
             // Messages for form validation
             messages: {
-                'issue[subject]': {
-                    required: 'Please enter a short name for your issue'
+                'comment[body]': {
+                    required: 'Please enter a comment.'
                 }
             },
 
