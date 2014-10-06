@@ -180,6 +180,8 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
     150.times do |z|
       ts = p.todos.create(:subject=>"Todo " + z.to_s, :due_date=>Time.now.to_date, :position=>1, :member_id=>mb.id)
+      is = p.issues.create(:subject=>"Issue " + z.to_s, :position=>1, :member_id=>mb.id)
+      ms = p.milestones.create(:title=>'Milestone' + z.to_s, :start=>Date.tomorrow, :end=>Date.tomorrow, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
     end
 
   end
