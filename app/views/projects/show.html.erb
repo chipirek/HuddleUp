@@ -217,7 +217,11 @@
                               <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
                           <% end %>
 
-                          <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
+                          <span class="text-muted">
+                          <%= " Assigned to " + todo.member.user.name + "." unless todo.member.nil? %>
+                            <%= " Due " + todo.due_date.strftime("%m/%d/%Y") + "." unless todo.due_date.nil? %>
+                            <%= todo.description %> </span>
+
                           <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
                         </p>
                       </li>
@@ -249,6 +253,10 @@
 
 <script>
     $(document).ready(function () {
+
+        var calendarViewName = $.cookie('calendarView');
+        if (calendarViewName == null)
+            calendarViewName = 'agendaWeek';
 
         // DO NOT REMOVE : GLOBAL FUNCTIONS!
         pageSetUp();
@@ -356,10 +364,6 @@
 
         }
 
-        var calendarViewName = $.cookie('calendarView');
-        if (calendarViewName == null)
-            calendarViewName = 'agendaWeek';
-
         if ($("#calendar").length) {
             var date = new Date();
             var d = date.getDate();
@@ -369,31 +373,10 @@
 
             var calendar = $('#calendar').fullCalendar({
 
-                //editable: true,
-                //draggable: true,
-                //selectable: false,
-                //selectHelper: true,
-                unselectAuto: false,
-                disableResizing: false,
-
                 header: {
-                    left: 'title', //,today
-                    center: 'prev, next, today',
-                    right: 'month, agendaWeek, agenDay' //month, agendaDay,
-                },
-
-                select: function (start, end, allDay) {
-                    var title = prompt('Event Title:');
-                    if (title) {
-                        calendar.fullCalendar('renderEvent', {
-                                    title: title,
-                                    start: start,
-                                    end: end,
-                                    allDay: allDay
-                                }, true // make the event "stick"
-                        );
-                    }
-                    calendar.fullCalendar('unselect');
+                    left: 'title',
+                    center: 'month,agendaWeek,agendaDay',
+                    right: 'prev,today,next'
                 },
 
                 defaultView: calendarViewName,

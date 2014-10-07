@@ -46,7 +46,10 @@
                           <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
                         <% end %>
 
-                        <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
+                        <span class="text-muted">
+                          <%= " Assigned to " + todo.member.user.name + "." unless todo.member.nil? %>
+                          <%= " Due " + todo.due_date.strftime("%m/%d/%Y") + "." unless todo.due_date.nil? %>
+                          <%= todo.description %> </span>
                         <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
                     </p>
                 </li>
