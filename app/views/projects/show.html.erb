@@ -14,7 +14,7 @@
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
 
     <% if @project.current_user_is_project_admin?(current_user.id) %>
-        <%= link_to 'Admin: Edit this project definition', edit_project_path, :class => 'btn btn-success btn-lg pull-right header-btn hidden-mobile' %>
+        <%= link_to 'Admins: Edit this project definition', edit_project_path, :class => 'btn btn-info btn-lg pull-right header-btn hidden-mobile' %>
     <% end %>
 
   </div>
@@ -356,12 +356,16 @@
 
         }
 
+        var calendarViewName = $.cookie('calendarView');
+        if (calendarViewName == null)
+            calendarViewName = 'agendaWeek';
 
         if ($("#calendar").length) {
             var date = new Date();
             var d = date.getDate();
             var m = date.getMonth();
             var y = date.getFullYear();
+
 
             var calendar = $('#calendar').fullCalendar({
 
@@ -392,6 +396,15 @@
                     calendar.fullCalendar('unselect');
                 },
 
+                defaultView: calendarViewName,
+                viewDisplay: function( view )
+                {
+                    //save your cookie here, it's triggered each time the view changes
+                    //console.log('changing view name to... ');
+                    //console.log(view.name);
+                    $.cookie('calendarView', view.name);
+                },
+
                 events: [
                     <% @project.milestones.each do |m| %>
                     {
@@ -407,9 +420,7 @@
                                 <%= ", " + m.end_time.strftime("%H,%M") unless m.end_time.nil? %>  ),
                         <% end %>
 
-                        <% if !m.start_time.nil? || !m.end_time.nil? %>
-                        'allDay':false,
-                        <% end %>
+                        'allDay':<%= m.all_day? %>,
                         "title": "<%= m.title %>",
                         "description": "<%= m.description %>",
                         "className":"<%= m.class_name %>",

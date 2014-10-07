@@ -84,18 +84,6 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-
-        #--- create a milestone/event for this todo with a due date
-        if !@todo.due_date.nil?
-          o=Milestone.new
-          o.project_id=@todo.project_id
-          o.title=@todo.subject
-          o.start=@todo.due_date
-          o.end=@todo.due_date
-          o.class_name='bg-color-greenLight'
-          o.save!
-        end
-
         format.html { redirect_to project_todos_path(@project), notice: 'Todo was successfully created.' }
         format.json { render json: @todo, status: :created, location: @todo }
       else

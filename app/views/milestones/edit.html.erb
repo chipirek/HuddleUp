@@ -87,6 +87,16 @@
             $('#milestone_end_time').val('');
         <% end %>
 
+        var allDay = <%= @milestone.all_day? %>;
+        if (allDay)
+        {
+            $('#milestone_all_day').prop('checked', 'checked');
+        }
+        else
+        {
+            $('#milestone_all_day').removeProp('checked');
+        }
+
         $('#milestone_title').focus();
 
         var $milestoneForm = $("#milestone_form").validate({

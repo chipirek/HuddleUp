@@ -141,6 +141,12 @@ bg-color-darken
       </div>
 
       <section>
+        <label class="checkbox">
+          <input type="checkbox" name="milestone[all_day]" id="milestone_all_day" >
+          <i></i>This is an all-day event.</label>
+      </section>
+
+      <section>
         <label class="label">Description</label>
         <label class="textarea"><textarea rows="4" name="milestone[description]" id="milestone_description"><%= @milestone.description %></textarea> </label>
       </section>

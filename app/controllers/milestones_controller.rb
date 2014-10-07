@@ -104,6 +104,7 @@ class MilestonesController < ApplicationController
     # @project = Project.find(params[:project_id])
     # @milestone = Milestone.find(params[:id])
     @milestone.update_attributes(params[:milestone])
+    @milestone.all_day = !params[:milestone]['all_day'].nil?
 
     if params[:milestone][:start].length == 0
       @milestone.errors.add(:start, 'Start Date is not valid.')
