@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   around_filter :catch_not_found
 
   rescue_from CanCan::AccessDenied do |exception|
-    puts '>>> UNAUTHORIZED: ' + exception.message
-    flash[:error] = 'You do not have access to the project requested.'
+    puts '>>> SECURITY VIOLATION: ' + exception.message
+    flash[:error] = '>>> SECURITY VIOLATION: ' + exception.message
     # redirect_to '/projects'
     # redirect_to new_user_session_path
     redirect_to '/500.html'

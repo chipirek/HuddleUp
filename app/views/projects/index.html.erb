@@ -33,51 +33,61 @@
       </thead>
       <tbody>
 
-      <% @projects.each do |project| %>
-          <!-- TR -->
+      <% if @projects.count == 0 %>
           <tr>
-            <td colspan="4">
-              <h4>
-                <a href='/projects/<%= project.id %>'><%= project.name %></a>
-                <small>
-                  <% if project.status_code==0 %>
-                      <div class='label label-default'>Not started</div>
-                  <% elsif project.status_code==1 %>
-                      <div class='label label-success'>We are on track</div>
-                  <% elsif project.status_code==2 %>
-                      <div class='label label-warning'>Project is troubled</div>
-                  <% elsif project.status_code==3 %>
-                      <div class='label label-danger'>Project is late or failing</div>
-                  <% elsif project.status_code==4 %>
-                      <div class='label label-info'>Locked / paused</div>
-                  <% elsif project.status_code==5 %>
-                      <div class='label label-darken' style='background-color:black;'>Complete</div>
-                  <% end %>
-                  <i> Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.
-                </small>
-              </h4>
-              <%= "<br />".html_safe + project.description.html_safe unless project.description.length == 0 %>
-            </td>
-            <td>
-              <% if project.how_many_todos_left_for_this_member(current_user.id) > 0 %>
-                <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_todos_left_for_this_member(current_user.id) %></span> incomplete todos assigned to me</span><br />
-              <% end %>
-
-              <% if project.how_many_issues_left_for_this_member(current_user.id) > 0 %>
-                <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_issues_left_for_this_member(current_user.id) %></span> unresolved issues assigned to me</span><br />
-              <% end %>
-
-              <% if project.how_many_unread_messages_for_this_member(current_user.id) > 0 %>
-                <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_unread_messages_for_this_member(current_user.id) %></span> unread messages for me</span><br />
-              <% end %>
-
-            </td>
-            <td class="font-xs hidden-xs hidden-sm"><small><i>by <%= project.get_last_updated_by %></small></i>
+            <td colspan="6">
+              <h5>
+                You have no projects set up.  Click <%= link_to 'here', new_project_path %> to get started.
+              </h5>
             </td>
           </tr>
-          <!-- end TR -->
-      <% end %>
 
+      <% else %>
+          <% @projects.each do |project| %>
+              <!-- TR -->
+              <tr>
+                <td colspan="4">
+                  <h4>
+                    <a href='/projects/<%= project.id %>'><%= project.name %></a>
+                    <small>
+                      <% if project.status_code==0 %>
+                          <div class='label label-default'>Not started</div>
+                      <% elsif project.status_code==1 %>
+                          <div class='label label-success'>We are on track</div>
+                      <% elsif project.status_code==2 %>
+                          <div class='label label-warning'>Project is troubled</div>
+                      <% elsif project.status_code==3 %>
+                          <div class='label label-danger'>Project is late or failing</div>
+                      <% elsif project.status_code==4 %>
+                          <div class='label label-info'>Locked / paused</div>
+                      <% elsif project.status_code==5 %>
+                          <div class='label label-darken' style='background-color:black;'>Complete</div>
+                      <% end %>
+                      <i> Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.
+                    </small>
+                  </h4>
+                  <%= "<br />".html_safe + project.description.html_safe unless project.description.length == 0 %>
+                </td>
+                <td>
+                  <% if project.how_many_todos_left_for_this_member(current_user.id) > 0 %>
+                    <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_todos_left_for_this_member(current_user.id) %></span> incomplete todos assigned to me</span><br />
+                  <% end %>
+
+                  <% if project.how_many_issues_left_for_this_member(current_user.id) > 0 %>
+                    <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_issues_left_for_this_member(current_user.id) %></span> unresolved issues assigned to me</span><br />
+                  <% end %>
+
+                  <% if project.how_many_unread_messages_for_this_member(current_user.id) > 0 %>
+                    <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_unread_messages_for_this_member(current_user.id) %></span> unread messages for me</span><br />
+                  <% end %>
+
+                </td>
+                <td class="font-xs hidden-xs hidden-sm"><small><i>by <%= project.get_last_updated_by %></small></i>
+                </td>
+              </tr>
+              <!-- end TR -->
+          <% end %>
+      <% end %>
       </tbody>
     </table>
 
