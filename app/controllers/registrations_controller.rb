@@ -5,16 +5,27 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
 
+  #user email
+  #user name
+  #user password
+  #project name?
+  #credit card info?
+
+  # this method overrides the base class
   def create
+
+    # --- build the devise user, called a 'resource'
     build_resource
 
-    if resource.save
+    if resource.save   #--- if it saves ok...
 
-      @project = Project.new(:name=>params[:project_name], :status_code=>1)
-      if @project.save
+      #--- create a project object
+      project = Project.new(:name=>params[:project_name], :status_code=>1)
+      if project.save   #--- if it saves ok...
 
-        @member = Member.new(:project_id=>@project.id, :user_id=>resource.id, :joined_date=>Time.now, :is_admin=>true)
-        if @member.save
+        #--- create a member object
+        member = Member.new(:project_id=>@project.id, :user_id=>resource.id, :joined_date=>Time.now, :is_admin=>true)
+        if member.save
           set_flash_message :notice, :signed_up if is_navigational_format?
           sign_up(resource_name, resource)
           respond_with resource, :location => after_sign_up_path_for(resource)
