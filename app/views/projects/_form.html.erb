@@ -15,26 +15,26 @@
 
 
     <fieldset>
-        <div class='row'>
-      <section class="col col-6">
-        <label class="label">Project Name</label>
-        <label class="input">
-          <input type="text" class='input-lg' name="project[name]" placeholder="Give your project a short title..." id='project_name' value='<%= @project.name %>'>
+      <div class='row'>
+        <section class="col col-6">
+          <label class="label">Project Name</label>
+          <label class="input">
+            <input type="text" class='input-lg' name="project[name]" placeholder="Give your project a short title..." id='project_name' value='<%= @project.name %>'>
           </label>
         </section>
 
         <section class="col col-6">
-            <label class="label">Status</label>
-            <label class="select">
+          <label class="label">Status</label>
+          <label class="select">
             <%= select('project', 'status_code', [['Not started', 0], ['On track', 1], ['Troubled', 2], ['Late', 3], ['Locked/paused', 4], ['Complete', 5]], {}) %>
-            </label>
-
-      </section>
-        </div>
+          </label>
+        </section>
+      </div>
 
       <section>
         <label class="label">Description</label>
-        <label class="textarea"><textarea rows="4" name="project[description]" id="project_description"><%= @project.description %></textarea> </label>
+        <label class="textarea"><textarea rows="4" name="project[description]" id="project_description"><%= @project.description %></textarea>
+        </label>
       </section>
 
     </fieldset>

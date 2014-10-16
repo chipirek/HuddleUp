@@ -7,12 +7,14 @@
   <div class="login-info">
     <span> <!-- User image size is adjusted inside CSS, it should stay as it -->
 
-    <a href="/users/edit" id="show-shortcut">
-        <span>
-            <%= current_user.name unless current_user.nil? %>
-        </span>
-      <i class="fa fa-angle-down"></i>
-    </a>
+      <% if !current_user.nil? %>
+        <a href="/users/edit" id="show-shortcut">
+            <span>
+            <%= current_user.name %>
+            </span>
+            <i class="fa fa-angle-down"></i>
+        </a>
+      <% end %>
 
     </span>
   </div>

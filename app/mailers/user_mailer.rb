@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
 
-  default from: 'HuddleUp Invitations <invitations@huddleup.com>'    #"invitations@huddleup.com"
+  default from: 'Customer Care at HuddleUp.com <customer.care@huddleup.com>'    #"invitations@huddleup.com"
 
 
   def welcome_new_user(member, project, url, temp_password)
@@ -18,5 +18,6 @@ class UserMailer < ActionMailer::Base
     @url  = url
     mail(to: @member.user.email, subject: 'Welcome to "' + @project.name + '" at HuddleUp.com')
   end
+
 
 end
