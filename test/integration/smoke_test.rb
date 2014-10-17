@@ -101,6 +101,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
 
   test 'edit a project' do
+
     #-- login
     get '/users/sign_in'
     assert_response :success
@@ -125,6 +126,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
 
   test 'delete a project' do
+
     #-- login
     get '/users/sign_in'
     assert_response :success
@@ -363,8 +365,62 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   end
 
+
 =begin
 =end
+
+
+  test 'user can only see his projects' do
+
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'new_subscriber@me.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+
+    get '/projects'
+    assert_response :success
+    assert assigns(:projects)
+
+    membership = Member.where('user_id=3').where("status_code <> '9'").pluck(:project_id)
+
+    if membership.count == 0
+      projects = []
+    else
+      projects = Project.where('id in (?)', membership)
+    end
+
+    assert_equal(0, projects.count, 'New subscriber issue')
+  end
+
+
+  test '404 when a user requests a bad project id' do
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+
+    #-- try to get a bad record
+    get '/projects/9999'
+    assert_redirected_to '/errors/error_404'
+  end
+
+
+  test '422 when user requests project id he is not allowed' do
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'r2k@me.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+
+    #-- try to get a bad record
+    get '/projects/1'
+    assert_redirected_to '/errors/error_422'
+  end
+
 
 end
 

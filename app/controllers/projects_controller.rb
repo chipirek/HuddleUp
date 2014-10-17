@@ -1,14 +1,18 @@
 class ProjectsController < ApplicationController
 
-  load_and_authorize_resource
+  load_and_authorize_resource :except=>:index
 
   # GET /projects
   # GET /projects.json
   def index
     # no longer needed, since authorization via CanCan loads these resources
-    # @membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
-    # @projects = Project.where('id in (?)', @membership)
+    @membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
 
+    if @membership.count == 0
+      @projects = []
+    else
+      @projects = Project.where('id in (?)', @membership)
+    end
 
     respond_to do |format|
       format.html # index2.html.erb

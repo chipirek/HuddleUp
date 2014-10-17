@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     puts '>>> SECURITY VIOLATION: ' + exception.message
     flash[:error] = '>>> SECURITY VIOLATION: ' + exception.message
-    redirect_to '/errors/error_500'
+    redirect_to '/errors/error_422'
   end
 
 
