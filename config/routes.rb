@@ -21,6 +21,13 @@ HuddleUp::Application.routes.draw do
   match '/users/:id', :to => 'users#show', :as => :user
   match '/projects/:project_id/issues/:issue_id/:controller/:action(/:id)'
   match '/projects/:project_id/:controller/:action(/:id)'
-  #match ':controller(/:action(/:id(.:format)))'
-  #match '/projects/:project_id/milestones/:milestone_id/:controller/:action' #sort
+
+  get '/errors/error_404'
+  get '/errors/error_500'
+  get '/errors/error_422'
+
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+  end
+
 end
