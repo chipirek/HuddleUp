@@ -11,7 +11,7 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412285205285" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372857294277" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413755256582" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413755764643" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413552369397" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410361494034" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412695153750" ignored="false" />
@@ -94,7 +94,7 @@
     <file path="/audit.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399073629970" ignored="false" />
     <file path="/20131103221339_create_issues.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399243558121" ignored="false" />
     <file path="/20140425105653_create_read_receipts.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399243617939" ignored="false" />
-    <file path="/index.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413755672008" ignored="false" />
+    <file path="/index.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413761890571" ignored="false" />
     <file path="/users_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1409609420235" ignored="false" />
     <file path="/todos.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410136935198" ignored="false" />
     <file path="/todo.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410260252961" ignored="false" />
@@ -142,7 +142,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="64" selection-start="3901" selection-end="3901" vertical-scroll-proportion="0.7254902">
+            <state line="220" column="12" selection-start="8592" selection-end="8592" vertical-scroll-proportion="0.7326203">
               <folding>
                 <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1610,7 +1610,11 @@
       <created>1413755260204</created>
       <updated>1413755260204</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="Commercialization#117 - Added pricing page.">
+      <created>1413755766959</created>
+      <updated>1413755766959</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1723,13 +1727,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/member.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/errors/error_422.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1828,9 +1825,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/rubymine.jar!/resources/html5-schema/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="184" column="4" selection-start="3469" selection-end="3469" vertical-scroll-proportion="0.42307693">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="64" selection-start="3901" selection-end="3901" vertical-scroll-proportion="0.7254902">
+        <state line="220" column="12" selection-start="8592" selection-end="8592" vertical-scroll-proportion="0.7326203">
           <folding>
             <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
