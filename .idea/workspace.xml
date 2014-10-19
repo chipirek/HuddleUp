@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/ribbon.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/marketing.css" afterPath="$PROJECT_DIR$/public/marketing.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
@@ -13,7 +11,7 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412285205285" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372857294277" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413752477646" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413755256582" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413552369397" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410361494034" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412695153750" ignored="false" />
@@ -96,7 +94,7 @@
     <file path="/audit.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399073629970" ignored="false" />
     <file path="/20131103221339_create_issues.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399243558121" ignored="false" />
     <file path="/20140425105653_create_read_receipts.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399243617939" ignored="false" />
-    <file path="/index.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413755078392" ignored="false" />
+    <file path="/index.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413755672008" ignored="false" />
     <file path="/users_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1409609420235" ignored="false" />
     <file path="/todos.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410136935198" ignored="false" />
     <file path="/todo.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410260252961" ignored="false" />
@@ -144,13 +142,13 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="237" column="42" selection-start="13609" selection-end="13609" vertical-scroll-proportion="1.2299465">
+            <state line="78" column="64" selection-start="3901" selection-end="3901" vertical-scroll-proportion="0.7254902">
               <folding>
-                <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-                <element signature="n#style#0;n#article#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#article#1;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#article#2;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#article#3;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#article#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#article#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#article#3;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1608,7 +1606,11 @@
       <created>1413752481726</created>
       <updated>1413752481726</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="Commercialization#117 - Added pricing page.">
+      <created>1413755260204</created>
+      <updated>1413755260204</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1677,7 +1679,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commercialization#118 - Added image slider and captions for marketing landing page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commercialization#117 - Added pricing page." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1691,7 +1693,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="add error flash to top of login form" />
     <MESSAGE value="Making sure user has admin rights before allowing ability to edit or delete a project" />
     <MESSAGE value="Added sort capability to todos and to issues" />
     <MESSAGE value="Fix position accessibility attribute on issues" />
@@ -1716,6 +1717,7 @@
     <MESSAGE value="Commercialization#124 - Improve 500, 404, and 422 handling." />
     <MESSAGE value="Commercialization#123 - Completed integration testing fixes." />
     <MESSAGE value="Commercialization#118 - Added image slider and captions for marketing landing page." />
+    <MESSAGE value="Commercialization#117 - Added pricing page." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1828,13 +1830,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="42" selection-start="13609" selection-end="13609" vertical-scroll-proportion="1.2299465">
+        <state line="78" column="64" selection-start="3901" selection-end="3901" vertical-scroll-proportion="0.7254902">
           <folding>
-            <element signature="tag#section#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#article#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#article#1;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#article#2;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#article#3;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#article#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#article#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#article#3;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
