@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
   private
 
 
+  def after_sign_in_path_for(user)
+    projects_path  #this bypasses the index.html marketing page
+  end
+
+
   def catch_not_found
     yield
   rescue ActiveRecord::RecordNotFound
