@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  layout "devise/new_registration", only: [:new]
+
   def new
     super
   end
@@ -13,7 +15,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   # this method overrides the base class
   def create
+    super
 
+=begin
     # --- build the devise user, called a 'resource'
     build_resource
 
@@ -45,6 +49,7 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords resource
       respond_with resource
     end
+=end
 
   end
 

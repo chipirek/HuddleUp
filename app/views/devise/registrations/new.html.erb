@@ -1,119 +1,181 @@
-<div id="content">
 
-  <!-- row -->
+<!-- MAIN CONTENT -->
+<div id="content" class="container">
+
   <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+      <h1 class="txt-color-red login-header-big">Welcome!</h1>
+      <div class="hero">
 
-    <!-- col -->
-    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-9">
-      <h1 class="page-title txt-color-blueDark">
+        <div class="pull-left login-desc-box-l">
+          <h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of HuddleUp, everywhere you go!</h4>
+        </div>
 
-        <!-- PAGE HEADER -->
-        <i class="fa-fw fa fa-user"></i>
-        Register
+        <img src="/SmartAdmin/img/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px">
 
-      </h1>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <h5 class="about-heading">Not just your average template!</h5>
+          <p>
+            Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+          </p>
+        </div>
+      </div>
+
     </div>
-    <!-- end col -->
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 
-  </div>
-  <!-- end row -->
+      <div class="well no-padding">
 
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'smart-form', :id => 'registration_form'}) do |f| %>
+            <%= devise_error_messages! %>
+            <%= display_base_errors resource %>
 
-  <!-- widget grid -->
-  <well>
+            <% if flash[:alert] %>
+                <div class="alert alert-danger fade in">
+                  <button class="close" data-dismiss="alert">
+                    ×
+                  </button>
+                  <i class="fa-fw fa fa-times"></i>
+                  <strong>Error!</strong> <%= flash[:alert] %>
+                </div>
+            <% end %>
 
-    <!-- row -->
+            <header>
+              Your Information
+            </header>
 
-    <div class="row" style='background-color: #fff;'>
+            <fieldset>
 
-      <div class="widget-body">
+              <section>
+                <label class="label">Your name</label>
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input type="name" name='user[name]' autocomplete="true" id='user_name' placeholder='i.e. John Jones'>
+                  </label>
+              </section>
 
-        form???
+              <section>
+                <label class="label">E-mail</label>
+                <label class="input"> <i class="icon-append fa fa-envelope"></i>
+                  <input type="email" name='user[email]' id='user_email' placeholder='john@example.com'>
+                  </label>
+              </section>
 
+              <section>
+                <label class="label">Password</label>
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <%= f.password_field :password %>
+                  </label>
+              </section>
+
+              <section>
+                <label class="label">Password Confirmation</label>
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <%= f.password_field :password_confirmation %>
+                  </label>
+              </section>
+
+            </fieldset>
+
+            <header>
+              Your Plan
+            </header>
+
+            <fieldset>
+              <label class="select">
+                <select name="plan" id='plan'>
+                  <option value="free" <%= "selected=selected" if params['plan'] == 'free' %>>Personal - Free</option>
+                  <option value="silver" <%= "selected=selected" if params['plan'] == 'silver' %>>Silver Plan - $1/mo</option>
+                  <option value="gold" <%= "selected=selected" if params['plan'] == 'gold' %>>Gold - $5/mo</option>
+                  <option value="platinum" <%= "selected=selected" if params['plan'] == 'platinum' %>>Platinum - $19/mo</option>
+                </select> <i></i> </label>
+            </fieldset>
+
+            <header>
+              Your Account
+            </header>
+
+            <fieldset>
+              <section>
+                <div class="inline-group">
+                  <label class="radio">
+                    <input type="radio" name="radio-inline" checked="">
+                    <i></i>Visa</label>
+                  <label class="radio">
+                    <input type="radio" name="radio-inline">
+                    <i></i>MasterCard</label>
+                  <label class="radio">
+                    <input type="radio" name="radio-inline">
+                    <i></i>American Express</label>
+                </div>
+              </section>
+
+              <section>
+                <label class="input">
+                  <input type="text" name="name" placeholder="Name on card">
+                </label>
+              </section>
+
+              <div class="row">
+                <section class="col col-8">
+                  <label class="input">
+                    <input type="text" name="card" placeholder="Card number" data-mask="9999-9999-9999-9999">
+                  </label>
+                </section>
+                <section class="col col-4">
+                  <label class="input">
+                    <input type="text" name="cvv" placeholder="CVV2" data-mask="999">
+                  </label>
+                </section>
+              </div>
+
+              <div class="row">
+                <label class="label col col-4">Expiration date</label>
+                <section class="col col-5">
+                  <label class="select">
+                    <select name="month">
+                      <option value="0" selected="" disabled="">Month</option>
+                      <option value="1">January</option>
+                      <option value="1">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select> <i></i> </label>
+                </section>
+                <section class="col col-3">
+                  <label class="input">
+                    <input type="text" name="year" placeholder="Year" data-mask="2099">
+                  </label>
+                </section>
+              </div>
+            </fieldset>
+
+              <footer>
+              <button type="submit" class="btn btn-primary">
+                Take my money!
+              </button>
+            </footer>
+
+        <% end %>
 
       </div>
 
     </div>
-
-    <!-- end row -->
-
-  </well>
-  <!-- end widget grid -->
-
-  <p></p>
-
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete, :class => 'btn btn-danger' %></p>
-
+  </div>
 </div>
 
-<%= render :partial => '/projects/scripts' %>
-
-<script type="text/javascript">
-
-    $(document).ready(function () {
-
-        pageSetUp();
-
-        var $profileForm = $("#profile_form").validate({
-
-            // Rules for form validation
-            rules: {
-                'user[name]': {
-                    required: true,
-                    minlength: 3
-                },
-                'user[email]': {
-                    required: true,
-                    minlength: 8,
-                    email: true
-                },
-                'user[current_password]': {
-                    required: true,
-                    minlength: 8
-                }
-            },
-
-            // Messages for form validation
-            messages: {
-                'user[name]': {
-                    required: 'Please make sure your name is filled in.'
-                },
-                'user[email]': {
-                    required: 'Please make sure your email is filled in.',
-                    email: 'Please make sure your email is VALID.'
-                },
-                'user[current_password]': {
-                    required: 'Please enter your current password so we can validate your request.',
-                    minlength: 'Password is too short.'
-                }
-            },
-
-            // Do not change code below
-            errorPlacement: function (error, element) {
-                error.insertAfter(element.parent());
-            }
-        });
-
-    })
-
-</script>
-
-
-<!-- Your GOOGLE ANALYTICS CODE Below -->
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-    _gaq.push(['_trackPageview']);
-
-    (function () {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
-
-</script>
