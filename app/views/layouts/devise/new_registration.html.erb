@@ -58,6 +58,8 @@
 
   <%= csrf_meta_tag %>
 
+  <meta name="stripe-key" content="<%= STRIPE_PUBLIC_KEY %>">
+
 </head>
 
 <body class="animated fadeInDown">
@@ -160,12 +162,26 @@
 <script src="..."></script>-->
 <!-- PAGE RELATED PLUGIN(S) -->
 <script src="/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
+<script src="/SmartAdmin/js/plugin/jquery.readyselector.js"></script>
+<script src="/SmartAdmin/js/plugin/jquery.externalscript.js"></script>
 
 <script type="text/javascript">
     pageSetUp();
     runAllForms();
 
     $(function() {
+
+        $.externalScript('https://js.stripe.com/v1/').done(function(script, textStatus) {
+            console.log('Script loading: ' + textStatus );
+            if (typeof Stripe != 'undefined')
+            {
+                console.log('Okay. Stripe file loaded.');
+            }
+            else
+            {
+                console.log('Problem. Stripe file not loaded.');
+            }
+        });
 
         // Validation
         $("#registration_form").validate({

@@ -11,6 +11,8 @@ gem 'rails_12factor'
 gem 'cancan'
 gem 'figaro'
 gem 'newrelic_rpm'
+gem 'stripe'
+gem 'stripe_event'
 
 group :development do
   gem 'taps'

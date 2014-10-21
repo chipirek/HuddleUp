@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_sign_in_at, :plan
-  # attr_accessible :title, :body
+
+  # virtual attribut for the strip_token (CC processing) so we can keep PCI compliance
+  attr_accessor :stripe_token
 
   validates_presence_of :name
   validates_presence_of :email
