@@ -210,12 +210,18 @@
 
             // Messages for form validation
             messages : {
+                "user[name]" : {
+                    required : 'Please enter your name'
+                },
                 "user[email]" : {
                     required : 'Please enter your email address',
                     email : 'Please enter a VALID email address'
                 },
                 "user[password]" : {
                     required : 'Please enter your password'
+                },
+                'user[password_confirmation]' : {
+                    required : 'Please enter your password again for confirmation'
                 }
             },
 
