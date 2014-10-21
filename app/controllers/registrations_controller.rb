@@ -15,7 +15,17 @@ class RegistrationsController < Devise::RegistrationsController
 
   # this method overrides the base class
   def create
-    super
+    build_resource
+    resource.plan = params['plan']
+    if !resource.save
+      resource.errors.add('Account', ' something went wrong.')
+      clean_up_passwords resource
+      respond_with resource, :location => '/users/sign_up'
+    else
+      set_flash_message :notice, :signed_up if is_navigational_format?
+      sign_up(resource_name, resource)
+      respond_with resource, :location => after_sign_up_path_for(resource)
+    end
 
 =begin
     # --- build the devise user, called a 'resource'

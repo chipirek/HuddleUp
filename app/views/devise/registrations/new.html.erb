@@ -91,7 +91,7 @@
 
             <fieldset>
               <label class="select">
-                <select name="plan" id='plan'>
+                <select name="user[plan]" id='user_plan'>
                   <option value="free" <%= "selected=selected" if params['plan'] == 'free' %>>Personal - Free</option>
                   <option value="silver" <%= "selected=selected" if params['plan'] == 'silver' %>>Silver Plan - $1/mo</option>
                   <option value="gold" <%= "selected=selected" if params['plan'] == 'gold' %>>Gold - $5/mo</option>
