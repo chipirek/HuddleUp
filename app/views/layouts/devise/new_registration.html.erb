@@ -154,10 +154,6 @@
 <!-- MAIN APP JS FILE -->
 <script src="/SmartAdmin/js/app.min.js"></script>
 
-<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-<!-- Voice command : plugin -->
-<script src="/SmartAdmin/js/speech/voicecommand.min.js"></script>
-
 <!-- PAGE RELATED PLUGIN(S)
 <script src="..."></script>-->
 <!-- PAGE RELATED PLUGIN(S) -->
@@ -181,6 +177,44 @@
             {
                 console.log('Problem. Stripe file not loaded.');
             }
+            Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
+            console.log('set Stripe public key: ' + $('meta[name="stripe-key"]').attr('content'));
+            var subscription = {
+                setupForm: function() {
+                    console.log('function: setupForm')
+                    return $('.card-form').submit(function() {
+                        console.log('setupForm: form submitted');
+                        $('input[type=submit]').prop('disabled', true);
+                        subscription.processCard();
+                        return false;
+                    });
+                },
+                processCard: function() {
+                    console.log('function: processCard');
+                    var card;
+                    card = {
+                        name: $('#card_name').val(),
+                        number: $('#card_number').val(),
+                        cvc: $('#card_code').val(),
+                        expMonth: $('#card_month').val(),
+                        expYear: $('#card_year').val()
+                    };
+                    console.log('card.name=' + card.name);
+                    console.log('card.number=' + card.number);
+                    console.log('card.cvc=' + card.cvc);
+                    console.log('card.expMonth=' + card.expMonth);
+                    console.log('card.expYear=' + card.expYear);
+                    return Stripe.createToken(card, subscription.handleStripeResponse);
+                },
+                handleStripeResponse: function(status, response) {
+                    console.log('function: handleStripeResponse');
+                    if (status === 200) {
+                        return alert('Stripe response: ' + response.id); }
+                    else {
+                        return alert('Stripe response: ' + response.error.message); }
+                }
+            };
+            return subscription.setupForm();
         });
 
         // Validation

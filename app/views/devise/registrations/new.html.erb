@@ -40,7 +40,7 @@
 
       <div class="well no-padding">
 
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'smart-form', :id => 'registration_form'}) do |f| %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'smart-form card-form', :id => 'registration_form'}) do |f| %>
             <%= devise_error_messages! %>
             <%= display_base_errors resource %>
 
@@ -136,19 +136,19 @@
 
                   <section>
                     <label class="input">
-                      <input type="text" name="name" placeholder="Name on card">
+                      <input type="text" name="card_name" id="card_name" placeholder="Name on card">
                     </label>
                   </section>
 
                   <div class="row">
                     <section class="col col-8">
                       <label class="input">
-                        <input type="text" name="card" placeholder="Card number" data-mask="9999-9999-9999-9999">
+                        <input type="text" name="card_number" id='card_number' placeholder="Card number" data-mask="9999-9999-9999-9999">
                       </label>
                     </section>
                     <section class="col col-4">
                       <label class="input">
-                        <input type="text" name="cvv" placeholder="CVV2" data-mask="999">
+                        <input type="text" name="card_cvv" id='card_cvv' placeholder="CVV2" data-mask="999">
                       </label>
                     </section>
                   </div>
@@ -157,7 +157,7 @@
                     <label class="label col col-4">Expiration date</label>
                     <section class="col col-5">
                       <label class="select">
-                        <select name="month">
+                        <select name="card_month" id='card_month'>
                           <option value="0" selected="" disabled="">Month</option>
                           <option value="1">January</option>
                           <option value="1">February</option>
@@ -175,7 +175,7 @@
                     </section>
                     <section class="col col-3">
                       <label class="input">
-                        <input type="text" name="year" placeholder="Year" data-mask="2099">
+                        <input type="text" name="card_year" id='card_year' placeholder="Year" data-mask="2099">
                       </label>
                     </section>
                   </div>
