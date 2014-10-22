@@ -6,19 +6,12 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
-
-  #user email
-  #user name
-  #user password
-  #project name?
-  #credit card info?
-
   # this method overrides the base class
   def create
     build_resource
-    resource.plan = params['plan']
+    resource.plan = 'free'
     if !resource.save
-      resource.errors.add('Account', ' something went wrong.')
+      # resource.errors.add('Account', ' something went wrong.')
       clean_up_passwords resource
       respond_with resource, :location => '/users/sign_up'
     else

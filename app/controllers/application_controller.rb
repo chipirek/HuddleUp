@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(user)
-    projects_path  #this bypasses the index.html marketing page
+    edit_user_registration_path(user)  #this bypasses the index.html marketing page
   end
 
 
