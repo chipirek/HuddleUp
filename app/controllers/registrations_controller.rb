@@ -11,9 +11,10 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource
     resource.plan = 'free'
     if !resource.save
-      # resource.errors.add('Account', ' something went wrong.')
       clean_up_passwords resource
-      respond_with resource, :location => '/users/sign_up'
+      messages = resource.errors.full_messages.map { |msg| "<li>" + msg + "</li>" }.join
+      flash[:alert] = messages
+      redirect_to '/users/sign_up'
     else
       set_flash_message :notice, :signed_up if is_navigational_format?
       sign_up(resource_name, resource)

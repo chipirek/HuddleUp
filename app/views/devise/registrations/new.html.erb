@@ -1,69 +1,74 @@
 <div id="content" class="container">
 
-  <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+  <div class="row col-xs-12 col-sm-12 col-md-5 col-lg-12">
 
-    <div class='well no-padding'>
+    <div class='col col-lg-4'>&nbsp;</div>
+    <div class='col col-lg-4'>
+      <div class='well '>
 
-      <h1>Welcome! This will be easy!</h1>
+        <h1>Welcome to HuddleUp! <br/>Registration will be easy!</h1>
 
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'smart-form', :id => 'registration_form'}) do |f| %>
 
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'smart-form', :id => 'registration_form'}) do |f| %>
+            <%= devise_error_messages! %>
 
-          <%= devise_error_messages! %>
+            <%= display_base_errors resource %>
 
-          <%= display_base_errors resource %>
+            <% if flash[:alert] %>
+                <div class="alert alert-danger fade in">
+                  <button class="close" data-dismiss="alert">
+                    ×
+                  </button>
+                  <i class="fa-fw fa fa-times"></i>
+                  <strong>The following error(s) prevented this registration:</strong>
+                  <ul style='margin-left:25px;'><%= flash[:alert].html_safe %></ul>
+                </div>
+            <% end %>
 
-              <% if flash[:alert] %>
-                  <div class="alert alert-danger fade in">
-                    <button class="close" data-dismiss="alert">
-                      ×
-                    </button>
-                    <i class="fa-fw fa fa-times"></i>
-                    <strong>Error!</strong> <%= flash[:alert] %>
-                  </div>
-              <% end %>
+            <fieldset>
 
-              <fieldset>
+              <section>
+                <label class="label">Your name</label>
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input type="text" name='user[name]' autofocus="true" id='user_name' placeholder='i.e. John Jones'>
+                </label>
+              </section>
 
-                <section>
-                  <label class="label">Your name</label>
-                  <label class="input"> <i class="icon-append fa fa-user"></i>
-                    <input type="name" name='user[name]' autofocus="true" id='user_name' placeholder='i.e. John Jones'>
-                  </label>
-                </section>
+              <section>
+                <label class="label">E-mail</label>
+                <label class="input"> <i class="icon-append fa fa-envelope"></i>
+                  <input type="email" name='user[email]' id='user_email' placeholder='john@example.com'>
+                </label>
+              </section>
 
-                <section>
-                  <label class="label">E-mail</label>
-                  <label class="input"> <i class="icon-append fa fa-envelope"></i>
-                    <input type="email" name='user[email]' id='user_email' placeholder='john@example.com'>
-                  </label>
-                </section>
+              <section>
+                <label class="label">Password</label>
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <%= f.password_field :password %>
+                </label>
+              </section>
 
-                <section>
-                  <label class="label">Password</label>
-                  <label class="input"> <i class="icon-append fa fa-lock"></i>
-                    <%= f.password_field :password %>
-                  </label>
-                </section>
+              <section>
+                <label class="label">Password Confirmation</label>
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <%= f.password_field :password_confirmation %>
+                </label>
+              </section>
 
-                <section>
-                  <label class="label">Password Confirmation</label>
-                  <label class="input"> <i class="icon-append fa fa-lock"></i>
-                    <%= f.password_field :password_confirmation %>
-                  </label>
-                </section>
+            </fieldset>
 
-              </fieldset>
+            <footer>
+              <button type="submit" class="btn btn-primary">
+                Sign me up!
+              </button>
+            </footer>
 
-              <footer>
-                <button type="submit" class="btn btn-primary">
-                  Sign me up!
-                </button>
-              </footer>
+        <% end %>
 
-          <% end %>
-
+      </div>
     </div>
+    <div class='col col-lg-4'>&nbsp;</div>
+
   </div>
 </div>
 
