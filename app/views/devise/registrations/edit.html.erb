@@ -1,124 +1,216 @@
 <div id="content">
 
-  <!-- row -->
-  <div class="row">
+<!-- row -->
+<div class="row">
 
-    <!-- col -->
-    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-9">
-      <h1 class="page-title txt-color-blueDark">
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-9">
+    <h1 class="page-title txt-color-blueDark">
 
-        <!-- PAGE HEADER -->
-        <i class="fa-fw fa fa-user"></i>
-        <%= current_user.name %>'s HuddleUp Profile
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-user"></i>
+      <%= current_user.name %>'s Account Settings
 
-      </h1>
-    </div>
-    <!-- end col -->
-
+    </h1>
   </div>
-  <!-- end row -->
+  <!-- end col -->
+
+</div>
+<!-- end row -->
 
 
-  <!-- widget grid -->
-  <well>
+<!-- widget grid -->
+<well>
 
-    <!-- row -->
+<!-- row -->
 
-    <div class="row" style='background-color: #fff;'>
+<div class="row" style='background-color: #fff;'>
 
-      <div class="widget-body">
+<div class="widget-body">
 
-        <% content_for :head do %>
-            <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
-        <% end %>
+<ul id="myTab3" class="nav nav-tabs bordered">
+  <li class="active">
+    <a href="#l1" data-toggle="tab">Profile Information</a>
+  </li>
+  <li>
+    <a href="#l2" data-toggle="tab">Change Password?</a>
+  </li>
+  <li>
+    <a href="#l3" data-toggle="tab">Account Information</a>
+  </li>
+</ul>
 
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
-            <%= devise_error_messages! %>
-            <%= display_base_errors resource %>
+<div class="tab-content padding-10">
+  <div class="tab-pane fade in active" id="l1">
+    <p>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
+          <%= devise_error_messages! %>
+          <%= display_base_errors resource %>
 
-            <div class="panel-group smart-accordion-default" id="accordion-2">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-2" href="#collapseOne-1">
-                    <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
-                    <i class="fa fa-fw fa-minus-circle txt-color-red"></i> Personal information </a></h4>
-                </div>
-                <div id="collapseOne-1" class="panel-collapse collapse in">
-                  <div class="panel-body">
-                    <fieldset>
-                      <section>
-                        <label class="label">Name</label>
-                        <label class="input">
-                          <%= f.text_field :name, :autofocus => true, :class => 'input-lg' %>
-                        </label>
-                      </section>
+        <fieldset>
+          <section>
+            <label class="label">Name</label>
+            <label class="input">
+              <%= f.text_field :name, :autofocus => true, :class => 'input-lg' %>
+            </label>
+          </section>
 
-                      <section>
-                        <label class="label">Email</label>
-                        <label class="input">
-                          <%= f.email_field :email, :class => 'input-lg' %>
-                        </label>
-                      </section>
-                    </fieldset>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion-2" href="#collapseTwo-1" class="collapsed">
-                      <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
-                      <i class="fa fa-fw fa-minus-circle txt-color-red"></i> Password change area </a></h4>
-                </div>
-                <div id="collapseTwo-1" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <fieldset>
-                      <section>
-                        <label class="label">New Password</label>
-                        <label class="input">
-                          <%= f.password_field :password, :class => 'input-lg', :autocomplete => "off" %>
-                          <i>(leave blank if you don't want to change it)</i>
-                        </label>
-                      </section>
+          <section>
+            <label class="label">Email</label>
+            <label class="input">
+              <%= f.email_field :email, :class => 'input-lg' %>
+            </label>
+          </section>
 
-                      <section>
-                        <label class="label">New Password Again for Confirmation</label>
-                        <label class="input">
-                          <%= f.password_field :password_confirmation, :class => 'input-lg' %>
-                        </label>
-                      </section>
-                    </fieldset>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion-2" href="#collapseThree-1" class="collapsed">
-                      <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
-                      <i class="fa fa-fw fa-minus-circle txt-color-red"></i> Account info </a></h4>
-                </div>
-                <div id="collapseThree-1" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <fieldset>
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                      wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                      eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                      assumenda shoreditch et.
-                    </fieldset>
-                  </div>
-                </div>
-              </div>
-            </div>
+        </fieldset>
 
+        <footer>
+          <button type="submit" class="btn btn-success">
+            Save
+          </button>
+        </footer>
+
+    <% end %>
+    </p>
+  </div>
+
+  <div class="tab-pane fade" id="l2">
+    <p>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
+          <%= devise_error_messages! %>
+          <%= display_base_errors resource %>
+
+          <fieldset>
+
+            <section>
+              <label class="label">Current Password</label>
+              <label class="input">
+                <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...' %>
+              </label>
+            </section>
+
+            <section>
+              <label class="label">New Password</label>
+              <label class="input">
+                <%= f.password_field :password, :class => 'input-lg', :autocomplete => "off" %>
+              </label>
+            </section>
+
+            <section>
+              <label class="label">New Password Confirmation</label>
+              <label class="input">
+                <%= f.password_field :password_confirmation, :class => 'input-lg' %>
+              </label>
+            </section>
+
+          </fieldset>
+
+          <footer>
+            <button type="submit" class="btn btn-success">
+              Save
+            </button>
+          </footer>
+
+      <% end %>
+
+      </p>
+      </div>
+  <div class="tab-pane fade" id="l3">
+    <p>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
+          <%= devise_error_messages! %>
+          <%= display_base_errors resource %>
+
+        <div id="stripe_error" class="alert alert-danger" style="display:none"></div>
+
+        <% if @user.stripe_token %>
+            <p>Credit card acceptance is pending.</p>
+        <% else %>
+
+            <header>
+              Your Plan
+            </header>
+
+            <fieldset>
+              <label class="select">
+                <select name="user[plan]" id='user_plan'>
+                  <option value="free" <%= "selected=selected" if params['plan'] == 'free' %>>Personal - Free
+                  </option>
+                  <option value="silver" <%= "selected=selected" if params['plan'] == 'silver' || params['plan'].nil? %>>Silver
+                    Plan -
+                    $1/mo
+                  </option>
+                  <option value="gold" <%= "selected=selected" if params['plan'] == 'gold' %>>Gold - $5/mo</option>
+                  <option value="platinum" <%= "selected=selected" if params['plan'] == 'platinum' %>>Platinum -
+                    $19/mo
+                  </option>
+                </select> <i></i> </label>
+            </fieldset>
+
+            <header>
+              Your Billing Info
+            </header>
 
             <fieldset>
               <section>
-                <label class="label">Current Password</label>
+                <div class="inline-group">
+                  <label class="radio">
+                    <input type="radio" name="radio-inline" checked="">
+                    <i></i>Visa</label>
+                  <label class="radio">
+                    <input type="radio" name="radio-inline">
+                    <i></i>MasterCard</label>
+                  <label class="radio">
+                    <input type="radio" name="radio-inline">
+                    <i></i>American Express</label>
+                </div>
+              </section>
+
+              <section>
                 <label class="input">
-                  <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...' %>
+                  <input type="text" name="card_name" id="card_name" placeholder="Name on card">
                 </label>
               </section>
+
+              <div class="row">
+                <section class="col col-8">
+                  <label class="input">
+                    <input type="text" name="card_number" id='card_number' placeholder="Card number" data-mask="9999-9999-9999-9999">
+                  </label>
+                </section>
+                <section class="col col-4">
+                  <label class="input">
+                    <input type="text" name="card_cvv" id='card_cvv' placeholder="CVV2" data-mask="999">
+                  </label>
+                </section>
+              </div>
+
+              <div class="row">
+                <label class="label col col-4">Expiration date</label>
+                <section class="col col-5">
+                  <label class="select">
+                    <select name="card_month" id='card_month'>
+                      <option value="0" selected="" disabled="">Month</option>
+                      <option value="1">January</option>
+                      <option value="1">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select> <i></i> </label>
+                </section>
+                <section class="col col-3">
+                  <label class="input">
+                    <input type="text" name="card_year" id='card_year' placeholder="Year" data-mask="2099">
+                  </label>
+                </section>
+              </div>
             </fieldset>
 
             <footer>
@@ -128,31 +220,90 @@
             </footer>
 
         <% end %>
+    <% end %>
 
-      </div>
+    </p>
+  </div>
+</div>
 
-    </div>
+</div>
 
-    <!-- end row -->
+</div>
 
-  </well>
-  <!-- end widget grid -->
+<!-- end row -->
 
-  <p></p>
+</well>
+<!-- end widget grid -->
 
-  <h3>Cancel my account</h3>
+<p></p>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete, :class => 'btn btn-danger' %></p>
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete, :class => 'btn btn-danger' %></p>
 
 </div>
 
 <%= render :partial => '/projects/scripts' %>
+
+<script src="/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
+<script src="/SmartAdmin/js/plugin/jquery.readyselector.js"></script>
+<script src="/SmartAdmin/js/plugin/jquery.externalscript.js"></script>
 
 <script type="text/javascript">
 
     $(document).ready(function () {
 
         pageSetUp();
+
+        $.externalScript('https://js.stripe.com/v1/').done(function (script, textStatus) {
+            console.log('Script loading: ' + textStatus);
+            if (typeof Stripe != 'undefined') {
+                console.log('Okay. Stripe file loaded.');
+            }
+            else {
+                console.log('Problem. Stripe file not loaded.');
+            }
+            Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
+            console.log('set Stripe public key: ' + $('meta[name="stripe-key"]').attr('content'));
+            var subscription = {
+                setupForm: function () {
+                    console.log('function: setupForm')
+                    return $('.card-form').submit(function () {
+                        console.log('setupForm: form submitted');
+                        $('input[type=submit]').prop('disabled', true);
+                        subscription.processCard();
+                        return false;
+                    });
+                },
+                processCard: function () {
+                    console.log('function: processCard');
+                    var card;
+                    card = {
+                        name: $('#card_name').val(),
+                        number: $('#card_number').val(),
+                        cvc: $('#card_code').val(),
+                        expMonth: $('#card_month').val(),
+                        expYear: $('#card_year').val()
+                    };
+                    console.log('card.name=' + card.name);
+                    console.log('card.number=' + card.number);
+                    console.log('card.cvc=' + card.cvc);
+                    console.log('card.expMonth=' + card.expMonth);
+                    console.log('card.expYear=' + card.expYear);
+                    return Stripe.createToken(card, subscription.handleStripeResponse);
+                },
+                handleStripeResponse: function (status, response) {
+                    console.log('function: handleStripeResponse');
+                    if (status === 200) {
+                        return alert('Stripe response: ' + response.id);
+                    }
+                    else {
+                        return alert('Stripe response: ' + response.error.message);
+                    }
+                }
+            };
+            return subscription.setupForm();
+        });
 
         var $profileForm = $("#profile_form").validate({
 

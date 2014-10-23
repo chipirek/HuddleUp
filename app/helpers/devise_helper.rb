@@ -10,7 +10,7 @@ module DeviseHelper
     html = <<-HTML
     <div class='alert alert-danger' id="error_explanation">
       <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-      <strong>OK, Error(s) prevented this request from being completed:</strong>
+      <strong>Error(s) prevented this request from being completed:</strong>
       <ul style='margin-left:25px;'>#{messages}</ul>
     </div>
 
