@@ -16,28 +16,32 @@
   <!-- pulled right: nav area -->
   <div class="pull-right">
 
-    <!-- collapse menu button -->
-    <div id="hide-menu" class="btn-header pull-right">
-            <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i
-            class="fa fa-reorder"></i></a> </span>
-    </div>
-    <!-- end collapse menu -->
-
     <% if current_user %>
+
+        <!-- user settings button -->
+        <div id="user_settings" class="btn-header pull-right">
+                <span> <a href="/users/edit" title="My Settings"><i
+                class="fa fa-user"></i></a> </span>
+        </div>
+
+        <!-- collapse menu button -->
+        <div id="hide-menu" class="btn-header pull-right">
+                <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i
+                class="fa fa-reorder"></i></a> </span>
+        </div>
+
         <!-- logout button -->
         <div id="logout" class="btn-header transparent pull-right">
           <span> <a href="/users/sign_out" data-method='delete' title="Sign Out" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
         </div>
-        <!-- end logout button -->
-    <% end %>
 
-    <!-- fullscreen button -->
-    <div id="fullscreen" class="btn-header transparent pull-right">
+        <!-- fullscreen button -->
+        <div id="fullscreen" class="btn-header transparent pull-right">
             <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i
             class="fa fa-arrows-alt"></i></a> </span>
-    </div>
-    <!-- end fullscreen button -->
+        </div>
 
+  <% end %>
 
   </div>
   <!-- end pulled right: nav area -->
