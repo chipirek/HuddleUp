@@ -135,17 +135,20 @@
             <fieldset>
               <label class="select">
                 <select name="user[plan]" id='user_plan'>
-                  <option value="free" <%= "selected=selected" if params['plan'] == 'free' %>>Personal - Free
+                  <option value="free" <%= "selected=selected" if @user.plan == 'free' %>>
+                    Personal - Free
                   </option>
-                  <option value="silver" <%= "selected=selected" if params['plan'] == 'silver' || params['plan'].nil? %>>Silver
-                    Plan -
-                    $1/mo
+                  <option value="silver" <%= "selected=selected" if @user.plan == 'silver' || @user.plan.nil? %>>
+                    Silver - $1/mo
                   </option>
-                  <option value="gold" <%= "selected=selected" if params['plan'] == 'gold' %>>Gold - $5/mo</option>
-                  <option value="platinum" <%= "selected=selected" if params['plan'] == 'platinum' %>>Platinum -
-                    $19/mo
+                  <option value="gold" <%= "selected=selected" if @user.plan == 'gold' %>>
+                    Gold - $5/mo
                   </option>
-                </select> <i></i> </label>
+                  <option value="platinum" <%= "selected=selected" if @user.plan == 'platinum' %>>
+                    Platinum - $19/mo
+                  </option>
+                </select> <i></i>
+              </label>
             </fieldset>
 
             <header>
@@ -221,9 +224,19 @@
             </footer>
 
         <% end %>
+
+      <header>
+        Want to cancel your account?
+      </header>
+
+        <fieldset>
+          <section>
+            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete, :class => 'btn btn-large btn-danger' %></p>
+          </section>
+        </fieldset>
+
       </form>
 
-      </p>
     </div>
   </div>
 
@@ -235,12 +248,6 @@
 
 </well>
 <!-- end widget grid -->
-
-<p></p>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete, :class => 'btn btn-danger' %></p>
 
 </div>
 
