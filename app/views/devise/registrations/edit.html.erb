@@ -36,7 +36,10 @@
       <a href="#l2" data-toggle="tab">Change Password?</a>
     </li>
     <li>
-      <a href="#l3" data-toggle="tab">Account Information</a>
+      <a href="#l3" data-toggle="tab">Billing Information</a>
+    </li>
+    <li>
+      <a href='#l4' data-toggle='tab'>Cancellation</a>
     </li>
   </ul>
 
@@ -59,6 +62,13 @@
               <label class="label">Email</label>
               <label class="input">
                 <%= f.email_field :email, :class => 'input-lg' %>
+              </label>
+            </section>
+
+            <section>
+              <label class="label">Current Password</label>
+              <label class="input">
+                <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete=>"off" %>
               </label>
             </section>
 
@@ -85,7 +95,7 @@
             <section>
               <label class="label">Current Password</label>
               <label class="input">
-                <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...' %>
+                <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete => "off" %>
               </label>
             </section>
 
@@ -118,15 +128,13 @@
     <div class="tab-pane fade" id="l3">
       <p>
 
-      <form accept-charset="UTF-8" action="/users/edit" class="smart-form card_form" id="billing_form" method="put">
-        <%= devise_error_messages! %>
-        <%= display_base_errors resource %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form card_form', :id => 'billingForm'}) do |f| %>
+            <%= devise_error_messages! %>
+            <%= display_base_errors resource %>
 
-        <div id="stripe_error" class="alert alert-danger" style="display:none"></div>
+            <%= f.hidden_field :stripe_token %>
 
-        <% if @user.stripe_token %>
-            <p>Credit card acceptance is pending.</p>
-        <% else %>
+            <div id="stripe_error" class="alert alert-danger" style="display:none"></div>
 
             <header>
               Your Plan
@@ -151,93 +159,102 @@
               </label>
             </fieldset>
 
-            <header>
-              Your Billing Info
-            </header>
+
+          <header>
+            Your Billing Info
+          </header>
+
+            <% if @user.customer_id %>
+            <p>
+              <div class="alert alert-success fade in" style='margin-top:20px;'>
+                <i class="fa-fw fa fa-check"></i>
+                <strong>Ok - </strong> Credit card data accepted by billing provider.
+              </div>
+            </p>
+            <% else %>
+
 
             <fieldset>
-              <section>
-                <div class="inline-group">
-                  <label class="radio">
-                    <input type="radio" name="radio-inline" checked="">
-                    <i></i>Visa</label>
-                  <label class="radio">
-                    <input type="radio" name="radio-inline">
-                    <i></i>MasterCard</label>
-                  <label class="radio">
-                    <input type="radio" name="radio-inline">
-                    <i></i>American Express</label>
-                </div>
-              </section>
 
               <section>
+                <label class="label">Name on the Card</label>
                 <label class="input">
-                  <input type="text" name="card_name" id="card_name" placeholder="Name on card">
+                  <input type="text" id="card_name" placeholder="Name on card">
                 </label>
               </section>
 
               <div class="row">
-                <section class="col col-8">
+                <section class="col col-6">
+                  <label class="label">Card Number</label>
                   <label class="input">
-                    <input type="text" name="card_number" id='card_number' placeholder="Card number" data-mask="9999-9999-9999-9999">
+                    <input type="text" id='card_number' placeholder="Card number" data-mask="9999-9999-9999-9999">
                   </label>
                 </section>
-                <section class="col col-4">
-                  <label class="input">
-                    <input type="text" name="card_cvv" id='card_cvv' placeholder="CVV2" data-mask="999">
-                  </label>
+                <section class="col col-6">
+                  <img src='/SmartAdmin/img/order-cc.png' style='padding-top: 20px;'>
                 </section>
               </div>
 
               <div class="row">
-                <label class="label col col-4">Expiration date</label>
-                <section class="col col-5">
-                  <label class="select">
-                    <select name="card_month" id='card_month'>
-                      <option value="0" selected="" disabled="">Month</option>
-                      <option value="1">January</option>
-                      <option value="1">February</option>
-                      <option value="3">March</option>
-                      <option value="4">April</option>
-                      <option value="5">May</option>
-                      <option value="6">June</option>
-                      <option value="7">July</option>
-                      <option value="8">August</option>
-                      <option value="9">September</option>
-                      <option value="10">October</option>
-                      <option value="11">November</option>
-                      <option value="12">December</option>
-                    </select> <i></i> </label>
-                </section>
-                <section class="col col-3">
+                <section class="col col-6">
+                  <label class="label">CVV Number</label>
                   <label class="input">
-                    <input type="text" name="card_year" id='card_year' placeholder="Year" data-mask="2099">
+                    <input type="text" id='card_cvv' placeholder="CVV2" data-mask="999">
                   </label>
                 </section>
+                <section class="col col-6">
+                  <img src='/SmartAdmin/img/order-cvv.png' style='padding-top: 20px;'>
+                </section>
               </div>
+
+              <div class='row'>
+                <section class='col col-2'>
+                    <label class="label">Expiration Month</label>
+                    <label class="input">
+                        <input type="text" id='card_month' placeholder="01" data-mask="99">
+                    </label>
+                </section>
+                <section class='col col-2'>
+                    <label class="label">Expiration Year </label>
+                    <label class="input">
+                        <input type="text" name="card_year" id='card_year' placeholder="2017" data-mask="2099">
+                    </label>
+                </section>
+
+              </div>
+
             </fieldset>
 
+          <% end %>
+
+          <fieldset>
+            <section>
+              <label class="label">Current Password</label>
+              <label class="input">
+                <%= f.password_field :current_password, :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete => "off" %>
+              </label>
+            </section>
+
+          </fieldset>
             <footer>
-              <button type="submit" class="btn btn-success">
+              <button type="submit" class="btn btn-success" id='submitButton'>
                 Save
               </button>
             </footer>
 
-        <% end %>
-
-      <header>
-        Want to cancel your account?
-      </header>
-
-        <fieldset>
-          <section>
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete, :class => 'btn btn-large btn-danger' %></p>
-          </section>
-        </fieldset>
-
-      </form>
+      <% end %>
 
     </div>
+
+    <div class="tab-pane fade in" id="l4">
+      <p>
+        <span class='font-lg'>Unhappy?</span>
+      </p>
+      <p>
+        <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-large btn-danger' %>
+      </p>
+    </div>
+
   </div>
 
 </div>
@@ -263,50 +280,36 @@
 
         pageSetUp();
 
-        $.externalScript('https://js.stripe.com/v1/').done(function (script, textStatus) {
-            console.log('Script loading: ' + textStatus);
-            if (typeof Stripe != 'undefined') {
-                console.log('Okay. Stripe file loaded.');
-            }
-            else {
-                console.log('Problem. Stripe file not loaded.');
-            }
+        $.externalScript('https://js.stripe.com/v1/').done(function(script, textStatus) {
             Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
-            console.log('set Stripe public key: ' + $('meta[name="stripe-key"]').attr('content'));
             var subscription = {
-                setupForm: function () {
-                    console.log('function: setupForm');
-                    return $('.card_form').submit(function () {
-                        console.log('setupForm: form submitted');
+                setupForm: function() {
+                    return $('.card_form').submit(function() {
                         $('input[type=submit]').prop('disabled', true);
-                        subscription.processCard();
-                        return false;
+                        if ($('#card_number').length) {
+                            subscription.processCard();
+                            return false;
+                        } else {
+                            return true;
+                        }
                     });
                 },
-                processCard: function () {
-                    console.log('function: processCard');
+                processCard: function() {
                     var card;
                     card = {
-                        name: $('#card_name').val(),
+                        name: $('#user_name').val(),
                         number: $('#card_number').val(),
                         cvc: $('#card_cvv').val(),
                         expMonth: $('#card_month').val(),
                         expYear: $('#card_year').val()
                     };
-                    console.log('card.name=' + card.name);
-                    console.log('card.number=' + card.number);
-                    console.log('card.cvc=' + card.cvc);
-                    console.log('card.expMonth=' + card.expMonth);
-                    console.log('card.expYear=' + card.expYear);
                     return Stripe.createToken(card, subscription.handleStripeResponse);
                 },
-                handleStripeResponse: function (status, response) {
-                    console.log('function: handleStripeResponse');
+                handleStripeResponse: function(status, response) {
                     if (status === 200) {
-                        $('#user_stripe_token').val(response.id);
-                        $('.card_form')[0].submit();
-                    }
-                    else {
+                        $('#user_stripe_token').val(response.id)
+                        $('.card_form')[0].submit()
+                    } else {
                         $('#stripe_error').text(response.error.message).show();
                         return $('input[type=submit]').prop('disabled', false);
                     }

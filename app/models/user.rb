@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_sign_in_at, :plan
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_sign_in_at, :plan, :stripe_token
 
-  # virtual attribut for the strip_token (CC processing) so we can keep PCI compliance
+  # virtual attribute for the strip_token (CC processing) so we can keep PCI compliance
   attr_accessor :stripe_token
 
   validates_presence_of :name
@@ -18,5 +18,48 @@ class User < ActiveRecord::Base
 
   # has_many :projects
   has_many :members
+
+  before_update :update_stripe
+
+
+  def update_stripe
+
+    puts '----------------------------------'
+    puts 'plan upgraded to = ' + plan
+    puts '----------------------------------'
+
+    return if plan == 'free'
+
+    #return if email.include?(ENV['ADMIN_EMAIL'])
+    #return if email.include?('@example.com') and not Rails.env.production?
+    if customer_id.nil?
+      if !stripe_token.present?
+        raise "Stripe token not present. Can't update account."
+      end
+      customer = Stripe::Customer.create( :email => email,
+                                          :description => name,
+                                          :card => stripe_token,
+                                          :plan => plan )
+    else
+      customer = Stripe::Customer.retrieve(customer_id)
+      if stripe_token.present?
+          customer.card = stripe_token
+      end
+      customer.email = email
+      customer.description = name
+      customer.save
+    end
+
+    #self.last_4_digits = customer.active_card.last4
+    self.customer_id = customer.id
+    self.stripe_token = nil
+
+    rescue Stripe::StripeError => e
+      logger.error "Stripe Error: " + e.message
+      errors.add :base, "#{e.message}."
+      self.stripe_token = nil
+      false
+    end
+
 
 end

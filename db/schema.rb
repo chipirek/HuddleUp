@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(:version => 20141021170248) do
     t.string   "plan"
     t.string   "customer_id"
     t.string   "last_4_digits"
+    t.string   "stripe_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
