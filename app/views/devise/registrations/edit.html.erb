@@ -28,235 +28,236 @@
 
 <div class="widget-body">
 
-  <ul id="myTab3" class="nav nav-tabs bordered">
-    <li class="active">
-      <a href="#l1" data-toggle="tab">Profile Information</a>
-    </li>
-    <li>
-      <a href="#l2" data-toggle="tab">Change Password?</a>
-    </li>
-    <li>
-      <a href="#l3" data-toggle="tab">Billing Information</a>
-    </li>
-    <li>
-      <a href='#l4' data-toggle='tab'>Cancellation</a>
-    </li>
-  </ul>
+<ul id="myTab3" class="nav nav-tabs bordered">
+  <li class="active">
+    <a href="#l1" data-toggle="tab">Profile Information</a>
+  </li>
+  <li>
+    <a href="#l2" data-toggle="tab">Change Password?</a>
+  </li>
+  <li>
+    <a href="#l3" data-toggle="tab">Billing Information</a>
+  </li>
+  <li>
+    <a href='#l4' data-toggle='tab'>Cancellation</a>
+  </li>
+</ul>
 
-  <div class="tab-content padding-10">
-    <div class="tab-pane fade in active" id="l1">
-      <p>
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
-            <%= devise_error_messages! %>
-            <%= display_base_errors resource %>
+<div class="tab-content padding-10">
+<div class="tab-pane fade in active" id="l1">
+  <p>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
+        <%= devise_error_messages! %>
+        <%= display_base_errors resource %>
 
-          <fieldset>
-            <section>
-              <label class="label">Name</label>
-              <label class="input">
-                <%= f.text_field :name, :autofocus => true, :class => 'input-lg' %>
-              </label>
-            </section>
+      <fieldset>
+        <section>
+          <label class="label">Name</label>
+          <label class="input">
+            <%= f.text_field :name, :autofocus => true, :class => 'input-lg' %>
+          </label>
+        </section>
 
-            <section>
-              <label class="label">Email</label>
-              <label class="input">
-                <%= f.email_field :email, :class => 'input-lg' %>
-              </label>
-            </section>
+        <section>
+          <label class="label">Email</label>
+          <label class="input">
+            <%= f.email_field :email, :class => 'input-lg' %>
+          </label>
+        </section>
 
-            <section>
-              <label class="label">Current Password</label>
-              <label class="input">
-                <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete=>"off" %>
-              </label>
-            </section>
+        <section>
+          <label class="label">Current Password</label>
+          <label class="input">
+            <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete => "off" %>
+          </label>
+        </section>
 
-          </fieldset>
+      </fieldset>
 
-          <footer>
-            <button type="submit" class="btn btn-success">
-              Save
-            </button>
-          </footer>
+      <footer>
+        <button type="submit" class="btn btn-success">
+          Save
+        </button>
+      </footer>
 
-      <% end %>
-      </p>
-    </div>
+  <% end %>
+  </p>
+</div>
 
-    <div class="tab-pane fade" id="l2">
-      <p>
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
-            <%= devise_error_messages! %>
-            <%= display_base_errors resource %>
+<div class="tab-pane fade" id="l2">
+  <p>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'passwordForm'}) do |f| %>
+        <%= devise_error_messages! %>
+        <%= display_base_errors resource %>
 
-          <fieldset>
+      <fieldset>
 
-            <section>
-              <label class="label">Current Password</label>
-              <label class="input">
-                <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete => "off" %>
-              </label>
-            </section>
+        <section>
+          <label class="label">Current Password</label>
+          <label class="input">
+            <%= f.password_field :current_password, :class => 'input-lg', :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete => "off" %>
+          </label>
+        </section>
 
-            <section>
-              <label class="label">New Password</label>
-              <label class="input">
-                <%= f.password_field :password, :class => 'input-lg', :autocomplete => "off" %>
-              </label>
-            </section>
+        <section>
+          <label class="label">New Password</label>
+          <label class="input">
+            <%= f.password_field :password, :class => 'input-lg', :autocomplete => "off" %>
+          </label>
+        </section>
 
-            <section>
-              <label class="label">New Password Confirmation</label>
-              <label class="input">
-                <%= f.password_field :password_confirmation, :class => 'input-lg' %>
-              </label>
-            </section>
+        <section>
+          <label class="label">New Password Confirmation</label>
+          <label class="input">
+            <%= f.password_field :password_confirmation, :class => 'input-lg' %>
+          </label>
+        </section>
 
-          </fieldset>
+      </fieldset>
 
-          <footer>
-            <button type="submit" class="btn btn-success">
-              Save
-            </button>
-          </footer>
+      <footer>
+        <button type="submit" class="btn btn-success">
+          Save
+        </button>
+      </footer>
 
-      <% end %>
+  <% end %>
 
-      </p>
-    </div>
-    <div class="tab-pane fade" id="l3">
-      <p>
+  </p>
+</div>
+<div class="tab-pane fade" id="l3">
+  <p>
 
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form card_form', :id => 'billingForm'}) do |f| %>
-            <%= devise_error_messages! %>
-            <%= display_base_errors resource %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form card_form', :id => 'billingForm'}) do |f| %>
+        <%= devise_error_messages! %>
+        <%= display_base_errors resource %>
 
-            <%= f.hidden_field :stripe_token %>
+        <%= f.hidden_field :stripe_token %>
 
-            <div id="stripe_error" class="alert alert-danger" style="display:none"></div>
+      <div id="stripe_error" class="alert alert-danger" style="display:none"></div>
 
-            <header>
-              Your Plan
-            </header>
+      <header>
+        Your Plan
+      </header>
+
+      <fieldset>
+        <label class="select">
+          <select name="user[plan]" id='user_plan'>
+            <option value="free" <%= "selected=selected" if @user.plan == 'free' %>>
+              Personal - Free
+            </option>
+            <option value="silver" <%= "selected=selected" if @user.plan == 'silver' || @user.plan.nil? %>>
+              Silver - $1/mo
+            </option>
+            <option value="gold" <%= "selected=selected" if @user.plan == 'gold' %>>
+              Gold - $5/mo
+            </option>
+            <option value="platinum" <%= "selected=selected" if @user.plan == 'platinum' %>>
+              Platinum - $19/mo
+            </option>
+          </select> <i></i>
+        </label>
+      </fieldset>
+
+      <div id='cc_area'>
+        <header>
+          Your Billing Info
+        </header>
+
+        <% if @user.stripe_token %>
+            <p>Credit card info is pending approval...</p>
+        <% elsif @user.stripe_customer_id %>
+            <div class="alert alert-success fade in" style='margin-top:20px;'>
+              <i class="fa-fw fa fa-check"></i>
+              <strong>Accepted - </strong> Credit card accepted by billing provider.
+            </div>
+        <% else %>
+
 
             <fieldset>
-              <label class="select">
-                <select name="user[plan]" id='user_plan'>
-                  <option value="free" <%= "selected=selected" if @user.plan == 'free' %>>
-                    Personal - Free
-                  </option>
-                  <option value="silver" <%= "selected=selected" if @user.plan == 'silver' || @user.plan.nil? %>>
-                    Silver - $1/mo
-                  </option>
-                  <option value="gold" <%= "selected=selected" if @user.plan == 'gold' %>>
-                    Gold - $5/mo
-                  </option>
-                  <option value="platinum" <%= "selected=selected" if @user.plan == 'platinum' %>>
-                    Platinum - $19/mo
-                  </option>
-                </select> <i></i>
-              </label>
+
+              <section>
+                <label class="label">Name on the Card</label>
+                <label class="input">
+                  <input type="text" id="card_name" placeholder="Name on card">
+                </label>
+              </section>
+
+              <div class="row">
+                <section class="col col-6">
+                  <label class="label">Card Number</label>
+                  <label class="input">
+                    <input type="text" id='card_number' placeholder="Card number" data-mask="9999-9999-9999-9999">
+                  </label>
+                </section>
+                <section class="col col-6">
+                  <img src='/SmartAdmin/img/order-cc.png' style='padding-top: 20px;'>
+                </section>
+              </div>
+
+              <div class="row">
+                <section class="col col-6">
+                  <label class="label">CVV Number</label>
+                  <label class="input">
+                    <input type="text" id='card_cvv' placeholder="CVV2" data-mask="999">
+                  </label>
+                </section>
+                <section class="col col-6">
+                  <img src='/SmartAdmin/img/order-cvv.png' style='padding-top: 20px;'>
+                </section>
+              </div>
+
+              <div class='row'>
+                <section class='col col-2'>
+                  <label class="label">Expiration Month</label>
+                  <label class="input">
+                    <input type="text" id='card_month' placeholder="01" data-mask="99">
+                  </label>
+                </section>
+                <section class='col col-2'>
+                  <label class="label">Expiration Year </label>
+                  <label class="input">
+                    <input type="text" name="card_year" id='card_year' placeholder="2017" data-mask="2099">
+                  </label>
+                </section>
+
+              </div>
+
             </fieldset>
 
-          <div id='cc_area'>
-              <header>
-                Your Billing Info
-              </header>
+        <% end %>
+      </div>
 
-                <% if @user.stripe_token %>
-                    <p>Credit card info is pending approval...</p>
-                <% elsif @user.stripe_customer_id %>
-                  <div class="alert alert-success fade in" style='margin-top:20px;'>
-                    <i class="fa-fw fa fa-check"></i>
-                    <strong>Accepted - </strong> Credit card accepted by billing provider.
-                  </div>
-                <% else %>
+      <fieldset>
+        <section>
+          <label class="label">Current Password</label>
+          <label class="input">
+            <%= f.password_field :current_password, :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete => "off" %>
+          </label>
+        </section>
 
+      </fieldset>
+      <footer>
+        <button type="submit" class="btn btn-success" id='submitButton'>
+          Save
+        </button>
+      </footer>
 
-                    <fieldset>
+  <% end %>
 
-                      <section>
-                        <label class="label">Name on the Card</label>
-                        <label class="input">
-                          <input type="text" id="card_name" placeholder="Name on card">
-                        </label>
-                      </section>
+</div>
 
-                      <div class="row">
-                        <section class="col col-6">
-                          <label class="label">Card Number</label>
-                          <label class="input">
-                            <input type="text" id='card_number' placeholder="Card number" data-mask="9999-9999-9999-9999">
-                          </label>
-                        </section>
-                        <section class="col col-6">
-                          <img src='/SmartAdmin/img/order-cc.png' style='padding-top: 20px;'>
-                        </section>
-                      </div>
+<div class="tab-pane fade in" id="l4">
+  <p>
+    <span class='font-lg'>Unhappy?</span>
+  </p>
 
-                      <div class="row">
-                        <section class="col col-6">
-                          <label class="label">CVV Number</label>
-                          <label class="input">
-                            <input type="text" id='card_cvv' placeholder="CVV2" data-mask="999">
-                          </label>
-                        </section>
-                        <section class="col col-6">
-                          <img src='/SmartAdmin/img/order-cvv.png' style='padding-top: 20px;'>
-                        </section>
-                      </div>
+  <p>
+    <%= link_to "Cancel my account", registration_path(resource_name), :data => {:confirm => "Are you sure?"}, :method => :delete, :class => 'btn btn-large btn-danger' %>
+  </p>
+</div>
 
-                      <div class='row'>
-                        <section class='col col-2'>
-                            <label class="label">Expiration Month</label>
-                            <label class="input">
-                                <input type="text" id='card_month' placeholder="01" data-mask="99">
-                            </label>
-                        </section>
-                        <section class='col col-2'>
-                            <label class="label">Expiration Year </label>
-                            <label class="input">
-                                <input type="text" name="card_year" id='card_year' placeholder="2017" data-mask="2099">
-                            </label>
-                        </section>
-
-                      </div>
-
-                    </fieldset>
-
-              <% end %>
-          </div>
-
-          <fieldset>
-            <section>
-              <label class="label">Current Password</label>
-              <label class="input">
-                <%= f.password_field :current_password, :placeholder => 'Please enter your current password so we can confirm your request...', :autocomplete => "off" %>
-              </label>
-            </section>
-
-          </fieldset>
-            <footer>
-              <button type="submit" class="btn btn-success" id='submitButton'>
-                Save
-              </button>
-            </footer>
-
-      <% end %>
-
-    </div>
-
-    <div class="tab-pane fade in" id="l4">
-      <p>
-        <span class='font-lg'>Unhappy?</span>
-      </p>
-      <p>
-        <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-large btn-danger' %>
-      </p>
-    </div>
-
-  </div>
+</div>
 
 </div>
 
@@ -282,21 +283,21 @@
         pageSetUp();
 
         <% if @user.plan == 'free' %>
-            $('#cc_area').hide();
+        $('#cc_area').hide();
         <% end %>
 
-        $( "#user_plan" ).change(function() {
+        $("#user_plan").change(function () {
             if ($('#user_plan').val() == 'free')
                 $('#cc_area').hide();
-           else
+            else
                 $('#cc_area').show();
         });
 
-        $.externalScript('https://js.stripe.com/v1/').done(function(script, textStatus) {
+        $.externalScript('https://js.stripe.com/v1/').done(function (script, textStatus) {
             Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
             var subscription = {
-                setupForm: function() {
-                    return $('.card_form').submit(function() {
+                setupForm: function () {
+                    return $('.card_form').submit(function () {
                         $('input[type=submit]').prop('disabled', true);
                         if ($('#card_number').length) {
                             subscription.processCard();
@@ -306,7 +307,7 @@
                         }
                     });
                 },
-                processCard: function() {
+                processCard: function () {
                     var card;
                     card = {
                         name: $('#user_name').val(),
@@ -317,7 +318,7 @@
                     };
                     return Stripe.createToken(card, subscription.handleStripeResponse);
                 },
-                handleStripeResponse: function(status, response) {
+                handleStripeResponse: function (status, response) {
                     if (status === 200) {
                         $('#user_stripe_token').val(response.id)
                         $('.card_form')[0].submit()
@@ -358,6 +359,54 @@
                     required: 'Please make sure your email is filled in.',
                     email: 'Please make sure your email is VALID.'
                 },
+                'user[current_password]': {
+                    required: 'Please enter your current password so we can validate your request.',
+                    minlength: 'Password is too short.'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+        var $billingForm = $("#billingForm").validate({
+
+            // Rules for form validation
+            rules: {
+                'user[current_password]': {
+                    required: true,
+                    minlength: 8
+                }
+            },
+
+            // Messages for form validation
+            messages: {
+                'user[current_password]': {
+                    required: 'Please enter your current password so we can validate your request.',
+                    minlength: 'Password is too short.'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+        var $passwordForm = $("#passwordForm").validate({
+
+            // Rules for form validation
+            rules: {
+                'user[current_password]': {
+                    required: true,
+                    minlength: 8
+                }
+            },
+
+            // Messages for form validation
+            messages: {
                 'user[current_password]': {
                     required: 'Please enter your current password so we can validate your request.',
                     minlength: 'Password is too short.'
