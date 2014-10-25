@@ -167,7 +167,7 @@
         <% if @user.stripe_token %>
             <p>Credit card info is pending approval...</p>
         <% elsif @user.stripe_customer_id %>
-            <div class="alert alert-success fade in" style='margin-top:20px;'>
+            <div class="alert alert-success fade in" style='margin-top:20px; margin-left: 30px; margin-right: 30px;'>
               <i class="fa-fw fa fa-check"></i>
               <strong>Accepted - </strong> Credit card accepted by billing provider.
             </div>

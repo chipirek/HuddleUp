@@ -25,8 +25,7 @@ class User < ActiveRecord::Base
 
   def update_stripe
 
-    return if self.plan_was == plan
-    #return if plan == 'free'
+    return if plan == 'free'
 
     #return if email.include?(ENV['ADMIN_EMAIL'])
     #return if email.include?('@example.com') and not Rails.env.production?
