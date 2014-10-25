@@ -17,17 +17,17 @@ Audit.destroy_all
 
 u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'free' )  # no, not my real password
 puts '   Added user ' + User.first.name
-u1=User.create( :name => 'Max Power', :email => 'max.power@gmail.com', :password => 'lollip0p' )  # no, not my real password
+u1=User.create( :name => 'Max Power', :email => 'max.power@gmail.com', :password => 'lollip0p', :plan=>'free' )  # no, not my real password
 puts '   Added user ' + User.last.name
-u2=User.create( :name => 'Karthikkarthika Viswanathan', :email => 'kviswanathan@gmail.com', :password => 'lollip0p' )
+u2=User.create( :name => 'Karthikkarthika Viswanathan', :email => 'kviswanathan@gmail.com', :password => 'lollip0p', :plan=>'free' )
 puts '   Added user ' + User.last.name
-u3=User.create( :name => 'John Doe', :email => 'j@gmail.com', :password => 'lollip0p' )
+u3=User.create( :name => 'John Doe', :email => 'j@gmail.com', :password => 'lollip0p', :plan=>'free' )
 puts '   Added user ' + User.last.name
-u4=User.create( :name => 'John Vegas', :email => 'c@gmail.com', :password => 'lollip0p' )
+u4=User.create( :name => 'John Vegas', :email => 'c@gmail.com', :password => 'lollip0p', :plan=>'free' )
 puts '   Added user ' + User.last.name
-u5=User.create( :name => 'Tony Mandalay', :email => 'd@gmail.com', :password => 'lollip0p' )
+u5=User.create( :name => 'Tony Mandalay', :email => 'd@gmail.com', :password => 'lollip0p', :plan=>'free' )
 puts '   Added user ' + User.last.name
-u6=User.create( :name => 'Edgar Edge', :email => 'e@gmail.com', :password => 'lollip0p' )
+u6=User.create( :name => 'Edgar Edge', :email => 'e@gmail.com', :password => 'lollip0p', :plan=>'free' )
 puts '   Added user ' + User.last.name
 
 

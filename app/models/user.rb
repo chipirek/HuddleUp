@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_sign_in_at, :plan, :stripe_token
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_sign_in_at, :plan, :stripe_customer_id, :stripe_token
 
   # virtual attribute for the strip_token (CC processing) so we can keep PCI compliance
   attr_accessor :stripe_token
@@ -24,17 +24,13 @@ class User < ActiveRecord::Base
 
   def update_stripe
 
-    puts '----------------------------------'
-    puts 'plan upgraded to = ' + plan
-    puts '----------------------------------'
-
     return if plan == 'free'
 
     #return if email.include?(ENV['ADMIN_EMAIL'])
     #return if email.include?('@example.com') and not Rails.env.production?
-    if customer_id.nil?
+    if stripe_customer_id.nil?
       if !stripe_token.present?
-        raise "Stripe token not present. Can't update account."
+        raise "Stripe token not present. Can't update account. Card not approved."
       end
       customer = Stripe::Customer.create( :email => email,
                                           :description => name,
@@ -50,8 +46,7 @@ class User < ActiveRecord::Base
       customer.save
     end
 
-    #self.last_4_digits = customer.active_card.last4
-    self.customer_id = customer.id
+    self.stripe_customer_id = customer.id
     self.stripe_token = nil
 
     rescue Stripe::StripeError => e
