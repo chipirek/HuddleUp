@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20141021170248_add_stripe_to_users.rb" afterPath="$PROJECT_DIR$/db/migrate/20141021170248_add_stripe_to_users.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -14,8 +11,8 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412285205285" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
-    <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414239255832" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414238102805" ignored="false" />
+    <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414247792240" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414239485683" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413552369397" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410361494034" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412695153750" ignored="false" />
@@ -31,7 +28,7 @@
     <file path="/projects_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412597021025" ignored="false" />
     <file path="/projects_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413556091046" ignored="false" />
     <file path="/show.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412705726643" ignored="false" />
-    <file path="/edit.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414238631175" ignored="false" />
+    <file path="/edit.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414246542002" ignored="false" />
     <file path="/routes.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414162687121" ignored="false" />
     <file path="/member.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398350158432" ignored="false" />
     <file path="/members_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385911839451" ignored="false" />
@@ -48,7 +45,7 @@
     <file path="/20130612203210_create_milestones.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399466192064" ignored="false" />
     <file path="/20130611130434_create_members.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372542410483" ignored="false" />
     <file path="/_top_nav.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414157773815" ignored="false" />
-    <file path="/registrations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414167192775" ignored="false" />
+    <file path="/registrations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414246941282" ignored="false" />
     <file path="/devise_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414011247355" ignored="false" />
     <file path="/invitations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412263085684" ignored="false" />
     <file path="/user_mailer.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413461734936" ignored="false" />
@@ -160,13 +157,13 @@
       <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="274" column="73" selection-start="8997" selection-end="8997" vertical-scroll-proportion="-7.5">
+            <state line="292" column="8" selection-start="9646" selection-end="9646" vertical-scroll-proportion="-19.916666">
               <folding>
                 <element signature="n#style#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#fieldset#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#section#1;n#div#1;n#fieldset#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#fieldset#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#section#1;n#div#1;n#fieldset#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -193,7 +190,7 @@
       <file leaf-file-name="registrations_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0">
+            <state line="7" column="70" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -202,7 +199,7 @@
       <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="16" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.85409254">
+            <state line="28" column="0" selection-start="886" selection-end="886" vertical-scroll-proportion="0.16014235">
               <folding />
             </state>
           </provider>
@@ -257,13 +254,13 @@
         <option value="$PROJECT_DIR$/app/views/layouts/devise/new_registration.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/public/index2.html" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
-        <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20141021170248_add_stripe_to_users.rb" />
+        <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
       </list>
     </option>
@@ -276,7 +273,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="460" />
+    <option name="x" value="459" />
     <option name="y" value="90" />
     <option name="width" value="1457" />
     <option name="height" value="925" />
@@ -2007,11 +2004,15 @@
       <created>1414238105707</created>
       <updated>1414238105707</updated>
     </task>
-    <option name="localTasksCounter" value="225" />
+    <task id="LOCAL-00225" summary="Commercialization#121 - Building out Strip billing.">
+      <created>1414239495085</created>
+      <updated>1414239495085</updated>
+    </task>
+    <option name="localTasksCounter" value="226" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="460" y="90" width="1457" height="925" extended-state="0" />
+    <frame x="459" y="90" width="1457" height="925" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2191,13 +2192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="30" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.0">
@@ -2219,19 +2213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="274" column="73" selection-start="8997" selection-end="8997" vertical-scroll-proportion="-7.5">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#fieldset#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#section#1;n#div#1;n#fieldset#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20141021170248_add_stripe_to_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0">
@@ -2239,9 +2220,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="292" column="8" selection-start="9646" selection-end="9646" vertical-scroll-proportion="-19.916666">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#fieldset#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#section#1;n#div#1;n#fieldset#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#well#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="70" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="16" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.85409254">
+        <state line="28" column="0" selection-start="886" selection-end="886" vertical-scroll-proportion="0.16014235">
           <folding />
         </state>
       </provider>

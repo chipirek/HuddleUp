@@ -20,14 +20,17 @@ class User < ActiveRecord::Base
   has_many :members
 
   before_update :update_stripe
+  before_update :update_plan_on_stripe
 
 
   def update_stripe
 
-    return if plan == 'free'
+    return if self.plan_was == plan
+    #return if plan == 'free'
 
     #return if email.include?(ENV['ADMIN_EMAIL'])
     #return if email.include?('@example.com') and not Rails.env.production?
+
     if stripe_customer_id.nil?
       if !stripe_token.present?
         raise "Stripe token not present. Can't update account. Card not approved."
@@ -37,7 +40,7 @@ class User < ActiveRecord::Base
                                           :card => stripe_token,
                                           :plan => plan )
     else
-      customer = Stripe::Customer.retrieve(customer_id)
+      customer = Stripe::Customer.retrieve(stripe_customer_id)
       if stripe_token.present?
           customer.card = stripe_token
       end
@@ -56,5 +59,20 @@ class User < ActiveRecord::Base
       false
     end
 
+
+    def update_plan_on_stripe
+
+      return if self.plan_was == plan
+
+      unless stripe_customer_id.nil?
+        customer = Stripe::Customer.retrieve(stripe_customer_id)
+        customer.update_subscription(:plan => plan)
+      end
+      true
+    rescue Stripe::StripeError => e
+      logger.error "Stripe Error: " + e.message
+      errors.add :base, "Unable to update your subscription. #{e.message}."
+      false
+    end
 
 end
