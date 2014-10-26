@@ -95,4 +95,9 @@ class User < ActiveRecord::Base
     end
 
 
+    def expire
+      UserMailer.expire_email(self).deliver
+      destroy
+    end
+
 end

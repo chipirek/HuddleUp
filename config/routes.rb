@@ -1,12 +1,13 @@
 HuddleUp::Application.routes.draw do
 
+  mount StripeEvent::Engine => '/stripe'
+
   resources :projects do
     resources :activities
     resources :members
     resources :invitations
     resources :todos
     resources :messages
-    #resources :issues
     resources :issues do
       resources :comments
     end
