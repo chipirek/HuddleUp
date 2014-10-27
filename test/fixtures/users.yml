@@ -3,15 +3,18 @@ me:
   email: 'chip.irek@gmail.com'
   encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
   name: 'Chip Irek'
+  plan: 'free'
 
 rich:
   id: 2
   email: 'r2k@me.com'
   encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
   name: 'Richard Tooke'
+  plan: 'free'
 
 new_subscriber:
   id: 3
   email: 'new_subscriber@me.com'
   encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
   name: 'Ima New'
+  plan: 'free'
