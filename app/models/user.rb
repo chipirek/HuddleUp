@@ -77,13 +77,9 @@ class User < ActiveRecord::Base
 
 
     def cancel_subscription
-      puts 'entering cancel_subscription...'
-      puts 'stripe_customer_id=' + stripe_customer_id
       unless stripe_customer_id.nil?
         customer = Stripe::Customer.retrieve(stripe_customer_id)
-        puts 'customer.id=' + customer.id.to_s
         unless customer.nil? # or customer.respond_to?('deleted')
-          puts 'trynig to cancel...'
           customer.cancel_subscription
         end
       end
