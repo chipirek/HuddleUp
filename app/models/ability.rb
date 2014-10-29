@@ -22,7 +22,7 @@ class Ability
       end
 
     elsif user.plan == 'silver'
-      if projects_in_which_i_am_a_member.count < 6
+      if projects_in_which_i_am_a_member.count < 5
         can :create, Project
       end
       projects = Project.where('id in (?)', projects_in_which_i_am_a_member)
@@ -32,7 +32,7 @@ class Ability
         if user_is_admin
           can [:destroy], Project, :id => project.id
         end
-        if project.members.count < 6
+        if project.members.count < 5
           can :create, Member
         end
       end
@@ -40,7 +40,7 @@ class Ability
       can [:read, :update], Member
 
     elsif user.plan == 'gold'
-      if projects_in_which_i_am_a_member.count < 11
+      if projects_in_which_i_am_a_member.count < 10
         can :create, Project
       end
       projects = Project.where('id in (?)', projects_in_which_i_am_a_member)
@@ -50,9 +50,9 @@ class Ability
         if user_is_admin
           can [:destroy], Project, :id => project.id
         end
-      end
-      if project.members.count < 11
-        can :create, Member
+        if project.members.count < 10
+          can :create, Member
+        end
       end
       can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment]
       can [:read, :update], Member

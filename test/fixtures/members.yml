@@ -12,5 +12,51 @@ second_member:
   joined_date: 2013-05-13
   status_code: '1'
 
+third_member:
+  user_id: 2
+  project_id: 2
+  is_admin: true
+  joined_date: 2013-05-13
+  status_code: '1'
 
+delete_test_member:
+  user_id: 1
+  project_id: 6
+  is_admin: true
+  joined_date: 2013-05-13
+  status_code: '1'
 
+silver_member_1:
+  user_id: 5
+  project_id: 90
+  is_admin: true
+  joined_date: 2013-05-13
+  status_code: '1'
+
+silver_member_2:
+  user_id: 5
+  project_id: 91
+  is_admin: true
+  joined_date: 2013-05-13
+  status_code: '1'
+
+silver_member_3:
+  user_id: 5
+  project_id: 92
+  is_admin: true
+  joined_date: 2013-05-13
+  status_code: '1'
+
+silver_member_4:
+  user_id: 5
+  project_id: 93
+  is_admin: true
+  joined_date: 2013-05-13
+  status_code: '1'
+
+silver_member_5:
+  user_id: 5
+  project_id: 94
+  is_admin: true
+  joined_date: 2013-05-13
+  status_code: '1'

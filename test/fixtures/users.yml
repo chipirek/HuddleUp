@@ -3,7 +3,7 @@ me:
   email: 'chip.irek@gmail.com'
   encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
   name: 'Chip Irek'
-  plan: 'free'
+  plan: 'gold'
 
 rich:
   id: 2
@@ -18,3 +18,18 @@ new_subscriber:
   encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
   name: 'Ima New'
   plan: 'free'
+
+chip_rr:
+  id: 4
+  email: 'chipirek@nc.rr.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
+  name: 'Chip RR'
+  plan: 'silver'
+  stripe_customer_id: 'cus_51ePHKbNEFmyM3'
+
+silver_user:
+  id: 5
+  email: 'silver@nc.rr.com'
+  encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
+  name: 'Silver User'
+  plan: 'silver'

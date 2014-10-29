@@ -43,13 +43,11 @@ class SmokeTest < ActionDispatch::IntegrationTest
   end
 
 
-=begin
-
   test 'registration OK' do
     get '/users/sign_up'
     assert_response :success
 
-    post_via_redirect '/users', 'user[name]' => 'New User','user[email]' => 'new_user@gmail.com', 'user[password]' => 'lollip0p', 'user[password_confirmation]' => 'lollip0p', 'project_name' => 'New Project'
+    post_via_redirect '/users', 'user[name]' => 'New User','user[email]' => 'new_user@gmail.com', 'user[password]' => 'lollip0p', 'user[password_confirmation]' => 'lollip0p'
     assert_equal '/', path
   end
 
@@ -63,17 +61,6 @@ class SmokeTest < ActionDispatch::IntegrationTest
   end
 
 
-  test 'registration fails with missing project name' do
-    get '/users/sign_up'
-    assert_response :success
-
-    post_via_redirect '/users', 'user[name]' => 'New User3','user[email]' => 'new_user3@gmail.com', 'user[password]' => 'lollip0p', 'user[password_confirmation]' => 'lollip0p'
-    assert_equal '/users', path
-  end
-
-=end
-
-  
   test 'create new project' do
 
     #-- login
@@ -135,14 +122,14 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_equal '/', path
 
     count_before_delete = Project.all.count
-    p = Project.last
+    p = Project.find(6)
 
     #-- get the index
     get '/projects'
     assert_response :success
     assert assigns(:projects)
 
-    delete_via_redirect '/projects/' + p.id.to_s
+    delete_via_redirect '/projects/6'
 
     assert_equal '/projects', path
 
@@ -418,9 +405,63 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
     #-- try to get a bad record
     get '/projects/1'
-    assert_redirected_to '/errors/error_422'
+    assert_redirected_to '/'
   end
 
+
+  test 'unauthenticated requests go to marketing page' do
+    #get '/'
+    #assert_redirected_to '/'
+  end
+
+
+  test 'user deletes account OK' do
+    get '/users/sign_up'
+    assert_response :success
+
+    post_via_redirect '/users', 'user[name]' => 'New User','user[email]' => 'deleteme@gmail.com', 'user[password]' => 'lollip0p', 'user[password_confirmation]' => 'lollip0p'
+    assert_equal '/', path
+
+    c1 = User.where('email=?', 'deleteme@gmail.com').count
+    assert_equal 1, c1
+
+    delete_via_redirect '/users'
+    assert_equal '/', path
+    c2 = User.where('email=?', 'deleteme@gmail.com').count
+    assert_equal 0, c2
+  end
+
+
+  test 'free user cannot create more than 1 project' do
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'r2k@me.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+
+    #-- try to get a bad record
+    get '/projects/new'
+    assert_redirected_to '/'
+  end
+
+
+  test 'silver user cannot create more than 5 projects' do
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'silver@nc.rr.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+
+    projects = Member.where('user_id=5').pluck(:project_id)
+    assert_equal projects.count, 5
+
+    #-- try to get a bad record
+    get '/projects/new'
+    assert_redirected_to '/'
+    assert_equal 'You are not authorized to access this page. Consider upgrading to get more features, or contact the project admin.', flash[:error]
+  end
 
 end
 
