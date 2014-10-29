@@ -19,14 +19,16 @@ class User < ActiveRecord::Base
   # has_many :projects
   has_many :members
 
-  before_update :update_stripe
+  #before_update :update_stripe
   before_update :update_plan_on_stripe
   before_destroy :cancel_subscription
 
 
+=begin
   def update_stripe
 
     return if plan == 'free'
+    #return if self.plan_was == plan
 
     #return if email.include?(ENV['ADMIN_EMAIL'])
     #return if email.include?('@example.com') and not Rails.env.production?
@@ -58,6 +60,7 @@ class User < ActiveRecord::Base
       self.stripe_token = nil
       false
     end
+=end
 
 
     def update_plan_on_stripe

@@ -7,15 +7,16 @@ require 'audited/adapters/active_record/audit'
 puts 'Seeding users...'
 ReadReceipt.destroy_all
 Member.destroy_all
-User.destroy_all
-Project.destroy_all
 Milestone.destroy_all
 Todo.destroy_all
 Invitation.destroy_all
 Issue.destroy_all
+Project.destroy_all
+User.destroy_all
 Audit.destroy_all
 
-u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'free' )  # no, not my real password
+u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'gold', :stripe_customer_id=>'12345' )  # no, not my real password
+#u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'free')
 puts '   Added user ' + User.first.name
 u1=User.create( :name => 'Max Power', :email => 'max.power@gmail.com', :password => 'lollip0p', :plan=>'free' )  # no, not my real password
 puts '   Added user ' + User.last.name
