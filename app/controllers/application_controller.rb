@@ -23,15 +23,6 @@ class ApplicationController < ActionController::Base
   private
 
 
-  def after_sign_in_path_for(user)
-    root_path
-  end
-
-  def after_sign_up_path_for(user)
-    edit_user_registration_path  #this bypasses the index.html marketing page
-  end
-
-
   def catch_not_found
     yield
   rescue ActiveRecord::RecordNotFound

@@ -22,7 +22,6 @@ HuddleUp::Application.routes.draw do
   # devise_for :users
   devise_for :users, :controllers => {:registrations => 'registrations', :sessions => 'devise/sessions'}
   devise_scope :user do
-    put 'update_plan', :to => 'registrations#update_plan'
     put 'update_card', :to => 'registrations#update_card'
   end
 
