@@ -21,6 +21,10 @@ HuddleUp::Application.routes.draw do
 
   # devise_for :users
   devise_for :users, :controllers => {:registrations => 'registrations', :sessions => 'devise/sessions'}
+  devise_scope :user do
+    put 'update_plan', :to => 'registrations#update_plan'
+    put 'update_card', :to => 'registrations#update_card'
+  end
 
   #root :to => 'projects#index'
   #root :to => 'home#index'
@@ -34,6 +38,7 @@ HuddleUp::Application.routes.draw do
 
 
   match '/users/:id', :to => 'users#show', :as => :user
+  match '/users/billing', :to => 'registrations#show', :as => :user
   match '/projects/:project_id/issues/:issue_id/:controller/:action(/:id)'
   match '/projects/:project_id/:controller/:action(/:id)'
 
