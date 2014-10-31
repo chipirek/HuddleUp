@@ -48,7 +48,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     post_via_redirect '/users', 'user[name]' => 'New User','user[email]' => 'new_user@gmail.com', 'user[password]' => 'lollip0p', 'user[password_confirmation]' => 'lollip0p'
-    assert_equal '/', path
+    assert_equal '/users/edit', path
   end
 
 
@@ -420,7 +420,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     post_via_redirect '/users', 'user[name]' => 'New User','user[email]' => 'deleteme@gmail.com', 'user[password]' => 'lollip0p', 'user[password_confirmation]' => 'lollip0p'
-    assert_equal '/', path
+    assert_equal '/users/edit', path
 
     c1 = User.where('email=?', 'deleteme@gmail.com').count
     assert_equal 1, c1

@@ -85,7 +85,7 @@
             </section>
         <% else %>
             <section>
-              <label class="label">Plan: <b><%= @user.plan.upcase %></b>. </label>
+              <label class="label">Plan: <b><%= @user.plan.upcase unless @user.plan.nil? %></b>. </label>
             </section>
         <% end %>
 

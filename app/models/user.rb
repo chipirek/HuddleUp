@@ -21,6 +21,12 @@ class User < ActiveRecord::Base
 
   before_update :update_plan_on_stripe
   before_destroy :cancel_subscription
+  before_create :set_initial_plan
+
+
+  def set_initial_plan
+    self.plan = 'free'
+  end
 
 
   def update_card_on_stripe

@@ -15,23 +15,23 @@ class Milestone < ActiveRecord::Base
 
   def date_logic_is_ok
     if self.end.nil?
-      all_day = true
+      self.all_day = true
       return
     end
 
-    if self.end < start
+    if self.end < self.start
       errors.add(:end, "can't be less than the start date.")
     end
   end
 
   def time_logic_is_ok
     if end_time.nil?
-      all_day = true
+      self.all_day = true
       return
     end
 
     if start_time.nil?
-      all_day = true
+      self.all_day = true
       return
     end
 

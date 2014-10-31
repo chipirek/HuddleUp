@@ -25,7 +25,6 @@ chip_rr:
   encrypted_password: <%= User.new.send(:password_digest, 'lollip0p') %>
   name: 'Chip RR'
   plan: 'silver'
-  stripe_customer_id: 'cus_51ePHKbNEFmyM3'
 
 silver_user:
   id: 5
