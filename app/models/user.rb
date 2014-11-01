@@ -22,6 +22,26 @@ class User < ActiveRecord::Base
   before_update :update_plan_on_stripe
   before_destroy :cancel_subscription
   before_create :set_initial_plan
+  after_create :notify_hq_of_new_user
+  after_destroy :notify_hq_of_deleted_user
+  after_update :notify_hq_of_updated_user
+
+
+  def notify_hq_of_new_user
+    UserMailer.new_user(self).deliver
+  end
+
+
+  def notify_hq_of_deleted_user
+    UserMailer.deleted_user(self).deliver
+  end
+
+
+  def notify_hq_of_updated_user
+    return if self.plan_was == plan
+    return if stripe_customer_id.nil?
+    UserMailer.updated_user(self).deliver
+  end
 
 
   def set_initial_plan

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+
+<h1>User Account Update</h1>
+
+<h3>Potential Financial Impact</h3>
+
+<p>
+  <br />&nbsp;
+</p>
+
+<ul>
+  <li>Date: <b><%= Date.today.strftime("%m/%d/%Y") %></b></li>
+  <li>Customer name: <b><%= @user.name %></b></li>
+  <li>HuddleUp database ID: <b><%= @user.id %></b></li>
+  <li>Customer email: <b><%= @user.email %></b></li>
+  <li>Customer plan: <b><%= @user.plan %></b></li>
+</ul>
+
+</body>
+</html>
