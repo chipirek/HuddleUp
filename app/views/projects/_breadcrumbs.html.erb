@@ -5,7 +5,7 @@
 
           <li><%= link_to @project.name, project_path(@project) %></li>
 
-          <% if controller_name == 'todos' %>
+          <% if controller_name == 'todos' && !request.path.end_with?('planner') %>
               <li><%= link_to 'Todos', project_todos_path(@project) %></li>
               <% if !@todo.id.nil? %>
                   <li><a href='/projects/<%= @project.id %>/todos/<%= @todo.id %>/edit'><%= @todo.subject %>x</a></li>
@@ -13,6 +13,10 @@
               <% if action_name == 'new' %>
                   <li>New</li>
               <% end %>
+          <% end %>
+
+          <% if controller_name == 'todos' && request.path.end_with?('planner') %>
+              <li><%= link_to 'Planner', planner_project_todos_path(@project) %></li>
           <% end %>
 
           <% if controller_name == 'milestones' %>

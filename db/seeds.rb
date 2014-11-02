@@ -12,6 +12,13 @@ Todo.destroy_all
 Invitation.destroy_all
 Issue.destroy_all
 Project.destroy_all
+
+# you need this block so that the before_destroy filter on the user object doesn't run and fail
+User.all.each do |u|
+  u.stripe_customer_id = nil
+  u.save
+end
+
 User.destroy_all
 Audit.destroy_all
 
@@ -124,6 +131,10 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   t = project1.todos.create(:subject=>'create the team room',:due_date=>Time.now.to_date, :position=>1, :member_id=>project1.members.first.id)
   puts '   Added todo ' + t.subject
   t = project1.todos.create(:subject=>'organize the assets',:due_date=>Time.now.to_date, :position=>2)
+  puts '   Added todo ' + t.subject
+  t = project1.todos.create(:subject=>'some unscheduled thing',:due_date=>nil, :position=>2)
+  puts '   Added todo ' + t.subject
+  t = project1.todos.create(:subject=>'another thing with no due date',:due_date=>nil, :position=>2)
   puts '   Added todo ' + t.subject
 
   puts ' '

@@ -8,54 +8,60 @@
     <nav>
         <ul>
             <% if !@project.nil? && !@project.id.nil? %>
-              <li <%= "class='active'".html_safe unless controller_name != 'projects' %> >
-                <a href="/projects/<%= @project.id %>" title="Dashboard"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
+              <li <%= "class='active'".html_safe if controller_name == 'projects' %> >
+                <a href="/projects/<%= @project.id %>" title="Summary"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
                   <span class="menu-item-parent">Summary</span></a>
               </li>
 
-              <li <%= "class='active'".html_safe unless controller_name != 'milestones' %> >
+              <li <%= "class='active'".html_safe if controller_name == 'todos' && request.path.end_with?('planner') %> >
+                <a href="/projects/<%= @project.id %>/todos/planner" title="Planner"><i class="fa fa-lg fa-fw fa-calendar-o"></i>
+                  <span class="menu-item-parent">Planner</span>
+                  </a>
+              </li>
+
+              <li <%= "class='active'".html_safe if controller_name == 'milestones' %> >
                 <a href="/projects/<%= @project.id %>/milestones" title="Milestones"><i class="fa fa-lg fa-fw fa-calendar"></i>
                   <span class="menu-item-parent">Milestones</span>
                   <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_milestones_left unless @project.how_many_milestones_left == 0 %></span></a>
               </li>
 
-              <li <%= "class='active'".html_safe unless controller_name != 'issues' %> >
+              <li <%= "class='active'".html_safe if controller_name == 'issues' %> >
                 <a href="/projects/<%= @project.id %>/issues" title="Milestones"><i class="fa fa-lg fa-fw fa-bug"></i>
                   <span class="menu-item-parent">Issues</span>
                   <span class="badge pull-right inbox-badge bg-color-red" id="badgeIssuesCount"><%= @project.how_many_issues_left unless @project.how_many_issues_left == 0 %></span></a>
               </li>
 
-              <li <%= "class='active'".html_safe unless controller_name != 'todos' %> >
+              <li <%= "class='active'".html_safe if controller_name == 'todos' && !request.path.end_with?('planner') %> >
                 <a href="/projects/<%= @project.id %>/todos" title="Todos"><i class="fa fa-lg fa-fw fa-check-square-o"></i>
                   <span class="menu-item-parent">Todos</span>
                   <span class="badge pull-right inbox-badge bg-color-red" id='badgeTodosCount'><%= @project.how_many_todos_left unless @project.how_many_todos_left == 0 %></span></a>
               </li>
 
-              <li <%= "class='active'".html_safe unless controller_name != 'members' %> >
+              <li <%= "class='active'".html_safe if controller_name == 'members' %> >
                 <a href="/projects/<%= @project.id %>/members" title="Members"><i class="fa fa-lg fa-fw fa-group"></i>
                   <span class="menu-item-parent">Members</span>
                 </a>
               </li>
 
-              <li <%= "class='active'".html_safe unless controller_name != 'alerts' %> >
+              <li <%= "class='active'".html_safe if controller_name == 'alerts' %> >
                 <a href="/projects/<%= @project.id %>/alerts" title="Alerts"><i class="fa fa-lg fa-fw fa-bell"></i>
                   <span class="menu-item-parent">Alerts</span>
                 </a>
               </li>
 
-              <li <%= "class='active'".html_safe unless controller_name != 'messages' %> >
+              <li <%= "class='active'".html_safe if controller_name == 'messages' %> >
                 <a href="/projects/<%= @project.id %>/messages" title="Messages"><i class="fa fa-lg fa-fw fa-bullhorn"></i>
                   <span class="menu-item-parent">Messages</span>
                   <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_unread_messages_for_this_member(current_user.id) unless @project.how_many_unread_messages_for_this_member(current_user.id) == 0 %></span></a>
               </li>
 
-              <li <%= "class='active'".html_safe unless controller_name != 'activities' %> >
+              <li <%= "class='active'".html_safe if controller_name == 'activities' %> >
                 <a href="/projects/<%= @project.id %>/activities" title="Alerts"><i class="fa fa-lg fa-fw fa-reorder"></i>
                   <span class="menu-item-parent">Timeline</span>
                 </a>
               </li>
 
-              <li <%= "class='active'".html_safe unless controller_name != 'settings' %> >
+              <li <%= "class='active'".html_safe if controller_name == 'settings' %> >
                 <a href="/projects/<%= @project.id %>/settings" title="Alerts"><i class="fa fa-lg fa-fw fa-cog"></i>
                   <span class="menu-item-parent">Settings</span>
                 </a>

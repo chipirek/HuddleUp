@@ -21,6 +21,24 @@ class TodosController < ApplicationController
   end
 
 
+  def planner
+    @todos = @project.todos.order('position')
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @todos }
+    end
+  end
+
+
+  def set_due_date
+    @item = Todo.find(params[:id])
+    @item.update_attribute('due_date', params[:due_date])
+    @item.save!
+    render :nothing => true
+  end
+
+
   # GET /todos/1
   # GET /todos/1.json
   def show
