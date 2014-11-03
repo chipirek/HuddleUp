@@ -22,7 +22,7 @@ class TodosController < ApplicationController
 
 
   def planner
-    @todos = @project.todos.order('position')
+    @todos = @project.todos.where('is_complete != true or is_complete is null').order('position')
 
     respond_to do |format|
       format.html
