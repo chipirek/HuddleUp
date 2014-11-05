@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     if @membership.count == 0
       @projects = []
     else
-      @projects = Project.where('id in (?)', @membership)
+      @projects = Project.where('id in (?)', @membership).order('status_code')
     end
 
     respond_to do |format|
