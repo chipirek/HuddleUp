@@ -161,7 +161,49 @@
 <script type="text/javascript">
     pageSetUp();
     runAllForms();
+    var registrationForm = $("#registration_form").validate({
 
+        // Rules for form validation
+        rules: {
+            'user[email]': {
+                required: true,
+                minlength: 3
+            },
+            'user[name]': {
+                required: true,
+                minlength: 3
+            },
+            'user[password]': {
+                required: true,
+                minlength: 8
+            },
+            'user[password_confirmation]': {
+                required: true,
+                minlength: 8
+            }
+        },
+
+        // Messages for form validation
+        messages: {
+            'user[email]': {
+                required: 'Please enter your email address.'
+            },
+            'user[name]': {
+                required: 'Please enter your name.'
+            },
+            'user[password]': {
+                required: 'Please setup your password.'
+            },
+            'user[password_confirmation]': {
+                required: 'Please confirm your password.'
+            }
+        },
+
+        // Do not change code below
+        errorPlacement: function (error, element) {
+            error.insertAfter(element.parent());
+        }
+    });
 </script>
 
 </body>

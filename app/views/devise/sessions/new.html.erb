@@ -4,11 +4,11 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-        <h1 class="txt-color-red login-header-big">HuddleUp</h1>
+        <h1 class="txt-color-red login-header-big" style='font-size: 5em;'>HuddleUp</h1>
         <div class="hero">
 
           <div class="pull-left login-desc-box-l">
-            <h4 class="paragraph-header">From 1 to 10,000 users. Unlimited projects. Pay as go. Use what you need.</h4>
+            <h4 class="paragraph-header">From 1 to 10,000 team members. Unlimited projects. Pay as go. Use what you need.</h4>
           </div>
 
           <img src="/SmartAdmin/img/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px">
@@ -40,7 +40,7 @@
             </header>
 
               <% if flash[:alert] %>
-                  <div class="alert alert-danger fade in">
+                  <div class="alert alert-danger fade in" style='margin-left: 10px; margin-right: 10px; margin-top: 10px;'>
                     <button class="close" data-dismiss="alert">
                       ×
                     </button>
@@ -54,15 +54,15 @@
               <section>
                 <label class="label">E-mail</label>
                 <label class="input"> <i class="icon-append fa fa-user"></i>
-                  <input type="email" name='user[email]' id='user_email'>
-                  <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
+                  <input type="email" name='user[email]' id='user_email' class='input-lg' autofocus="true">
+                  </label>
               </section>
 
               <section>
                 <label class="label">Password</label>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                  <input type="password" name='user[password]' id='user_password'>
-                  <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
+                  <input type="password" name='user[password]' id='user_password' class='input-lg' autocomplete="false">
+                  </label>
                 <div class="note">
                   <%= link_to 'Forgot password?', new_user_password_path %>
                 </div>

@@ -17,7 +17,7 @@
             <input type='hidden' name='user[plan]' id='user_plan' value='free' />
 
             <% if flash[:alert] %>
-                <div class="alert alert-danger fade in">
+                <div class="alert alert-danger fade in" style='margin-left: 10px; margin-right: 10px; margin-top: 10px;'>
                   <button class="close" data-dismiss="alert">
                     ×
                   </button>
@@ -32,28 +32,28 @@
               <section>
                 <label class="label">Your name</label>
                 <label class="input"> <i class="icon-append fa fa-user"></i>
-                  <input type="text" name='user[name]' autofocus="true" id='user_name' placeholder='i.e. John Jones'>
+                  <input type="text" name='user[name]' autofocus="true" id='user_name' placeholder='i.e. John Jones' class='input-lg' autofocus="true">
                 </label>
               </section>
 
               <section>
                 <label class="label">E-mail</label>
                 <label class="input"> <i class="icon-append fa fa-envelope"></i>
-                  <input type="email" name='user[email]' id='user_email' placeholder='john@example.com'>
+                  <input type="email" name='user[email]' id='user_email' placeholder='john@example.com' class='input-lg'>
                 </label>
               </section>
 
               <section>
                 <label class="label">Password</label>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                  <%= f.password_field :password, :autocomplete=>"off" %>
+                  <%= f.password_field :password, :autocomplete=>"off", :class=>'input-lg' %>
                 </label>
               </section>
 
               <section>
                 <label class="label">Password Confirmation</label>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                  <%= f.password_field :password_confirmation, :autocomplete=>"off" %>
+                  <%= f.password_field :password_confirmation, :autocomplete=>"off", :class=>'input-lg' %>
                 </label>
               </section>
 
