@@ -23,7 +23,7 @@ User.destroy_all
 Audit.destroy_all
 
 #u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'gold', :stripe_customer_id=>'cus_53RIl5VKMzQv2e' )  # no, not my real password
-u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'free')
+u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'gold')
 puts '   Added user ' + User.first.name
 u1=User.create( :name => 'Max Power', :email => 'max.power@gmail.com', :password => 'lollip0p', :plan=>'free' )  # no, not my real password
 puts '   Added user ' + User.last.name

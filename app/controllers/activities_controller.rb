@@ -77,10 +77,10 @@ class ActivitiesController < ApplicationController
         when 'issue'
           case a.action
             when 'create'
-              a.title = a.audited_changes.split(/\r?\n/)[2].split(':')[1]
+              a.title = a.audited_changes.split(/\r?\n/)[5].split(':')[1]
               a.full_message = a.username + ' added the issue "' + a.title.slice(1, a.title.length) + '"'
             when 'destroy'
-              a.title = a.audited_changes.split(/\r?\n/)[2].split(':')[1]
+              a.title = a.audited_changes.split(/\r?\n/)[5].split(':')[1]
               a.full_message = a.username + ' deleted the issue "' + a.title.slice(1, a.title.length) + '"'
             when 'update'
               a.did_what = 'updated'
