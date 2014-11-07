@@ -41,9 +41,16 @@ class IssuesController < ApplicationController
     @issue = Issue.new
     @issue.project_id = params[:project_id]
 
+    # HACK: not sure why CanCan is allowing this, so here is a workaround...
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @issue }
+      if can? :create, @project.issues.build
+        format.html # new.html.erb
+        format.json { render json: @issue }
+      else
+        flash[:error] = "You don't have permission to add a new issue to this project."
+        format.html { redirect_to project_issues_path(@project) }
+        format.json { render json: @issue.errors, status: :unprocessable_entity }
+      end
     end
   end
 

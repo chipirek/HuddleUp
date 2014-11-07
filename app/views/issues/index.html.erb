@@ -12,7 +12,9 @@
   <!-- end col -->
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
-    <%= link_to 'Create a new issue', new_project_issue_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn' %>
+    <% if can? :create, @project.issues.build %>
+        <%= link_to 'Create a new issue', new_project_issue_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn' %>
+    <% end %>
   </div>
 
 </div>
@@ -33,13 +35,15 @@
                 <li data-pk='<%= issue.id %>' class='issue' id="task_<%= issue.id %>">
                     <span class="handle">
                       <label class="checkbox">
-                        <input type="checkbox" name="checkbox-inline">
+                        <input type="checkbox" name="checkbox-inline" <%= "disabled='disabled'".html_safe if !can? :update, @project.issues.build %>>
                         <i></i> </label>
                     </span>
 
                   <p>
                     <strong> #<%= issue.id %></strong> - <%= issue.subject %>
-                    <%= link_to '[Edit...]', edit_project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                    <% if can? :create, @project.issues.build %>
+                        <%= link_to '[Edit...]', edit_project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                    <% end %>
                     <%= link_to '[Comments...]', project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
 
                     <% if issue.is_critical? %>
@@ -94,61 +98,64 @@
 
         pageSetUp();
 
-        // initialize sortable
-        $(function () {
-            $("#issues").sortable({
-                handle: '.handle',
-                connectWith: ".todo",
-                axis: 'y',
-                items: 'li',
-                update: function () {
-                    $.ajax({
-                        type: 'post',
-                        data: $('#issues').sortable('serialize'),
-                        dataType: 'script',
-                        complete: function (request) {
-                            $('#issues').effect('highlight');
-                        },
-                        url: '/projects/<%= @project.id %>/issues/sort'});
-                    countIssues();
-                }
-            }).disableSelection();
-        });
-
-        // check and uncheck
-        $('.todo .checkbox > input[type="checkbox"]').click(function () {
-            var $this = $(this).parent().parent().parent();
-
-            if ($(this).prop('checked')) {
-                $this.addClass("complete");
-
-                // remove this if you want to undo a check list once checked
-                //$(this).attr("disabled", true);
-                $(this).parent().hide();
-
-                // once clicked - add class, copy to memory then remove and add to sortable3
-                $this.slideUp(500, function () {
-                    $this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
-                    $this.remove();
-                    countIssues();
-                });
-
-                // ajax update back to database
-                var pk = $this.attr('data-pk');
-                var url = '/projects/<%= @project.id %>/issues/mark_complete/' + pk;
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: { _method:'PUT' },
-                    success: function(msg) {
-                        console.log( "Data Saved: " + msg );
+        <% if can? :create, @project.issues.build %>
+            // initialize sortable
+            $(function () {
+                $("#issues").sortable({
+                    handle: '.handle',
+                    connectWith: ".todo",
+                    axis: 'y',
+                    items: 'li',
+                    update: function () {
+                        $.ajax({
+                            type: 'post',
+                            data: $('#issues').sortable('serialize'),
+                            dataType: 'script',
+                            complete: function (request) {
+                                $('#issues').effect('highlight');
+                            },
+                            url: '/projects/<%= @project.id %>/issues/sort'});
+                        countIssues();
                     }
-                });
-            } else {
-                // insert undo code here...
-            }
+                }).disableSelection();
+            });
 
-        })
+            // check and uncheck
+            $('.todo .checkbox > input[type="checkbox"]').click(function () {
+                var $this = $(this).parent().parent().parent();
+
+                if ($(this).prop('checked')) {
+                    $this.addClass("complete");
+
+                    // remove this if you want to undo a check list once checked
+                    //$(this).attr("disabled", true);
+                    $(this).parent().hide();
+
+                    // once clicked - add class, copy to memory then remove and add to sortable3
+                    $this.slideUp(500, function () {
+                        $this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
+                        $this.remove();
+                        countIssues();
+                    });
+
+                    // ajax update back to database
+                    var pk = $this.attr('data-pk');
+                    var url = '/projects/<%= @project.id %>/issues/mark_complete/' + pk;
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: { _method:'PUT' },
+                        success: function(msg) {
+                            console.log( "Data Saved: " + msg );
+                        }
+                    });
+                } else {
+                    // insert undo code here...
+                }
+
+            });
+        <% end %>
+
         // count tasks
         function countIssues() {
 
