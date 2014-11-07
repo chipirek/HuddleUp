@@ -48,9 +48,16 @@ class MessagesController < ApplicationController
     @message.project_id = params[:project_id]
     @message.body=''
 
+    # HACK: not sure why CanCan is allowing this, so here is a workaround...
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @message }
+      if can? :create, @project.messages.build
+        format.html # new.html.erb
+        format.json { render json: @message }
+      else
+        flash[:error] = "You don't have permission to add a new message in this project."
+        format.html { redirect_to project_messages_path(@project) }
+        format.json { render json: @milestone.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -26,3 +26,6 @@
     width:auto;
 }
 
+.inbox-data-message > *:first-child > *:first-child:after {
+    content: "";
+}

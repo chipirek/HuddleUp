@@ -26,15 +26,14 @@
 
         <h3><%= @message.subject %></h3>
         <div><%= @message.body unless @message.body.nil? %></div>
-        <div class='font-sm'><i>Posted by <%= @message.member.user.name %> <%= time_ago_in_words(@message.created_at) %> (<%= @message.created_at.strftime("%m/%d/%Y %I:%M %P") %>)</i></div>
 
+        <p>
+        <div class='font-sm'><i>Posted by <%= @message.member.user.name %> <%= time_ago_in_words(@message.created_at) %> (<%= @message.created_at.strftime("%m/%d/%Y %I:%M %P") %>)</i></div>
+        </p>
     <!-- end row -->
 
   </well>
   <!-- end widget grid -->
-
-  <p> </p>
-  <%= link_to 'Back to messages', project_messages_path(@project), :class=>'btn btn-success' %>
 
 </div>
 
