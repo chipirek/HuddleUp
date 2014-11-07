@@ -464,20 +464,25 @@ class SmokeTest < ActionDispatch::IntegrationTest
   end
 
 
-  #test 'GOLD user, NOT admin, CAN NOT add todos to a locked project' do
-  #end
-  #
-  #
-  #test 'GOLD user, admin, CAN add todos to locked project' do
-  #end
-  #
-  #
-  #test 'GOLD user, not admin, CAN NOT add todos to a closed project' do
-  #end
-  #
-  #
-  #test 'GOLD user, admin, CAN add todos to locked project' do
-  #end
+  test 'you CAN NOT add todos to a locked project' do
+    #-- login
+    get '/users/sign_in'
+    assert_response :success
+
+    post_via_redirect 'users/sign_in', 'user[email]' => 'chip.irek@gmail.com', 'user[password]' => 'lollip0p'
+    assert_equal '/', path
+    #p flash
+    #assert_equal 'Welcome david!', flash[:notice]
+
+    #-- get the correct project
+    get '/projects/6/todos'
+    assert_response :success
+
+    #-- try to a new todo
+    get '/projects/6/todos/new'
+    assert_response 302
+
+  end
 
 
 end
