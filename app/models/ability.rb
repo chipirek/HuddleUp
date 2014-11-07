@@ -14,11 +14,21 @@ class Ability
           can [:read, :update], Project, :id => project.id
           user_is_admin = Member.where('user_id=' + user.id.to_s).where('project_id=?', project.id).pluck(:is_admin)
           if user_is_admin
-            can [:destroy], Project, :id => project.id
+            can [:destroy, :update], Project, :id => project.id
+          end
+          if project.status_code.to_s < '4'
+            can :update, Project, :id => project.id
+            can :manage, [Todo, Milestone, Issue, Message, Comment], :project_id => project.id
+            if project.members.count < 5
+              can :create, [Member, Invitation], :project_id => project.id
+            else
+              can :read, [Member, Invitation], :project_id => project.id
+            end
+          else
+            can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
           end
         end
         can :read, Member
-        can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment]
       end
 
     elsif user.plan == 'silver'
@@ -27,17 +37,25 @@ class Ability
       end
       projects = Project.where('id in (?)', projects_in_which_i_am_a_member)
       projects.each do |project|
-        can [:read, :update], Project, :id => project.id
+        can :read, Project, :id => project.id
         user_is_admin = Member.where('user_id=' + user.id.to_s).where('project_id=?', project.id).pluck(:is_admin)
         if user_is_admin
-          can [:destroy], Project, :id => project.id
+          can [:destroy, :update], Project, :id => project.id
         end
-        if project.members.count < 5
-          can :create, Member
+        if project.status_code.to_s < '4'
+          can :update, Project, :id => project.id
+          can :manage, [Todo, Milestone, Issue, Message, Comment], :project_id => project.id
+          if project.members.count < 5
+            can :create, [Member, Invitation], :project_id => project.id
+          else
+            can :read, [Member, Invitation], :project_id => project.id
+          end
+        else
+          can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
         end
       end
-      can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment]
-      can [:read, :update], Member
+      # can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment]
+      # can [:read, :update], Member
 
     elsif user.plan == 'gold'
       if projects_in_which_i_am_a_member.count < 10
@@ -50,12 +68,19 @@ class Ability
         if user_is_admin
           can [:destroy], Project, :id => project.id
         end
-        if project.members.count < 10
-          can :create, Member
+
+        if project.status_code.to_s < '4'
+          can :update, Project, :id => project.id
+          can :manage, [Todo, Milestone, Issue, Message, Comment], :project_id => project.id
+          if project.members.count < 10
+            can :create, [Member, Invitation], :project_id => project.id
+          else
+            can :read, [Member, Invitation], :project_id => project.id
+          end
+        else
+          can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
         end
       end
-      can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment]
-      can [:read, :update], Member
 
     elsif user.plan == 'platinum'
       can :create, Project
@@ -67,7 +92,13 @@ class Ability
           can [:destroy], Project, :id => project.id
         end
       end
-      can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment, Member]
+      #can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment, Member]
+      if project.status_code.to_s < '4'
+        can :update, Project, :id => project.id
+        can :manage, [Todo, Milestone, Issue, Message, Comment, Member, Invitation], :project_id => project.id
+      else
+        can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
+      end
     end
 
 

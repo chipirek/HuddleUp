@@ -463,5 +463,22 @@ class SmokeTest < ActionDispatch::IntegrationTest
     assert_equal 'You are not authorized to access this page. Consider upgrading to get more features, or contact the project admin.', flash[:error]
   end
 
+
+  #test 'GOLD user, NOT admin, CAN NOT add todos to a locked project' do
+  #end
+  #
+  #
+  #test 'GOLD user, admin, CAN add todos to locked project' do
+  #end
+  #
+  #
+  #test 'GOLD user, not admin, CAN NOT add todos to a closed project' do
+  #end
+  #
+  #
+  #test 'GOLD user, admin, CAN add todos to locked project' do
+  #end
+
+
 end
 

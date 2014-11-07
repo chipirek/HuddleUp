@@ -22,11 +22,23 @@ class TodosController < ApplicationController
 
 
   def planner
+
+    if !can? :create, @project.todos.build
+      no_permission = true
+    end
+
     @todos = @project.todos.where('is_complete != true or is_complete is null').order('position')
 
+    # HACK: not sure why CanCan is allowing this, so here is a workaround...
     respond_to do |format|
-      format.html
-      format.json { render json: @todos }
+      if !no_permission
+        format.html
+        format.json { render json: @todos }
+      else
+        flash[:error] = "You don't have permission to do planning on this project."
+        format.html { redirect_to project_path(@project) }
+        format.json { render json: @todo.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -59,13 +71,30 @@ class TodosController < ApplicationController
   def new
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
+
     @todo = Todo.new
     @todo.project_id = params[:project_id]
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @todo }
+    if !can? :create, @project.todos.build
+      no_permission = true
     end
+
+    # HACK: not sure why CanCan is allowing this, so here is a workaround...
+    #respond_to do |format|
+    #  format.html # new.html.erb
+    #  format.json { render json: @todo }
+    #end
+    respond_to do |format|
+      if !no_permission
+        format.html # new.html.erb
+        format.json { render json: @todo }
+      else
+        flash[:error] = "You don't have permission to add a new todo to this project."
+        format.html { redirect_to project_todos_path(@project) }
+        format.json { render json: @todo.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
 

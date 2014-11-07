@@ -205,13 +205,15 @@
                       <li data-pk='<%= todo.id %>' class='task' id="task_<%= todo.id %>">
                     <span class="handle">
                       <label class="checkbox">
-                        <input type="checkbox" name="checkbox-inline">
+                        <input type="checkbox" name="checkbox-inline" <%= "disabled='disabled'".html_safe if !can? :update, @project.todos.build %>>
                         <i></i> </label>
                     </span>
 
                         <p>
                           <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                          <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class => 'font-xs'} %>
+                          <% if can? :update, @project.todos.build %>
+                            <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class => 'font-xs'} %>
+                          <% end %>
 
                           <% if todo.is_critical? %>
                               <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
@@ -261,6 +263,7 @@
         // DO NOT REMOVE : GLOBAL FUNCTIONS!
         pageSetUp();
 
+        <% if can? :update, @project.todos.build %>
         // initialize sortable
         $(function () {
             $("#todos").sortable({
@@ -344,7 +347,9 @@
                 // insert undo code here...
             }
 
-        })
+        });
+    <% end %>
+
 
         function countTasks() {
             var c = $('#todos').find("li").size();

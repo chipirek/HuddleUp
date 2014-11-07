@@ -12,7 +12,9 @@
   <!-- end col -->
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
-    <%= link_to 'Create a new todo', new_project_todo_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn' %>
+    <% if can? :create, @project.todos.build %>
+        <%= link_to 'Create a new todo', new_project_todo_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn' %>
+    <% end %>
   </div>
 
 </div>
@@ -33,14 +35,16 @@
             <% @todos.where('is_complete != true or is_complete is null').each do |todo| %>
                 <li data-pk='<%= todo.id %>' class='task' id="task_<%= todo.id %>">
                     <span class="handle">
-                      <label class="checkbox">
-                      <input type="checkbox" name="checkbox-inline">
+                      <label class="checkbox <%= "state-disabled".html_safe if !can? :update, @project.todos.build %>">
+                      <input type="checkbox" name="checkbox-inline" <%= "disabled='disabled'".html_safe if !can? :update, @project.todos.build %>>
                       <i></i> </label>
                     </span>
 
                     <p>
                         <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                        <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                        <% if can? :update, @project.todos.build %>
+                            <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                        <% end %>
 
                         <% if todo.is_critical? %>
                           <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
@@ -67,7 +71,9 @@
 
                     <p>
                         <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                        <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                        <% if can? :update, @project.todos.build %>
+                            <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                        <% end %>
 
                         <% if todo.is_critical? %>
                           <span class='badge bg-color-grey' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
@@ -94,61 +100,66 @@
 
         pageSetUp();
 
-        // initialize sortable
-        $(function () {
-            $("#tasks").sortable({
-                handle: '.handle',
-                connectWith: ".todo",
-                axis: 'y',
-                items: 'li',
-                update: function () {
-                    $.ajax({
-                        type: 'post',
-                        data: $('#tasks').sortable('serialize'),
-                        dataType: 'script',
-                        complete: function (request) {
-                            $('#tasks').effect('highlight');
-                        },
-                        url: '/projects/<%= @project.id %>/todos/sort'});
-                    countTasks();
-                }
-            }).disableSelection();
-        });
-
-        // check and uncheck
-        $('.todo .checkbox > input[type="checkbox"]').click(function () {
-            var $this = $(this).parent().parent().parent();
-
-            if ($(this).prop('checked')) {
-                $this.addClass("complete");
-
-                // remove this if you want to undo a check list once checked
-                //$(this).attr("disabled", true);
-                $(this).parent().hide();
-
-                // once clicked - add class, copy to memory then remove and add to sortable3
-                $this.slideUp(500, function () {
-                    $this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
-                    $this.remove();
-                    countTasks();
-                });
-
-                // ajax update back to database
-                var pk = $this.attr('data-pk');
-                var url = '/projects/<%= @project.id %>/todos/mark_complete/' + pk;
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: { _method:'PUT' },
-                    success: function(msg) {
-                        console.log( "Data Saved: " + msg );
+        <% if can? :update, @project.todos.build %>
+            // initialize sortable
+            $(function () {
+                $("#tasks").sortable({
+                    handle: '.handle',
+                    connectWith: ".todo",
+                    axis: 'y',
+                    items: 'li',
+                    update: function () {
+                        $.ajax({
+                            type: 'post',
+                            data: $('#tasks').sortable('serialize'),
+                            dataType: 'script',
+                            complete: function (request) {
+                                $('#tasks').effect('highlight');
+                            },
+                            url: '/projects/<%= @project.id %>/todos/sort'});
+                        countTasks();
                     }
-                });
-            } else {
-                // insert undo code here...
-            }
+                }).disableSelection();
+            });
+        <% end %>
 
-        })
+        <% if can? :update, @project.todos.build %>
+            // check and uncheck
+            $('.todo .checkbox > input[type="checkbox"]').click(function () {
+                var $this = $(this).parent().parent().parent();
+
+                if ($(this).prop('checked')) {
+                    $this.addClass("complete");
+
+                    // remove this if you want to undo a check list once checked
+                    //$(this).attr("disabled", true);
+                    $(this).parent().hide();
+
+                    // once clicked - add class, copy to memory then remove and add to sortable3
+                    $this.slideUp(500, function () {
+                        $this.clone().prependTo("#sortable3").effect("highlight", {}, 800);
+                        $this.remove();
+                        countTasks();
+                    });
+
+                    // ajax update back to database
+                    var pk = $this.attr('data-pk');
+                    var url = '/projects/<%= @project.id %>/todos/mark_complete/' + pk;
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: { _method:'PUT' },
+                        success: function(msg) {
+                            console.log( "Data Saved: " + msg );
+                        }
+                    });
+                } else {
+                    // insert undo code here...
+                }
+
+            });
+        <% end %>
+
         // count tasks
         function countTasks() {
 

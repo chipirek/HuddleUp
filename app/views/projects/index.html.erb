@@ -47,10 +47,12 @@
       <% else %>
           <% @projects.each do |project| %>
               <!-- TR -->
-              <tr>
+              <tr <%= "class='locked'".html_safe if project.status_code == 4 %>
+                  <%= "class='closed'".html_safe if project.status_code == 5 %>
+              >
                 <td colspan="4">
                   <h4>
-                    <a href='/projects/<%= project.id %>'><%= project.name %></a>
+                    <a href='/projects/<%= project.id %>'> <%= project.name %></a>
                     <small>
                       <% if project.status_code==0 %>
                           <div class='label label-default'>Not started</div>
