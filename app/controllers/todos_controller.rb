@@ -75,17 +75,9 @@ class TodosController < ApplicationController
     @todo = Todo.new
     @todo.project_id = params[:project_id]
 
-    if !can? :create, @project.todos.build
-      no_permission = true
-    end
-
     # HACK: not sure why CanCan is allowing this, so here is a workaround...
-    #respond_to do |format|
-    #  format.html # new.html.erb
-    #  format.json { render json: @todo }
-    #end
     respond_to do |format|
-      if !no_permission
+      if can? :create, @project.todos.build
         format.html # new.html.erb
         format.json { render json: @todo }
       else

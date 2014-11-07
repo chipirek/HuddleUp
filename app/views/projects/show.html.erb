@@ -267,7 +267,7 @@
 
 
         <% if !can? :create, @project.issues.build %>
-            alert("Reminder: This project is locked or closed. \n You cannot make further changes to it. An admin must unlock it or open it.");
+            alert("Reminder: This project is locked or closed. \n\n You cannot make further changes to it. \n\n An admin must unlock it or open it.");
         <% end %>
 
 
@@ -432,15 +432,16 @@
                     if (!event.icon == "") {
                         element.find('.fc-event-title').append("<i class='air air-top-right fa " + event.icon + " '></i>");
                     }
-                },
+                }
 
-                eventClick: function (event) {
+                <% if can? :update, @project.milestones.build %>
+                , eventClick: function (event) {
                     // opens events in a popup window
                     // alert(event.id);
                     window.location.href = '/projects/<%= @project.id %>/milestones/' + event.id + '/edit';
                     return false;
                 }
-
+                <% end %>
             });
 
         }

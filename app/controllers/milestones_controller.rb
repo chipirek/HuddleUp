@@ -47,9 +47,16 @@ class MilestonesController < ApplicationController
     @milestone.start_time=nil
     @milestone.end_time=nil
 
+    # HACK: not sure why CanCan is allowing this, so here is a workaround...
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @milestone }
+      if can? :create, @project.milestones.build
+        format.html # new.html.erb
+        format.json { render json: @todo }
+      else
+        flash[:error] = "You don't have permission to add a new milestone to this project."
+        format.html { redirect_to project_milestones_path(@project) }
+        format.json { render json: @milestone.errors, status: :unprocessable_entity }
+      end
     end
   end
 
