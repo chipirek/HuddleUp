@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   load_and_authorize_resource :project
   load_and_authorize_resource :issue, :through => :project
-  load_and_authorize_resource :comment, :through => :issue
+  # load_and_authorize_resource :comment, :through => :issue
 
 
   def create
@@ -10,6 +10,9 @@ class CommentsController < ApplicationController
     # @project = Project.find(params[:project_id])
     # @issue = Issue.find(params[:issue_id])
     # @comment = Comment.new
+
+    @project = Project.find(params[:project_id])
+    @issue = Issue.find(params[:issue_id])
     @comment = Comment.new(params[:comment])
     @comment.member_id = Member.where('user_id=?', current_user.id).where('project_id=?', params[:project_id]).first().id
     @comment.issue_id = params[:issue_id]

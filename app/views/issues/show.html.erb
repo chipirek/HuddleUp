@@ -53,22 +53,24 @@
 
         </div>
 
-        <%= form_for [@project, @issue, @comment], :html => {:class => 'smart-form', :id => 'comment_form'} do |f| %>
-            <fieldset>
+        <% if can? :create, @project.issues.build %>
+            <%= form_for [@project, @issue, @comment], :html => {:class => 'smart-form', :id => 'comment_form'} do |f| %>
+                <fieldset>
 
-              <section>
-                <label class="label">Add a Comment</label>
-                <label class="textarea"><textarea rows="4" name="comment[body]" id="comment_body" placeholder="<%= current_user.name %>, add a comment..."></textarea> </label>
-              </section>
+                  <section>
+                    <label class="label">Add a Comment</label>
+                    <label class="textarea"><textarea rows="4" name="comment[body]" id="comment_body" placeholder="<%= current_user.name %>, add a comment..."></textarea> </label>
+                  </section>
 
-            </fieldset>
+                </fieldset>
 
-            <footer>
-              <button type="submit" class="btn btn-success">
-                Save
-              </button>
-            </footer>
+                <footer>
+                  <button type="submit" class="btn btn-success">
+                    Save
+                  </button>
+                </footer>
 
+            <% end %>
         <% end %>
 
       </div>
