@@ -4,7 +4,8 @@ require 'audited/adapters/active_record'
 require 'audited/auditor'
 require 'audited/adapters/active_record/audit'
 
-puts 'Seeding users...'
+puts 'Removing old data ...'
+
 ReadReceipt.destroy_all
 Member.destroy_all
 Milestone.destroy_all
@@ -21,6 +22,9 @@ end
 
 User.destroy_all
 Audit.destroy_all
+
+
+puts 'Seeding users...'
 
 #u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'gold', :stripe_customer_id=>'cus_53RIl5VKMzQv2e' )  # no, not my real password
 u0=User.create( :name => 'Chip Irek', :email => 'chip.irek@gmail.com', :password => 'lollip0p', :plan=>'gold')
