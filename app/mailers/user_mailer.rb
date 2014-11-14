@@ -39,7 +39,7 @@ class UserMailer < ActionMailer::Base
 
   def updated_user(user)
     @user = user
-    mail(to: 'chipirek@outlook.com', subject: 'Financial HuddleUp user account change for ' + user.name)
+    mail(to: 'chipirek@outlook.com', subject: 'HuddleUp user account change for ' + user.name)
   end
 
 
