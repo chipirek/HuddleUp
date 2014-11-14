@@ -2,14 +2,13 @@ development:
   host: localhost
   adapter: postgresql
   database: HuddleUp
-  username: postgres
-  password: pentag0n
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 test:
   host: localhost
   adapter: postgresql
   database: HuddleUp_Test
-  username: postgres
-  password: pentag0n
-  min_messages: WARNING
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
