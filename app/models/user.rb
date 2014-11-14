@@ -53,7 +53,8 @@ class User < ActiveRecord::Base
 
     if stripe_customer_id.nil?
       if !stripe_token.present?
-        raise "Stripe token not present. Can't update account. Card not approved."
+        # raise "Stripe token not present. Can't update account. Card not approved."
+        self.errors.add(:base, "Stripe token not present. Can't update account. Card not approved.")
       end
       customer = Stripe::Customer.create( :email => email,
                                           :description => name,
