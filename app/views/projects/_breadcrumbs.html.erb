@@ -1,5 +1,6 @@
 <ol class="breadcrumb">
-  <% if !current_user.nil? %>
+  <% if current_user %>
+      <li><%= link_to current_user.name, '/user/edit' %></li>
       <li><%= link_to 'My Projects', '/projects' %></li>
       <% if !@project.nil? && !@project.id.nil? %>
 
