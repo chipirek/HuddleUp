@@ -44,7 +44,7 @@
                     <% if can? :create, @project.issues.build %>
                         <%= link_to '[Edit...]', edit_project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
                     <% end %>
-                    <%= link_to '[Comments...]', project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                    <%= link_to '[' + issue.comments.count.to_s + ' comments...]', project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
 
                     <% if issue.is_critical? %>
                         <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
@@ -71,7 +71,7 @@
                   <p>
                     <strong> #<%= issue.id %></strong> - <%= issue.subject %>
                     <%= link_to '[Edit...]', edit_project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
-                    <%= link_to '[Comments...]', edit_project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                    <%= link_to '[' + issue.comments.count.to_s + ' comments...]', edit_project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
 
                     <% if issue.is_critical? %>
                         <span class='badge bg-color-grey' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
