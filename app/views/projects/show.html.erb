@@ -71,7 +71,7 @@
         <div>
           <div class="widget-body">
             <!-- content goes here -->
-            <span class='margin-left:15px;'>Alerts are not running...</span>
+            <span style='margin-left:15px;'>Alerts are not running...</span>
             <!-- end content -->
           </div>
         </div>
@@ -141,43 +141,54 @@
         </header>
         <div>
 
-          <% if @project.issues.where('is_resolved != true or is_resolved is null').count == 0 %>
-              <div class="widget-body">
-                <!-- content goes here -->
-                <span class='margin-left:15px;'>None.</span>
-                <!-- end content -->
-              </div>
-          <% else %>
               <div class="widget-body no-padding smart-form">
-                <ul id="issues" class="todo">
-                  <% @project.issues.where('is_resolved != true or is_resolved is null').order('position').each do |issue| %>
-                      <li data-pk='<%= issue.id %>' class='issue' id="task_<%= issue.id %>">
-                    <span class="handle">
-                      <label class="checkbox">
-                        <input type="checkbox" name="checkbox-inline" <%= "disabled='disabled'".html_safe if !can? :update, @project.issues.build %>>
-                        <i></i> </label>
-                    </span>
 
-                        <p>
-                          <strong> #<%= issue.id %></strong> - <%= issue.subject %>
-                          <% if can? :update, @project.issues.build %>
-                            <%= link_to '[Edit...]', edit_project_issue_path(@project, issue), {:class => 'font-xs'} %>
+                <div class="widget-body-toolbar">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+                      <% if can? :create, @project.issues.build %>
+                          <%= link_to '<i class="fa fa-plus"></i> Create a new issue'.html_safe, new_project_issue_path(@project), :class => 'pull-right', :style=>'margin-right:22px; margin-top:10px;' %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+
+                <% if @project.issues.where('is_resolved != true or is_resolved is null').count == 0 %>
+                    <div class="custom-scroll" style="height:100px; overflow-y: scroll;">
+                        <span style='margin-left:15px;'>None.</span>
+                    </div>
+                <% else %>
+                    <div class="custom-scroll" style="height:300px; overflow-y: scroll;">
+                        <ul id="issues" class="todo">
+                          <% @project.issues.where('is_resolved != true or is_resolved is null').order('position').each do |issue| %>
+                            <li data-pk='<%= issue.id %>' class='issue' id="task_<%= issue.id %>">
+                                <span class="handle">
+                                  <label class="checkbox">
+                                    <input type="checkbox" name="checkbox-inline" <%= "disabled='disabled'".html_safe if !can? :update, @project.issues.build %>>
+                                    <i></i> </label>
+                                </span>
+
+                                <p>
+                                  <strong> #<%= issue.id %></strong> - <%= issue.subject %>
+                                  <% if can? :update, @project.issues.build %>
+                                    <%= link_to '[Edit...]', edit_project_issue_path(@project, issue), {:class => 'font-xs'} %>
+                                  <% end %>
+                                  <%= link_to '[Comments...]', project_issue_path(@project, issue), {:class=>'font-xs'} %>
+
+                                  <% if issue.is_critical? %>
+                                      <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
+                                  <% end %>
+
+                                  <span class="text-muted"><%= "Assigned to " + issue.member.user.name + "." unless issue.member.nil? %> <%= issue.description %> </span>
+                                  <span class="date">Created <%= time_ago_in_words(issue.created_at) %> ago.</span>
+                                </p>
+                            </li>
                           <% end %>
-                          <%= link_to '[Comments...]', project_issue_path(@project, issue), {:class=>'font-xs'} %>
+                        </ul>
+                    </div>
+                <% end %>
 
-                          <% if issue.is_critical? %>
-                              <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
-                          <% end %>
-
-                          <span class="text-muted"><%= "Assigned to " + issue.member.user.name + "." unless issue.member.nil? %> <%= issue.description %> </span>
-                          <span class="date">Created <%= time_ago_in_words(issue.created_at) %> ago.</span>
-                        </p>
-                      </li>
-                  <% end %>
-                </ul>
               </div>
-          <% end %>
-
         </div>
         <!-- end widget div -->
       </div>
@@ -189,48 +200,57 @@
       <div class="jarviswidget jarviswidget-color-blue" id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
         <header>
           <span class="widget-icon"> <i class="fa fa-check-square-o txt-color-white"></i> </span>
-
           <h2> Incomplete Todos </h2>
         </header>
         <div>
 
+          <div class="widget-body-toolbar">
+            <div class="row">
+              <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+                <% if can? :create, @project.todos.build %>
+                    <%= link_to '<i class="fa fa-plus"></i> Create a new todo'.html_safe, new_project_todo_path(@project), :class => 'pull-right' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
           <% if @project.todos.where('is_complete != true or is_complete is null').count == 0 %>
-              <div class="widget-body">
-                <!-- content goes here -->
-                <span class='margin-left:15px;'>None.</span>
-                <!-- end content -->
+              <div class="custom-scroll" style="height:100px; overflow-y: scroll;">
+                <span style='margin-left:15px;'>None.</span>
               </div>
           <% else %>
               <div class="widget-body no-padding smart-form">
-                <ul id="todos" class="todo">
-                  <% @project.todos.where('is_complete != true or is_complete is null').order('position').each do |todo| %>
-                      <li data-pk='<%= todo.id %>' class='task' id="task_<%= todo.id %>">
-                    <span class="handle">
-                      <label class="checkbox">
-                        <input type="checkbox" name="checkbox-inline" <%= "disabled='disabled'".html_safe if !can? :update, @project.todos.build %>>
-                        <i></i> </label>
-                    </span>
+                <div class="custom-scroll table-responsive" style="height:300px; overflow-y: scroll;">
+                    <ul id="todos" class="todo">
+                      <% @project.todos.where('is_complete != true or is_complete is null').order('position').each do |todo| %>
+                          <li data-pk='<%= todo.id %>' class='task' id="task_<%= todo.id %>">
+                        <span class="handle">
+                          <label class="checkbox">
+                            <input type="checkbox" name="checkbox-inline" <%= "disabled='disabled'".html_safe if !can? :update, @project.todos.build %>>
+                            <i></i> </label>
+                        </span>
 
-                        <p>
-                          <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                          <% if can? :update, @project.todos.build %>
-                            <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class => 'font-xs'} %>
-                          <% end %>
+                            <p>
+                              <strong> #<%= todo.id %></strong> - <%= todo.subject %>
+                              <% if can? :update, @project.todos.build %>
+                                <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class => 'font-xs'} %>
+                              <% end %>
 
-                          <% if todo.is_critical? %>
-                              <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
-                          <% end %>
+                              <% if todo.is_critical? %>
+                                  <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
+                              <% end %>
 
-                          <span class="text-muted">
-                          <%= " Assigned to " + todo.member.user.name + "." unless todo.member.nil? %>
-                            <%= " Due " + todo.due_date.strftime("%m/%d/%Y") + "." unless todo.due_date.nil? %>
-                            <%= todo.description %> </span>
+                              <span class="text-muted">
+                              <%= " Assigned to " + todo.member.user.name + "." unless todo.member.nil? %>
+                                <%= " Due " + todo.due_date.strftime("%m/%d/%Y") + "." unless todo.due_date.nil? %>
+                                <%= todo.description %> </span>
 
-                          <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
-                        </p>
-                      </li>
-                  <% end %>
-                </ul>
+                              <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                            </p>
+                          </li>
+                      <% end %>
+                    </ul>
+                </div>
               </div>
           <% end %>
         </div>
