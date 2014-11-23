@@ -2,139 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/CHANGES.md" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/CHANGES.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/LICENSE.md" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/scayt/LICENSE.md" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/scayt/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/LICENSE.md" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/scayt/README.md" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/scayt/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/README.md" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/af.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/af.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/ajax.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/api.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/api.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/app.config.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/app.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/appendto.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/appendto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ar.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/bg.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/bg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/bn.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/bn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/bs.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/bs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/build-config.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/build-config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ca.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/dialogs/ciframe.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/dialogs/ciframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/contents.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/contents.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/cs.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/cs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/cy.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/cy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/da.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/da.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/datafiltering.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/datafiltering.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/de.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/de.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/dialog/dialog.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/dialog/dialog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_ie.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_ie.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_ie7.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_ie7.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_ie8.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_ie8.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_iequirks.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_iequirks.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_opera.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/dialog_opera.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/divreplace.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/divreplace.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_gecko.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_gecko.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_ie.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_ie.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_ie7.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_ie7.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_ie8.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_ie8.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_iequirks.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/editor_iequirks.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/el.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/el.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/en-au.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/en-au.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/en-ca.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/en-ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/en-gb.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/en-gb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/en.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/enterkey/enterkey.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/enterkey/enterkey.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/eo.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/eo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/es.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/es.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/et.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/et.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/eu.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/eu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fa.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fi.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fo.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fr-ca.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fr-ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fr.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/fr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/wysiwygarea/fullpage.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/wysiwygarea/fullpage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/gl.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/gl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/gu.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/gu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/he.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/he.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/hi.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/hi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/hr.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/hr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/hu.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/hu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/id.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/id.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/index.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/inlineall.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/inlineall.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/inlinebycode.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/inlinebycode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/inlinetextarea.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/inlinetextarea.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/is.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/is.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/it.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/it.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ja.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ja.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/jquery.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/jquery.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/noUiSlider/jquery.nouislider.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/noUiSlider/jquery.nouislider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ka.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ka.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/km.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/km.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ko.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ko.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ku.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ku.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/lt.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/lt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/lv.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/lv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/magicline/magicline.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/magicline/magicline.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/mk.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/mk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/mn.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/mn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ms.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/dialog/assets/my_dialog.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/dialog/assets/my_dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/nb.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/nb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/nl.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/nl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/no.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/no.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/htmlwriter/outputforflash.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/htmlwriter/outputforflash.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/htmlwriter/outputhtml.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/htmlwriter/outputhtml.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/assets/outputxhtml/outputxhtml.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/assets/outputxhtml/outputxhtml.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/pace/pace.min.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/pace/pace.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/pl.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/pl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/assets/posteddata.php" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/assets/posteddata.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/preview/preview.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/preview/preview.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/pt-br.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/pt-br.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/pt.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/readme.md" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/skins/moono/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/readonly.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/readonly.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/replacebyclass.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/replacebyclass.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/replacebycode.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/replacebycode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ro.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ru.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ru.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/sample.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/sample.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/assets/sample.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/assets/sample.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/sample.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/sample.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/sample_posteddata.php" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/sample_posteddata.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/si.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/si.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sk.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sl.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sq.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sr-latn.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sr-latn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sr.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/styles.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/styles.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sv.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/sv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/tabindex.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/tabindex.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/templates/dialogs/templates.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/templates/dialogs/templates.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/th.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/th.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/dialogs/tmp.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/dialogs/tmp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/scayt/dialogs/toolbar.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/scayt/dialogs/toolbar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/toolbar/toolbar.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/plugins/toolbar/toolbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/tr.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/tr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ug.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/ug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/uicolor.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/uicolor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/uilanguages.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/uilanguages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/uk.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/uk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/vi.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/vi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/dialogs/wsc.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/plugins/wsc/dialogs/wsc.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/xhtmlstyle.html" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/samples/xhtmlstyle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/css/your_style.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/css/your_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/zh-cn.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/zh-cn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/zh.js" afterPath="$PROJECT_DIR$/public/SmartAdmin/js/plugin/ckeditor/lang/zh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
     <ignored path="HuddleUp.iws" />
@@ -226,7 +95,7 @@
     <file path="/20131103221339_create_issues.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399243558121" ignored="false" />
     <file path="/20140425105653_create_read_receipts.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399243617939" ignored="false" />
     <file path="/index.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414016583584" ignored="false" />
-    <file path="/users_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1409609420235" ignored="false" />
+    <file path="/users_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1416778895233" ignored="false" />
     <file path="/todos.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410136935198" ignored="false" />
     <file path="/todo.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410260252961" ignored="false" />
     <file path="/your_style.css" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415392663991" ignored="false" />
@@ -265,7 +134,6 @@
     <file path="/deleted_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980183773" ignored="false" />
     <file path="/planner.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414969374029" ignored="false" />
     <file path="/projects.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415379597303" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1416766206221" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,46 +153,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <file leaf-file-name="users_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="74" selection-start="1292" selection-end="1292" vertical-scroll-proportion="-3.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_scripts.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/projects/_scripts.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="79" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_top_nav.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/projects/_top_nav.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="104" selection-start="1163" selection-end="1163" vertical-scroll-proportion="-21.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="your_style.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/SmartAdmin/css/your_style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="14" selection-start="497" selection-end="501" vertical-scroll-proportion="0.80717486">
+            <state line="3" column="62" selection-start="193" selection-end="193" vertical-scroll-proportion="0.06338028">
               <folding />
             </state>
           </provider>
@@ -353,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/user_mailer/updated_user.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_mailer/new_user.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_mailer/deleted_user.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_mailer/expire_email.html.erb" />
@@ -369,6 +200,7 @@
         <option value="$PROJECT_DIR$/public/SmartAdmin/js/app.min.js" />
         <option value="$PROJECT_DIR$/public/SmartAdmin/css/your_style.css" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       </list>
     </option>
   </component>
@@ -427,60 +259,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartAdmin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SmartAdmin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -571,6 +349,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HuddleUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HuddleUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HuddleUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HuddleUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2107,9 +1921,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1239" height="810" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32655826" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655826" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32863188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971016" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2215,41 +2029,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/invitations/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="52" selection-start="125" selection-end="125" vertical-scroll-proportion="0.022288261" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/invitations/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="65" selection-start="651" selection-end="651" vertical-scroll-proportion="0.33135214" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="267" selection-end="544" vertical-scroll-proportion="0.5449331" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/todos/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="0" selection-start="9026" selection-end="9026" vertical-scroll-proportion="0.74378586" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/SmartAdmin/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/SmartAdmin/js/app.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/SmartAdmin/js/smartwidgets/jarvis.widget.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -2266,20 +2045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/projects/_scripts.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="79" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/500.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="180" column="114" selection-start="8611" selection-end="8621" vertical-scroll-proportion="0.33170733" />
@@ -2290,23 +2055,86 @@
         <state line="0" column="342" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/SmartAdmin/css/your_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="14" selection-start="497" selection-end="501" vertical-scroll-proportion="0.52401745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/projects/_top_nav.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="104" selection-start="1163" selection-end="1163" vertical-scroll-proportion="-21.25">
+        <state line="34" column="104" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.7578009">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/projects/_scripts.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="79" selection-start="190" selection-end="190" vertical-scroll-proportion="0.022288261">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="74" selection-start="1292" selection-end="1292" vertical-scroll-proportion="-3.125">
+        <state line="24" column="74" selection-start="1292" selection-end="1292" vertical-scroll-proportion="0.11144131">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/SmartAdmin/css/your_style.css">
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="14" selection-start="497" selection-end="501" vertical-scroll-proportion="0.80717486">
+        <state line="28" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.6025825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/todos_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="0" selection-end="192" vertical-scroll-proportion="0.17216642">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.4964132">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/invitations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="62" selection-start="193" selection-end="193" vertical-scroll-proportion="0.06338028">
           <folding />
         </state>
       </provider>
