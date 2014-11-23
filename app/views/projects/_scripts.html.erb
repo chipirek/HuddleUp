@@ -2,10 +2,10 @@
 <script data-pace-options='{ "restartOnRequestAfter": true }' src="/SmartAdmin/js/plugin/pace/pace.min.js"></script>
 
 <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
     if (!window.jQuery) {
-        document.write('<script src="/SmartAdmin/js/libs/jquery-2.0.2.min.js"><\/script>');
+        document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
     }
 </script>
 
@@ -67,16 +67,16 @@
 <!-- MAIN APP JS FILE -->
 <script src="/SmartAdmin/js/app.min.js"></script>
 
+<script src="/SmartAdmin/js/plugin/jquery-cookie/jquery-cookie.js"></script>
+
 <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
 <!-- Voice command : plugin -->
 <script src="/SmartAdmin/js/speech/voicecommand.min.js"></script>
 
-<!-- cookies -->
-<script src="/SmartAdmin/js/plugin/jquery-cookie/jquery-cookie.js"></script>
+<!-- SmartChat UI : plugin -->
+<script src="/SmartAdmin/js/smart-chat-ui/smart.chat.ui.min.js"></script>
+<script src="/SmartAdmin/js/smart-chat-ui/smart.chat.manager.min.js"></script>
 
-<!-- PAGE RELATED PLUGIN(S)
-<script src="..."></script>-->
 <!-- PAGE RELATED PLUGIN(S) -->
-<script src="/SmartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
-
-<%= javascript_include_tag "rails" %>
+<script src="/SmartAdmin/js/plugin/moment/moment.min.js"></script>
+<script src="/SmartAdmin/js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
