@@ -1,453 +1,1194 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
-
-  <title> HuddleUp </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>HuddleUp</title>
 
-  <!-- Basic Styles -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/font-awesome.min.css">
+  <!-- #Bootstrap Core CSS -->
+  <link type="text/css" href="/LandingPage/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/smartadmin-production.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/smartadmin-skins.min.css">
+  <!-- #SLIDER REVOLUTION 4.x CSS SETTINGS -->
+  <link rel="stylesheet" type="text/css" href="/LandingPage/css/extralayers.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/LandingPage/css/settings.css" media="screen">
 
-  <!-- SmartAdmin RTL Support is under construction
-           This RTL CSS will be released in version 1.5
-      <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> -->
+  <!-- #RELATED CSS -->
+  <link type="text/css" href="/LandingPage/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link type="text/css" href="/LandingPage/css/nivo-lightbox.css" rel="stylesheet">
+  <link type="text/css" href="/LandingPage/css/nivo-lightbox-theme/default/default.css" rel="stylesheet">
+  <link type="text/css" href="/LandingPage/css/animate.css" rel="stylesheet">
 
-  <!-- We recommend you use "your_style.css" to override SmartAdmin
-           specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-      <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+  <!-- #SMARTADMIN LANDING CSS -->
+  <link type="text/css" href="/LandingPage/css/main.css" rel="stylesheet">
+  <link type="text/css" href="/LandingPage/color/default.css" rel="stylesheet">
 
-  <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-  <link rel="stylesheet" type="text/css" media="screen" href="/SmartAdmin/css/demo.min.css">
+  <!-- #FAVICONS -->
+  <link rel="shortcut icon" href="/LandingPage/img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/LandingPage/img/favicon/favicon.ico" type="image/x-icon">
 
-  <!-- FAVICONS -->
-  <link rel="shortcut icon" href="/SmartAdmin/img/favicon/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/SmartAdmin/img/favicon/favicon.ico" type="image/x-icon">
-
-  <!-- GOOGLE FONT -->
+  <!-- #GOOGLE FONT -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
-  <!-- Specifying a Webpage Icon for Web Clip
-           Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
-  <link rel="apple-touch-icon" href="/SmartAdmin/img/splash/sptouch-icon-iphone.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/SmartAdmin/img/splash/touch-icon-ipad.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/SmartAdmin/img/splash/touch-icon-iphone-retina.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/SmartAdmin/img/splash/touch-icon-ipad-retina.png">
-
-  <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-  <!-- Startup image for web apps -->
-  <link rel="apple-touch-startup-image" href="/SmartAdmin/img/splash/ipad-landscape.png"
-        media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
-  <link rel="apple-touch-startup-image" href="/SmartAdmin/img/splash/ipad-portrait.png"
-        media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
-  <link rel="apple-touch-startup-image" href="/SmartAdmin/img/splash/iphone.png"
-        media="screen and (max-device-width: 320px)">
-
-  <link rel="stylesheet" type="text/css" media="screen" href="marketing.css">
 </head>
 
-<body class="">
+<!--
 
-<!-- MAIN PANEL -->
+TABLE OF CONTENTS.
 
-<header id="header">
-  <div id="logo-group">
+Use search to find needed section.
 
-    <!-- PLACE YOUR LOGO HERE -->
-    <span id="logo" class='font-md'>
-      <b><span class='text-primary'>Huddle</span><span class='txt-color-green'>Up</span></b>
-    </span>
-    <!-- END LOGO PLACEHOLDER -->
+===================================================================
 
+|  01. #MENU                                                      |
+|  02. #INTRO                                                     |
+|  03. #PRICING                                                   |
+|  04. #TEAM                                                      |
+|  05. #FEATURES                                                  |
+|  06. #SCREENSHOT                                                |
+|  07. #UPDATES                                                   |
+|  08. #QUOTES                                                    |
+|  09. #CONTACT                                                   |
+|  10. #BOTTOM CONTENT                                            |
+|  11. #FOOTER                                                    |
+|  12. #Core Javascript                                           |
+|  13. #REVOLUITION SLIDER                                        |
+|  14. #PAGE SCRIPT                                               |
 
+===================================================================
+
+-->
+
+<body data-spy="scroll">
+
+<div class="container">
+
+  <!-- Section: #MENU -->
+  <ul id="gn-menu" class="gn-menu-main">
+    <li class="gn-trigger">
+      <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+      <nav class="gn-menu-wrapper">
+        <div class="gn-scroller">
+          <ul class="gn-menu">
+            <li class="gn-search-item">
+              <input placeholder="Search" type="search" class="gn-search">
+              <a class="gn-icon gn-icon-search"><span>Search</span></a>
+            </li>
+            <li>
+              <a href="#pricing" class="gn-icon gn-icon-download">Pricing</a>
+            </li>
+            <li>
+              <a href="#features" class="gn-icon gn-icon-help">Features</a>
+            </li>
+            <li>
+              <a href="#screenshots" class="gn-icon gn-icon-pictures">Screenshots</a>
+            </li>
+            <li>
+              <a href="#updates" class="gn-icon gn-icon-cog">Updates</a>
+            </li>
+            <li>
+              <a href="#contact" class="gn-icon gn-icon-archive">Contact</a>
+            </li>
+          </ul>
+        </div><!-- /gn-scroller -->
+      </nav>
+    </li>
+    <li class="hidden-xs">
+      <a href="#"><img src="/LandingPage/img/logo2.png" alt="logo" style="width: 50px; margin-top: -4px;" /></a>
+    </li>
+    <li>
+      <ul class="company-social">
+        <li class="social-facebook">
+          <a href="javascript:void(0);" target="_blank"><i class="fa fa-facebook"></i></a>
+        </li>
+        <li class="social-twitter">
+          <a href="javascript:void(0);" target="_blank"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li class="social-dribble">
+          <a href="javascript:void(0);" target="_blank"><i class="fa fa-dribbble"></i></a>
+        </li>
+        <li class="social-google">
+          <a href="javascript:void(0);" target="_blank"><i class="fa fa-google-plus"></i></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <!-- Section: #MENU -->
+
+</div>
+
+<!-- Section: #INTRO -->
+<section class="intro">
+<div class="slogan">
+
+<!--
+#################################
+- THEMEPUNCH BANNER -
+#################################
+-->
+<div class="tp-banner-container">
+<div class="tp-banner" >
+<ul>
+<!-- SLIDE  -->
+<li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-thumb="/LandingPage/img/slider/homeslider_thumb1.jpg"  data-saveperformance="on"  data-title="Intro Slide">
+  <!-- MAIN IMAGE -->
+  <img src="/LandingPage/img/slider/dummy.png"  alt="slidebg1" data-lazyload="/LandingPage/img/slider/slidebg1.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+  <!-- LAYERS -->
+
+  <!-- LAYER NR. 1 -->
+  <div class="tp-caption lft customout rs-parallaxlevel-0"
+       data-x="695"
+       data-y="83"
+       data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="700"
+       data-start="1550"
+       data-easing="Power3.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 2;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/plate2.png">
   </div>
 
-  <div class="pull-right" style='padding-top: 10px;'>
-    Already signed up? <a href='/users/sign_in'>Sign in</a>.
+  <!-- LAYER NR. 2 -->
+  <div class="tp-caption lft customout rs-parallaxlevel-0"
+       data-x="564"
+       data-y="96"
+       data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="700"
+       data-start="1400"
+       data-easing="Power3.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 3;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/plate1.png">
   </div>
 
-</header>
+  <!-- LAYER NR. 3 -->
+  <div class="tp-caption lft customout rs-parallaxlevel-0"
+       data-x="480"
+       data-y="99"
+       data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="700"
+       data-start="1100"
+       data-easing="Power3.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 4;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/woman1.png">
+  </div>
 
-<!-- MAIN CONTENT -->
-<section id="feature_slider" class="lol">
-  <!--
-      Each slide is composed by <img> and .info
-      - .info's position is customized with css in index.css
-      - each <img> parallax effect is declared by the following params inside its class:
+  <!-- LAYER NR. 4 -->
+  <div class="tp-caption grey_heavy_72 skewfromrightshort tp-resizeme rs-parallaxlevel-0"
+       data-x="197"
+       data-y="154"
+       data-speed="500"
+       data-start="2250"
+       data-easing="Power3.easeInOut"
+       data-splitin="chars"
+       data-splitout="none"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">Better!
+  </div>
 
-      example: class="asset left-472 sp600 t120 z3"
-      left-472 means left: -472px from the center
-      sp600 is speed transition
-      t120 is top to 120px
-      z3 is z-index to 3
-      Note: Maintain this order of params
+  <!-- LAYER NR. 5 -->
+  <div class="tp-caption customin rs-parallaxlevel-0"
+       data-x="86"
+       data-y="184"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="500"
+       data-start="2000"
+       data-easing="Power3.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 6;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/redbg.png">
+  </div>
 
-      For the backgrounds, you can combine from the bgs folder :D
-  -->
+  <!-- LAYER NR. 6 -->
+  <div class="tp-caption black_heavy_60 skewfromleftshort tp-resizeme rs-parallaxlevel-0"
+       data-x="-2"
+       data-y="133"
+       data-speed="500"
+       data-start="1850"
+       data-easing="Power3.easeInOut"
+       data-splitin="chars"
+       data-splitout="none"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">Now
+  </div>
 
-  <article class="slide" id="responsive"
-           style="background: url('/SmartAdmin/img/backgrounds/indigo.jpg') repeat-x top center;">
-    <img class="asset left-572 sp600 t120 z3" src="/SmartAdmin/img/demo/scroll5.jpeg"/>
+  <!-- LAYER NR. 7 -->
+  <div class="tp-caption white_heavy_40 customin tp-resizeme rs-parallaxlevel-0"
+       data-x="98"
+       data-y="187"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="500"
+       data-start="2050"
+       data-easing="Power3.easeInOut"
+       data-splitin="none"
+       data-splitout="none"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 8; max-width: auto; max-height: auto; white-space: nowrap;">Even
+  </div>
 
-    <div class="info">
-      <h2>
-        <strong>Huddle Up!</strong><br/>
-        Start huddling with your team, family, and friends.
-      </h2>
+  <!-- LAYER NR. 8 -->
+  <div class="tp-caption grey_regular_18 customin tp-resizeme rs-parallaxlevel-0"
+       data-x="78"
+       data-y="318"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="500"
+       data-start="2600"
+       data-easing="Power3.easeInOut"
+       data-splitin="none"
+       data-splitout="none"
+       data-elementdelay="0.05"
+       data-endelementdelay="0.1"
+       style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+    <div style="text-align:center;">
+      SmartAdmin is highly acclaimed
+      <br/>
+      WebApp hydra template with
+      <br/>
+      multiple versions has been the
+      <br/>
+      solution for many businesses
+      <br />
+      and have greatly been appricated
+      <br />
+      by developers world wide.
     </div>
-  </article>
+  </div>
 
-  <article class="slide" id="ideas"
-           style="background: url('/SmartAdmin/img/backgrounds/aqua.jpg') repeat-x top center;">
-    <div class="info">
-      <h2>Forget paper, email lists, and spreadsheets. </h2>
-      <h4>Cloud-based schedules, todo lists, alerts, and group messages - all in one place.</h4>
+  <!-- LAYER NR. 9 -->
+  <div class="tp-caption black_thin_34 customin tp-resizeme rs-parallaxlevel-0"
+       data-x="58"
+       data-y="238"
+       data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+       data-speed="500"
+       data-start="2350"
+       data-easing="Back.easeOut"
+       data-splitin="none"
+       data-splitout="none"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">
+    Packed with features!
+  </div>
+
+  <!-- LAYER NR. 10 -->
+  <div class="tp-caption customin rs-parallaxlevel-0"
+       data-x="6"
+       data-y="290"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="300"
+       data-start="2500"
+       data-easing="Power3.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       style="z-index: 11;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/greyline.png">
+  </div>
+
+  <!-- LAYER NR. 11 -->
+  <div class="tp-caption customin tp-resizeme rs-parallaxlevel-0"
+       data-x="73"
+       data-y="502"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="500"
+       data-start="2900"
+       data-easing="Power3.easeInOut"
+       data-splitin="none"
+       data-splitout="none"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-linktoslide="next"
+       style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">
+    <a href='#' class='largeredbtn'>CONTINUE THE TOUR</a>
+  </div>
+
+  <!-- LAYER NR. 12 -->
+  <div class="tp-caption arrowicon customin rs-parallaxlevel-0"
+       data-x="303"
+       data-y="526"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="300"
+       data-start="3200"
+       data-easing="Power3.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-linktoslide="next"
+       style="z-index: 13;">
+    <div class=" rs-slideloop" 			data-easing="Power3.easeInOut"
+         data-speed="0.5"
+         data-xs="-5"
+         data-xe="5"
+         data-ys="0"
+         data-ye="0"
+    >
+      <img src="/LandingPage/img/slider/dummy.png" alt="" data-ww="18" data-hh="11" data-lazyload="/LandingPage/img/slider/doublearrow2.png">
     </div>
-    <img class="asset left-400 sp600 t260 z1" src="/SmartAdmin/img/demo/scroll6.png"/>
-    <img class="asset left-190 sp600 t260 z2" src="/SmartAdmin/img/demo/scroll7.png"/>
-    <img class="asset left60 sp600 t260 z1" src="/SmartAdmin/img/demo/scroll8.jpeg"/>
-  </article>
+  </div>
+</li>
+<!-- SLIDE  -->
+<li data-transition="slideleft" data-slotamount="7" data-masterspeed="2000" data-thumb="/LandingPage/img/slider/homeslider_thumb2.jpg" data-delay="10000"  data-saveperformance="on"  data-title="Slide">
+<!-- MAIN IMAGE -->
+<img src="/LandingPage/img/slider/dummy.png"  alt="laptopmockup_sliderdy" data-lazyload="/LandingPage/img/slider/laptopmockup_sliderdy.jpg" data-bgposition="right top" data-kenburns="on" data-duration="12000" data-ease="Power0.easeInOut" data-bgfit="115" data-bgfitend="100" data-bgpositionend="center bottom">
+<!-- LAYERS -->
 
-  <article class="slide" id="tour"
-           style="background: url('/SmartAdmin/img/backgrounds/color-splash.jpg') repeat-x top center;">
-    <img class="asset left-472 sp650 t75 z3" src="/SmartAdmin/img/demo/scroll4.jpeg"/>
+<!-- LAYER NR. 1 -->
+<div class="tp-caption customin fadeout rs-parallaxlevel-10"
+     data-x="848"
+     data-y="196"
+     data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+     data-speed="300"
+     data-start="2700"
+     data-easing="Power3.easeInOut"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 2;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/redbg_big.png">
+</div>
 
-    <div class="info">
-      <h2>Collaborate, and share with your team.</h2>
+<!-- LAYER NR. 2 -->
+<div class="tp-caption light_heavy_70 customin fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="862"
+     data-y="204"
+     data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+     data-speed="300"
+     data-start="2850"
+     data-easing="Power3.easeInOut"
+     data-splitin="none"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">Effect
+</div>
+
+<!-- LAYER NR. 3 -->
+<div class="tp-caption black_heavy_70 skewfromleftshort fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="717"
+     data-y="143"
+     data-speed="500"
+     data-start="2400"
+     data-easing="Power3.easeInOut"
+     data-splitin="chars"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">Rendering
+</div>
+
+<!-- LAYER NR. 4 -->
+<div class="tp-caption black_bold_40 skewfromrightshort fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="937"
+     data-y="282"
+     data-speed="500"
+     data-start="3200"
+     data-easing="Power3.easeInOut"
+     data-splitin="chars"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">Improved!
+</div>
+
+
+<!-- LAYER NR. 5 -->
+<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="970"
+     data-y="367"
+     data-speed="300"
+     data-start="4000"
+     data-easing="Power3.easeInOut"
+     data-splitin="none"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
+  FASTER
+</div>
+
+<!-- LAYER NR. 6 -->
+<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="939"
+     data-y="367"
+     data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+     data-speed="300"
+     data-start="4000"
+     data-easing="Power3.easeInOut"
+     data-splitin="none"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">
+  &nbsp;
+</div>
+
+<!-- LAYER NR. 7 -->
+<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"
+     data-x="948"
+     data-y="374"
+     data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+     data-speed="300"
+     data-start="4200"
+     data-easing="Power3.easeInOut"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 8;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="/LandingPage/img/slider/check.png">
+</div>
+
+<!-- LAYER NR. 8 -->
+<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="970"
+     data-y="407"
+     data-speed="300"
+     data-start="4500"
+     data-easing="Power3.easeInOut"
+     data-splitin="none"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+  SMOOTHER
+</div>
+
+<!-- LAYER NR. 9 -->
+<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="939"
+     data-y="407"
+     data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+     data-speed="300"
+     data-start="4500"
+     data-easing="Power3.easeInOut"
+     data-splitin="none"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">
+  &nbsp;
+</div>
+
+<!-- LAYER NR. 10 -->
+<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"
+     data-x="948"
+     data-y="414"
+     data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+     data-speed="300"
+     data-start="4700"
+     data-easing="Power3.easeInOut"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 11;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="/LandingPage/img/slider/check.png">
+</div>
+
+<!-- LAYER NR. 11 -->
+<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="970"
+     data-y="447"
+     data-speed="300"
+     data-start="5000"
+     data-easing="Power3.easeInOut"
+     data-splitin="none"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">
+  EASY TO USE
+</div>
+
+<!-- LAYER NR. 12 -->
+<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"
+     data-x="939"
+     data-y="447"
+     data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+     data-speed="300"
+     data-start="5000"
+     data-easing="Power3.easeInOut"
+     data-splitin="none"
+     data-splitout="none"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 13; max-width: auto; max-height: auto; white-space: nowrap;">
+  &nbsp;
+</div>
+
+<!-- LAYER NR. 13 -->
+<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"
+     data-x="948"
+     data-y="454"
+     data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+     data-speed="300"
+     data-start="5200"
+     data-easing="Power3.easeInOut"
+     data-elementdelay="0.1"
+     data-endelementdelay="0.1"
+     data-endspeed="300"
+     style="z-index: 14;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="/LandingPage/img/slider/check.png">
+</div>
+</li>
+<!-- SLIDE  -->
+<li data-transition="zoomin" data-slotamount="7" data-masterspeed="1500" data-thumb="/LandingPage/img/slider/homeslider_thumb4.jpg"  data-saveperformance="on"  data-title="Mobile Interaction">
+  <!-- MAIN IMAGE -->
+  <img src="/LandingPage/img/slider/dummy.png"  alt="slidebg1" data-lazyload="img/slider/slidebg1.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+  <!-- LAYERS -->
+
+  <!-- LAYER NR. 1 -->
+  <div class="tp-caption lfb rs-parallaxlevel-9"
+       data-x="center" data-hoffset="-40"
+       data-y="bottom" data-voffset="-10"
+       data-speed="1500"
+       data-start="2400"
+       data-easing="Power4.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-endspeed="300"
+       style="z-index: 2;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/ipad2.png">
+  </div>
+
+  <!-- LAYER NR. 2 -->
+  <div class="tp-caption customin rs-parallaxlevel-1"
+       data-x="515"
+       data-y="331"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="500"
+       data-start="4400"
+       data-easing="Power4.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-endspeed="300"
+       style="z-index: 3;">
+    <div class=" rs-pulse" 			data-easing="Power4.easeInOut"
+         data-speed="0.5"
+         data-zoomstart="0.75"
+         data-zoomend="1"
+    >
+      <img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/pulse1.png">
     </div>
-  </article>
+  </div>
 
-  <article class="slide" id="showcasing"
-           style="background: url('/SmartAdmin/img/backgrounds/landscape.png') repeat-x top center;">
-    <div class="info">
-      <h2>
-        <center>Organize your time. <br/> Focus your mind. <br/> HuddleUp.</center>
-      </h2>
-    </div>
-  </article>
+  <!-- LAYER NR. 4 -->
+  <div class="tp-caption lfb rs-parallaxlevel-9"
+       data-x="693"
+       data-y="191"
+       data-speed="1500"
+       data-start="2900"
+       data-easing="Power4.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-endspeed="300"
+       style="z-index: 5;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/iphone.png">
+  </div>
 
+  <!-- LAYER NR. 5 -->
+  <div class="tp-caption black_heavy_70 customin randomrotateout tp-resizeme rs-parallaxlevel-5"
+       data-x="315"
+       data-y="40"
+       data-customin="x:0;y:100;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:3;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:0% 0%;"
+       data-speed="500"
+       data-start="1400"
+       data-easing="Power3.easeInOut"
+       data-splitin="chars"
+       data-splitout="none"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-endspeed="600"
+       style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
+    Mobile
+  </div>
+
+  <!-- LAYER NR. 6 -->
+  <div class="tp-caption customin randomrotateout rs-parallaxlevel-7"
+       data-x="434"
+       data-y="98"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="300"
+       data-start="1900"
+       data-easing="Power3.easeInOut"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-endspeed="600"
+       style="z-index: 7;"><img src="/LandingPage/img/slider/dummy.png" alt="" data-lazyload="/LandingPage/img/slider/largegreen.png">
+  </div>
+
+  <!-- LAYER NR. 7 -->
+  <div class="tp-caption light_heavy_70 customin randomrotateout tp-resizeme rs-parallaxlevel-7"
+       data-x="448"
+       data-y="106"
+       data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+       data-speed="300"
+       data-start="2200"
+       data-easing="Power3.easeInOut"
+       data-splitin="none"
+       data-splitout="none"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-endspeed="600"
+       style="z-index: 8; max-width: auto; max-height: auto; white-space: nowrap;">
+    Device
+  </div>
+
+  <!-- LAYER NR. 8 -->
+  <div class="tp-caption black_bold_40 skewfromrightshort randomrotateout tp-resizeme rs-parallaxlevel-6"
+       data-x="619"
+       data-y="177"
+       data-speed="500"
+       data-start="2500"
+       data-easing="Power3.easeInOut"
+       data-splitin="chars"
+       data-splitout="none"
+       data-elementdelay="0.1"
+       data-endelementdelay="0.1"
+       data-endspeed="600"
+       style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+    Friendly
+  </div>
+</li>
+</ul>
+<div class="tp-bannertimer"></div>
+</div>
+</div>
+
+</div>
 </section>
+<!-- /Section: INTRO -->
 
-</div>
-
-<div id="content">
-
-<div class="jumbotron">
-  <h1>Welcome to Huddle Up!</h1>
-
-  <p>
-    Working on a project with a client? Planning a vacation with your family? To stay connected, you'll want to HuddleUp.
-  </p>
-</div>
-
-<div class="well well-light">
-
-  <p>&nbsp;</p>
-  <h1><u>Features</u></h1>
-  <p>&nbsp;</p>
-
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="planner-snip.PNG" class="img-responsive"/>
-    </div>
-    <div class="col-sm-8">
-      <h3>
-        Planning
-      </h3>
-
-      <p>
-        There are many variations of passages of Lorem Ipsum available, but the randomised words which don't look
-        even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-        anything embarrassing hidden in the middle of text.
-      </p>
-    </div>
-  </div>
-
-  <div class="row ">
-    <div class="col-sm-8">
-      <h3>
-        Shared todo lists, calendars, messages, etc.
-      </h3>
-
-      <p>
-        There are many variations of passages of Lorem Ipsum available, but the randomised words which don't look
-        even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-        anything embarrassing hidden in the middle of text.
-      </p>
-    </div>
-    <div class="col-sm-4">
-      <img src="dashboard-snip.PNG" class="pull-right img-responsive"/>
-    </div>
-  </div>
-
-  <div class="row ">
-    <div class="col-sm-4">
-      <img src="collab-snip.png" class="img-responsive" />
-    </div>
-    <div class="col-sm-8">
-      <h3>
-        Collaborate using any device
-      </h3>
-
-      <p>
-        There are many variations of passages of Lorem Ipsum available, but the randomised words which don't look
-        even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-        anything embarrassing hidden in the middle of text.
-      </p>
-      <img src="features-ico1.png" class="img-responsive"/>
-    </div>
-  </div>
-
-
-  <div class="row">
-
-    <div class="col-sm-12">
-
-      <p>&nbsp;</p>
-      <h1><u>Pricing</u></h1>
-      <p>&nbsp;</p>
-
+<!-- Section: #PRICING -->
+<section id="pricing" class="home-section text-center">
+  <div class="heading-about marginbot-50">
+    <div class="container">
       <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
 
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="panel panel-success pricing-big">
+          <div class="section-heading">
+            <h2>Pricing</h2>
+          </div>
 
-            <div class="panel-heading">
-              <h3 class="panel-title">Personal version</h3>
-              <center>&nbsp;</center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="panel panel-success pricing-big">
+
+          <div class="panel-heading">
+            <h3 class="panel-title">Personal version</h3>
+            <center>&nbsp;</center>
+          </div>
+          <div class="panel-body no-padding text-align-center">
+            <div class="the-price">
+              <h1>
+                <strong>FREE</strong></h1>
             </div>
-            <div class="panel-body no-padding text-align-center">
-              <div class="the-price">
-                <h1>
-                  <strong>FREE</strong></h1>
-              </div>
-              <div class="price-features">
-                <ul class="list-unstyled text-left">
-                  <li><i class="fa fa-check text-success"></i> 1 project</li>
-                  <li><i class="fa fa-check text-success"></i> 1 user</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> tasks</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> issues</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> events</li>
-                </ul>
-              </div>
+            <div class="price-features">
+              <ul class="list-unstyled text-left">
+                <li><i class="fa fa-check text-success"></i> 1 project</li>
+                <li><i class="fa fa-check text-success"></i> 1 user</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> tasks</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> issues</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> events</li>
+              </ul>
             </div>
-            <div class="panel-footer text-align-center">
-              <a href="/users/sign_up" class="btn btn-primary btn-block" role="button">Sign
-                Up</a>
-            </div>
+          </div>
+          <div class="panel-footer text-align-center">
+            <a href="/users/sign_up" class="btn btn-primary btn-block" role="button">Sign
+              Up</a>
           </div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="panel panel-teal pricing-big">
+      </div>
 
-            <div class="panel-heading">
-              <h3 class="panel-title">Silver</h3>
-              <center>Ideal for small projects</center>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="panel panel-teal pricing-big">
+
+          <div class="panel-heading">
+            <h3 class="panel-title">Silver</h3>
+            <center>Ideal for small projects</center>
+          </div>
+          <div class="panel-body no-padding text-align-center">
+            <div class="the-price">
+              <h1>
+                $1<span class="subscript">/ mo</span></h1>
             </div>
-            <div class="panel-body no-padding text-align-center">
-              <div class="the-price">
-                <h1>
-                  $1<span class="subscript">/ mo</span></h1>
-              </div>
-              <div class="price-features">
-                <ul class="list-unstyled text-left">
-                  <li><i class="fa fa-check text-success"></i> Free 30-day trial </li>
-                  <li><i class="fa fa-check text-success"></i> 2-5 projects</li>
-                  <li><i class="fa fa-check text-success"></i> 2-5 users</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> tasks</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> issues</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> events</li>
-                  <li><i class="fa fa-check text-success"></i> Messages/announcements</li>
-                </ul>
-              </div>
+            <div class="price-features">
+              <ul class="list-unstyled text-left">
+                <li><i class="fa fa-check text-success"></i> Free 30-day trial </li>
+                <li><i class="fa fa-check text-success"></i> Up to 5 projects</li>
+                <li><i class="fa fa-check text-success"></i> Up to 5 users</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> tasks</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> issues</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> events</li>
+                <li><i class="fa fa-check text-success"></i> Announcements</li>
+              </ul>
             </div>
-            <div class="panel-footer text-align-center">
-              <a href="/users/sign_up" class="btn btn-primary btn-block" role="button">Sign
-                Up</a>
-            </div>
+          </div>
+          <div class="panel-footer text-align-center">
+            <a href="/users/sign_up" class="btn btn-primary btn-block" role="button">Sign
+              Up</a>
           </div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="panel panel-primary pricing-big">
-            <img src="img/ribbon.png" class="ribbon" alt="">
+      </div>
 
-            <div class="panel-heading">
-              <h3 class="panel-title">Gold</h3>
-              <center>Ideal for professional teams</center>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="panel panel-primary pricing-big">
+          <img src="img/ribbon.png" class="ribbon" alt="">
+
+          <div class="panel-heading">
+            <h3 class="panel-title">Gold</h3>
+            <center>Ideal for professional teams</center>
+          </div>
+          <div class="panel-body no-padding text-align-center">
+            <div class="the-price">
+              <h1>
+                $5<span class="subscript">/ mo</span></h1>
             </div>
-            <div class="panel-body no-padding text-align-center">
-              <div class="the-price">
-                <h1>
-                  $5<span class="subscript">/ mo</span></h1>
-              </div>
-              <div class="price-features">
-                <ul class="list-unstyled text-left">
-                  <li><i class="fa fa-check text-success"></i> Free 30-day trial </li>
-                  <li><i class="fa fa-check text-success"></i> 6-10 projects</li>
-                  <li><i class="fa fa-check text-success"></i> 6-10 users</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> tasks</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> issue</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> events</li>
-                  <li><i class="fa fa-check text-success"></i> Messages/announcements</li>
-                  <li><i class="fa fa-check text-success"></i> Reminders</li>
-                  <li><i class="fa fa-check text-success"></i> Alerts</li>
-                </ul>
-              </div>
+            <div class="price-features">
+              <ul class="list-unstyled text-left">
+                <li><i class="fa fa-check text-success"></i> Free 30-day trial </li>
+                <li><i class="fa fa-check text-success"></i> Up to 10 projects</li>
+                <li><i class="fa fa-check text-success"></i> Up to 10 users</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> tasks</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> issue</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> events</li>
+                <li><i class="fa fa-check text-success"></i> Announcements</li>
+                <li><i class="fa fa-check text-success"></i> Reminders</li>
+                <li><i class="fa fa-check text-success"></i> Alerts</li>
+              </ul>
             </div>
-            <div class="panel-footer text-align-center">
-              <a href="/users/sign_up" class="btn btn-primary btn-block" role="button">Sign
-                Up</a>
-            </div>
+          </div>
+          <div class="panel-footer text-align-center">
+            <a href="/users/sign_up" class="btn btn-primary btn-block" role="button">Sign
+              Up</a>
           </div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="panel panel-darken pricing-big">
+      </div>
 
-            <div class="panel-heading">
-              <h3 class="panel-title">Platinum</h3>
-              <center>Ideal for enterprises</center>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="panel panel-danger pricing-big">
+
+          <div class="panel-heading">
+            <h3 class="panel-title">Platinum</h3>
+            <center>Ideal for enterprises</center>
+          </div>
+          <div class="panel-body no-padding text-align-center">
+            <div class="the-price">
+              <h1>
+                $19<span class="subscript">/ mo</span></h1>
             </div>
-            <div class="panel-body no-padding text-align-center">
-              <div class="the-price">
-                <h1>
-                  $19<span class="subscript">/ mo</span></h1>
-              </div>
-              <div class="price-features">
-                <ul class="list-unstyled text-left">
-                  <li><i class="fa fa-check text-success"></i> Free 30-day trial </li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> projects</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> users</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> tasks</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> issues</li>
-                  <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> events</li>
-                  <li><i class="fa fa-check text-success"></i> Messages/announcements</li>
-                  <li><i class="fa fa-check text-success"></i> Reminders</li>
-                  <li><i class="fa fa-check text-success"></i> Alerts</li>
-                </ul>
-              </div>
+            <div class="price-features">
+              <ul class="list-unstyled text-left">
+                <li><i class="fa fa-check text-success"></i> Free 30-day trial </li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> projects</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> users</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> tasks</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> issues</li>
+                <li><i class="fa fa-check text-success"></i> <strong>Unlimited</strong> events</li>
+                <li><i class="fa fa-check text-success"></i> Announcements</li>
+                <li><i class="fa fa-check text-success"></i> Reminders</li>
+                <li><i class="fa fa-check text-success"></i> Alerts</li>
+              </ul>
             </div>
-            <div class="panel-footer text-align-center">
-              <a href="/users/sign_up" class="btn btn-primary btn-block" role="button">Sign
-                Up</a>
+          </div>
+          <div class="panel-footer text-align-center">
+            <a href="/users/sign_up" class="btn btn-primary btn-block" role="button">Sign
+              Up</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+<!-- /Section: PRICING -->
+
+<!-- Section: #FEATURES -->
+<section id="features" class="home-section text-center">
+
+  <div class="heading-about marginbot-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+
+          <div class="section-heading">
+            <h2>The Power of SmartAdmin</h2>
+            <p>
+              Lorem ipsum dolor sit amet, no nisl mentitum recusabo per, vim at blandit qualisque dissentiunt. Diam efficiantur conclusionemque ut has
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-md-3">
+
+        <div class="service-box">
+          <div class="service-icon">
+            <i class="fa fa-code fa-3x"></i>
+          </div>
+          <div class="service-desc">
+            <h5>Localization</h5>
+            <p>
+              Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-3 col-md-3">
+
+        <div class="service-box">
+          <div class="service-icon">
+            <i class="fa fa-suitcase fa-3x"></i>
+          </div>
+          <div class="service-desc">
+            <h5>Compact</h5>
+            <p>
+              Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-3 col-md-3">
+
+        <div class="service-box">
+          <div class="service-icon">
+            <i class="fa fa-cog fa-3x"></i>
+          </div>
+          <div class="service-desc">
+            <h5>State of the Art</h5>
+            <p>
+              Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-3 col-md-3">
+
+        <div class="service-box">
+          <div class="service-icon">
+            <i class="fa fa-rocket fa-3x"></i>
+          </div>
+          <div class="service-desc">
+            <h5>Cloud System</h5>
+            <p>
+              Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Section: FEATURES -->
+
+<!-- Section: #SCREENSHOT -->
+<section id="screenshots" class="home-section text-center bg-gray">
+  <div class="heading-works marginbot-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+
+          <div class="section-heading">
+            <h2>Screenshots</h2>
+            <p>
+              Lorem ipsum dolor sit amet, no nisl mentitum recusabo per, vim at blandit qualisque dissentiunt. Diam efficiantur conclusionemque ut has
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12" >
+
+        <div class="row gallery-item">
+          <div class="col-md-3">
+            <a href="/LandingPage/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="/LandingPage/img/works/1@2x.jpg"> <img src="/LandingPage/img/works/1.jpg" class="img-responsive" alt="img"> </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/LandingPage/img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="/LandingPage/img/works/1@2x.jpg"> <img src="/LandingPage/img/works/2.jpg" class="img-responsive" alt="img"> </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/LandingPage/img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="/LandingPage/img/works/1@2x.jpg"> <img src="/LandingPage/img/works/3.jpg" class="img-responsive" alt="img"> </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/LandingPage/img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="/LandingPage/img/works/1@2x.jpg"> <img src="/LandingPage/img/works/4.jpg" class="img-responsive" alt="img"> </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/LandingPage/img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="/LandingPage/img/works/1@2x.jpg"> <img src="/LandingPage/img/works/5.jpg" class="img-responsive" alt="img"> </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/LandingPage/img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="/LandingPage/img/works/1@2x.jpg"> <img src="/LandingPage/img/works/6.jpg" class="img-responsive" alt="img"> </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/LandingPage/img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="/LandingPage/img/works/1@2x.jpg"> <img src="/LandingPage/img/works/7.jpg" class="img-responsive" alt="img"> </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/LandingPage/img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="/LandingPage/img/works/1@2x.jpg"> <img src="/LandingPage/img/works/8.jpg" class="img-responsive" alt="img"> </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Section: SCREENSHOT -->
+
+<!-- #BOTTOM CONTENT -->
+<div class="bottom-content">
+  <div class="container custom-container text-center">
+    <h2>Own Your Time</h2>
+    <p>
+      Organize your time.
+      Focus your mind.
+      <b>HuddleUp.</b>
+    </p>
+  </div>
+</div>
+<!-- /#BOTTOM CONTENT -->
+
+<!-- #FOOTER -->
+<footer>
+
+  <div class="footer-content clearfix">
+    <div class="container custom-container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <a href="#" class="footer-logo">About Us</a>
+          <p>
+            Fusce gravida tortor felis, ac dictum risus sagittis id.
+          </p>
+          <p>
+            Donec volutpat, mi vel egestas eleifend, dolor arcu iaculis nunc. Fusce gravida tortor felis, ac dictum risus sagittis id. Morbi posuere justo eleifend libero ultricies ultrices.
+          </p>
+          <a href="#" class="learn-more">learn more</a>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <h3>Recent Tweets</h3>
+          <div class="recent-post clearfix">
+            <div class="footer-thumb-img">
+              <span class="footer-overlay-img"></span>
             </div>
+            <p>
+              Fusce gravida tortor felis, ac dictum risus sagittis
+              <span class="date">November 15, 2014</span>
+            </p>
+
+          </div>
+          <div class="recent-post clearfix">
+            <div class="footer-thumb-img">
+              <span class="footer-overlay-img"></span>
+            </div>
+            <p>
+              Fusce gravida tortor felis, ac dictum risus sagittis
+              <span class="date">November 11, 2014</span>
+            </p>
+
+          </div>
+          <div class="recent-post clearfix">
+            <div class="footer-thumb-img">
+              <span class="footer-overlay-img"></span>
+            </div>
+            <p>
+              Fusce gravida tortor felis, ac dictum risus sagittis
+              <span class="date">November 10, 2014</span>
+            </p>
+
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <h3>Top Tags</h3>
+          <div class="footer-tags">
+            <ul>
+              <li>
+                <a href="#">Web Design</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Landing</a>
+              </li>
+              <li>
+                <a href="#">SmartAdmin</a>
+              </li>
+              <li>
+                <a href="#">.Net</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <h3>Flicker photos (recent)</h3>
+          <div class="flicker-widget">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-</div>
-<!-- END MAIN CONTENT -->
-
-</div>
-<!-- END MAIN PANEL -->
-
-<!-- PAGE FOOTER -->
-<div class="page-footer">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <span class="txt-color-white">HuddleUp © 2013-2014 Tessa Group Inc.</span>
+  <div class="bottom-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+          <p>
+            Copyright © Valhalla Strategies
+          </p>
+        </div>
+      </div>
     </div>
-
   </div>
-</div>
-<!-- END PAGE FOOTER -->
+</footer>
+<!-- / #FOOTER -->
 
-
-<!--================================================== -->
-
-<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-<script data-pace-options='{ "restartOnRequestAfter": true }' src="/SmartAdmin/js/plugin/pace/pace.min.js"></script>
+<!-- # Core JavaScript Files -->
 
 <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script>
     if (!window.jQuery) {
-        document.write('<script src="/SmartAdmin/js/libs/jquery-2.0.2.min.js"><\/script>');
+        document.write('<script src="/LandingPage/js/libs/jquery-2.0.2.min.js"><\/script>');
     }
 </script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
     if (!window.jQuery.ui) {
-        document.write('<script src="/SmartAdmin/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+        document.write('<script src="/LandingPage/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
     }
 </script>
 
-<!-- IMPORTANT: APP CONFIG -->
-<script src="/SmartAdmin/js/app.config.js"></script>
-
-<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-<script src="/SmartAdmin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
 
 <!-- BOOTSTRAP JS -->
-<script src="/SmartAdmin/js/bootstrap/bootstrap.min.js"></script>
+<script src="/LandingPage/js/bootstrap/bootstrap.min.js"></script>
 
-<!-- CUSTOM NOTIFICATION -->
-<script src="/SmartAdmin/js/notification/SmartNotification.min.js"></script>
+<!--# JS PLUGINS -->
+<script src="/LandingPage/js/plugins/classie.js"></script>
+<script src="/LandingPage/js/plugins/gnmenu.js"></script>
+<script src="/LandingPage/js/plugins/jquery.scrollUp.js"></script>
+<script src="/LandingPage/js/plugins/nivo-lightbox.min.js"></script>
+<script src="/LandingPage/js/plugins/smoothscroll.js"></script>
+<script src="/LandingPage/js/plugins/jquery.themepunch.plugins.min.js"></script>
+<script src="/LandingPage/js/plugins/jquery.themepunch.revolution.min.js"></script>
 
-<!-- JARVIS WIDGETS -->
-<script src="/SmartAdmin/js/smartwidgets/jarvis.widget.min.js"></script>
+<!-- # Custom Theme JavaScript -->
+<script src="/LandingPage/js/custom.js"></script>
 
-<!-- EASY PIE CHARTS -->
-<script src="/SmartAdmin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
-
-<!-- SPARKLINES -->
-<script src="/SmartAdmin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
-
-<!-- JQUERY VALIDATE -->
-<script src="/SmartAdmin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
-
-<!-- JQUERY MASKED INPUT -->
-<script src="/SmartAdmin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
-
-<!-- JQUERY SELECT2 INPUT -->
-<script src="/SmartAdmin/js/plugin/select2/select2.min.js"></script>
-
-<!-- JQUERY UI + Bootstrap Slider -->
-<script src="/SmartAdmin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
-
-<!-- browser msie issue fix -->
-<script src="/SmartAdmin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
-
-<!-- FastClick: For mobile devices -->
-<script src="/SmartAdmin/js/plugin/fastclick/fastclick.min.js"></script>
-
-<!--[if IE 8]>
-
-<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-<![endif]-->
-
-<script src="marketing.js"></script>
-
+<!-- #PAGE SCRIPT -->
 <script type="text/javascript">
+    jQuery(document).ready(function() {
 
-    // DO NOT REMOVE : GLOBAL FUNCTIONS!
+        jQuery('.tp-banner').show().revolution({
+            dottedOverlay : "none",
+            delay : 8000,
+            startwidth : 1170,
+            startheight : 700,
+            hideThumbs : 200,
 
-    $(document).ready(function () {
+            thumbWidth : 100,
+            thumbHeight : 50,
+            thumbAmount : 5,
 
-        //pageSetUp();
+            navigationType : "bullet",
+            navigationArrows : "solo",
+            navigationStyle : "preview4",
 
-    })
+            touchenabled : "on",
+            onHoverStop : "off",
 
+            swipe_velocity : 0.7,
+            swipe_min_touches : 1,
+            swipe_max_touches : 1,
+            drag_block_vertical : false,
+
+            parallax : "mouse",
+            parallaxBgFreeze : "on",
+            parallaxLevels : [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+
+            keyboardNavigation : "off",
+
+            navigationHAlign : "center",
+            navigationVAlign : "bottom",
+            navigationHOffset : 0,
+            navigationVOffset : 20,
+
+            soloArrowLeftHalign : "left",
+            soloArrowLeftValign : "center",
+            soloArrowLeftHOffset : 20,
+            soloArrowLeftVOffset : 0,
+
+            soloArrowRightHalign : "right",
+            soloArrowRightValign : "center",
+            soloArrowRightHOffset : 20,
+            soloArrowRightVOffset : 0,
+
+            shadow : 0,
+            fullWidth : "off",
+            fullScreen : "on",
+
+            spinner : "spinner4",
+
+            stopLoop : "off",
+            stopAfterLoops : -1,
+            stopAtSlide : -1,
+
+            shuffle : "off",
+
+            autoHeight : "off",
+            forceFullWidth : "off",
+
+            hideThumbsOnMobile : "off",
+            hideNavDelayOnMobile : 1500,
+            hideBulletsOnMobile : "off",
+            hideArrowsOnMobile : "off",
+            hideThumbsUnderResolution : 0,
+
+            hideSliderAtLimit : 0,
+            hideCaptionAtLimit : 0,
+            hideAllCaptionAtLilmit : 0,
+            startWithSlide : 0,
+            fullScreenOffsetContainer : ""
+        });
+
+    });
+    //ready
+
+    $.scrollUp();
 </script>
-
 
 </body>
 
