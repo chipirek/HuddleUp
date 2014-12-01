@@ -126,7 +126,7 @@
     transition: opacity .1s linear; }
 #feature_slider .slide#responsive .info {
     position: absolute;
-    top: 160px;
+    top: 0px;
     right: 9%;
     width: 25%; }
 #feature_slider .slide#responsive .info h2 {

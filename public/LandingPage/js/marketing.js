@@ -1,6 +1,4 @@
-alert('hello');
 jQuery.easing.jswing = jQuery.easing.swing;
-alert('world');
 jQuery.extend(jQuery.easing, {
     def: "easeOutQuad",
     swing: function (e, f, a, h, g) {
@@ -206,14 +204,14 @@ jQuery.extend(jQuery.easing, {
     }
 });
 
-alert('aaa');
+
 var center = $(window).width() / 2;
-alert('bbb');
+
 $(document).ready(function () {
-    alert('eee');
+
     function d() {
         $(".slide.active img").each(function () {
-            alert('fff');
+
             var g = parseInt($(this).attr("class").split(" ")[1].replace("left", ""));
             var i = g + center;
             var h = parseInt($(this).attr("class").split(" ")[3].replace("t", ""));
@@ -239,13 +237,11 @@ $(document).ready(function () {
         }, 800)
     }
     function c() {
-        alert('ppp');
         $("#feature_slider").addClass("disabled").append('<ul id="pagination" /><a href="" id="slide-left" /><a href="" id="slide-right" />');
         $("#feature_slider article").each(function () {
             $("#pagination").append('<li><a href="#' + $(this).attr("id") + '">' + $(this).index() + "</a></li>")
         });
         $("#pagination li:first").addClass("active");
-        alert('qqq');
         $("#pagination").css({
             left: ($(window).width() - $("#pagination li").length * 14) / 2
         });
