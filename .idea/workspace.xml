@@ -11,7 +11,7 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412285205285" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415977665514" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1417467793081" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1417559180850" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413552369397" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410361494034" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1416107287050" ignored="false" />
@@ -126,7 +126,7 @@
     <file path="/stripe.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414330744079" ignored="false" />
     <file path="/expire_email.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980247754" ignored="false" />
     <file path="/home_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414409348899" ignored="false" />
-    <file path="/home.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1417558869727" ignored="false" />
+    <file path="/home.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1417559590036" ignored="false" />
     <file path="/update_card.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414617552993" ignored="false" />
     <file path="/billing.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414618090479" ignored="false" />
     <file path="/new_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980072366" ignored="false" />
@@ -154,25 +154,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="marketing.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/LandingPage/css/marketing.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="128" column="9" selection-start="3238" selection-end="3238" vertical-scroll-proportion="-2.12">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="home.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/home.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="559" column="0" selection-start="21063" selection-end="21063" vertical-scroll-proportion="0.6917808">
+            <state line="470" column="64" selection-start="18402" selection-end="18402" vertical-scroll-proportion="0.4384449">
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#article#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#article#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="marketing.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/LandingPage/css/marketing.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="9" selection-start="3238" selection-end="3238" vertical-scroll-proportion="-2.12">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -236,8 +236,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="108" />
-    <option name="y" value="88" />
+    <option name="x" value="162" />
+    <option name="y" value="124" />
     <option name="width" value="1440" />
     <option name="height" value="812" />
   </component>
@@ -342,32 +342,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LandingPage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="works" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1989,7 +1963,11 @@
       <created>1417467794981</created>
       <updated>1417467794981</updated>
     </task>
-    <option name="localTasksCounter" value="264" />
+    <task id="LOCAL-00264" summary="Completed landing page">
+      <created>1417559183907</created>
+      <updated>1417559183907</updated>
+    </task>
+    <option name="localTasksCounter" value="265" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -2013,7 +1991,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="108" y="88" width="1440" height="812" extended-state="0" />
+    <frame x="162" y="124" width="1440" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655826" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2078,7 +2056,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on landing page...got screenshots embedded" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed landing page" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2092,7 +2070,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Commercialization - building smoke tests and fixing defects." />
     <MESSAGE value="Commercialization - Sending an email to HQ for any change to an account that has financial impact, so it can be audited against Stripe." />
     <MESSAGE value="Fixing bugs in planner and routes" />
     <MESSAGE value="Fix UX on login and registration pages" />
@@ -2117,6 +2094,7 @@
     <MESSAGE value="Working on landing page..." />
     <MESSAGE value="Working on landing page...got slider working" />
     <MESSAGE value="Working on landing page...got screenshots embedded" />
+    <MESSAGE value="Completed landing page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2191,13 +2169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/LandingPage/css/marketing.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="9" selection-start="3238" selection-end="3238" vertical-scroll-proportion="-2.12">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/LandingPage/js/marketing.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="244" column="0" selection-start="7899" selection-end="7899" vertical-scroll-proportion="0.0">
@@ -2205,9 +2176,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/LandingPage/css/marketing.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="9" selection-start="3238" selection-end="3238" vertical-scroll-proportion="-2.12">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="559" column="0" selection-start="21063" selection-end="21063" vertical-scroll-proportion="0.6917808">
+        <state line="470" column="64" selection-start="18402" selection-end="18402" vertical-scroll-proportion="0.4384449">
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
