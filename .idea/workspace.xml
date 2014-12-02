@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/LandingPage/img/works/calendar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/LandingPage/img/works/issues.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/LandingPage/img/works/logout.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/LandingPage/img/works/menu.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/LandingPage/img/works/planner.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/LandingPage/img/works/projects.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/LandingPage/img/works/todos.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/home.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/home.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
@@ -17,7 +11,7 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412285205285" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415977665514" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1417467753052" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1417467793081" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413552369397" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410361494034" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1416107287050" ignored="false" />
@@ -132,7 +126,7 @@
     <file path="/stripe.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414330744079" ignored="false" />
     <file path="/expire_email.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980247754" ignored="false" />
     <file path="/home_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414409348899" ignored="false" />
-    <file path="/home.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1417467526623" ignored="false" />
+    <file path="/home.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1417558869727" ignored="false" />
     <file path="/update_card.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414617552993" ignored="false" />
     <file path="/billing.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414618090479" ignored="false" />
     <file path="/new_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980072366" ignored="false" />
@@ -163,7 +157,7 @@
       <file leaf-file-name="home.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/home.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="29" selection-start="6162" selection-end="6162" vertical-scroll-proportion="0.48164147">
+            <state line="559" column="0" selection-start="21063" selection-end="21063" vertical-scroll-proportion="0.6917808">
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1991,7 +1985,11 @@
       <created>1417467755710</created>
       <updated>1417467755710</updated>
     </task>
-    <option name="localTasksCounter" value="263" />
+    <task id="LOCAL-00263" summary="Working on landing page...got screenshots embedded">
+      <created>1417467794981</created>
+      <updated>1417467794981</updated>
+    </task>
+    <option name="localTasksCounter" value="264" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -2016,14 +2014,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="108" y="88" width="1440" height="812" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655826" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32863188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971016" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32777777" sideWeight="0.7135135" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32777777" sideWeight="0.7135135" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3275" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -2209,7 +2207,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="29" selection-start="6162" selection-end="6162" vertical-scroll-proportion="0.48164147">
+        <state line="559" column="0" selection-start="21063" selection-end="21063" vertical-scroll-proportion="0.6917808">
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
