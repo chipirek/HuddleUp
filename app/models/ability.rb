@@ -19,11 +19,7 @@ class Ability
           if project.status_code.to_s < '4'
             can :update, Project, :id => project.id
             can :manage, [Todo, Milestone, Issue, Message, Comment], :project_id => project.id
-            if project.members.count < 5
-              can :create, [Member, Invitation], :project_id => project.id
-            else
-              can :read, [Member, Invitation], :project_id => project.id
-            end
+            can :read, [Member, Invitation], :project_id => project.id
           else
             can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
           end

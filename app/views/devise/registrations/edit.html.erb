@@ -298,6 +298,9 @@
                 setupForm: function () {
                     return $('.card_form').submit(function () {
                         $('input[type=submit]').prop('disabled', true);
+                        alert('submit()...');
+                        alert('name=' + $('#user_name').val());
+                        alert('card=' + $('#card_number').val());
                         if ($('#card_number').length) {
                             subscription.processCard();
                             return false;
@@ -307,6 +310,10 @@
                     });
                 },
                 processCard: function () {
+                    alert('processCard()...');
+                    alert('name=' + $('#user_name').val());
+                    alert('card=' + $('#card_number').val());
+
                     var card;
                     card = {
                         name: $('#user_name').val(),

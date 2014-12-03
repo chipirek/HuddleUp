@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
 
   load_and_authorize_resource :project
-  load_and_authorize_resource :member, :through => :project
+  #load_and_authorize_resource :member, :through => :project
 
   # GET /members
   # GET /members.json
@@ -9,6 +9,7 @@ class MembersController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @members = Member.where('project_id=?', params[:project_id])
+
     @members = @project.members
     my_member = Member.where('project_id=?', params[:project_id]).where('user_id=?', current_user.id).first
     @i_am_an_admin = my_member.is_admin
