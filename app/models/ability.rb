@@ -87,13 +87,13 @@ class Ability
         if user_is_admin
           can [:destroy], Project, :id => project.id
         end
-      end
-      #can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment, Member]
-      if project.status_code.to_s < '4'
-        can :update, Project, :id => project.id
-        can :manage, [Todo, Milestone, Issue, Message, Comment, Member, Invitation], :project_id => project.id
-      else
-        can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
+        #can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment, Member]
+        if project.status_code.to_s < '4'
+          can :update, Project, :id => project.id
+          can :manage, [Todo, Milestone, Issue, Message, Comment, Member, Invitation], :project_id => project.id
+        else
+          can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
+        end
       end
     end
 
