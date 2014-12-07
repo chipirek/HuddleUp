@@ -1,4 +1,6 @@
+alert('hello');
 jQuery.easing.jswing = jQuery.easing.swing;
+alert('world');
 jQuery.extend(jQuery.easing, {
     def: "easeOutQuad",
     swing: function (e, f, a, h, g) {
