@@ -1,5 +1,10 @@
 class MilestonesController < ApplicationController
 
+
+  # depreciated and removed from use
+
+
+=begin
   load_and_authorize_resource :project
   load_and_authorize_resource :milestone, :through => :project
 
@@ -152,5 +157,6 @@ class MilestonesController < ApplicationController
       format.json { head :no_content }
     end
   end
+=end
 
 end

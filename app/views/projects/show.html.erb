@@ -80,7 +80,7 @@
       <!-- end widget -->
 
       <!-- -------------------------------------------------------------------------------------------- -->
-      <!-- milestones widget -->
+      <!-- events widget -->
       <!-- -------------------------------------------------------------------------------------------- -->
       <div class="jarviswidget jarviswidget-color-blue" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
         <header>
@@ -422,17 +422,17 @@
                 },
 
                 events: [
-                    <% @project.milestones.each do |m| %>
+                    <% @project.events.each do |m| %>
                     {
                         "className": "<%= m.class_name %>",
-                        "end": "<%= m.end %>",
+                        "end": "<%= m.end_date %>",
                         "id":<%= m.id %>,
                         "project_id":<%= m.project_id %>,
-                        "start": new Date(<%= m.start.strftime("%Y") %>, <%= m.start.strftime("%m") %>-1, <%= m.start.strftime("%d") %>
+                        "start": new Date(<%= m.start_date.strftime("%Y") %>, <%= m.start_date.strftime("%m") %>-1, <%= m.start_date.strftime("%d") %>
                                 <%= ", " + m.start_time.strftime("%H,%M") unless m.start_time.nil? %>  ),
 
-                        <% if !m.end.nil? %>
-                        "end": new Date(<%= m.end.strftime("%Y") %>, <%= m.end.strftime("%m") %>-1, <%= m.end.strftime("%d") %>
+                        <% if !m.end_date.nil? %>
+                        "end": new Date(<%= m.end_date.strftime("%Y") %>, <%= m.end_date.strftime("%m") %>-1, <%= m.end_date.strftime("%d") %>
                                 <%= ", " + m.end_time.strftime("%H,%M") unless m.end_time.nil? %>  ),
                         <% end %>
 
@@ -454,11 +454,11 @@
                     }
                 }
 
-                <% if can? :update, @project.milestones.build %>
+                <% if can? :update, @project.events.build %>
                 , eventClick: function (event) {
                     // opens events in a popup window
                     // alert(event.id);
-                    window.location.href = '/projects/<%= @project.id %>/milestones/' + event.id + '/edit';
+                    window.location.href = '/projects/<%= @project.id %>/events/' + event.id + '/edit';
                     return false;
                 }
                 <% end %>

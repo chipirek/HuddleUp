@@ -19,10 +19,10 @@
                 </a>
               </li>
 
-              <li <%= "class='active'".html_safe if controller_name == 'milestones' %> >
-                <a href="/projects/<%= @project.id %>/milestones" title="Milestones"><i class="fa fa-lg fa-fw fa-calendar"></i>
+              <li <%= "class='active'".html_safe if controller_name == 'events' %> >
+                <a href="/projects/<%= @project.id %>/events" title="Events"><i class="fa fa-lg fa-fw fa-calendar"></i>
                   <span class="menu-item-parent">Calendar</span>
-                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_milestones_left unless @project.how_many_milestones_left == 0 %></span></a>
+                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_events_left unless @project.how_many_events_left == 0 %></span></a>
               </li>
 
               <li <%= "class='active'".html_safe if controller_name == 'messages' %> >

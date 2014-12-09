@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141021170248) do
+ActiveRecord::Schema.define(:version => 20141209004733) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -44,6 +44,21 @@ ActiveRecord::Schema.define(:version => 20141021170248) do
 
   add_index "comments", ["issue_id"], :name => "index_comments_on_issue_id"
   add_index "comments", ["member_id"], :name => "index_comments_on_member_id"
+
+  create_table "events", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "title"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "class_name"
+    t.boolean  "all_day"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "icon"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "invitations", :force => true do |t|
     t.integer  "member_id"
@@ -96,23 +111,6 @@ ActiveRecord::Schema.define(:version => 20141021170248) do
 
   add_index "messages", ["member_id"], :name => "index_messages_on_member_id"
   add_index "messages", ["project_id"], :name => "index_messages_on_project_id"
-
-  create_table "milestones", :force => true do |t|
-    t.integer  "project_id"
-    t.string   "title"
-    t.date     "start"
-    t.date     "end"
-    t.string   "class_name"
-    t.boolean  "all_day"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "icon"
-    t.string   "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
-  end
-
-  add_index "milestones", ["project_id"], :name => "index_milestones_on_project_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"

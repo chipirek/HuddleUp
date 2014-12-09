@@ -1,0 +1,294 @@
+<div class="navbar">
+
+  <script type="text/javascript">
+      try {
+          ace.settings.check('navbar', 'fixed')
+      } catch (e) {
+      }
+  </script>
+
+  <div class="navbar-inner">
+    <div class="container-fluid">
+
+      <a class="brand" href="#">
+        <small><i class="icon-check"></i> HuddleUp - <%= @project.name %></small>
+      </a>
+
+      <%= render :partial => '/projects/top_nav', :locals => {:post => 'foo'} %>
+
+    </div>
+    <!--/.container-fluid-->
+  </div>
+  <!--/.navbar-inner-->
+
+</div>
+
+
+<div class="main-container container-fluid">
+  <a class="menu-toggler" id="menu-toggler" href="#">
+    <span class="menu-text"></span>
+  </a>
+
+  <%= render :partial => '/projects/side_nav_1', :locals => {:component => 'events', :project_id => @project.id} %>
+
+  <div class="main-content">
+
+
+    <% crumbs = [['Projects', projects_path],
+                 [@project.name, project_path(@project)],
+                 ['Events', project_events_path(@project)]] %>
+
+    <%= render :partial => '/projects/breadcrumbs', :locals => {:crumbs => crumbs, :title => @event.subject} %>
+
+    <div class="page-content">
+      <div class="page-header position-relative">
+        <h1>
+          <i class="icon-calendar"></i> <%= @event.subject %>
+          <small>
+            <i class='icon-double-angle-right'></i>
+            <a href="/projects/<%= @project.id %>/events/<%= @event.id %>/edit">Edit this event's definition</a>
+          </small>
+        </h1>
+
+      </div>
+      <!--/.page-header-->
+
+      <div class="row-fluid">
+        <div class="span12">
+          <!--PAGE CONTENT BEGINS-->
+
+          <div class="span5">
+            <div class="widget-box">
+              <div class="widget-header widget-header-large">
+                <h4>Event Details</h4>
+              </div>
+
+              <div class="widget-body">
+                <div class="widget-main">
+                  <div class="alert alert-info">
+                    <table>
+                      <tr>
+                        <td style='width:33%; padding-bottom: 20px;'>Millestone Name:</td>
+                        <td style='width:67%; padding-bottom: 20px;'><%= @event.subject %></td>
+                      </tr>
+                      <tr>
+                        <td style='padding-bottom: 20px;'>Date:</td>
+                        <td style='padding-bottom: 20px;'><%= @event.event_date.strftime('%m/%d/%Y') %></td>
+                      </tr>
+                      <tr>
+                        <td style='padding-bottom: 20px;'>Progress:</td>
+                        <td style='padding-bottom: 20px;'>say what?</td>
+                      </tr>
+                      <tr>
+                        <td style='padding-bottom: 20px;'>Size:</td>
+                        <td style='padding-bottom: 20px;'></td>
+                      </tr>
+                      <tr>
+                        <td>Calculated:</td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="span7">
+            <div class="widget-box ">
+              <div class="widget-header widget-header-large">
+                <h4 class="lighter smaller"> Associated Tasks</h4>
+
+              </div>
+
+              <div class="widget-body">
+                <div class="widget-main padding-5">
+                  <div class="tab-content padding-8">
+                    <div id="events-gadget" class="tab-pane active">
+
+                      <% if flash[:notice] %>
+                          <div class='alert alert-block alert-success'>
+                            <button type="button" class="close" data-dismiss="alert">
+                              <i class="icon-remove"></i></button>
+                            <strong><i class="icon-ok"></i> <%= flash[:notice] %></strong>
+                          </div>
+                      <% end %>
+
+                      <div id="tasks-tab" class="tab-pane active">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+            <div id="modal-add-form" class="modal hide" tabindex="-1">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="blue bigger">Add a new task</h4>
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn btn-small" data-dismiss="modal">
+                  <i class="icon-remove"></i>
+                  Cancel
+                </button>
+
+                <button class="btn btn-small btn-primary" onclick="javascript:$('#new_task').submit();">
+                  <i class="icon-ok"></i>
+                  Save
+                </button>
+              </div>
+            </div>
+
+            <!-- END -->
+
+          </div>
+
+        </div>
+        <!--/row-->
+
+        <!--PAGE CONTENT ENDS-->
+      </div>
+      <!--/.span-->
+    </div>
+    <!--/.row-fluid-->
+  </div>
+  <!--/.page-content-->
+
+  <div class="ace-settings-container" id="ace-settings-container">
+    <div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
+      <i class="icon-cog bigger-150"></i>
+    </div>
+
+    <div class="ace-settings-box" id="ace-settings-box">
+      <div>
+        <div class="pull-left">
+          <select id="skin-colorpicker" class="hide">
+            <option data-skin="default" value="#438EB9">#438EB9</option>
+            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+          </select>
+        </div>
+        <span>&nbsp; Choose Skin</span>
+      </div>
+
+      <div>
+        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
+        <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+      </div>
+
+      <div>
+        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
+        <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+      </div>
+
+      <div>
+        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
+        <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+      </div>
+
+      <div>
+        <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
+        <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+      </div>
+    </div>
+  </div>
+  <!--/#ace-settings-container-->
+</div><!--/.main-content-->
+</div><!--/.main-container-->
+
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
+  <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript" src="/assets/js/spin.min.js"></script>
+<script src="/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+        $('.date-picker').datepicker();
+
+        var $tooltip = $("<div class='tooltip top in' style='display:none;'><div class='tooltip-inner'></div></div>").appendTo('body');
+        $('[data-rel="tooltip"]').tooltip();
+
+        $('#modal-add-form').on('shown', function() {
+            console.log('#modal-add-form is shown...')
+            $(this).find($('#task_subject')).focus();
+        });
+
+
+        $('#tasks').sortable({
+            axis: 'y',
+            items: 'li',
+            update: function () {
+                $.ajax({
+                    type: 'post',
+                    data: $('#tasks').sortable('serialize'),
+                    dataType: 'script',
+                    complete: function (request) {
+                        //$('#tasks').effect('highlight');
+                    },
+                    url: '/projects/<%= @project.id %>/events/<%= @event.id %>/tasks/sort'})
+            }
+        });
+
+        $('#tasks').disableSelection();
+
+        var opts = {
+            lines: 13, // The number of lines to draw
+            length: 20, // The length of each line
+            width: 10, // The line thickness
+            radius: 30, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            rotate: 0, // The rotation offset
+            direction: 1, // 1: clockwise, -1: counterclockwise
+            color: '#000', // #rgb or #rrggbb
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: false, // Whether to use hardware acceleration
+            className: 'spinner', // The CSS class to assign to the spinner
+            zIndex: 2e9, // The z-index (defaults to 2000000000)
+            top: 'auto', // Top position relative to parent in px
+            left: 'auto' // Left position relative to parent in px
+        };
+
+        $('#tasks input:checkbox').removeAttr('checked').on('click', function () {
+            var target = document.getElementById('tasks');
+            var spinner = new Spinner(opts).spin(target);
+
+            var id = $(this).closest('li').attr('data-pk');
+            var done = ($(this).closest('li').attr('data-completed') == "true");
+            if (done)
+            {
+                //alert('marking incomplete');
+                window.location.href='/projects/<%= @project.id %>/events/<%= @event.id %>/tasks/mark_incomplete/' + id;
+            }
+            else
+            {
+                //alert('marking complete');
+                window.location.href='/projects/<%= @project.id %>/events/<%= @event.id %>/tasks/mark_complete/' + id;
+            }
+        });
+
+        $('.task').each(function () {
+            var done = ($(this).attr('data-completed') == "true");
+            var pk = $(this).attr('data-pk');
+            if (done) {
+                $(this).addClass('selected');
+                $('#chk_' + pk).attr('checked', true);  //WORKS!
+                //$(this).find('input:checkbox').attr('checked', true);
+            }
+        });
+
+    });
+
+
+</script>

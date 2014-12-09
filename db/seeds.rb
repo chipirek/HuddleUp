@@ -8,7 +8,7 @@ puts 'Removing old data ...'
 
 ReadReceipt.destroy_all
 Member.destroy_all
-Milestone.destroy_all
+Event.destroy_all
 Todo.destroy_all
 Invitation.destroy_all
 Issue.destroy_all
@@ -100,33 +100,33 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
   puts '   Added member ' + m.user.name
 
   puts ' '
-  puts 'Seeding milestones to AlphaSim...'
-  Milestone.destroy_all
+  puts 'Seeding events to AlphaSim...'
+  Event.destroy_all
 
-  m = project1.milestones.create(:title=>'Sprint planning completed - ready to start', :start=>100.days.ago, :end=>100.days.ago, :class_name=>'bg-color-blueLight txt-color-white')
-  puts '   Added milestone ' + m.title
+  m = project1.events.create(:title=>'Sprint planning completed - ready to start', :start_date=>100.days.ago, :end_date=>100.days.ago, :class_name=>'bg-color-blueLight txt-color-white')
+  puts '   Added event ' + m.title
 
-  m = project1.milestones.create(:title=>'Sprint 1 complete', :start=>3.months.ago, :end=>3.months.ago, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
-  puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Sprint 2 complete', :start=>35.days.ago, :end=>35.days.ago, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
-  puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Sprint 3 complete', :start=>Date.tomorrow, :end=>Date.tomorrow, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
-  puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Sprint 3 review', :start=>Date.tomorrow, :end=>Date.tomorrow, :class_name=>'bg-color-red txt-color-white', :icon=>'', :start_time=>'10:00', :end_time=>'11:30')
-  puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Signoff', :start=>Time.now.advance(:days=>7).to_date, :end=>Time.now.advance(:days=>7).to_date, :all_day=>true, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
-  puts '   Added milestone ' + m.title
-  m = project1.milestones.create(:title=>'Red Stand-up (30min)', :start=>Time.now.to_date, :end=>Time.now.to_date, :class_name=>'bg-color-red txt-color-white', :icon=>'', :start_time=>'15:00', :end_time=>'15:30', :all_day=>false)
-  puts '   Added milestone ' + m.title
+  m = project1.events.create(:title=>'Sprint 1 complete', :start_date=>3.months.ago, :end_date=>3.months.ago, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
+  puts '   Added event ' + m.title
+  m = project1.events.create(:title=>'Sprint 2 complete', :start_date=>35.days.ago, :end_date=>35.days.ago, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
+  puts '   Added event ' + m.title
+  m = project1.events.create(:title=>'Sprint 3 complete', :start_date=>Date.tomorrow, :end_date=>Date.tomorrow, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
+  puts '   Added event ' + m.title
+  m = project1.events.create(:title=>'Sprint 3 review', :start_date=>Date.tomorrow, :end_date=>Date.tomorrow, :class_name=>'bg-color-red txt-color-white', :icon=>'', :start_time=>'10:00', :end_time=>'11:30')
+  puts '   Added event ' + m.title
+  m = project1.events.create(:title=>'Signoff', :start_date=>Time.now.advance(:days=>7).to_date, :end_date=>Time.now.advance(:days=>7).to_date, :all_day=>true, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
+  puts '   Added event ' + m.title
+  m = project1.events.create(:title=>'Red Stand-up (30min)', :start_date=>Time.now.to_date, :end_date=>Time.now.to_date, :class_name=>'bg-color-red txt-color-white', :icon=>'', :start_time=>'15:00', :end_time=>'15:30', :all_day=>false)
+  puts '   Added event ' + m.title
 
-  m = project5.milestones.create(:title=>'Initial Design', :start=>100.days.ago, :end=>98.days.ago, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
-  puts '   Added milestone ' + m.title
+  m = project5.events.create(:title=>'Initial Design', :start_date=>100.days.ago, :end_date=>98.days.ago, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
+  puts '   Added event ' + m.title
 
-  m = project5.milestones.create(:title=>'Initial Design', :start=>100.days.ago, :end=>98.days.ago, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
-  puts '   Added milestone ' + m.title
+  m = project5.events.create(:title=>'Initial Design', :start_date=>100.days.ago, :end_date=>98.days.ago, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
+  puts '   Added event ' + m.title
 
-  m = project5.milestones.create(:title=>'Signoff', :start=>Time.now.advance(:days=>7).to_date, :all_day=>true, :class_name=>'bg-color-blue txt-color-white', :icon=>'fa-user')
-  puts '   Added milestone ' + m.title
+  m = project5.events.create(:title=>'Signoff', :start_date=>Time.now.advance(:days=>7).to_date, :all_day=>true, :class_name=>'bg-color-blue txt-color-white', :icon=>'fa-user')
+  puts '   Added event ' + m.title
 
   puts ' '
   puts 'Seeding todos for AlphaSim...'
@@ -197,7 +197,7 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
     150.times do |z|
       ts = p.todos.create(:subject=>"Todo " + z.to_s, :due_date=>Time.now.to_date, :position=>1, :member_id=>mb.id)
       is = p.issues.create(:subject=>"Issue " + z.to_s, :position=>1, :member_id=>mb.id)
-      ms = p.milestones.create(:title=>'Milestone' + z.to_s, :start=>Date.tomorrow, :end=>Date.tomorrow, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
+      ms = p.events.create(:title=>'Event' + z.to_s, :start_date=>Date.tomorrow, :end_date=>Date.tomorrow, :class_name=>'bg-color-blue txt-color-white', :icon=>'')
     end
 
   end
@@ -213,10 +213,10 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
     project1 = Project.first
 
     puts ' '
-    puts 'Adding more milestones to AlphaSim...'
+    puts 'Adding more events to AlphaSim...'
 
-    m = project1.milestones.create(:title=>'Karthika presentation', :start=>Date.tomorrow, :end=>Date.tomorrow, :class_name=>'bg-color-red txt-color-white', :icon=>'fa-user', :start_time=>'10:00', :end_time=>'10:30', :all_day=>false)
-    puts '   Added milestone ' + m.title
+    m = project1.events.create(:title=>'Karthika presentation', :start_date=>Date.tomorrow, :end_date=>Date.tomorrow, :class_name=>'bg-color-red txt-color-white', :icon=>'fa-user', :start_time=>'10:00', :end_time=>'10:30', :all_day=>false)
+    puts '   Added event ' + m.title
 
     puts ' '
     puts 'Adding more todos for AlphaSim...'
@@ -234,5 +234,9 @@ Audited::Adapters::ActiveRecord::Audit.as_user(u0) do
 
   puts ' '
   puts 'Done.'
+  puts ' '
+  puts '+------------------------------------------------------------+ '
+  puts '| Remember to remove mail notifications to CustomerCare!     | '
+  puts '+------------------------------------------------------------+ '
 
 end

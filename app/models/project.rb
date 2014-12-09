@@ -13,7 +13,7 @@ class Project < ActiveRecord::Base
 
   #belongs_to :user
   has_many :members, :dependent => :destroy
-  has_many :milestones, :dependent => :destroy
+  has_many :events, :dependent => :destroy
   has_many :todos, :dependent => :destroy
   has_many :issues, :dependent => :destroy
   has_many :messages, :dependent => :destroy
@@ -70,26 +70,21 @@ class Project < ActiveRecord::Base
 
 
   def how_many_unread_messages_for_this_member(current_user_id)
-    #puts '-------------------'
-    #puts 'current_user_id=' + current_user_id.to_s
     current_membership_id = determine_current_membership(current_user_id)
-    #puts 'member_id=' + current_membership_id.to_s
     messages_current_user_has_read = 0
     messages.each do |m|
-      #puts 'read_receipts for member=' + m.read_receipts.where('member_id=?', current_membership_id).count.to_s
       if m.read_receipts.where('member_id=?', current_membership_id).count > 0
         messages_current_user_has_read += 1
       end
     end
 
     badge_number_for_user = messages.count - messages_current_user_has_read
-    #puts 'badge_number_for_user=' + badge_number_for_user.to_s
     return badge_number_for_user
   end
 
 
-  def how_many_milestones_left
-    return milestones.where('start>=?', Date.today).count
+  def how_many_events_left
+    return events.where('start_date>=?', Date.today).count
   end
 
 

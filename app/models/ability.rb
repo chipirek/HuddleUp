@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
+                              
     projects_in_which_i_am_a_member = Member.where('user_id=' + user.id.to_s).where("status_code <> '9'").pluck(:project_id)
 
     if user.plan == 'free'
@@ -18,10 +18,10 @@ class Ability
           end
           if project.status_code.to_s < '4'
             can :update, Project, :id => project.id
-            can :manage, [Todo, Milestone, Issue, Message, Comment], :project_id => project.id
+            can :manage, [Todo, Event, Issue, Message, Comment], :project_id => project.id
             can :read, [Member, Invitation], :project_id => project.id
           else
-            can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
+            can :read, [Todo, Event, Issue, Message, Comment, Member], :project_id => project.id
           end
         end
         can :read, Member
@@ -40,17 +40,17 @@ class Ability
         end
         if project.status_code.to_s < '4'
           can :update, Project, :id => project.id
-          can :manage, [Todo, Milestone, Issue, Message, Comment], :project_id => project.id
+          can :manage, [Todo, Event, Issue, Message, Comment], :project_id => project.id
           if project.members.count < 5
             can :create, [Member, Invitation], :project_id => project.id
           else
             can :read, [Member, Invitation], :project_id => project.id
           end
         else
-          can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
+          can :read, [Todo, Event, Issue, Message, Comment, Member], :project_id => project.id
         end
       end
-      # can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment]
+      # can :manage, [Todo, Event, Issue, Invitation, Message, Comment]
       # can [:read, :update], Member
 
     elsif user.plan == 'gold'
@@ -67,14 +67,14 @@ class Ability
 
         if project.status_code.to_s < '4'
           can :update, Project, :id => project.id
-          can :manage, [Todo, Milestone, Issue, Message, Comment], :project_id => project.id
+          can :manage, [Todo, Event, Issue, Message, Comment], :project_id => project.id
           if project.members.count < 10
             can :create, [Member, Invitation], :project_id => project.id
           else
             can :read, [Member, Invitation], :project_id => project.id
           end
         else
-          can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
+          can :read, [Todo, Event, Issue, Message, Comment, Member], :project_id => project.id
         end
       end
 
@@ -87,12 +87,12 @@ class Ability
         if user_is_admin
           can [:destroy], Project, :id => project.id
         end
-        #can :manage, [Todo, Milestone, Issue, Invitation, Message, Comment, Member]
+        #can :manage, [Todo, Event, Issue, Invitation, Message, Comment, Member]
         if project.status_code.to_s < '4'
           can :update, Project, :id => project.id
-          can :manage, [Todo, Milestone, Issue, Message, Comment, Member, Invitation], :project_id => project.id
+          can :manage, [Todo, Event, Issue, Message, Comment, Member, Invitation], :project_id => project.id
         else
-          can :read, [Todo, Milestone, Issue, Message, Comment, Member], :project_id => project.id
+          can :read, [Todo, Event, Issue, Message, Comment, Member], :project_id => project.id
         end
       end
     end

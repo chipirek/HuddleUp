@@ -1,0 +1,163 @@
+<!-- background colors for events
+bg-color-greenLight
+bg-color-red
+bg-color-blue
+bg-color-darken
+-->
+
+
+<%= form_for [@project, @event], :html => {:class => 'smart-form', :id => 'event_form'} do |f| %>
+    <% if @event.errors.any? %>
+
+        <div class="alert alert-danger fade in">
+          <button class="close" data-dismiss="alert">
+            ×
+          </button>
+          <i class="fa-fw fa fa-warning"></i>
+          <strong>Ooops, <%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</strong>
+          <ul style='padding-left: 40px;'>
+            <% @event.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+
+    <% end %>
+
+
+    <fieldset>
+      <section>
+        <label class="label">Title</label>
+        <label class="input">
+          <input class='input-lg' type="text" name="event[title]" placeholder="Add a title for this event..." id='event_title' value='<%= @event.title %>'>
+        </label>
+      </section>
+
+      <div class='row'>
+        <section class="col col-3">
+
+          <div class="form-group">
+            <label style='color:#333;'>Icon</label>
+
+            <div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
+
+              <label class="btn btn-default <%= "active" unless @event.icon != '' %>">
+                <input type="radio" name="event[icon]" id="icon-0" value="" <%= "checked" unless @event.icon != '' %>>
+              </label>
+
+              <label class="btn btn-default <%= "active" unless @event.icon != 'fa-info' %>">
+                <input type="radio" name="event[icon]" id="icon-1" value="fa-info" <%= "active" unless @event.icon != 'fa-info' %>>
+                <i class="fa fa-info text-muted"></i> </label>
+
+              <label class="btn btn-default <%= "active" unless @event.icon != 'fa-warning' %>">
+                <input type="radio" name="event[icon]" id="icon-2" value="fa-warning" <%= "active" unless @event.icon != 'fa-warning' %>>
+                <i class="fa fa-warning text-muted"></i> </label>
+
+              <label class="btn btn-default <%= "active" unless @event.icon != 'fa-check' %>">
+                <input type="radio" name="event[icon]" id="icon-3" value="fa-check" <%= "active" unless @event.icon != 'fa-check' %>>
+                <i class="fa fa-check text-muted"></i> </label>
+
+              <label class="btn btn-default <%= "active" unless @event.icon != 'fa-user' %>">
+                <input type="radio" name="event[icon]" id="icon-4" value="fa-user" <%= "active" unless @event.icon != 'fa-user' %>>
+                <i class="fa fa-user text-muted"></i> </label>
+
+              <label class="btn btn-default <%= "active" unless @event.icon != 'fa-lock' %>">
+                <input type="radio" name="event[icon]" id="icon-5" value="fa-lock" <%= "active" unless @event.icon != 'fa-lock' %>>
+                <i class="fa fa-lock text-muted"></i> </label>
+
+              <label class="btn btn-default <%= "active" unless @event.icon != 'fa-clock-o' %>">
+                <input type="radio" name="event[icon]" id="icon-6" value="fa-clock-o" <%= "active" unless @event.icon != 'fa-clock-o' %>>
+                <i class="fa fa-clock-o text-muted"></i> </label>
+
+            </div>
+          </div>
+        </section>
+
+        <section class="col col-3">
+          <div class="form-group">
+            <label style='color:#333;'>Priority</label>
+
+            <div class="btn-group btn-group-justified btn-select-tick" data-toggle="buttons" style='height:30px;'>
+
+              <label class="btn bg-color-darken <%= "active" unless @event.class_name != 'bg-color-darken txt-color-white' %>">
+                <input type="radio" name="event[class_name]" id="option1" value="bg-color-darken txt-color-white" <%= "checked" unless @event.class_name != 'bg-color-darken txt-color-white' %> >
+                <i class="fa fa-check txt-color-white"></i> </label>
+
+              <label class="btn bg-color-blue <%= "active" unless @event.class_name != 'bg-color-blue txt-color-white' %>">
+                <input type="radio" name="event[class_name]" id="option2" value="bg-color-blue txt-color-white" <%= "checked" unless @event.class_name != 'bg-color-blue txt-color-white' %> >
+                <i class="fa fa-check txt-color-white"></i> </label>
+
+              <label class="btn bg-color-orange <%= "active" unless @event.class_name != 'bg-color-orange txt-color-white' %>">
+                <input type="radio" name="event[class_name]" id="option3" value="bg-color-orange txt-color-white" <%= "checked" unless @event.class_name != 'bg-color-orange txt-color-white' %> >
+                <i class="fa fa-check txt-color-white"></i> </label>
+
+              <label class="btn bg-color-greenLight <%= "active" unless @event.class_name != 'bg-color-greenLight txt-color-white' %>">
+                <input type="radio" name="event[class_name]" id="option4" value="bg-color-greenLight txt-color-white" <%= "checked" unless @event.class_name != 'bg-color-greenLight txt-color-white' %> >
+                <i class="fa fa-check txt-color-white"></i> </label>
+
+              <label class="btn bg-color-blueLight <%= "active" unless @event.class_name != 'bg-color-blueLight txt-color-white' %>">
+                <input type="radio" name="event[class_name]" id="option5" value="bg-color-blueLight txt-color-white" <%= "checked" unless @event.class_name != 'bg-color-blueLight txt-color-white' %> >
+                <i class="fa fa-check txt-color-white"></i> </label>
+
+              <label class="btn bg-color-red <%= "active" unless @event.class_name != 'bg-color-red txt-color-white' %>">
+                <input type="radio" name="event[class_name]" id="option6" value="bg-color-red txt-color-white" <%= "checked" unless @event.class_name != 'bg-color-red txt-color-white' %> >
+                <i class="fa fa-check txt-color-white"></i> </label>
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class='row'>
+        <section class="col col-6">
+          <label class="label">Start Date</label>
+          <label class="input"> <i class="icon-append fa fa-calendar"></i>
+            <input type="text" name="event[start_date]" id="event_start_date" placeholder="Start date..." value='<%= @event.start_date.strftime("%m/%d/%Y") unless @event.start_date.nil? %>'>
+          </label>
+        </section>
+
+        <section class="col col-6">
+          <label class="label">End Date <i>(Optional.)</i></label>
+          <label class="input"> <i class="icon-append fa fa-calendar"></i>
+            <input type="text" name="event[end_date]" id="event_end_date" placeholder="End date..." value='<%= @event.end_date.strftime("%m/%d/%Y") unless @event.end_date.nil? %>'>
+          </label>
+        </section>
+      </div>
+
+      <div class='row'>
+        <section class="col col-6">
+          <label class="label">Start Time <i>(24-hour format. Optional.)</i></label>
+          <label class="input"> <i class="icon-append fa fa-clock-o"></i>
+            <input type="text" name="event[start_time]" id="event_start_time" placeholder="Start time..." value='<%= @event.start_time.strftime("%H:%M") unless @event.start_time.nil? %>'>
+          </label>
+        </section>
+
+        <section class="col col-6">
+          <label class="label">End Time <i>(24-hour format. Optional.)</i></label>
+          <label class="input"> <i class="icon-append fa fa-clock-o"></i>
+            <input type="text" name="event[end_time]" id="event_end_time" placeholder="End time..." value='<%= @event.end_time.strftime("%H:%M") unless @event.end_time.nil? %>'>
+          </label>
+        </section>
+      </div>
+
+      <section>
+        <label class="checkbox">
+          <input type="checkbox" name="event[all_day]" id="event_all_day" >
+          <i></i>This is an all-day event.</label>
+      </section>
+
+      <section>
+        <label class="label">Description</label>
+        <label class="textarea"><textarea rows="4" name="event[description]" id="event_description"><%= @event.description %></textarea> </label>
+      </section>
+
+    </fieldset>
+
+    <footer>
+      <button type="submit" class="btn btn-success">
+        Save
+      </button>
+    </footer>
+
+<% end %>
+

@@ -282,7 +282,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
 
 
-  test 'create new milestone' do
+  test 'create new event' do
 
     #p = projects(:project1)
     p = Project.first
@@ -297,30 +297,30 @@ class SmokeTest < ActionDispatch::IntegrationTest
     #assert_equal 'Welcome david!', flash[:notice]
 
     #-- get the index
-    get project_milestones_path (p)
+    get project_events_path (p)
     assert_response :success
-    assert assigns(:milestones)
+    assert assigns(:events)
 
     #-- get the add page
-    get new_project_milestone_path (p)
+    get new_project_event_path (p)
     assert_response :success
 
     #-- post the form / add the object
-    post_via_redirect project_milestones_path (p), 'milestone[title]' => 'Milestone due today', 'milestone[start]' => '12/23/2013', 'milestone[end]' => ''
+    post_via_redirect project_events_path (p), 'event[title]' => 'Event due today', 'event[start_date]' => '12/23/2013', 'event[end_date]' => ''
 
-    post_via_redirect project_milestones_path (p), 'milestone[title]' => 'Milestone due tomorrow', 'milestone[start]' => '12/24/2013', 'milestone[end]' => ''
+    post_via_redirect project_events_path (p), 'event[title]' => 'Milestone due tomorrow', 'event[start_date]' => '12/24/2013', 'event[end_date]' => ''
 
     #-- get the fresh copy from the database
     #p = projects(:project1)
     p = Project.first
-    assert_equal 2, p.milestones.count
-    t = p.milestones.order('start').first
-    assert_equal t.title, 'Milestone due today'
+    assert_equal 2, p.events.count
+    t = p.events.order('start_date').first
+    assert_equal t.title, 'Event due today'
 
   end
 
 
-  test 'update a milestone' do
+  test 'update a event' do
 
     #-- login
     get '/users/sign_in'
@@ -335,19 +335,19 @@ class SmokeTest < ActionDispatch::IntegrationTest
     post_via_redirect '/projects', 'project[name]' => 'My Working Project'
     p = Project.last
 
-    #-- create a milestone to work with
-    post_via_redirect '/projects/' + p.id.to_s + '/milestones', 'milestone[title]' => 'Some milestone', 'milestone[start]' => '12/25/13', 'milestone[end]' => ''
+    #-- create a event to work with
+    post_via_redirect '/projects/' + p.id.to_s + '/events', 'event[title]' => 'Some event', 'event[start_date]' => '12/25/13', 'event[end_date]' => ''
 
     #-- now get the edit page for that item
-    get edit_project_milestone_path(p, p.milestones.first.id)
+    get edit_project_event_path(p, p.events.first.id)
     assert_response :success
 
     #-- post the form
-    put_via_redirect '/projects/' + p.id.to_s + '/milestones/' + p.milestones.first.id.to_s, 'milestone[title]' => '-e', 'milestone[start]' => '12/25/13', 'milestone[end]' => ''
+    put_via_redirect '/projects/' + p.id.to_s + '/events/' + p.events.first.id.to_s, 'event[title]' => '-e', 'event[start_date]' => '12/25/13', 'event[end_date]' => ''
 
     #-- get the fresh copy from the database
     p = Project.last
-    t = p.milestones.first
+    t = p.events.first
     assert_equal t.title, '-e'
 
   end

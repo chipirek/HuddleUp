@@ -19,7 +19,7 @@ HuddleUp::Application.routes.draw do
     resources :issues do
       resources :comments
     end
-    resources :milestones
+    resources :events
   end
 
   # devise_for :users
