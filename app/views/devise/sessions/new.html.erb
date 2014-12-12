@@ -39,7 +39,7 @@
               Sign In
             </header>
 
-              <% if flash[:alert] %>
+              <% if flash[:alert] && current_user %>
                   <div class="alert alert-danger fade in" style='margin-left: 10px; margin-right: 10px; margin-top: 10px;'>
                     <button class="close" data-dismiss="alert">
                       ×
@@ -72,7 +72,7 @@
 
                   <section>
                     <label class="checkbox">
-                      <input type="checkbox" name="user[remember_me]" checked="">
+                      <%= f.check_box :remember_me, :html=>{'checked'=>'checked'} %>
                       <i></i>Stay signed in</label>
                   </section>
 
