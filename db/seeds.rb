@@ -6,7 +6,6 @@ require 'audited/adapters/active_record/audit'
 
 puts 'Removing old data ...'
 
-ReadReceipt.destroy_all
 Member.destroy_all
 Event.destroy_all
 Todo.destroy_all

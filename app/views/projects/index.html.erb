@@ -81,8 +81,8 @@
                     <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_issues_left_for_this_member(current_user.id) %></span> unresolved issues assigned to me</span><br />
                   <% end %>
 
-                  <% if project.how_many_unread_messages_for_this_member(current_user.id) > 0 %>
-                    <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_unread_messages_for_this_member(current_user.id) %></span> unread messages for me</span><br />
+                  <% if project.how_many_active_announcements > 0 %>
+                    <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_active_announcements %></span> unread announcements</span><br />
                   <% end %>
 
                 </td>

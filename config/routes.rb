@@ -15,7 +15,7 @@ HuddleUp::Application.routes.draw do
       get 'planner', on: :collection
       post 'set_due_date'
     end
-    resources :messages
+    resources :announcements
     resources :issues do
       resources :comments
     end

@@ -16,7 +16,7 @@ class Project < ActiveRecord::Base
   has_many :events, :dependent => :destroy
   has_many :todos, :dependent => :destroy
   has_many :issues, :dependent => :destroy
-  has_many :messages, :dependent => :destroy
+  has_many :announcements, :dependent => :destroy
 
 
   def get_last_updated_by
@@ -69,17 +69,22 @@ class Project < ActiveRecord::Base
   end
 
 
-  def how_many_unread_messages_for_this_member(current_user_id)
-    current_membership_id = determine_current_membership(current_user_id)
-    messages_current_user_has_read = 0
-    messages.each do |m|
-      if m.read_receipts.where('member_id=?', current_membership_id).count > 0
-        messages_current_user_has_read += 1
-      end
-    end
+  #def how_many_unread_messages_for_this_member(current_user_id)
+  #  current_membership_id = determine_current_membership(current_user_id)
+  #  messages_current_user_has_read = 0
+  #  messages.each do |m|
+  #    if m.read_receipts.where('member_id=?', current_membership_id).count > 0
+  #      messages_current_user_has_read += 1
+  #    end
+  #  end
+  #
+  #  badge_number_for_user = messages.count - messages_current_user_has_read
+  #  return badge_number_for_user
+  #end
 
-    badge_number_for_user = messages.count - messages_current_user_has_read
-    return badge_number_for_user
+
+  def how_many_active_announcements
+    return announcements.where('expires_at >= ?', Date.today).count
   end
 
 

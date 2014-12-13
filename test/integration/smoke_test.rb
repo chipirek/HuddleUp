@@ -241,7 +241,7 @@ class SmokeTest < ActionDispatch::IntegrationTest
 
   end
 
-  test 'create new message' do
+  test 'create new announcement' do
 
     #p = projects(:project1)
     p = Project.first
@@ -256,27 +256,27 @@ class SmokeTest < ActionDispatch::IntegrationTest
     #assert_equal 'Welcome david!', flash[:notice]
 
     #-- get the index
-    get project_messages_path (p)
+    get project_announcements_path (p)
     assert_response :success
-    assert assigns(:messages)
+    assert assigns(:announcements)
 
     #-- get the add page
-    get new_project_message_path (p)
+    get new_project_announcement_path (p)
     assert_response :success
 
     #-- post the form / add the object
     # p project_todos_path (p)
     # p p.name
-    post_via_redirect project_messages_path (p), 'message[subject]' => 'My Message'
+    post_via_redirect project_announcements_path (p), 'announcement[subject]' => 'My announcement', 'announcement[expires_at]' => '12/25/14'
 
     #-- get the fresh copy from the database
     #p = projects(:project1)
     p = Project.first
 
-    assert_equal 1, p.messages.count
+    assert_equal 1, p.announcements.count
 
-    t = p.messages.first
-    assert_equal 'My Message', t.subject
+    t = p.announcements.first
+    assert_equal 'My announcement', t.subject
 
   end
 

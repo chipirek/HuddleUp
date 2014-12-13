@@ -25,10 +25,10 @@
                   <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_events_left unless @project.how_many_events_left == 0 %></span></a>
               </li>
 
-              <li <%= "class='active'".html_safe if controller_name == 'messages' %> >
-                <a href="/projects/<%= @project.id %>/messages" title="Messages"><i class="fa fa-lg fa-fw fa-bullhorn"></i>
-                  <span class="menu-item-parent">Messages</span>
-                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_unread_messages_for_this_member(current_user.id) unless @project.how_many_unread_messages_for_this_member(current_user.id) == 0 %></span></a>
+              <li <%= "class='active'".html_safe if controller_name == 'announcements' %> >
+                <a href="/projects/<%= @project.id %>/announcements" title="announcements"><i class="fa fa-lg fa-fw fa-bullhorn"></i>
+                  <span class="menu-item-parent">Announcements</span>
+                  <span class="badge pull-right inbox-badge bg-color-red"><%= @project.how_many_active_announcements unless @project.how_many_active_announcements == 0 %></span></a>
               </li>
 
               <li <%= "class='active'".html_safe if controller_name == 'todos' && request.path.end_with?('planner') %> >

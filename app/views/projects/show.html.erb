@@ -50,7 +50,6 @@
 </div>
 
 
-
 <section id="widget-grid">
 
   <div class="row">
@@ -288,6 +287,20 @@
 
         <% if !can? :create, @project.issues.build %>
             alert("Reminder: This project is locked or closed. \n\n You cannot make further changes to it. \n\n An admin must unlock it or open it.");
+        <% end %>
+
+        <% @project.announcements.where('expires_at >= ?', Date.today).each_with_index do |a, i| %>
+
+            $.bigBox({
+                title : "<%= a.subject %>",
+                content : "<%= a.body %>",
+                color : "#C46A69",
+                timeout: 10000,
+                icon : "fa fa-warning shake animated",
+                number : "<%= i.to_s %>",
+                timeout : 6000
+                });
+
         <% end %>
 
 

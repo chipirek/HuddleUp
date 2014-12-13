@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141209004733) do
+ActiveRecord::Schema.define(:version => 20141213131147) do
+
+  create_table "announcements", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "expires_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -100,18 +109,6 @@ ActiveRecord::Schema.define(:version => 20141209004733) do
   add_index "members", ["project_id"], :name => "index_members_on_project_id"
   add_index "members", ["user_id"], :name => "index_members_on_user_id"
 
-  create_table "messages", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "member_id"
-    t.string   "subject"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "messages", ["member_id"], :name => "index_messages_on_member_id"
-  add_index "messages", ["project_id"], :name => "index_messages_on_project_id"
-
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.text     "description",      :default => ""
@@ -121,16 +118,6 @@ ActiveRecord::Schema.define(:version => 20141209004733) do
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
   end
-
-  create_table "read_receipts", :force => true do |t|
-    t.integer  "member_id"
-    t.integer  "message_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "read_receipts", ["member_id"], :name => "index_read_receipts_on_member_id"
-  add_index "read_receipts", ["message_id"], :name => "index_read_receipts_on_message_id"
 
   create_table "todos", :force => true do |t|
     t.integer  "project_id"
