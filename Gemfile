@@ -13,6 +13,7 @@ gem 'figaro'
 gem 'newrelic_rpm'
 gem 'stripe'
 gem 'stripe_event'
+gem 'ledermann-rails-settings'
 
 group :development do
   gem 'taps'

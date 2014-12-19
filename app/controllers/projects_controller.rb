@@ -1,6 +1,9 @@
 class ProjectsController < ApplicationController
 
+  #skip_before_filter  :authenticate_user!, :only => [:set_settings]
+
   load_and_authorize_resource :except=>:index
+
 
   # GET /projects
   # GET /projects.json
@@ -108,5 +111,35 @@ class ProjectsController < ApplicationController
       end
     end
   end
+
+
+  def get_settings
+    @project = Project.find(params[:project_id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @projects }
+    end
+  end
+
+
+  def set_settings
+    @project = Project.find(params[:project_id])
+
+    puts "params['setting_01'].nil?=" + params['setting_01'].nil?.to_s
+    puts "params['setting_02'].nil?=" + params['setting_02'].nil?.to_s
+    puts "params['setting_03'].nil?=" + params['setting_03'].nil?.to_s
+
+    # user.settings(:dashboard).theme = 'black' @todo.is_complete = !params[:todo]['is_complete'].nil?
+    @project.settings(:create_milestone_for_todo_with_due_date).configured_value = !params['setting_01'].nil?
+    @project.settings(:create_todo_for_event_entry).configured_value = !params['setting_02'].nil?
+    @project.settings(:email_members_when_new_alert).configured_value = !params['setting_03'].nil?
+    @project.save!
+
+    flash[:notice] = 'Settings were successfully updated.'
+    redirect_to project_path (@project)
+
+  end
+
 
 end

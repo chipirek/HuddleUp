@@ -20,6 +20,8 @@ HuddleUp::Application.routes.draw do
       resources :comments
     end
     resources :events
+    get 'settings', :to => 'projects#get_settings', :controller => 'projects'
+    post 'set_settings', :to => 'projects#set_settings', :controller => 'projects'
   end
 
   # devise_for :users

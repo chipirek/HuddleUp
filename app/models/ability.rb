@@ -14,7 +14,9 @@ class Ability
           can [:read, :update], Project, :id => project.id
           user_is_admin = Member.where('user_id=' + user.id.to_s).where('project_id=?', project.id).pluck(:is_admin)
           if user_is_admin
-            can [:destroy, :update], Project, :id => project.id
+            #can [:destroy], Project, :id => project.id
+            #can [:get_settings, :set_settings], Project, :id => project.id
+            can :manage, Project, :id => project.id
           end
           if project.status_code.to_s < '4'
             can :update, Project, :id => project.id
@@ -36,7 +38,9 @@ class Ability
         can :read, Project, :id => project.id
         user_is_admin = Member.where('user_id=' + user.id.to_s).where('project_id=?', project.id).pluck(:is_admin)
         if user_is_admin
-          can [:destroy, :update], Project, :id => project.id
+          #can [:destroy], Project, :id => project.id
+          #can [:get_settings, :set_settings], Project, :id => project.id
+          can :manage, Project, :id => project.id
         end
         if project.status_code.to_s < '4'
           can :update, Project, :id => project.id
@@ -62,7 +66,9 @@ class Ability
         can [:read, :update], Project, :id => project.id
         user_is_admin = Member.where('user_id=' + user.id.to_s).where('project_id=?', project.id).pluck(:is_admin)
         if user_is_admin
-          can [:destroy], Project, :id => project.id
+          #can [:destroy], Project, :id => project.id
+          #can [:get_settings, :set_settings], Project, :id => project.id
+          can :manage, Project, :id => project.id
         end
 
         if project.status_code.to_s < '4'
@@ -85,7 +91,9 @@ class Ability
         can [:read, :update], Project, :id => project.id
         user_is_admin = Member.where('user_id=' + user.id.to_s).where('project_id=?', project.id).pluck(:is_admin)
         if user_is_admin
-          can [:destroy], Project, :id => project.id
+          #can [:destroy], Project, :id => project.id
+          #can [:get_settings, :set_settings], Project, :id => project.id
+          can :manage, Project, :id => project.id
         end
         #can :manage, [Todo, Event, Issue, Invitation, Announcement, Comment, Member]
         if project.status_code.to_s < '4'

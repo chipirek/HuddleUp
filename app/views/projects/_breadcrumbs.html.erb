@@ -64,6 +64,10 @@
               <li><%= link_to 'Timeline', project_activities_path(@project) %></li>
           <% end %>
 
-      <% end %>
+          <% if request.path.end_with?('settings') %>
+              <li><%= link_to 'Settings', project_settings_path(@project) %></li>
+          <% end %>
+
+<% end %>
   <% end %>
 </ol>
