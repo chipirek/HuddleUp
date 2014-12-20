@@ -9,6 +9,7 @@ HuddleUp::Application.routes.draw do
 
   resources :projects do
     resources :activities
+    resources :categories
     resources :members
     resources :invitations
     resources :todos do

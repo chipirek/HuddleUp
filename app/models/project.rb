@@ -3,9 +3,6 @@ class Project < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
 
   has_settings do |s|
-    #s.key :is_alive,            :defaults => { :configured_value => true }
-    #s.key :number_of_planets,   :defaults => { :configured_value => 8 }
-    #s.key :thunder,             :defaults => { :configured_value => 'flash' }
     s.key :create_milestone_for_todo_with_due_date, :defaults => { :configured_value => false }
     s.key :create_todo_for_event_entry,             :defaults => { :configured_value => true }
     s.key :email_members_when_new_alert,            :defaults => { :configured_value => true }
@@ -27,6 +24,7 @@ class Project < ActiveRecord::Base
   has_many :todos, :dependent => :destroy
   has_many :issues, :dependent => :destroy
   has_many :announcements, :dependent => :destroy
+  has_many :categories, :dependent => :destroy
 
 
   def set_initial_settings

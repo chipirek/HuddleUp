@@ -4,12 +4,12 @@
 <form action='set_settings' class="smart-form" method='POST'>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <div class='row'>
-      <section class='col col-1'></section>
-      <section class="col col-5">
-        <label class="toggle">
-          <input type="checkbox" name='setting_01' id='setting_01' <%= 'checked="checked"' if @project.settings(:create_milestone_for_todo_with_due_date).configured_value == true %> >
-          <i data-swchon-text="ON" data-swchoff-text="OFF"></i>Create event entry for any todo with due date</label>
-      </section>
+    <section class='col col-1'></section>
+    <section class="col col-5">
+      <label class="toggle">
+        <input type="checkbox" name='setting_01' id='setting_01' <%= 'checked="checked"' if @project.settings(:create_milestone_for_todo_with_due_date).configured_value == true %> >
+        <i data-swchon-text="ON" data-swchoff-text="OFF"></i>Create event entry for any todo with due date</label>
+    </section>
   </div>
   <div class='row'>
     <section class='col col-1'></section>
@@ -30,7 +30,7 @@
   <div class='row'>
     <section class='col col-1'></section>
     <section class="col col-5">
-        <input type='submit' class='btn btn-success btn-lg pull-right header-btn hidden-mobile' value='Save Settings' />
+      <input type='submit' class='btn btn-success btn-lg pull-right header-btn hidden-mobile' value='Save Settings'/>
     </section>
   </div>
 </form>
@@ -38,6 +38,102 @@
 
 <p>&nbsp;</p>
 
-<h1>Categories</h1>
+<h1>Categories in use for this project</h1>
+<div class='smart-form row'>
+  <section class='col col-1'></section>
+  <section class='col col-5'>
+    <table>
+      <% @project.categories.each do |category| %>
+          <tr>
+            <td><%= category.name %></td>
+            <td width='10%'><a href="/projects/<%= @project.id %>/categories/<%= category.id %>"
+                               class=""
+                               data-confirm="Are you sure you want to delete <%= category.name %>?"
+                               data-method="delete"
+                               title="Delete">
+              [ X ]
+            </a>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+  </section>
+</div>
 
+<div class='row'>
+  <div class='col col-6'>
+    <%= form_for [@project, @category], :html => {:class => 'smart-form', :id => 'category_form'} do |f| %>
+        <% if @category.errors.any? %>
 
+            <div class="alert alert-danger fade in">
+              <button class="close" data-dismiss="alert">
+                ×
+              </button>
+              <i class="fa-fw fa fa-warning"></i>
+              <strong>Ooops, <%= pluralize(@category.errors.count, "error") %> prohibited this category from being
+                saved:</strong>
+              <ul style='padding-left: 40px;'>
+                <% @category.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+
+        <% end %>
+
+        <fieldset>
+          <div class='row'>
+            <section class='col col-1'></section>
+            <section class="col col-5">
+              <label class="input">
+                <input class='input-lg' type="text" name="category[name]" placeholder="new category here..." id='category_name' value='<%= @category.name %>'>
+              </label>
+            </section>
+          </div>
+        </fieldset>
+
+        <div class='row'>
+          <section class='col col-1'></section>
+          <section class="col col-5">
+            <input type='submit' class='btn btn-success btn-lg pull-right header-btn hidden-mobile' value='Add'/>
+          </section>
+        </div>
+
+    <% end %>
+  </div>
+</div>
+
+<%= render :partial => '/projects/scripts' %>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        pageSetUp();
+
+        var $categoryForm = $("#category_form").validate({
+
+            // Rules for form validation
+            rules: {
+                'category[name]': {
+                    required: true,
+                    minlength: 3
+                }
+            },
+
+            // Messages for form validation
+            messages: {
+                'category[name]': {
+                    required: 'Cannot be blank'
+                }
+            },
+
+            // Do not change code below
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+
+    })
+
+</script>

@@ -115,6 +115,7 @@ class ProjectsController < ApplicationController
 
   def get_settings
     @project = Project.find(params[:project_id])
+    @category = Category.new
 
     respond_to do |format|
       format.html
@@ -125,10 +126,6 @@ class ProjectsController < ApplicationController
 
   def set_settings
     @project = Project.find(params[:project_id])
-
-    puts "params['setting_01'].nil?=" + params['setting_01'].nil?.to_s
-    puts "params['setting_02'].nil?=" + params['setting_02'].nil?.to_s
-    puts "params['setting_03'].nil?=" + params['setting_03'].nil?.to_s
 
     # user.settings(:dashboard).theme = 'black' @todo.is_complete = !params[:todo]['is_complete'].nil?
     @project.settings(:create_milestone_for_todo_with_due_date).configured_value = !params['setting_01'].nil?

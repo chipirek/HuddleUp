@@ -17,13 +17,14 @@ class Ability
             #can [:destroy], Project, :id => project.id
             #can [:get_settings, :set_settings], Project, :id => project.id
             can :manage, Project, :id => project.id
+            can :manage, Category, :id => project.id
           end
           if project.status_code.to_s < '4'
             can :update, Project, :id => project.id
-            can :manage, [Todo, Event, Issue, Announcement, Comment], :project_id => project.id
+            can :manage, [Category, Todo, Event, Issue, Announcement, Comment], :project_id => project.id
             can :read, [Member, Invitation], :project_id => project.id
           else
-            can :read, [Todo, Event, Issue, Announcement, Comment, Member], :project_id => project.id
+            can :read, [Category, Todo, Event, Issue, Announcement, Comment, Member], :project_id => project.id
           end
         end
         can :read, Member
@@ -41,17 +42,18 @@ class Ability
           #can [:destroy], Project, :id => project.id
           #can [:get_settings, :set_settings], Project, :id => project.id
           can :manage, Project, :id => project.id
+          can :manage, Category, :id => project.id
         end
         if project.status_code.to_s < '4'
           can :update, Project, :id => project.id
-          can :manage, [Todo, Event, Issue, Announcement, Comment], :project_id => project.id
+          can :manage, [Category, Todo, Event, Issue, Announcement, Comment], :project_id => project.id
           if project.members.count < 5
             can :create, [Member, Invitation], :project_id => project.id
           else
             can :read, [Member, Invitation], :project_id => project.id
           end
         else
-          can :read, [Todo, Event, Issue, Announcement, Comment, Member], :project_id => project.id
+          can :read, [Category, Todo, Event, Issue, Announcement, Comment, Member], :project_id => project.id
         end
       end
       # can :manage, [Todo, Event, Issue, Invitation, Announcement, Comment]
@@ -69,18 +71,19 @@ class Ability
           #can [:destroy], Project, :id => project.id
           #can [:get_settings, :set_settings], Project, :id => project.id
           can :manage, Project, :id => project.id
+          can :manage, Category, :id => project.id
         end
 
         if project.status_code.to_s < '4'
           can :update, Project, :id => project.id
-          can :manage, [Todo, Event, Issue, Announcement, Comment], :project_id => project.id
+          can :manage, [Category, Todo, Event, Issue, Announcement, Comment], :project_id => project.id
           if project.members.count < 10
             can :create, [Member, Invitation], :project_id => project.id
           else
-            can :read, [Member, Invitation], :project_id => project.id
+            can :read, [Category, Member, Invitation], :project_id => project.id
           end
         else
-          can :read, [Todo, Event, Issue, Announcement, Comment, Member], :project_id => project.id
+          can :read, [Category, Todo, Event, Issue, Announcement, Comment, Member], :project_id => project.id
         end
       end
 
@@ -94,13 +97,14 @@ class Ability
           #can [:destroy], Project, :id => project.id
           #can [:get_settings, :set_settings], Project, :id => project.id
           can :manage, Project, :id => project.id
+          can :manage, Category, :id => project.id
         end
         #can :manage, [Todo, Event, Issue, Invitation, Announcement, Comment, Member]
         if project.status_code.to_s < '4'
           can :update, Project, :id => project.id
-          can :manage, [Todo, Event, Issue, Announcement, Comment, Member, Invitation], :project_id => project.id
+          can :manage, [Category, Todo, Event, Issue, Announcement, Comment, Member, Invitation], :project_id => project.id
         else
-          can :read, [Todo, Event, Issue, Announcement, Comment, Member], :project_id => project.id
+          can :read, [Category, Todo, Event, Issue, Announcement, Comment, Member], :project_id => project.id
         end
       end
     end
