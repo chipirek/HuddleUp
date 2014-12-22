@@ -28,9 +28,9 @@ class Project < ActiveRecord::Base
 
 
   def set_initial_settings
-    self.settings(:is_alive).value = true;
-    self.settings(:number_of_planets).value = 8
-    self.settings(:thunder).value = 'flash'
+    self.settings(:create_milestone_for_todo_with_due_date).value = false
+    self.settings(:create_todo_for_event_entry).value = false
+    self.settings(:email_members_when_new_alert).value = false
   end
 
 

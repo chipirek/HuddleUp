@@ -31,6 +31,17 @@
     </section>
 
       <section>
+        <label class="label">Categories</label>
+        <div class="form-group">
+          <%= select_tag 'categories', options_for_select(
+                  Category.where('project_id=?', @issue.project_id).map { |c| [c.name, c.id] },
+                  @issue.categories.map {|j| j.id}),
+                         :multiple => true,
+                         :class => 'select2' %>
+        </div>
+      </section>
+
+      <section>
         <label class="label">Description</label>
         <label class="textarea"><textarea rows="4" name="issue[description]" id="issue_description"><%= @issue.description %></textarea> </label>
       </section>

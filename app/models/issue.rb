@@ -9,7 +9,7 @@ class Issue < ActiveRecord::Base
 
   belongs_to :project
   belongs_to :member
-
   has_many :comments
+  has_and_belongs_to_many :categories
 
 end

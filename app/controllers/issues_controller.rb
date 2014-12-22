@@ -74,14 +74,16 @@ class IssuesController < ApplicationController
     @issue.project_id = params[:project_id]
     @issue.position=99
 
-    respond_to do |format|
-      if @issue.save
-        format.html { redirect_to project_issues_path(@project), notice: 'Issue was successfully created.' }
-        format.json { render json: @issue, status: :created, location: @issue }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
+    if @issue.save
+      params[:categories].split(',').each do |id|
+        @issue.categories << Category.find(id)
       end
+
+      flash[:notice] = 'Issue was successfully created.'
+      redirect_to project_issues_path(@project)
+    else
+      flash[:error] = 'Error saving this issue.'
+      redirect_to new_project_issue_path (@project)
     end
   end
 
@@ -98,14 +100,17 @@ class IssuesController < ApplicationController
     @issue.is_resolved = !params[:issue]['is_resolved'].nil?
     @issue.is_critical = !params[:issue]['is_critical'].nil?
 
-    respond_to do |format|
-      if @issue.save
-        format.html { redirect_to project_issues_path(@project), notice: 'Issue was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
+    if @issue.save
+      @issue.categories.destroy_all
+      params[:categories].split(',').each do |id|
+        @issue.categories << Category.find(id)
       end
+
+      flash[:notice] = 'Issue was successfully updated.'
+      redirect_to project_issues_path(@project)
+    else
+      flash[:error] = 'Error saving this issue.'
+      redirect_to edit_project_issue_path @project
     end
   end
 

@@ -108,28 +108,24 @@ class TodosController < ApplicationController
     @todo = Todo.new(params[:todo])
     @todo.project_id = params[:project_id]
     @todo.position=99
-    #@todo.is_critical = !params[:todo]['is_critical'].nil?
 
-    # TODO: hack to overcome Ruby 1.9 date parse bug
-    #puts '********************'
-    #puts ">" + params[:todo][:due_date] + "<"
-    #puts params[:todo][:due_date].nil?
-    #puts params[:todo][:due_date].length == 0
-    #puts '********************'
     if params[:todo][:due_date].length > 0
       buffer = params[:todo][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
       @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
-    respond_to do |format|
-      if @todo.save
-        format.html { redirect_to project_todos_path(@project), notice: 'Todo was successfully created.' }
-        format.json { render json: @todo, status: :created, location: @todo }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
+    if @todo.save
+      params[:categories].split(',').each do |id|
+        @todo.categories << Category.find(id)
       end
+
+      flash[:notice] = 'Todo was successfully created.'
+      redirect_to project_todos_path(@project)
+    else
+      flash[:error] = 'Error saving this todo.'
+      redirect_to new_project_todo_path (@project)
     end
+
   end
 
 
@@ -151,14 +147,17 @@ class TodosController < ApplicationController
       @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
     end
 
-    respond_to do |format|
-      if @todo.save
-        format.html { redirect_to project_todos_path(@project), notice: 'Todo was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
+    if @todo.save
+      @todo.categories.destroy_all
+      params[:categories].split(',').each do |id|
+        @todo.categories << Category.find(id)
       end
+
+      flash[:notice] = 'Todo was successfully updated.'
+      redirect_to project_todos_path(@project)
+    else
+      flash[:error] = 'Error saving this todo.'
+      redirect_to edit_project_todo_path @project
     end
   end
 
