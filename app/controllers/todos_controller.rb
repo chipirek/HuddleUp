@@ -149,8 +149,10 @@ class TodosController < ApplicationController
 
     if @todo.save
       @todo.categories.destroy_all
-      params[:categories].split(',').each do |id|
-        @todo.categories << Category.find(id)
+      if params[:categories]
+        params[:categories].split(',').each do |id|
+          @todo.categories << Category.find(id)
+        end
       end
 
       flash[:notice] = 'Todo was successfully updated.'

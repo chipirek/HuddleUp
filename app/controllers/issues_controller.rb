@@ -102,8 +102,10 @@ class IssuesController < ApplicationController
 
     if @issue.save
       @issue.categories.destroy_all
-      params[:categories].split(',').each do |id|
-        @issue.categories << Category.find(id)
+      if params[:categories]
+        params[:categories].split(',').each do |id|
+          @issue.categories << Category.find(id)
+        end
       end
 
       flash[:notice] = 'Issue was successfully updated.'

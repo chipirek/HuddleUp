@@ -55,6 +55,11 @@
                           <%= " Due " + todo.due_date.strftime("%m/%d/%Y") + "." unless todo.due_date.nil? %>
                           <%= todo.description %> </span>
                         <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                        <span class='date'>
+                          <% todo.categories.each do |c| %>
+                            <%= c.name %>,
+                          <% end %>
+                        </span>
                     </p>
                 </li>
             <% end %>

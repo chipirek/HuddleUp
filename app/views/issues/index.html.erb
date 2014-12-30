@@ -54,6 +54,12 @@
                       <%= "Assigned to " + issue.member.user.name + "." unless issue.member.nil? %>
                       <%= issue.description %> </span>
                     <span class="date">Created <%= time_ago_in_words(issue.created_at) %> ago.</span>
+                    <span class='date'>
+                        <% issue.categories.each do |c| %>
+                            <%= c.name %>,
+                        <% end %>
+                    </span>
+
                   </p>
                 </li>
             <% end %>
