@@ -75,8 +75,10 @@ class IssuesController < ApplicationController
     @issue.position=99
 
     if @issue.save
-      params[:categories].split(',').each do |id|
-        @issue.categories << Category.find(id)
+      if params[:categories]
+        params[:categories].split(',').each do |id|
+          @issue.categories << Category.find(id)
+        end
       end
 
       flash[:notice] = 'Issue was successfully created.'

@@ -115,8 +115,10 @@ class TodosController < ApplicationController
     end
 
     if @todo.save
-      params[:categories].split(',').each do |id|
-        @todo.categories << Category.find(id)
+      if params[:categories]
+        params[:categories].split(',').each do |id|
+          @todo.categories << Category.find(id)
+        end
       end
 
       flash[:notice] = 'Todo was successfully created.'
