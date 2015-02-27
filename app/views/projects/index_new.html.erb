@@ -180,17 +180,33 @@
               <!-- widget content -->
               <div class="widget-body">
                 <div class="progress">
-                  <%= get_project_card_progress_report(project).html_safe %>
+                  <div class="progress-bar bg-color-green" aria-valuetransitiongoal="25" style="width: 25%;" aria-valuenow="25">25% (34/59 items)</div>
                 </div>
 
                 <p> <%= project.description %> </p>
-                <p> <span class='font-lg'><%= project.how_many_todos_left %></span> todos yet for me,
-                    <span class='font-lg'><%= project.how_many_issues_left %></span> issues yet for me,
-                    <span class='font-lg'><%= project.how_many_active_announcements %></span> unread messages
-                </p>
+
+                <% if project.categories.count > 0 %>
+                    <% project.categories.each do |c| %>
+                        <div class="label label-default small">
+                          <%= c.name %>
+                        </div>
+                        &nbsp;
+                    <% end %>
+                <% end %>
 
               </div>
               <!-- end widget content -->
+
+              <!-- widget footer -->
+              <div class="widget-footer">
+                <div class="pull-left font-xs">
+                  <span class="badge bg-color-red pull-left"> 13 </span>&nbsp; todos yet for me
+                </div>
+                <div class="pull-left font-xs" style='margin-left:10px;'>
+                  <span class="badge bg-color-red pull-left"> 13 </span>&nbsp; issues yet for me
+                </div>
+              </div>
+              <!-- end widget footer -->
 
             </div>
             <!-- end widget div -->

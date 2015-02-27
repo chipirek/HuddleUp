@@ -1,0 +1,129 @@
+<!-- row -->
+<div class="row">
+
+  <!-- col -->
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+    <h1 class="page-title txt-color-blueDark">
+      <!-- PAGE HEADER -->
+      <i class="fa-fw fa fa-road"></i>
+      Projects
+    </h1>
+  </div>
+  <!-- end col -->
+
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
+    <!-- Button trigger modal -->
+    <% if can? :create, Project %>
+        <%= link_to 'Create a new project', new_project_path, :class=>'btn btn-success btn-lg pull-right header-btn ' %>
+    <% end %>
+  </div>
+
+</div>
+<!-- end row -->
+
+<div class="col-sm-12">
+
+  <div class="well">
+
+    <table class="table table-striped table-forum">
+      <thead>
+      <tr>
+        <th colspan="4">My Projects</th>
+        <th class="hidden-xs hidden-sm"></th>
+        <th class="hidden-xs hidden-sm" style="width: 150px;">Last Activity</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <% if @projects.count == 0 %>
+          <tr>
+            <td colspan="6">
+              <h5>
+                You have no projects set up.  Click <%= link_to 'here', new_project_path %> to get started.
+              </h5>
+            </td>
+          </tr>
+
+      <% else %>
+          <% @projects.each do |project| %>
+              <!-- TR -->
+              <tr <%= "class='locked'".html_safe if project.status_code == 4 %>
+                  <%= "class='closed'".html_safe if project.status_code == 5 %>
+              >
+                <td colspan="4">
+                  <h4>
+                    <a href='/projects/<%= project.id %>'> <%= project.name %></a>
+                    <small>
+                      <% if project.status_code==0 %>
+                          <div class='label label-default'>Not started</div>
+                      <% elsif project.status_code==1 %>
+                          <div class='label label-success'>We are on track</div>
+                      <% elsif project.status_code==2 %>
+                          <div class='label label-warning'>Project is troubled</div>
+                      <% elsif project.status_code==3 %>
+                          <div class='label label-danger'>Project is late or failing</div>
+                      <% elsif project.status_code==4 %>
+                          <div class='label label-info'>Locked / paused</div>
+                      <% elsif project.status_code==5 %>
+                          <div class='label label-darken' style='background-color:black;'>Complete</div>
+                      <% end %>
+                      <i> Created on <%= project.created_at.strftime("%m/%d/%Y") %></i>.
+                    </small>
+                  </h4>
+                  <%= "<br />".html_safe + project.description.html_safe unless project.description.length == 0 %>
+                </td>
+                <td>
+                  <% if project.how_many_todos_left_for_this_member(current_user.id) > 0 %>
+                      <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_todos_left_for_this_member(current_user.id) %></span> incomplete todos assigned to me</span><br />
+                  <% end %>
+
+                  <% if project.how_many_issues_left_for_this_member(current_user.id) > 0 %>
+                      <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_issues_left_for_this_member(current_user.id) %></span> unresolved issues assigned to me</span><br />
+                  <% end %>
+
+                  <% if project.how_many_active_announcements > 0 %>
+                      <span class='font-xs hidden-sm hidden-xs'><span class="font-xs badge bg-color-red"><%= project.how_many_active_announcements %></span> unread announcements</span><br />
+                  <% end %>
+
+                </td>
+                <td class="font-xs hidden-xs hidden-sm"><small><i>by <%= project.get_last_updated_by %></small></i>
+                </td>
+              </tr>
+              <!-- end TR -->
+          <% end %>
+      <% end %>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+<%= render :partial => '/projects/scripts' %>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        pageSetUp();
+
+    });
+
+</script>
+
+<!-- Your GOOGLE ANALYTICS CODE Below -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
