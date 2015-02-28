@@ -13,7 +13,7 @@
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
     <% if can? :create, @project.todos.build %>
-        <%= link_to 'Create a new todo', new_project_todo_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn' %>
+        <%= link_to '<i class="fa fa-plus"></i> Create a new todo'.html_safe, new_project_todo_path(@project), :class => 'pull-right', :style=>'margin-right:22px; margin-top:10px;' %>
     <% end %>
   </div>
 
@@ -41,9 +41,12 @@
                     </span>
 
                     <p>
-                        <strong> #<%= todo.id %></strong> - <%= todo.subject %>
                         <% if can? :update, @project.todos.build %>
-                            <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
+                            <strong>
+                              <%= link_to 'Todo ID# ' + todo.id.to_s, edit_project_todo_path(@project, todo) %>
+                            </strong> - <%= todo.subject %>
+                        <% else %>
+                            <strong> Todo ID#<%= todo.id %></strong> - <%= todo.subject %>
                         <% end %>
 
                         <% if todo.is_critical? %>
@@ -75,10 +78,13 @@
                         <i></i> </label> </span>
 
                     <p>
-                        <strong> #<%= todo.id %></strong> - <%= todo.subject %>
-                        <% if can? :update, @project.todos.build %>
-                            <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
-                        <% end %>
+                      <% if can? :update, @project.todos.build %>
+                          <strong>
+                            <%= link_to 'Todo ID# ' + todo.id.to_s, edit_project_todo_path(@project, todo) %>
+                          </strong> - <%= todo.subject %>
+                      <% else %>
+                          <strong> Todo ID#<%= todo.id %></strong> - <%= todo.subject %>
+                      <% end %>
 
                         <% if todo.is_critical? %>
                           <span class='badge bg-color-grey' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>

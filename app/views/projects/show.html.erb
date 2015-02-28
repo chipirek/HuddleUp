@@ -168,11 +168,13 @@
                                 </span>
 
                                 <p>
-                                  <strong> #<%= issue.id %></strong> - <%= issue.subject %>
                                   <% if can? :update, @project.issues.build %>
-                                    <%= link_to '[Edit...]', edit_project_issue_path(@project, issue), {:class => 'font-xs'} %>
+                                      <strong>
+                                        <%= link_to 'Issue ID# ' + issue.id.to_s, edit_project_issue_path(@project, issue) %>
+                                      </strong> - <%= issue.subject %>
+                                  <% else %>
+                                      <strong> Issue ID#<%= issue.id %></strong> - <%= issue.subject %>
                                   <% end %>
-                                  <%= link_to '[Comments...]', project_issue_path(@project, issue), {:class=>'font-xs'} %>
 
                                   <% if issue.is_critical? %>
                                       <span class='badge bg-color-red' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
@@ -230,9 +232,12 @@
                         </span>
 
                             <p>
-                              <strong> #<%= todo.id %></strong> - <%= todo.subject %>
                               <% if can? :update, @project.todos.build %>
-                                <%= link_to '[Edit...]', edit_project_todo_path(@project, todo), {:class => 'font-xs'} %>
+                                  <strong>
+                                    <%= link_to 'Todo ID# ' + todo.id.to_s, edit_project_todo_path(@project, todo) %>
+                                  </strong> - <%= todo.subject %>
+                              <% else %>
+                                  <strong> Todo ID#<%= todo.id %></strong> - <%= todo.subject %>
                               <% end %>
 
                               <% if todo.is_critical? %>

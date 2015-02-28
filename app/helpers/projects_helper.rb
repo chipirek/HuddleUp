@@ -7,7 +7,7 @@ module ProjectsHelper
     complete_items = total_items - incomplete_items
 
     if p.status_code == 0
-      s="<div class='progress-bar' aria-valuetransitiongoal='100' style='width: 100%;' aria-valuenow='100'>Not started (" + incomplete_items.to_s + "/" + total_items.to_s + " items left)</div>"
+      s="<div class='progress-bar' aria-valuetransitiongoal='100' style='width: 100%;' aria-valuenow='100'>Not started ( " + incomplete_items.to_s + " / " + total_items.to_s + " items left )</div>"
       return s
     end
 
@@ -45,11 +45,11 @@ module ProjectsHelper
     end
 
     if percent_complete == 0
-      s="<div class='progress-bar " + status_color + "' aria-valuetransitiongoal='100' style='width: 100%;' aria-valuenow='100'>0% (" + incomplete_items.to_s + "/" + total_items.to_s + " items left) " + status_word + "</div>"
+      s="<div class='progress-bar " + status_color + "' aria-valuetransitiongoal='100' style='width: 100%;' aria-valuenow='100'>0% ( " + incomplete_items.to_s + " / " + total_items.to_s + " items left ) " + status_word + "</div>"
       return s
     end
 
-    s="<div class='progress-bar " + status_color + "' aria-valuetransitiongoal='" + percent_complete.to_s + "' style='width: " + percent_complete.to_s + "%;' aria-valuenow='" + percent_complete.to_s + "'>" + percent_complete.to_s + "% (" + incomplete_items.to_s + "/" + total_items.to_s + " items left) " + status_word + "</div>"
+    s="<div class='progress-bar " + status_color + "' aria-valuetransitiongoal='" + percent_complete.to_s + "' style='width: " + percent_complete.to_s + "%;' aria-valuenow='" + percent_complete.to_s + "'>" + percent_complete.to_s + "% ( " + incomplete_items.to_s + " / " + total_items.to_s + " items left ) " + status_word + "</div>"
     return s
   end
 end

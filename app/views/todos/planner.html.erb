@@ -12,7 +12,7 @@
   <!-- end col -->
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
-    <%= link_to 'Create a new todo', new_project_todo_path(@project), :class => 'btn btn-success btn-lg pull-right header-btn' %>
+    <%= link_to '<i class="fa fa-plus"></i> Create a new todo'.html_safe, new_project_todo_path(@project), :class => 'pull-right', :style=>'margin-right:22px; margin-top:10px;' %>
   </div>
 
 </div>
