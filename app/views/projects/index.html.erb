@@ -35,10 +35,11 @@
           <% if (index.even?) %>
               <div class="jarviswidget jarviswidget-color-darken"
                    id="<%= project.id %>"
+                   data-widget-editbutton='false'
                    data-widget-colorbutton="false"
                    data-widget-fullscreenbutton="false">
                 <header>
-                  <h2><strong><%= project.name %></strong></h2>
+                  <a href='/projects/<%= project.id %>' style='color: #f5f5f5; padding-left: 10px;'><h2><strong><%= project.name %></strong></h2></a>
                 </header>
 
                 <!-- widget div-->
@@ -52,8 +53,8 @@
 
                     <p> <%= project.description %> </p>
                     <p> <span class='font-lg'>0</span> alerts,
-                        <span class='font-lg'><%= project.how_many_todos_left %></span> todos yet for me,
-                        <span class='font-lg'><%= project.how_many_issues_left %></span> issues yet for me,
+                        <span class='font-lg'><%= project.how_many_todos_left_for_this_member(current_user) %></span> todos yet for me,
+                        <span class='font-lg'><%= project.how_many_issues_left_for_this_member(current_user) %></span> issues yet for me,
                         <span class='font-lg'><%= project.how_many_active_announcements %></span> announcements
                     </p>
 
@@ -78,10 +79,11 @@
           <% if (index.odd?) %>
               <div class="jarviswidget jarviswidget-color-darken"
                    id="<%= project.id %>"
+                   data-widget-editbutton='false'
                    data-widget-colorbutton="false"
                    data-widget-fullscreenbutton="false">
                 <header>
-                  <h2><strong><%= project.name %></strong></h2>
+                  <a href='/projects/<%= project.id %>' style='color: #f5f5f5; padding-left: 10px;'><h2><strong><%= project.name %></strong></h2></a>
                 </header>
 
                 <!-- widget div-->
@@ -95,8 +97,8 @@
 
                     <p> <%= project.description %> </p>
                     <p> <span class='font-lg'>0</span> alerts,
-                        <span class='font-lg'><%= project.how_many_todos_left %></span> todos yet for me,
-                        <span class='font-lg'><%= project.how_many_issues_left %></span> issues yet for me,
+                        <span class='font-lg'><%= project.how_many_todos_left_for_this_member(current_user) %></span> todos yet for me,
+                        <span class='font-lg'><%= project.how_many_issues_left_for_this_member(current_user) %></span> issues yet for me,
                         <span class='font-lg'><%= project.how_many_active_announcements %></span> announcements
 
                     </p>

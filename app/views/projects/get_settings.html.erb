@@ -6,24 +6,24 @@
   <div class='row'>
     <section class='col col-1'></section>
     <section class="col col-5">
-      <label class="toggle">
-        <input type="checkbox" name='setting_01' id='setting_01' <%= 'checked="checked"' if @project.settings(:create_milestone_for_todo_with_due_date).configured_value == true %> >
+      <label class="toggle state-disabled">
+        <input type="checkbox" name='setting_01' id='setting_01' >
         <i data-swchon-text="ON" data-swchoff-text="OFF"></i>Create event entry for any todo with due date</label>
     </section>
   </div>
   <div class='row'>
     <section class='col col-1'></section>
     <section class="col col-5">
-      <label class="toggle">
-        <input type="checkbox" name='setting_02' id='setting_02' <%= 'checked="checked"' if @project.settings(:create_todo_for_event_entry).configured_value == true %>>
+      <label class="toggle state-disabled">
+        <input type="checkbox" name='setting_02' id='setting_02' >
         <i data-swchon-text="ON" data-swchoff-text="OFF"></i>Create a todo for every calendar event entry</label>
     </section>
   </div>
   <div class='row'>
     <section class='col col-1'></section>
     <section class="col col-5">
-      <label class="toggle">
-        <input type="checkbox" name='setting_03' id='setting_03' <%= 'checked="checked"' if @project.settings(:email_members_when_new_alert).configured_value == true %>>
+      <label class="toggle state-disabled">
+        <input type="checkbox" name='setting_03' id='setting_03' >
         <i data-swchon-text="ON" data-swchoff-text="OFF"></i>Email members when a new alert is raised</label>
     </section>
   </div>
