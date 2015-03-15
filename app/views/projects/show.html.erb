@@ -6,7 +6,7 @@
     <h1 class="page-title txt-color-blueDark">
       <!-- PAGE HEADER -->
       <i class="fa-fw fa fa-bar-chart-o"></i>
-      Summary at a Glance
+      <%= @project.name %>
     </h1>
   </div>
   <!-- end col -->
@@ -25,22 +25,23 @@
 <!-- row -->
 <div class="row">
   <div class="col-sm-12">
-    <h3><%= @project.name %>
+    <h3>Summary at a Glance
 
-        <p>
+        <p> <div>Current status:
             <% if @project.status_code==0 %>
-                <div class='label label-default'>Not started</div>
+                <span class='label label-default'>Not started</span>
             <% elsif @project.status_code==1 %>
-                <div class='label label-success'>We are on track</div>
+                <span class='label label-success'>We are on track</span>
             <% elsif @project.status_code==2 %>
-                <div class='label label-warning'>Project is troubled</div>
+                <span class='label label-warning'>Project is troubled</span>
             <% elsif @project.status_code==3 %>
-                <div class='label label-danger'>Project is late or failing</div>
+                <span class='label label-danger'>Project is late or failing</span>
             <% elsif @project.status_code==4 %>
-                <div class='label label-info'>Locked / paused</div>
+                <span class='label label-info'>Locked / paused</span>
             <% elsif @project.status_code==5 %>
-                <div class='label label-darken' style='background-color:black;'>Complete</div>
+                <span class='label label-darken' style='background-color:black;'>Complete</span>
             <% end %>
+            </div>
         </p>
 
     </h3>
@@ -59,7 +60,11 @@
       <!-- -------------------------------------------------------------------------------------------- -->
       <!-- alerts widget -->
       <!-- -------------------------------------------------------------------------------------------- -->
-      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
+      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-1"
+           data-widget-editbutton="false"
+           data-widget-colorbutton="false"
+           data-widget-deletebutton="false"
+           data-widget-fullscreenbutton="false">
         <header>
           <span class="widget-icon"> <i class="fa fa-bell"></i> </span>
 
@@ -81,8 +86,13 @@
       <!-- -------------------------------------------------------------------------------------------- -->
       <!-- events widget -->
       <!-- -------------------------------------------------------------------------------------------- -->
-      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-        <header>
+      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-2"
+           data-widget-editbutton="false"
+           data-widget-colorbutton="false"
+           data-widget-deletebutton="false"
+           data-widget-fullscreenbutton="false">
+
+      <header>
           <span class="widget-icon"> <i class="fa fa-calendar"></i> </span>
 
           <h2> Schedule </h2>
@@ -132,8 +142,13 @@
       <!-- -------------------------------------------------------------------------------------------- -->
       <!-- issues widget -->
       <!-- -------------------------------------------------------------------------------------------- -->
-      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-3" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-        <header>
+      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-3"
+           data-widget-editbutton="false"
+           data-widget-colorbutton="false"
+           data-widget-deletebutton="false"
+           data-widget-fullscreenbutton="false">
+
+      <header>
           <span class="widget-icon"> <i class="fa fa-bug txt-color-white"></i> </span>
 
           <h2> Unresolved Issues </h2>
@@ -198,8 +213,13 @@
       <!-- -------------------------------------------------------------------------------------------- -->
       <!-- todos widget -->
       <!-- -------------------------------------------------------------------------------------------- -->
-      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false">
-        <header>
+      <div class="jarviswidget jarviswidget-color-blue" id="wid-id-4"
+           data-widget-editbutton="false"
+           data-widget-colorbutton="false"
+           data-widget-deletebutton="false"
+           data-widget-fullscreenbutton="false">
+
+      <header>
           <span class="widget-icon"> <i class="fa fa-check-square-o txt-color-white"></i> </span>
           <h2> Incomplete Todos </h2>
         </header>
