@@ -31,7 +31,7 @@ class InvitationsController < ApplicationController
   # POST /invitations
   # POST /invitations.json
   def create
-    @invitation = Invitation.new(params[:invitation])
+    @invitation = Invitation.new(invitation_params)
     @project = Project.find(params[:project_id])
 
     success_code = false
@@ -122,7 +122,7 @@ class InvitationsController < ApplicationController
   def update
     @invitation = Invitation.find(params[:id])
     @project = Project.find(params[:project_id])
-    @invitation.update_attributes(params[:invitation])
+    @invitation.update_attributes(invitation_params)
 
     respond_to do |format|
       if @invitation.save   #update_attributes(params[:invitation])
@@ -148,5 +148,11 @@ class InvitationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def invitation_params
+    params.require(:invitation).permit(:accepted_at, :password_is_temp, :sent_at, :member_id)
+  end
+
 
 end

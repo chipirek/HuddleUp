@@ -1,12 +1,7 @@
 class ProjectsController < ApplicationController
 
-  #skip_before_filter  :authenticate_user!, :only => [:set_settings]
-
   load_and_authorize_resource :except=>:index
 
-
-  # GET /projects
-  # GET /projects.json
   def index
     # no longer needed, since authorization via CanCan loads these resources
     @membership = Member.where('user_id=' + current_user.id.to_s).where("status_code <> '9'").pluck(:project_id)
@@ -24,8 +19,6 @@ class ProjectsController < ApplicationController
   end
 
 
-  # GET /projects/1
-  # GET /projects/1.json
   def show
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:id])
@@ -39,8 +32,6 @@ class ProjectsController < ApplicationController
   end
 
 
-  # GET /projects/new
-  # GET /projects/new.json
   def new
     @project = Project.new
 
@@ -51,17 +42,14 @@ class ProjectsController < ApplicationController
   end
 
 
-  # GET /projects/1/edit
   def edit
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:id])
   end
 
 
-  # POST /projects
-  # POST /projects.json
   def create
-    @project = Project.new(params[:project])
+    @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save
@@ -76,14 +64,12 @@ class ProjectsController < ApplicationController
   end
 
 
-  # PUT /projects/1
-  # PUT /projects/1.json
   def update
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:id])
 
     respond_to do |format|
-      if @project.update_attributes(params[:project])
+      if @project.update_attributes(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
@@ -94,8 +80,6 @@ class ProjectsController < ApplicationController
   end
 
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
 
     # no longer needed, since authorization via CanCan loads these resources
@@ -136,6 +120,11 @@ class ProjectsController < ApplicationController
     flash[:notice] = 'Settings were successfully updated.'
     redirect_to project_path (@project)
 
+  end
+
+
+  def project_params
+    params.require(:project).permit(:description, :name, :status_code, :token_for_disqus, :is_complete)
   end
 
 

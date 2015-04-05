@@ -2,9 +2,6 @@ class Message < ActiveRecord::Base
 
   audited :associated_with => :project
 
-  attr_accessible :id, :subject, :body, :member_id, :project_id
-  #attr_accessor :is_unread
-
   validates_presence_of :subject
 
   belongs_to :project

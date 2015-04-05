@@ -4,8 +4,6 @@ class AnnouncementsController < ApplicationController
   load_and_authorize_resource :announcement, :through => :project
 
 
-  # GET /announcements
-  # GET /announcements.json
   def index
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -20,8 +18,6 @@ class AnnouncementsController < ApplicationController
   end
 
 
-  # GET /announcements/1
-  # GET /announcements/1.json
   def show
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -34,8 +30,6 @@ class AnnouncementsController < ApplicationController
   end
 
 
-  # GET /announcements/new
-  # GET /announcements/new.json
   def new
     # no longer needed, since authorization via CanCan loads these resources
     #@project = Project.find(params[:project_id])
@@ -57,7 +51,6 @@ class AnnouncementsController < ApplicationController
   end
 
 
-  # GET /announcements/1/edit
   def edit
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -66,12 +59,10 @@ class AnnouncementsController < ApplicationController
   end
 
 
-  # POST /announcements
-  # POST /announcements.json
   def create
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    @announcement = Announcement.new(params[:announcement])
+    @announcement = Announcement.new(announcement_params)
     @announcement.project_id = params[:project_id]
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
@@ -92,13 +83,11 @@ class AnnouncementsController < ApplicationController
   end
 
 
-  # PUT /announcements/1
-  # PUT /announcements/1.json
   def update
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @announcement = Announcement.find(params[:id])
-    @announcement.update_attributes(params[:announcement])
+    @announcement.update_attributes(announcement_params)
 
     # TODO: hack to overcome Ruby 1.9 date parse bug
     if params[:announcement][:expires_at].length > 0
@@ -118,8 +107,6 @@ class AnnouncementsController < ApplicationController
   end
 
 
-  # DELETE /announcements/1
-  # DELETE /announcements/1.json
   def destroy
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -130,6 +117,11 @@ class AnnouncementsController < ApplicationController
       format.html { redirect_to project_announcements_path(@project), notice: 'Announcement was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def announcement_params
+    params.require(:announcement).permit(:body, :expires_at, :member_id, :project_id, :subject)
   end
 
 

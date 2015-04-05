@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
 
 
   def create
-    @category = Category.new (params[:category])
+    @category = Category.new(category_params)
     @category.project_id=params[:project_id]
 
     respond_to do |format|
@@ -33,6 +33,11 @@ class CategoriesController < ApplicationController
       format.html { redirect_to project_settings_path, notice: 'Category was successfully removed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def category_params
+    params.require(:category).permit(:name, :project_id)
   end
 
 

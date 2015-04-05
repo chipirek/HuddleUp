@@ -4,8 +4,6 @@ class MessagesController < ApplicationController
   load_and_authorize_resource :message, :through => :project
 
 
-  # GET /messages
-  # GET /messages.json
   def index
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -20,8 +18,6 @@ class MessagesController < ApplicationController
   end
 
 
-  # GET /messages/1
-  # GET /messages/1.json
   def show
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -39,8 +35,6 @@ class MessagesController < ApplicationController
   end
 
 
-  # GET /messages/new
-  # GET /messages/new.json
   def new
     # no longer needed, since authorization via CanCan loads these resources
     #@project = Project.find(params[:project_id])
@@ -62,7 +56,6 @@ class MessagesController < ApplicationController
   end
 
 
-  # GET /messages/1/edit
   def edit
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -71,12 +64,10 @@ class MessagesController < ApplicationController
   end
 
 
-  # POST /messages
-  # POST /messages.json
   def create
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    @message = Message.new(params[:message])
+    @message = Message.new(message_params)
     @message.project_id = params[:project_id]
     @message.member = Member.where('user_id=?', current_user.id).where('project_id=?', @project.id).first()
 
@@ -99,13 +90,11 @@ class MessagesController < ApplicationController
   end
 
 
-  # PUT /messages/1
-  # PUT /messages/1.json
   def update
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @message = Message.find(params[:id])
-    @message.update_attributes(params[:message])
+    @message.update_attributes(message_params)
 
     respond_to do |format|
       if @message.save
@@ -120,8 +109,6 @@ class MessagesController < ApplicationController
   end
 
 
-  # DELETE /messages/1
-  # DELETE /messages/1.json
   def destroy
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -132,6 +119,11 @@ class MessagesController < ApplicationController
       format.html { redirect_to project_messages_path(@project), notice: 'Message was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def message_params
+    params.require(:message).permit(:subject, :body, :member_id, :project_id)
   end
 
 

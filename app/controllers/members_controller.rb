@@ -3,8 +3,7 @@ class MembersController < ApplicationController
   load_and_authorize_resource :project
   #load_and_authorize_resource :member, :through => :project
 
-  # GET /members
-  # GET /members.json
+
   def index
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -21,8 +20,6 @@ class MembersController < ApplicationController
   end
 
 
-  # GET /members/1
-  # GET /members/1.json
   def show
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -35,8 +32,6 @@ class MembersController < ApplicationController
   end
 
 
-  # GET /members/new
-  # GET /members/new.json
   def new
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -49,7 +44,6 @@ class MembersController < ApplicationController
   end
 
 
-  # GET /members/1/edit
   def edit
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -57,11 +51,9 @@ class MembersController < ApplicationController
   end
 
 
-  # POST /members
-  # POST /members.json
   def create
     #@project = Project.find(params[:project_id])
-    #@member = Member.new(params[:member])
+    @member = Member.new(member_params)
 
     respond_to do |format|
       if @member.save
@@ -75,15 +67,13 @@ class MembersController < ApplicationController
   end
 
 
-  # PUT /members/1
-  # PUT /members/1.json
   def update
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @member = Member.find(params[:id])
 
     respond_to do |format|
-      if @member.update_attributes(params[:member])
+      if @member.update_attributes(member_params)
         format.html { redirect_to project_members_path(@project), notice: 'Member was successfully updated.' }
         format.json { head :no_content }
       else
@@ -166,8 +156,6 @@ class MembersController < ApplicationController
   end
 
 
-  # DELETE /members/1
-  # DELETE /members/1.json
   def destroy
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -178,6 +166,11 @@ class MembersController < ApplicationController
       format.html { redirect_to project_members_path(@project) }
       format.json { head :no_content }
     end
+  end
+
+
+  def member_params
+    params.require(:member).permit(:joined_date, :project_id, :status_code, :user_id, :is_admin)
   end
 
 

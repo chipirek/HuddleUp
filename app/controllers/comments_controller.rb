@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
     @project = Project.find(params[:project_id])
     @issue = Issue.find(params[:issue_id])
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new(comment_params)
     @comment.member_id = Member.where('user_id=?', current_user.id).where('project_id=?', params[:project_id]).first().id
     @comment.issue_id = params[:issue_id]
 
@@ -27,5 +27,11 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+
+  def comment_params
+    params.require(:comment).permit(:body, :member_id, :issue_id)
+  end
+
 
 end

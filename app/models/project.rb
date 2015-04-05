@@ -14,8 +14,6 @@ class Project < ActiveRecord::Base
   audited
   has_associated_audits
 
-  attr_accessible :description, :name, :status_code, :token_for_disqus, :is_complete
-
   validates_presence_of :name
 
   #belongs_to :user

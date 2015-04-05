@@ -28,28 +28,28 @@ HuddleUp::Application.routes.draw do
   # devise_for :users
   devise_for :users, :controllers => {:registrations => 'registrations', :sessions => 'devise/sessions'}
   devise_scope :user do
-    put 'update_card', :to => 'registrations#update_card'
+    put 'update_card', :to => 'registrations#update_card', as: :update_card
   end
 
-  #root :to => 'projects#index'
-  #root :to => 'home#index'
   unauthenticated do
-    root to: 'home#index'
+    root to: 'home#index', as: :unauthenticated_root
   end
 
   authenticated :user do
-    root to: 'projects#index'
+    root to: 'projects#index', as: :authenticated_root
   end
 
 
-  #match '/projects/:project_id/todos/:action',
-  match '/users/:id', :to => 'users#show', :as => :user
-  match '/users/billing', :to => 'registrations#show', :as => :user
-  #match '/projects/:project_id/issues/:issue_id/:controller/:action(/:id)'
-  match '/projects/:project_id/:controller/:action(/:id)'
+  #match '/users/:id', :to => 'users#show', :as => :user
+  #match '/users/billing', :to => 'registrations#show', :as => :user
+  #match '/projects/:project_id/:controller/:action(/:id)'
+  get '/users/:id', :to => 'users#show', :as => :user_id
+  get '/users/billing', :to => 'registrations#show', :as => :user_billing
+  #get '/projects/:project_id/:controller/:action(/:id)'
 
   unless Rails.application.config.consider_all_requests_local
-    match '*not_found', to: 'errors#error_404'
+    #match '*not_found', to: 'errors#error_404'
+    get '*not_found', to: 'errors#error_404'
   end
 
 end

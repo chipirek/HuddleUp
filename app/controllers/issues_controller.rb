@@ -3,8 +3,7 @@ class IssuesController < ApplicationController
   load_and_authorize_resource :project
   load_and_authorize_resource :issue, :through => :project
 
-  # GET /issues
-  # GET /issues.json
+
   def index
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -18,8 +17,6 @@ class IssuesController < ApplicationController
   end
 
 
-  # GET /issues/1
-  # GET /issues/1.json
   def show
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -33,8 +30,6 @@ class IssuesController < ApplicationController
   end
 
 
-  # GET /issues/new
-  # GET /issues/new.json
   def new
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -55,7 +50,6 @@ class IssuesController < ApplicationController
   end
 
 
-  # GET /issues/1/edit
   def edit
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -64,13 +58,10 @@ class IssuesController < ApplicationController
   end
 
 
-  # POST /issues
-  # POST /issues.json
   def create
     # no longer needed, since authorization via CanCan loads these resources
     #@project = Project.find(params[:project_id])
-
-    @issue = Issue.new(params[:issue])
+    @issue = Issue.new(issue_params)
     @issue.project_id = params[:project_id]
     @issue.position=99
 
@@ -90,14 +81,11 @@ class IssuesController < ApplicationController
   end
 
 
-  # PUT /issues/1
-  # PUT /issues/1.json
   def update
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @issue = Issue.find(params[:id])
-
-    @issue.update_attributes(params[:issue])
+    @issue.update_attributes(issue_params)
     @issue.project_id = params[:project_id]
     @issue.is_resolved = !params[:issue]['is_resolved'].nil?
     @issue.is_critical = !params[:issue]['is_critical'].nil?
@@ -119,8 +107,6 @@ class IssuesController < ApplicationController
   end
 
 
-  # DELETE /issues/1
-  # DELETE /issues/1.json
   def destroy
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -167,6 +153,11 @@ class IssuesController < ApplicationController
     end
 
     render :nothing => true
+  end
+
+
+  def issue_params
+    params.require(:issue).permit(:subject, :description, :is_resolved, :member_id, :project_id, :position, :is_critical)
   end
 
 

@@ -75,7 +75,7 @@ class EventsController < ApplicationController
   def create
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    # @event = Event.new(params[:event])
+    @event = Event.new(event_params)
     @event.project_id = params[:project_id]
 
     if params[:event][:start_date].length == 0
@@ -110,7 +110,7 @@ class EventsController < ApplicationController
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     # @event = Event.find(params[:id])
-    @event.update_attributes(params[:event])
+    @event.update_attributes(event_params)
     @event.all_day = !params[:event]['all_day'].nil?
 
     if params[:event][:start_date].length == 0
@@ -152,5 +152,11 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def event_params
+    params.require(:event).permit(:project_id, :title, :start_date, :end_date, :all_day, :class_name, :icon, :description, :start_time, :end_time)
+  end
+
 
 end

@@ -2,9 +2,6 @@ class Event < ActiveRecord::Base
 
   audited :associated_with => :project
 
-  attr_accessible :project_id, :title, :start_date, :end_date, :all_day, :class_name, :icon,
-                  :description, :start_time, :end_time
-
   belongs_to :project
 
   validates_presence_of :title
