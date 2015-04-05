@@ -87,7 +87,7 @@ class MembersController < ApplicationController
   def make_admin
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    # @member = Member.find(params[:id])
+    @member = Member.find(params[:id])
     @member.is_admin=true
 
     respond_to do |format|
@@ -105,7 +105,7 @@ class MembersController < ApplicationController
   def remove_admin
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    # @member = Member.find(params[:id])
+    @member = Member.find(params[:id])
     @member.is_admin = false
 
     respond_to do |format|
@@ -123,7 +123,7 @@ class MembersController < ApplicationController
   def block
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    # @member = Member.find(params[:id])
+    @member = Member.find(params[:id])
     @member.status_code=9
 
     respond_to do |format|
@@ -141,7 +141,7 @@ class MembersController < ApplicationController
   def unblock
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
-    # @member = Member.find(params[:id])
+    @member = Member.find(params[:id])
     @member.status_code=4
 
     respond_to do |format|

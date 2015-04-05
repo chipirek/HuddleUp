@@ -52,11 +52,17 @@ HuddleUp::Application.routes.draw do
     get '*not_found', to: 'errors#error_404'
   end
 
+  #--- newer, more explicit routes in Rails 4
   put '/projects/:project_id/todos/mark_complete/:id' => 'todos#mark_complete'
   put '/projects/:project_id/todos/mark_incomplete/:id' => 'todos#mark_incomplete'
   post '/projects/:project_id/todos/sort' => 'todos#sort'
   put '/projects/:project_id/issues/mark_complete/:id' => 'issues#mark_complete'
   put '/projects/:project_id/issues/mark_incomplete/:id' => 'issues#mark_incomplete'
   post '/projects/:project_id/issues/sort' => 'issues#sort'
+
+  put '/projects/:project_id/members/make_admin/:id' => 'members#make_admin'
+  put '/projects/:project_id/members/remove_admin/:id' => 'members#remove_admin'
+  put '/projects/:project_id/members/block/:id' => 'members#block'
+  put '/projects/:project_id/members/unblock/:id' => 'members#unblock'
 
 end
