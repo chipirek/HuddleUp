@@ -65,4 +65,6 @@ HuddleUp::Application.routes.draw do
   put '/projects/:project_id/members/block/:id' => 'members#block'
   put '/projects/:project_id/members/unblock/:id' => 'members#unblock'
 
+  get '/projects/:project_id/invitations/accept/:id' => 'invitations#accept'
+
 end

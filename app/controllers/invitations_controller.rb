@@ -4,6 +4,7 @@ class InvitationsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => :accept
 
 
+=begin
   def index
     @project = Project.find(params[:project_id])
     @invitations = Invitation.where('project_id=?', params[:project_id])
@@ -13,6 +14,7 @@ class InvitationsController < ApplicationController
       format.json { render json: @invitations }
     end
   end
+=end
 
 
   def new
@@ -27,7 +29,8 @@ class InvitationsController < ApplicationController
 
 
   def create
-    @invitation = Invitation.new(invitation_params)
+
+    @invitation = Invitation.new()  #  invitation_params)
     @project = Project.find(params[:project_id])
 
     success_code = false
@@ -42,8 +45,6 @@ class InvitationsController < ApplicationController
       @invitation.password_is_temp=true
       @invitation.sent_at=Time.now
       @invitation.member_id=member.id
-
-      # puts 'invitation=' + @invitation.to_s
 
       success_code = @invitation.save
       if success_code
@@ -104,6 +105,7 @@ class InvitationsController < ApplicationController
   end
 
 
+=begin
   def edit
     @project = Project.find(params[:project_id])
     @invitation = Invitation.find(params[:id])
@@ -138,6 +140,7 @@ class InvitationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+=end
 
 
   private
