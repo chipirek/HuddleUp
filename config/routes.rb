@@ -52,4 +52,11 @@ HuddleUp::Application.routes.draw do
     get '*not_found', to: 'errors#error_404'
   end
 
+  put '/projects/:project_id/todos/mark_complete/:id' => 'todos#mark_complete'
+  put '/projects/:project_id/todos/mark_incomplete/:id' => 'todos#mark_incomplete'
+  post '/projects/:project_id/todos/sort' => 'todos#sort'
+  put '/projects/:project_id/issues/mark_complete/:id' => 'issues#mark_complete'
+  put '/projects/:project_id/issues/mark_incomplete/:id' => 'issues#mark_incomplete'
+  post '/projects/:project_id/issues/sort' => 'issues#sort'
+
 end

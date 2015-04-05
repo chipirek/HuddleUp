@@ -12,10 +12,7 @@
   <!-- end col -->
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-5 pull-right">
-    <!-- Button trigger modal -->
-    <% if can? :create, Member %>
-        <%= link_to '<i class="fa fa-plus"></i> Invite someone else'.html_safe, new_project_invitation_path(@project), :class => 'pull-right', :style=>'margin-right:22px; margin-top:10px;' %>
-    <% end %>
+    <%= link_to '<i class="fa fa-plus"></i> Invite someone else'.html_safe, new_project_invitation_path(@project), :class => 'pull-right', :style=>'margin-right:22px; margin-top:10px;' %>
   </div>
 
 </div>

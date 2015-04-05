@@ -169,6 +169,9 @@ class MembersController < ApplicationController
   end
 
 
+  private
+
+
   def member_params
     params.require(:member).permit(:joined_date, :project_id, :status_code, :user_id, :is_admin)
   end

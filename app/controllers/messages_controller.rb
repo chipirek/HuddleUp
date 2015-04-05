@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 
+
   load_and_authorize_resource :project
   load_and_authorize_resource :message, :through => :project
 
@@ -120,6 +121,9 @@ class MessagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
 
 
   def message_params

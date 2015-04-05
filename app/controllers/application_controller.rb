@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
 
   around_filter :catch_not_found
 
+  #--- HACK: workaround for CanCan needed after upgrading to Rails 4
+  before_filter do
+    resource = controller_name.singularize.to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+  #--- /HACK
+
   unless Rails.application.config.consider_all_requests_local
     rescue_from Exception, with: lambda { |exception| render_error 500, exception }
     rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }

@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
 
+
   load_and_authorize_resource :project
   load_and_authorize_resource :event, :through => :project
 
-  # GET /events
-  # GET /events.json
+
   def index
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -18,8 +18,6 @@ class EventsController < ApplicationController
   end
 
 
-  # GET /events/1
-  # GET /events/1.json
   def show
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -33,8 +31,6 @@ class EventsController < ApplicationController
   end
 
 
-  # GET /events/new
-  # GET /events/new.json
   def new
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -61,7 +57,6 @@ class EventsController < ApplicationController
   end
 
 
-  # GET /events/1/edit
   def edit
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -70,26 +65,34 @@ class EventsController < ApplicationController
   end
 
 
-  # POST /events
-  # POST /events.json
   def create
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
     @event = Event.new(event_params)
     @event.project_id = params[:project_id]
 
-    if params[:event][:start_date].length == 0
-      @event.errors.add(:start_date, 'Start Date is not valid.')
-    else
-      # TODO: hack to overcome Ruby 1.9 date parse bug
-      buffer = params[:event][:start_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
-      @event.start_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+    # correct date format
+    begin
+      if params[:event][:start_date].length > 0  # != ''
+        @event.start_date = Date.strptime(params[:event][:start_date], '%m/%d/%Y')
+      else
+        @event.start_date = nil
+      end
+    rescue Exception=>e
+      Rails.logger.error(e.to_s)
+      @event.errors.add e.to_s
     end
 
-    if !(params[:event][:end_date].length == 0)
-      # TODO: hack to overcome Ruby 1.9 date parse bug
-      buffer = params[:event][:end_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
-      @event.end_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+    # correct date format
+    begin
+      if params[:event][:end_date].length > 0  # != ''
+        @event.end_date = Date.strptime(params[:event][:end_date], '%m/%d/%Y')
+      else
+        @event.end_date = nil
+      end
+    rescue Exception=>e
+      Rails.logger.error(e.to_s)
+      @event.errors.add e.to_s
     end
 
     respond_to do |format|
@@ -104,8 +107,6 @@ class EventsController < ApplicationController
   end
 
 
-  # PUT /events/1
-  # PUT /events/1.json
   def update
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -139,8 +140,6 @@ class EventsController < ApplicationController
   end
 
 
-  # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     # no longer needed, since authorization via CanCan loads these resources
     # @project = Project.find(params[:project_id])
@@ -152,6 +151,9 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
 
 
   def event_params

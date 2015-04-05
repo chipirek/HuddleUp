@@ -156,6 +156,9 @@ class IssuesController < ApplicationController
   end
 
 
+  private
+
+
   def issue_params
     params.require(:issue).permit(:subject, :description, :is_resolved, :member_id, :project_id, :position, :is_critical)
   end

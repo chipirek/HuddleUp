@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
 
+
   load_and_authorize_resource :except=>:index
+
 
   def index
     # no longer needed, since authorization via CanCan loads these resources
@@ -111,7 +113,7 @@ class ProjectsController < ApplicationController
   def set_settings
     @project = Project.find(params[:project_id])
 
-    # user.settings(:dashboard).theme = 'black' @todo.is_complete = !params[:todo]['is_complete'].nil?
+    # user.settings(:dashboard).theme = 'black'
     @project.settings(:create_milestone_for_todo_with_due_date).configured_value = !params['setting_01'].nil?
     @project.settings(:create_todo_for_event_entry).configured_value = !params['setting_02'].nil?
     @project.settings(:email_members_when_new_alert).configured_value = !params['setting_03'].nil?
@@ -123,8 +125,11 @@ class ProjectsController < ApplicationController
   end
 
 
+  private
+
+
   def project_params
-    params.require(:project).permit(:description, :name, :status_code, :token_for_disqus, :is_complete)
+    params.require(:project).permit(:description, :name, :status_code) #, :token_for_disqus, :is_complete)
   end
 
 

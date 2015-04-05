@@ -1,9 +1,9 @@
 class InvitationsController < ApplicationController
 
+
   skip_before_filter :authenticate_user!, :only => :accept
 
-  # GET /invitations
-  # GET /invitations.json
+
   def index
     @project = Project.find(params[:project_id])
     @invitations = Invitation.where('project_id=?', params[:project_id])
@@ -15,8 +15,6 @@ class InvitationsController < ApplicationController
   end
 
 
-  # GET /invitations/new
-  # GET /invitations/new.json
   def new
     @project = Project.find(params[:project_id])
     @invitation = Invitation.new
@@ -28,8 +26,6 @@ class InvitationsController < ApplicationController
   end
 
 
-  # POST /invitations
-  # POST /invitations.json
   def create
     @invitation = Invitation.new(invitation_params)
     @project = Project.find(params[:project_id])
@@ -78,7 +74,6 @@ class InvitationsController < ApplicationController
   end
 
 
-  # PUT /invitations/1
   def accept
     @project = Project.find(params[:project_id])
     @invitation = Invitation.find(params[:id])
@@ -109,7 +104,6 @@ class InvitationsController < ApplicationController
   end
 
 
-  # GET /invitations/1/edit
   def edit
     @project = Project.find(params[:project_id])
     @invitation = Invitation.find(params[:id])
@@ -117,8 +111,6 @@ class InvitationsController < ApplicationController
   end
 
 
-  # PUT /invitations/1
-  # PUT /invitations/1.json
   def update
     @invitation = Invitation.find(params[:id])
     @project = Project.find(params[:project_id])
@@ -136,8 +128,6 @@ class InvitationsController < ApplicationController
   end
 
 
-  # DELETE /invitations/1
-  # DELETE /invitations/1.json
   def destroy
     @project = Project.find(params[:project_id])
     @invitation = Invitation.find(params[:id])
@@ -148,6 +138,9 @@ class InvitationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
 
 
   def invitation_params

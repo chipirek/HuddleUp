@@ -1,5 +1,6 @@
 class AnnouncementsController < ApplicationController
 
+
   load_and_authorize_resource :project
   load_and_authorize_resource :announcement, :through => :project
 
@@ -118,6 +119,9 @@ class AnnouncementsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
 
 
   def announcement_params
