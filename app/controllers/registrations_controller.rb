@@ -3,9 +3,16 @@ class RegistrationsController < Devise::RegistrationsController
 
   layout "devise/new_registration", only: [:new]
 
+  before_filter :update_sanitized_params, if: :devise_controller?
+
+    def update_sanitized_params
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :plan, :password, :password_confirmation)}
+  end
+
 
   # 4242424242424242	Visa
   # 5555555555554444	MasterCard
+
 
   def update_card
     @user = current_user
@@ -36,6 +43,13 @@ class RegistrationsController < Devise::RegistrationsController
     edit_user_registration_path  #this bypasses the index.html marketing page
   end
 
+
+  private
+
+
+  def user_params
+    params.require(:user).permit(:name, :email, :plan, :password, :password_confirmation)
+  end
 
 
 end
