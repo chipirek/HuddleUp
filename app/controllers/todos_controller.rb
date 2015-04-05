@@ -96,9 +96,16 @@ class TodosController < ApplicationController
     @todo.project_id = params[:project_id]
     @todo.position = 99
 
-    if params[:todo][:due_date].length > 0
-      buffer = params[:todo][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
-      @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+    # correct inbound date format
+    begin
+      if params[:todo][:due_date].length > 0  # != ''
+        @todo.due_date = Date.strptime(params[:todo][:due_date], '%m/%d/%Y')
+      else
+        @todo.due_date = nil
+      end
+    rescue Exception=>e
+      Rails.logger.error(e.to_s)
+      @todo.errors.add e.to_s
     end
 
     if @todo.save
@@ -127,10 +134,16 @@ class TodosController < ApplicationController
     @todo.is_complete = !params[:todo]['is_complete'].nil?
     @todo.is_critical = !params[:todo]['is_critical'].nil?
 
-    # TODO: hack to overcome Ruby 1.9 date parse bug
-    if params[:todo][:due_date].length > 0
-      buffer = params[:todo][:due_date].split('/')  #we know the jQuery UI datepicker will return mm/dd/yyyy
-      @todo.due_date = buffer[2] + '/' + buffer[0] + '/' + buffer[1]
+    # correct inbound date format
+    begin
+      if params[:todo][:due_date].length > 0  # != ''
+        @todo.due_date = Date.strptime(params[:todo][:due_date], '%m/%d/%Y')
+      else
+        @todo.due_date = nil
+      end
+    rescue Exception=>e
+      Rails.logger.error(e.to_s)
+      @todo.errors.add e.to_s
     end
 
     if @todo.save

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222141451) do
+ActiveRecord::Schema.define(version: 20150405113542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,13 @@ ActiveRecord::Schema.define(version: 20141222141451) do
     t.string   "comment"
     t.string   "remote_address"
     t.datetime "created_at"
+    t.string   "request_uuid"
   end
 
   add_index "audits", ["associated_id", "associated_type"], name: "associated_index", using: :btree
   add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index", using: :btree
   add_index "audits", ["created_at"], name: "index_audits_on_created_at", using: :btree
+  add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
   add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
 
   create_table "categories", force: :cascade do |t|
