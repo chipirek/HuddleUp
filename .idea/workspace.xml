@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20150405113542_add_request_uuid_to_audits.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/audit.rb" afterPath="$PROJECT_DIR$/app/models/audit.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/todos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/todos_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/project.rb" afterPath="$PROJECT_DIR$/app/models/project.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
@@ -14,7 +11,7 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412285205285" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415977665514" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428192291305" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428234045606" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419198289238" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1422823084493" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419258033767" ignored="false" />
@@ -169,39 +166,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="todos_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/todos_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="0" selection-start="6082" selection-end="6082" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="issues_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/issues_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="240" column="0" selection-start="11533" selection-end="11533" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1428233673000" expanded="true" signature="10358:11273" placeholder="=begin ... =end" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="audit.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/audit.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="2" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -210,16 +178,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="47" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20150405113542_add_request_uuid_to_audits.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20150405113542_add_request_uuid_to_audits.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="16" column="29" selection-start="272" selection-end="296" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -228,16 +187,7 @@
       <file leaf-file-name="project.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/project.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="32" selection-start="884" selection-end="884" vertical-scroll-proportion="0.6614173">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20130714203505_install_audited.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20130714203505_install_audited.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="5" column="68" selection-start="169" selection-end="169" vertical-scroll-proportion="0.11398176">
               <folding />
             </state>
           </provider>
@@ -273,7 +223,6 @@
         <option value="$PROJECT_DIR$/app/models/message.rb" />
         <option value="$PROJECT_DIR$/app/controllers/messages_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/milestone.rb" />
-        <option value="$PROJECT_DIR$/app/models/project.rb" />
         <option value="$PROJECT_DIR$/app/controllers/projects_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/read_receipt.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
@@ -282,6 +231,7 @@
         <option value="$PROJECT_DIR$/app/controllers/todos_controller.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/models/audit.rb" />
+        <option value="$PROJECT_DIR$/app/models/project.rb" />
       </list>
     </option>
   </component>
@@ -2183,7 +2133,11 @@
       <created>1428192297816</created>
       <updated>1428192297816</updated>
     </task>
-    <option name="localTasksCounter" value="280" />
+    <task id="LOCAL-00280" summary="Migrate config to Rails 4.1.2 - upgraded audits">
+      <created>1428234050304</created>
+      <updated>1428234050304</updated>
+    </task>
+    <option name="localTasksCounter" value="281" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -2272,7 +2226,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrate config to Rails 4.1.2 - successfully run migrations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrate config to Rails 4.1.2 - upgraded audits" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2286,7 +2240,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Hiding postgres local security in env variables" />
     <MESSAGE value="Adjusting local env variables for Stripe API keys" />
     <MESSAGE value="Finished formatting of outbound email content." />
     <MESSAGE value="#59 - put comments count in the label next to the issue title on issue index" />
@@ -2311,6 +2264,7 @@
     <MESSAGE value="Todo ID# 330 - redesign UX on project show page" />
     <MESSAGE value="Migrate config to Rails 4.1.2" />
     <MESSAGE value="Migrate config to Rails 4.1.2 - successfully run migrations" />
+    <MESSAGE value="Migrate config to Rails 4.1.2 - upgraded audits" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2372,9 +2326,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20150405113542_add_request_uuid_to_audits.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/todos_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="0" selection-start="6082" selection-end="6082" vertical-scroll-proportion="0.0">
+        <state line="220" column="0" selection-start="6082" selection-end="6082" vertical-scroll-proportion="5.1968503">
           <folding />
         </state>
       </provider>
@@ -2386,12 +2347,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/audit.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="2" selection-start="95" selection-end="95" vertical-scroll-proportion="0.067064084">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="240" column="0" selection-start="11533" selection-end="11533" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1428233673000" expanded="true" signature="10358:11273" placeholder="=begin ... =end" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2402,30 +2368,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/audit.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="2" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="47" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20150405113542_add_request_uuid_to_audits.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="16" column="29" selection-start="272" selection-end="296" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/project.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="32" selection-start="884" selection-end="884" vertical-scroll-proportion="0.6614173">
+        <state line="5" column="68" selection-start="169" selection-end="169" vertical-scroll-proportion="0.11398176">
           <folding />
         </state>
       </provider>

@@ -26,9 +26,9 @@ class Project < ActiveRecord::Base
 
 
   def set_initial_settings
-    self.settings(:create_milestone_for_todo_with_due_date).value = false
-    self.settings(:create_todo_for_event_entry).value = false
-    self.settings(:email_members_when_new_alert).value = false
+    self.settings(:create_milestone_for_todo_with_due_date).configured_value = false
+    self.settings(:create_todo_for_event_entry).configured_value = false
+    self.settings(:email_members_when_new_alert).configured_value = false
   end
 
 
