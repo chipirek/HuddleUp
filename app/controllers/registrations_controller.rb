@@ -3,11 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   layout "devise/new_registration", only: [:new]
 
-  before_filter :update_sanitized_params, if: :devise_controller?
-
-    def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :plan, :password, :password_confirmation)}
-  end
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
 
   # 4242424242424242	Visa
@@ -20,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.update_card_on_stripe
       redirect_to edit_user_registration_path, :notice => 'Updated card.'
     else
-      flash[:error] = 'Credit card billing provider error: Unable to save card.'
+      flash[:error] = 'Credit card billing provider error -- unable to save card.'
       render :edit
     end
   end
@@ -45,6 +41,19 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   private
+
+
+  def configure_permitted_parameters
+
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:name, :email, :plan, :password, :password_confirmation)
+    end
+
+    devise_parameter_sanitizer.for(:account_update) do |u|
+      u.permit(:name, :email, :password, :plan, :current_password)
+    end
+
+  end
 
 
   def user_params
