@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     #puts '>>> SECURITY VIOLATION: ' + exception.message
     flash[:error] = exception.message + ' Consider upgrading to get more features, or contact the project admin.'
-    #redirect_to '/errors/error_422'
-    redirect_to root_path
+    redirect_to '/errors/error_422'
+    # redirect_to root_path
   end
 
 
