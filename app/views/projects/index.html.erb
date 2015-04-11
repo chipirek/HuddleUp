@@ -6,7 +6,7 @@
     <h1 class="page-title txt-color-blueDark">
       <!-- PAGE HEADER -->
       <i class="fa-fw fa fa-road"></i>
-      Projects
+      <%= @projects.count %> Projects
     </h1>
   </div>
   <!-- end col -->
@@ -39,7 +39,7 @@
                    data-widget-colorbutton="false"
                    data-widget-fullscreenbutton="false">
                 <header>
-                  <a href='/projects/<%= project.id %>' style='color: #f5f5f5; padding-left: 10px;'><h2><strong><%= project.name %></strong></h2></a>
+                  <a href='/projects/<%= project.id %>' style='color: #f5f5f5; padding-left: 10px;'><h2 class='font-xl'><strong><%= project.name.truncate(32) %></strong></h2></a>
                 </header>
 
                 <!-- widget div-->
@@ -47,15 +47,27 @@
 
                   <!-- widget content -->
                   <div class="widget-body">
-                    <div class="progress">
-                      <%= get_project_card_progress_report(project).html_safe %>
-                    </div>
+                    <table width='100%'>
+                      <tr>
+                        <td width='75%'><%= get_project_stats(project).html_safe %></td>
+                        <td width='25%'>
+                          <div class="progress">
+                            <%= get_project_progress_bar(project).html_safe %>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
 
                     <p> <%= project.description %> </p>
-                    <p> <span class='font-lg'>0</span> alerts,
-                        <span class='font-lg'><%= project.how_many_todos_left_for_this_member(current_user) %></span> todos yet for me,
-                        <span class='font-lg'><%= project.how_many_issues_left_for_this_member(current_user) %></span> issues yet for me,
-                        <span class='font-lg'><%= project.how_many_active_announcements %></span> announcements
+                    <p>
+                      <table width='100%'>
+                        <tr>
+                          <td style='width:25%'><span class='font-xl'>0</span> alerts </td>
+                          <td style='width:25%'><span class='font-xl'><%= project.how_many_todos_left_for_this_member(current_user) %></span> todos for me </td>
+                          <td style='width:25%'><span class='font-xl'><%= project.how_many_issues_left_for_this_member(current_user) %></span> issues for me </td>
+                          <td style='width:25%'><span class='font-xl'><%= project.how_many_active_announcements %></span> announcements </td>
+                        </tr>
+                      </table>
                     </p>
 
                   </div>
@@ -83,7 +95,7 @@
                    data-widget-colorbutton="false"
                    data-widget-fullscreenbutton="false">
                 <header>
-                  <a href='/projects/<%= project.id %>' style='color: #f5f5f5; padding-left: 10px;'><h2><strong><%= project.name %></strong></h2></a>
+                  <a href='/projects/<%= project.id %>' style='color: #f5f5f5; padding-left: 10px;'><h2 class='font-xl'><strong><%= project.name.truncate(32) %></strong></h2></a>
                 </header>
 
                 <!-- widget div-->
@@ -91,15 +103,27 @@
 
                   <!-- widget content -->
                   <div class="widget-body">
-                    <div class="progress">
-                      <%= get_project_card_progress_report(project).html_safe %>
-                    </div>
+                    <table width='100%'>
+                      <tr>
+                        <td width='75%'><%= get_project_stats(project).html_safe %></td>
+                        <td width='25%'>
+                          <div class="progress">
+                            <%= get_project_progress_bar(project).html_safe %>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
 
                     <p> <%= project.description %> </p>
-                    <p> <span class='font-lg'>0</span> alerts,
-                        <span class='font-lg'><%= project.how_many_todos_left_for_this_member(current_user) %></span> todos yet for me,
-                        <span class='font-lg'><%= project.how_many_issues_left_for_this_member(current_user) %></span> issues yet for me,
-                        <span class='font-lg'><%= project.how_many_active_announcements %></span> announcements
+                    <p>
+                        <table width='100%'>
+                          <tr>
+                            <td style='width:25%'><span class='font-xl'>0</span> alerts </td>
+                            <td style='width:25%'><span class='font-xl'><%= project.how_many_todos_left_for_this_member(current_user) %></span> todos for me </td>
+                            <td style='width:25%'><span class='font-xl'><%= project.how_many_issues_left_for_this_member(current_user) %></span> issues for me </td>
+                            <td style='width:25%'><span class='font-xl'><%= project.how_many_active_announcements %></span> announcements </td>
+                          </tr>
+                        </table>
 
                     </p>
 
