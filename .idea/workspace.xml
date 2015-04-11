@@ -10,7 +10,7 @@
     <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412285205285" ignored="false" />
     <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
     <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415977665514" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428750691483" ignored="false" />
+    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428750704286" ignored="false" />
     <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419198289238" ignored="false" />
     <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1422823084493" ignored="false" />
     <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419258033767" ignored="false" />
@@ -2347,7 +2347,11 @@
       <created>1428750694285</created>
       <updated>1428750694285</updated>
     </task>
-    <option name="localTasksCounter" value="288" />
+    <task id="LOCAL-00288" summary="Migrate config to Rails 4.1.2">
+      <created>1428750706667</created>
+      <updated>1428750706667</updated>
+    </task>
+    <option name="localTasksCounter" value="289" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -2436,7 +2440,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrate config to Rails 4.1.2 - fixes to get smoke test to run" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrate config to Rails 4.1.2" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2465,7 +2469,6 @@
     <MESSAGE value="Todo ID# 329 - improve category creation UX (use form widgets)" />
     <MESSAGE value="Issue ID# 78 - Fix counts &quot;for me&quot; on project index" />
     <MESSAGE value="Todo ID# 330 - redesign UX on project show page" />
-    <MESSAGE value="Migrate config to Rails 4.1.2" />
     <MESSAGE value="Migrate config to Rails 4.1.2 - successfully run migrations" />
     <MESSAGE value="Migrate config to Rails 4.1.2 - upgraded audits" />
     <MESSAGE value="Migrate config to Rails 4.1.2 - upgraded settings" />
@@ -2475,6 +2478,7 @@
     <MESSAGE value="Migrate config to Rails 4.1.2 - fixed devise registration based on http://stackoverflow.com/questions/25704625/rails-4-devise-unpermitted-parameters-when-updating-users-account" />
     <MESSAGE value="Migrate config to Rails 4.1.2 - fixed devise strong params delaing with stripe cc payments" />
     <MESSAGE value="Migrate config to Rails 4.1.2 - fixes to get smoke test to run" />
+    <MESSAGE value="Migrate config to Rails 4.1.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
