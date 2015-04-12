@@ -43,10 +43,10 @@
                     <p>
                         <% if can? :update, @project.todos.build %>
                             <strong>
-                              <%= link_to 'Todo ID# ' + todo.id.to_s, edit_project_todo_path(@project, todo) %>
-                            </strong> - <%= todo.subject %>
+                              <%= link_to todo.subject, edit_project_todo_path(@project, todo) %>
+                            </strong>
                         <% else %>
-                            <strong> Todo ID#<%= todo.id %></strong> - <%= todo.subject %>
+                            <strong><%= todo.subject %></strong>
                         <% end %>
 
                         <% if todo.is_critical? %>
@@ -54,13 +54,14 @@
                         <% end %>
 
                         <span class="text-muted">
-                          <%= " Assigned to " + todo.member.user.name + "." unless todo.member.nil? %>
-                          <%= " Due " + todo.due_date.strftime("%m/%d/%Y") + "." unless todo.due_date.nil? %>
-                          <%= todo.description %> </span>
-                        <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                          <%= "Todo ID# " + todo.id.to_s + ". " %>
+                          <%= "Assigned to " + todo.member.user.name + ". " unless todo.member.nil? %>
+                          <%= "Due " + todo.due_date.strftime("%m/%d/%Y") + ". " unless todo.due_date.nil? %>
+                          <%= "Created " + time_ago_in_words(todo.created_at) + " ago. " %>
+                        </span>
                         <span class='date'>
                           <% todo.categories.each do |c| %>
-                            <%= c.name %>,
+                            <%= c.name + ' ' %>
                           <% end %>
                         </span>
                     </p>
@@ -80,18 +81,27 @@
                     <p>
                       <% if can? :update, @project.todos.build %>
                           <strong>
-                            <%= link_to 'Todo ID# ' + todo.id.to_s, edit_project_todo_path(@project, todo) %>
-                          </strong> - <%= todo.subject %>
+                            <%= link_to todo.subject, edit_project_todo_path(@project, todo) %>
+                          </strong>
                       <% else %>
-                          <strong> Todo ID#<%= todo.id %></strong> - <%= todo.subject %>
+                          <strong><%= todo.subject %></strong>
                       <% end %>
 
                         <% if todo.is_critical? %>
                           <span class='badge bg-color-grey' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
                         <% end %>
 
-                        <span class="text-muted"><%= "Assigned to " + todo.member.user.name + "." unless todo.member.nil? %> <%= todo.description %> </span>
-                        <span class="date">Created <%= time_ago_in_words(todo.created_at) %> ago.</span>
+                      <span class="text-muted">
+                          <%= "Todo ID# " + todo.id.to_s + ". " %>
+                        <%= "Assigned to " + todo.member.user.name + ". " unless todo.member.nil? %>
+                        <%= "Due " + todo.due_date.strftime("%m/%d/%Y") + ". " unless todo.due_date.nil? %>
+                        <%= "Created " + time_ago_in_words(todo.created_at) + " ago. " %>
+                        </span>
+                        <span class='date'>
+                          <% todo.categories.each do |c| %>
+                            <%= c.name + ' ' %>
+                          <% end %>
+                        </span>
                     </p>
                 </li>
             <% end %>

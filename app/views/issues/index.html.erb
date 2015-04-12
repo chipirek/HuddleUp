@@ -42,10 +42,10 @@
                   <p>
                     <% if can? :update, @project.issues.build %>
                         <strong>
-                          <%= link_to 'Issue ID# ' + issue.id.to_s, edit_project_issue_path(@project, issue) %>
-                        </strong> - <%= issue.subject %>
+                          <%= link_to issue.subject, edit_project_issue_path(@project, issue) %>
+                        </strong>
                     <% else %>
-                        <strong> Issue ID#<%= issue.id %></strong> - <%= issue.subject %>
+                        <strong><%= issue.subject %></strong>
                     <% end %>
                     <%= link_to '[' + issue.comments.count.to_s + ' comments...]', project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
 
@@ -54,13 +54,14 @@
                     <% end %>
 
                     <span class="text-muted">
-                      <%= "Assigned to " + issue.member.user.name + "." unless issue.member.nil? %>
-                      <%= issue.description %> </span>
-                    <span class="date">Created <%= time_ago_in_words(issue.created_at) %> ago.</span>
-                    <span class='date'>
-                        <% issue.categories.each do |c| %>
-                            <%= c.name %>,
-                        <% end %>
+                      <%= "Issue ID# " + issue.id.to_s + ". " %>
+                      <%= "Assigned to " + issue.member.user.name + ". " unless issue.member.nil? %>
+                      <%= "Created " + time_ago_in_words(issue.created_at) + " ago. " %>
+                        </span>
+                        <span class='date'>
+                          <% issue.categories.each do |c| %>
+                            <%= c.name + ' ' %>
+                          <% end %>
                     </span>
 
                   </p>
@@ -80,10 +81,10 @@
                   <p>
                     <% if can? :update, @project.issues.build %>
                         <strong>
-                          <%= link_to 'Issue ID# ' + issue.id.to_s, edit_project_issue_path(@project, issue) %>
-                        </strong> - <%= issue.subject %>
+                          <%= link_to issue.subject, edit_project_issue_path(@project, issue) %>
+                        </strong>
                     <% else %>
-                        <strong> Issue ID#<%= issue.id %></strong> - <%= issue.subject %>
+                        <strong><%= issue.subject %></strong>
                     <% end %>
 
                     <%= link_to '[' + issue.comments.count.to_s + ' comments...]', edit_project_issue_path(@project, issue), {:class=>'font-xs', :style=>'padding-left:10px;'} %>
@@ -92,8 +93,16 @@
                         <span class='badge bg-color-grey' style='display: inline-block;'>&nbsp;&nbsp;<i class='fa fa-warning'>&nbsp;&nbsp;</i></span>
                     <% end %>
 
-                    <span class="text-muted"><%= "Assigned to " + issue.member.user.name + "." unless issue.member.nil? %> <%= issue.description %> </span>
-                    <span class="date">Created <%= time_ago_in_words(issue.created_at) %> ago.</span>
+                    <span class="text-muted">
+                      <%= "Issue ID# " + issue.id.to_s + ". " %>
+                      <%= "Assigned to " + issue.member.user.name + ". " unless issue.member.nil? %>
+                      <%= "Created " + time_ago_in_words(issue.created_at) + " ago. " %>
+                        </span>
+                        <span class='date'>
+                          <% issue.categories.each do |c| %>
+                            <%= c.name + ' ' %>
+                          <% end %>
+                    </span>
                   </p>
                 </li>
             <% end %>
