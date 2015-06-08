@@ -1,96 +1,53 @@
 module ProjectsHelper
 
-  def get_project_stats(p)
+  def get_project_status_color(p)
 
-    total_items = p.todos.count + p.issues.count
-    incomplete_items = p.todos.where('is_complete != true or is_complete is null').count + p.issues.where('is_resolved != true or is_resolved is null').count
-    complete_items = total_items - incomplete_items
+    status_color = ''
 
-    if p.status_code == 0
-      return 'Not started'
-    end
-
-    if total_items == 0
-      percent_complete = 100
-    else
-      percent_complete = ((complete_items.to_f / total_items.to_f)*100).to_i
-    end
-
-    if p.status_code == 0
-      percent_complete == 0
-    end
-
-    status_word = 'Not started'
     if p.status_code == 1
-      status_word = 'Status: ON TRACK'
+      status_color = 'success'
     end
     if p.status_code == 2
-      status_word = 'Status: IN TROUBLE'
+      status_color = 'warning'
     end
     if p.status_code == 3
-      status_word = 'Status: LATE'
+      status_color = 'danger'
     end
     if p.status_code == 4
-      status_word = 'Status: PAUSED'
+      status_color = 'default'
     end
     if p.status_code == 5
-      status_word = 'Status: DONE'
+      status_color = 'info'
     end
 
-    if percent_complete == 0
-      return '0% progress, ' + status_word
-    end
-
-    return percent_complete.to_s + '% done  (' + incomplete_items.to_s + '/' + total_items.to_s + ' items left) ' + status_word
-
+    return status_color
   end
 
 
-  def get_project_progress_bar(p)
+  def get_project_status_text(p)
 
-    total_items = p.todos.count + p.issues.count
-    incomplete_items = p.todos.where('is_complete != true or is_complete is null').count + p.issues.where('is_resolved != true or is_resolved is null').count
-    complete_items = total_items - incomplete_items
+    status = ''
 
     if p.status_code == 0
-      s="<div class='progress-bar' aria-valuetransitiongoal='100' style='width: 100%;' aria-valuenow='100'></div>"
-      return s
+      status = 'Not Started'
     end
-
-    if total_items == 0
-      percent_complete = 100
-    else
-      percent_complete = ((complete_items.to_f / total_items.to_f)*100).to_i
-    end
-
-    if p.status_code == 0
-      percent_complete == 0
-    end
-
-    status_color = ''
     if p.status_code == 1
-      status_color = 'bg-color-green'
+      status = 'On Track'
     end
     if p.status_code == 2
-      status_color = 'bg-color-orange'
+      status = 'Warning'
     end
     if p.status_code == 3
-      status_color = 'bg-color-red'
+      status = 'In Trouble'
     end
     if p.status_code == 4
-      status_color = 'bg-color-blueDark'
+      status = 'Paused'
     end
     if p.status_code == 5
-      status_color = 'bg-color-blueDark'
+      status = 'Complete'
     end
 
-    if percent_complete == 0
-      s="<div class='progress-bar " + status_color + "' aria-valuetransitiongoal='100' style='width: 100%;' aria-valuenow='100'></div>"
-      return s
-    end
-
-    s="<div class='progress-bar " + status_color + "' aria-valuetransitiongoal='" + percent_complete.to_s + "' style='width: " + percent_complete.to_s + "%;' aria-valuenow='" + percent_complete.to_s + "'></div>"
-    return s
+    return status
   end
 
 

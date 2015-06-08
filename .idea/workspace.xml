@@ -1,154 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/announcements/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/announcements/_form.html.erb" />
+    <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="Tuning the UX of the announcements">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/test_integration__Smoke_test_.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/projects/index_new.html.erb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/projects/index_original.html.erb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/HuddleUp.iml" afterPath="$PROJECT_DIR$/.idea/HuddleUp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/projects/index.html.erb" afterPath="$PROJECT_DIR$/app/views/projects/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/projects_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/projects_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/projects/show.html.erb" afterPath="$PROJECT_DIR$/app/views/projects/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/SmartAdmin/css/your_style.css" afterPath="$PROJECT_DIR$/public/SmartAdmin/css/your_style.css" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
     <ignored path="HuddleUp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/database.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412285205285" ignored="false" />
-    <file path="/20130608155207_devise_create_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370706800093" ignored="false" />
-    <file path="/user.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415977665514" ignored="false" />
-    <file path="/Dummy.txt" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428868206921" ignored="false" />
-    <file path="/project.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419198289238" ignored="false" />
-    <file path="/application.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1422823084493" ignored="false" />
-    <file path="/_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428889278062" ignored="false" />
-    <file path="/new.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1422826874708" ignored="false" />
-    <file path="/sessions.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413921790727" ignored="false" />
-    <file path="/index.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428868023684" ignored="false" />
-    <file path="/_test.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370723201372" ignored="false" />
-    <file path="/_navbar.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370782597199" ignored="false" />
-    <file path="/blank.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1377897727801" ignored="false" />
-    <file path="/_head.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1370811210607" ignored="false" />
-    <file path="/20130608175748_create_projects.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399244118668" ignored="false" />
-    <file path="/seeds.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428233045192" ignored="false" />
-    <file path="/projects_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428784871777" ignored="false" />
-    <file path="/projects_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428251380937" ignored="false" />
-    <file path="/show.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1426447801244" ignored="false" />
-    <file path="/edit.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1425156647550" ignored="false" />
-    <file path="/routes.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428260906858" ignored="false" />
-    <file path="/member.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398350158432" ignored="false" />
-    <file path="/members_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428184676357" ignored="false" />
-    <file path="/milestones_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415386269808" ignored="false" />
-    <file path="/milestone.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414773595771" ignored="false" />
-    <file path="/_side_nav.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1418477159999" ignored="false" />
-    <file path="/_side_nav_1.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1400095458190" ignored="false" />
-    <file path="/todos_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428251922741" ignored="false" />
-    <file path="/todos_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371395786736" ignored="false" />
-    <file path="/task.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371921899927" ignored="false" />
-    <file path="/tasks_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371415346335" ignored="false" />
-    <file path="/tasks_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1378037482585" ignored="false" />
-    <file path="/20130616203723_create_tasks.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1371921386912" ignored="false" />
-    <file path="/20130612203210_create_milestones.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399466192064" ignored="false" />
-    <file path="/20130611130434_create_members.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372542410483" ignored="false" />
-    <file path="/_top_nav.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1425064494756" ignored="false" />
-    <file path="/registrations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428342868794" ignored="false" />
-    <file path="/devise_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414011247355" ignored="false" />
-    <file path="/invitations_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428260494516" ignored="false" />
-    <file path="/user_mailer.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414872353401" ignored="false" />
-    <file path="/welcome_new_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415806965729" ignored="false" />
-    <file path="/20130702162549_create_invitations.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1372880564499" ignored="false" />
-    <file path="/application_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428680272000" ignored="false" />
-    <file path="/welcome_existing_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415806994138" ignored="false" />
-    <file path="/invitation.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1373142772861" ignored="false" />
-    <file path="/todo.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419197238614" ignored="false" />
-    <file path="/user_flows_test.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1374144239151" ignored="false" />
-    <file path="/_comments.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1374879522504" ignored="false" />
-    <file path="/smoke_test.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428680349214" ignored="false" />
-    <file path="/production.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413457726732" ignored="false" />
-    <file path="/a.dummy" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428262101549" ignored="false" />
-    <file path="/ace.min.css" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384462694623" ignored="false" />
-    <file path="/application.css" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1377350556735" ignored="false" />
-    <file path="/_side_nav_0.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1377433982356" ignored="false" />
-    <file path="/_breadcrumbs.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1418866031347" ignored="false" />
-    <file path="/readme.md" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385815699082" ignored="false" />
-    <file path="/issue.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412385870144" ignored="false" />
-    <file path="/issues_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428251954017" ignored="false" />
-    <file path="/post.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384191707567" ignored="false" />
-    <file path="/20131111170741_create_posts.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384189743667" ignored="false" />
-    <file path="/posts_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385593856495" ignored="false" />
-    <file path="/_post_edit_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384438234644" ignored="false" />
-    <file path="/issues_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410980580386" ignored="false" />
-    <file path="/ace.css" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384461932188" ignored="false" />
-    <file path="/action_item.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384621339527" ignored="false" />
-    <file path="/action_items_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385584229793" ignored="false" />
-    <file path="/_action_item_edit_form.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384621807493" ignored="false" />
-    <file path="/action_items_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1384626996816" ignored="false" />
-    <file path="/Gemfile" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428092861611" ignored="false" />
-    <file path="/issues.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412278028893" ignored="false" />
-    <file path="/posts.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385571339574" ignored="false" />
-    <file path="/action_items.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1385571356775" ignored="false" />
-    <file path="/members.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414614087768" ignored="false" />
-    <file path="/ability.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419985745556" ignored="false" />
-    <file path="/development.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428093208451" ignored="false" />
-    <file path="/application.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413910410150" ignored="false" />
-    <file path="/activities_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415223234095" ignored="false" />
-    <file path="/event.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398090344005" ignored="false" />
-    <file path="/message.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1411397810993" ignored="false" />
-    <file path="/20140423115332_create_messages.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398254445063" ignored="false" />
-    <file path="/messages_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428184879156" ignored="false" />
-    <file path="/read_receipt.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1398423528713" ignored="false" />
-    <file path="/messages_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1411397758997" ignored="false" />
-    <file path="/audit.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399073629970" ignored="false" />
-    <file path="/20131103221339_create_issues.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399243558121" ignored="false" />
-    <file path="/20140425105653_create_read_receipts.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1399243617939" ignored="false" />
-    <file path="/index.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414016583584" ignored="false" />
-    <file path="/users_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428185214289" ignored="false" />
-    <file path="/todos.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410136935198" ignored="false" />
-    <file path="/todo.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410260252961" ignored="false" />
-    <file path="/your_style.css" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415392663991" ignored="false" />
-    <file path="/login.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1410213901133" ignored="false" />
-    <file path="/20140930224333_remove_priority_from_milestones.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412117060233" ignored="false" />
-    <file path="/20141001222032_add_start_time_to_milestones.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412251860217" ignored="false" />
-    <file path="/20141001222056_add_end_time_to_milestones.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412251867361" ignored="false" />
-    <file path="/audits.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412276764051" ignored="false" />
-    <file path="/20141002204150_add_is_critical_to_all_tables.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412282573446" ignored="false" />
-    <file path="/20141004000855_create_comments.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412385718359" ignored="false" />
-    <file path="/comment.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412381613151" ignored="false" />
-    <file path="/comments_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428156118034" ignored="false" />
-    <file path="/browsing_test.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412439845908" ignored="false" />
-    <file path="/.gitignore" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1412602430495" ignored="false" />
-    <file path="/_scripts.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419089503142" ignored="false" />
-    <file path="/reset_password_instructions.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413461803594" ignored="false" />
-    <file path="/devise.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413457526101" ignored="false" />
-    <file path="/500.html" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413489885476" ignored="false" />
-    <file path="/errors_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413545789735" ignored="false" />
-    <file path="/error_404.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413545277373" ignored="false" />
-    <file path="/error_422.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413545571698" ignored="false" />
-    <file path="/error_500.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413545803714" ignored="false" />
-    <file path="/users.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414612851171" ignored="false" />
-    <file path="/marketing.css" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413752357197" ignored="false" />
-    <file path="/application_helper.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1413905784934" ignored="false" />
-    <file path="/new_registration.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415222627830" ignored="false" />
-    <file path="/20141021170248_add_stripe_to_users.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414239130668" ignored="false" />
-    <file path="/stripe.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414330744079" ignored="false" />
-    <file path="/expire_email.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980247754" ignored="false" />
-    <file path="/home_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414409348899" ignored="false" />
-    <file path="/home.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419958800441" ignored="false" />
-    <file path="/update_card.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414617552993" ignored="false" />
-    <file path="/billing.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1414618090479" ignored="false" />
-    <file path="/new_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980072366" ignored="false" />
-    <file path="/updated_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980035116" ignored="false" />
-    <file path="/deleted_user.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415980183773" ignored="false" />
-    <file path="/planner.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1425155519028" ignored="false" />
-    <file path="/projects.yml" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1415379597303" ignored="false" />
-    <file path="/20141213131147_create_announcements.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1418476633295" ignored="false" />
-    <file path="/announcements_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428094789102" ignored="false" />
-    <file path="/get_settings.html.erb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1425242887683" ignored="false" />
-    <file path="/categories_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428156035293" ignored="false" />
-    <file path="/20141221212328_create_todos_categories.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419198090320" ignored="false" />
-    <file path="/category.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419257766654" ignored="false" />
-    <file path="/20141222004517_create_categories_todos.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419209142439" ignored="false" />
-    <file path="/20141222141451_create_categories_issues.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1419257719394" ignored="false" />
-    <file path="/jarvis.widget.min.js" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1425055375544" ignored="false" />
-    <file path="/app.min.js" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1425135342131" ignored="false" />
-    <file path="/application.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428590835969" ignored="false" />
-    <file path="/secret_token.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428093826794" ignored="false" />
-    <file path="/events_controller.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428252721437" ignored="false" />
-    <file path="/test.rb" changelist="af1973f6-6655-45d0-a7ac-ae476ae5860c" time="1428591320230" ignored="false" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,11 +24,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/HuddleUp@Development__HuddleUp.coverage" NAME="Development: HuddleUp Coverage Results" MODIFIED="1433768651442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="HuddleUp" />
+    <SUITE FILE_PATH="coverage/HuddleUp@test.coverage" NAME="test Coverage Results" MODIFIED="1433768587365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="HuddleUp" />
+    <SUITE FILE_PATH="coverage/HuddleUp@db_seed.coverage" NAME="db:seed Coverage Results" MODIFIED="1433768523050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="HuddleUp" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DaemonCodeAnalyzer">
-    <disable_hints />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -168,28 +38,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_breadcrumbs.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/projects/_breadcrumbs.html.erb">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="20" selection-start="396" selection-end="396" vertical-scroll-proportion="-5.625">
+            <state vertical-scroll-proportion="-7.875">
+              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9797297">
+              <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="your_style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/SmartAdmin/css/your_style.css">
+      <file leaf-file-name="projects_helper.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/projects_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="15" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/announcements/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="131" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.79518074">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -216,26 +94,17 @@
     </option>
   </component>
   <component name="IdeDocumentHistory">
-    <option name="changedFiles">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/invitations_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-        <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/config/environments/test.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/test/integration/smoke_test.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/projects/index.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/projects_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/todos/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/issues/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/issues/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/todos/_form.html.erb" />
-        <option value="$PROJECT_DIR$/public/SmartAdmin/css/your_style.css" />
-        <option value="$PROJECT_DIR$/app/views/announcements/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/projects/show.html.erb" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -244,11 +113,13 @@
     <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="70" />
     <option name="y" value="23" />
-    <option name="width" value="1301" />
-    <option name="height" value="771" />
+    <option name="width" value="1440" />
+    <option name="height" value="815" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -264,7 +135,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -276,6 +147,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -473,54 +346,9 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="issues" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="announcements" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HuddleUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -528,15 +356,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="153" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="155" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="162" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../saas-starter" />
-    <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="159" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="874" />
+    <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="901" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="874" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="168" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="164" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -551,8 +379,8 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="options.lastSelected" value="preferences.updates" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="options.searchVisible" value="true" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -567,7 +395,7 @@
     <configuration default="false" name="db:migrate" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="HuddleUp" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -575,7 +403,7 @@
         <env name="RAILS_ENV" value="development" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
@@ -595,13 +423,13 @@
     <configuration default="false" name="db:seed" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="HuddleUp" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
@@ -621,7 +449,7 @@
     <configuration default="false" name="db:create" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="HuddleUp" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -629,7 +457,7 @@
         <env name="RAILS_ENV" value="development" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
@@ -649,7 +477,7 @@
     <configuration default="false" name="db:drop" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="HuddleUp" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -657,7 +485,7 @@
         <env name="RAILS_ENV" value="development" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
@@ -674,30 +502,6 @@
       <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
-      <module name="HuddleUp" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="CapistranoRunConfigurationType" factoryName="Capistrano">
       <module name="HuddleUp" />
       <CAPISTRANO_RUN_CONFIGURATION NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -707,7 +511,7 @@
       <CAPISTRANO_RUN_CONFIGURATION NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
@@ -719,120 +523,6 @@
       <CAPISTRANO_RUN_CONFIG_SETTINGS_ID NAME="CAPISTRANO_STAGE" VALUE="" />
       <method />
     </configuration>
-    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
-      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
-      <module name="HuddleUp" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
-      <module name="HuddleUp" />
-      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
-      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
-      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
-      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
-      <module name="HuddleUp" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="RubyRemoteDebugConfigurationType" factoryName="Ruby remote debug">
-      <RUBY_REMOTE_DEBUG_CONFIG NAME="REMOTE_HOST" VALUE="localhost" />
-      <RUBY_REMOTE_DEBUG_CONFIG NAME="PORT" VALUE="1234" />
-      <RUBY_REMOTE_DEBUG_CONFIG NAME="DISPATCHER_PORT" VALUE="26162" />
-      <RUBY_REMOTE_DEBUG_CONFIG NAME="REMOTE_ROOT" VALUE="" />
-      <RUBY_REMOTE_DEBUG_CONFIG NAME="LOCAL_ROOT" VALUE="$PROJECT_DIR$/test" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="RackRunConfigurationType" factoryName="Rack">
-      <module name="HuddleUp" />
-      <RACK_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RACK_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RACK_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RACK_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
-      <RACK_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RACK_CONFIG_SETTINGS_ID NAME="PORT" VALUE="9292" />
-      <RACK_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
-      <RACK_CONFIG_SETTINGS_ID NAME="CONFIG_FILE" VALUE="config.ru" />
-      <RACK_CONFIG_SETTINGS_ID NAME="RACK_SERVER_TYPE" VALUE="default" />
-      <RACK_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="CommandRunConfigurationType" factoryName="Gem Command">
       <module name="HuddleUp" />
       <COMMAND_RUN_CONFIGURATION NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -842,7 +532,7 @@
       <COMMAND_RUN_CONFIGURATION NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
@@ -853,53 +543,6 @@
       <COMMAND_CONFIG_SETTINGS_ID NAME="EXECUTABLE_NAME" VALUE="" />
       <COMMAND_CONFIG_SETTINGS_ID NAME="EXECUTABLE_ARGS" VALUE="" />
       <COMMAND_CONFIG_SETTINGS_ID NAME="WORKING_DIR" VALUE="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="RailsRunConfigurationType" factoryName="Rails">
-      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
-      <module name="HuddleUp" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="IrbRunConfigurationType" factoryName="IRB console">
-      <module name="HuddleUp" />
-      <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <IRB_RUN_CONFIG NAME="WORK DIR" VALUE="" />
-      <IRB_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="true" />
-      <IRB_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
-      <IRB_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
-      <IRB_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
-      <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="false" />
       <method />
     </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
@@ -914,7 +557,7 @@
         <env name="ANSICON" value="" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
@@ -932,83 +575,103 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="VERBOSE_OPTION" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="SporkRunConfigurationType" factoryName="Spork DRb">
+    <configuration default="true" type="IrbRunConfigurationType" factoryName="IRB console">
       <module name="HuddleUp" />
-      <SPORK_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <SPORK_RUN_CONFIG NAME="WORK DIR" VALUE="" />
-      <SPORK_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="true" />
-      <SPORK_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
-      <SPORK_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <IRB_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <IRB_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="true" />
+      <IRB_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
+      <IRB_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <SPORK_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
-      <SPORK_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
-      <SPORK_RUN_CONFIG NAME="TEST_FRAMEWORK_ARGS" VALUE="RSPEC" />
-      <SPORK_RUN_CONFIG NAME="SPORK_RUN_CONFIG" VALUE="RSPEC" />
+      <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <IRB_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="false" />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="false" name="Production: HuddleUp" type="RailsRunConfigurationType" factoryName="Rails">
-      <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
+    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="HuddleUp" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="DUMMY_APP" VALUE="test/dummy" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="production" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Development: HuddleUp" type="RailsRunConfigurationType" factoryName="Rails">
+    <configuration default="true" type="RackRunConfigurationType" factoryName="Rack">
+      <module name="HuddleUp" />
+      <RACK_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RACK_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RACK_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
+      <RACK_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
+      <RACK_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RACK_CONFIG_SETTINGS_ID NAME="PORT" VALUE="9292" />
+      <RACK_CONFIG_SETTINGS_ID NAME="IP" VALUE="0.0.0.0" />
+      <RACK_CONFIG_SETTINGS_ID NAME="CONFIG_FILE" VALUE="config.ru" />
+      <RACK_CONFIG_SETTINGS_ID NAME="RACK_SERVER_TYPE" VALUE="default" />
+      <RACK_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RailsRunConfigurationType" factoryName="Rails">
       <predefined_log_file id="RUBY_RAILS_SERVER" enabled="true" />
       <module name="HuddleUp" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
@@ -1022,64 +685,117 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="default" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
-      <RunnerSettings RunnerId="RubyRunner" />
-      <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="test" type="RakeRunConfigurationType" factoryName="Rake">
+    <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="HuddleUp" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="RAILS_ENV" value="test" />
-      </envs>
+      <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="test" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":test_unit " />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
       <method />
     </configuration>
-    <configuration default="false" name="spec" type="RakeRunConfigurationType" factoryName="Rake">
+    <configuration default="true" type="RubyRemoteDebugConfigurationType" factoryName="Ruby remote debug">
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="REMOTE_HOST" VALUE="localhost" />
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="PORT" VALUE="1234" />
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="DISPATCHER_PORT" VALUE="26162" />
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="REMOTE_ROOT" VALUE="" />
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="LOCAL_ROOT" VALUE="$PROJECT_DIR$/test" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
       <module name="HuddleUp" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="true" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="spec" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":rspec " />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SporkRunConfigurationType" factoryName="Spork DRb">
+      <module name="HuddleUp" />
+      <SPORK_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <SPORK_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <SPORK_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="true" />
+      <SPORK_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
+      <SPORK_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <SPORK_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <SPORK_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <SPORK_RUN_CONFIG NAME="TEST_FRAMEWORK_ARGS" VALUE="RSPEC" />
+      <SPORK_RUN_CONFIG NAME="SPORK_RUN_CONFIG" VALUE="RSPEC" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="HuddleUp" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="true" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="RVM: ruby-2.0.0-p643" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <method />
     </configuration>
     <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Rails.Production: HuddleUp" />
       <item index="1" class="java.lang.String" itemvalue="Rails.Development: HuddleUp" />
-      <item index="2" class="java.lang.String" itemvalue="Rake.test" />
+      <item index="2" class="java.lang.String" itemvalue="Rake.test:integration (Smoke test)" />
       <item index="3" class="java.lang.String" itemvalue="Rake.spec" />
       <item index="4" class="java.lang.String" itemvalue="Rake.db:migrate" />
       <item index="5" class="java.lang.String" itemvalue="Rake.db:seed" />
@@ -1089,9 +805,9 @@
     <recent_temporary>
       <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Rake.db:seed" />
-        <item index="1" class="java.lang.String" itemvalue="Rake.db:migrate" />
+        <item index="1" class="java.lang.String" itemvalue="Rake.db:drop" />
         <item index="2" class="java.lang.String" itemvalue="Rake.db:create" />
-        <item index="3" class="java.lang.String" itemvalue="Rake.db:drop" />
+        <item index="3" class="java.lang.String" itemvalue="Rake.db:migrate" />
       </list>
     </recent_temporary>
   </component>
@@ -1118,1177 +834,304 @@
       <changelist id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="" />
       <changelist id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
       <created>1370706518484</created>
+      <option name="number" value="Default" />
       <updated>1370706518484</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Adding 'projects'">
-      <created>1370782293182</created>
-      <updated>1370782293182</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Refactoring UX elements">
-      <created>1370810992551</created>
-      <updated>1370810992551</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Building out 'projects' component">
-      <created>1370866491175</created>
-      <updated>1370866491175</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Building out 'projects' component">
-      <created>1370952752588</created>
-      <updated>1370952752588</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Building out 'projects' component">
-      <created>1370953319650</created>
-      <updated>1370953319650</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Building out 'projects' component">
-      <created>1370953984630</created>
-      <updated>1370953984630</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Adding out 'members' component">
-      <created>1371066601422</created>
-      <updated>1371066601422</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Building out 'members' component">
-      <created>1371146962739</created>
-      <updated>1371146962739</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Building out 'members' component">
-      <created>1371147077730</created>
-      <updated>1371147077730</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Adding flash displays">
-      <created>1371147565203</created>
-      <updated>1371147565203</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Adding flash displays">
-      <created>1371173843107</created>
-      <updated>1371173843107</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Building out milestones">
-      <created>1371214546816</created>
-      <updated>1371214546816</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Moving top nav to a partial">
-      <created>1371231744449</created>
-      <updated>1371231744449</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Moving side nav to a partial">
-      <created>1371333499583</created>
-      <updated>1371333499583</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Adding 'todos' module">
-      <created>1371398193037</created>
-      <updated>1371398193037</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Building out 'todos' module">
-      <created>1371402794524</created>
-      <updated>1371402794524</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Building out 'tasks' module">
-      <created>1371423088024</created>
-      <updated>1371423088024</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Building out 'tasks' module">
-      <created>1371423596246</created>
-      <updated>1371423596246</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Building out project dashboard">
-      <created>1371909930046</created>
-      <updated>1371909930046</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Bug fixes">
-      <created>1371910587681</created>
-      <updated>1371910587681</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Building out milestones module">
-      <created>1371930030701</created>
-      <updated>1371930030701</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Building out milestones module">
-      <created>1371998388717</created>
-      <updated>1371998388717</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Building out milestones module">
-      <created>1371998705279</created>
-      <updated>1371998705279</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Enabled dynamic url targetting on task edit">
-      <created>1372000126898</created>
-      <updated>1372000126898</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Enabled dynamic sorting to tasks">
-      <created>1372015370037</created>
-      <updated>1372015370037</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Enabled dynamic routing after adding new task">
-      <created>1372015755260</created>
-      <updated>1372015755260</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Enabled dynamic marking on milestone tasks">
-      <created>1372018093367</created>
-      <updated>1372018093367</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Building out milestones and tasks">
-      <created>1372028971155</created>
-      <updated>1372028971155</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Adding user registration function">
-      <created>1372632164132</created>
-      <updated>1372632164133</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Building out user registration function">
-      <created>1372694446901</created>
-      <updated>1372694446901</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Adding 'invitations' module">
-      <created>1372803080105</created>
-      <updated>1372803080105</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Building out 'invitations' module">
-      <created>1372808938565</created>
-      <updated>1372808938565</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Building out 'invitations' module">
-      <created>1372857013643</created>
-      <updated>1372857013643</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Building out 'invitations' module">
-      <created>1372857216380</created>
-      <updated>1372857216380</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Building out 'invitations' module">
-      <created>1372857327604</created>
-      <updated>1372857327604</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Building out 'invitations' module">
-      <created>1372862467891</created>
-      <updated>1372862467891</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Added outbound email infrastructure to invitations module">
-      <created>1372867077504</created>
-      <updated>1372867077504</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Added outbound email infrastructure to invitations module">
-      <created>1372867110150</created>
-      <updated>1372867110150</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Completing outbound email infrastructure to invitations module">
-      <created>1372884100236</created>
-      <updated>1372884100236</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Completing outbound email infrastructure to invitations module">
-      <created>1372884255445</created>
-      <updated>1372884255445</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Completing outbound email infrastructure to invitations module">
-      <created>1372949419400</created>
-      <updated>1372949419400</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Adding admin privileges at the project level">
-      <created>1373033069420</created>
-      <updated>1373033069420</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Adding blocking permissions">
-      <created>1373034716254</created>
-      <updated>1373034716254</updated>
-    </task>
-    <task id="LOCAL-00044" summary="If a user is blocked, he cannot see the project">
-      <created>1373034906108</created>
-      <updated>1373034906108</updated>
-    </task>
-    <task id="LOCAL-00045" summary="If a user is blocked, he cannot see the project">
-      <created>1374440664426</created>
-      <updated>1374440664426</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Improving the project dashboard UX">
-      <created>1374536579990</created>
-      <updated>1374536579990</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Adding disqus comment system at the project level">
-      <created>1374880058399</created>
-      <updated>1374880058399</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Fixed integration tests">
-      <created>1376610831392</created>
-      <updated>1376610831393</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Fixed integration tests for tasks module">
-      <created>1376611346256</created>
-      <updated>1376611346256</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Fixes for BG0006:i see projects i should NOT and BG0007:i can't see the project i created">
-      <created>1376764373364</created>
-      <updated>1376764373364</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Fix date picker bugs">
-      <created>1376767003008</created>
-      <updated>1376767003008</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Adding SendGrid for production outbound emails">
-      <created>1376839441669</created>
-      <updated>1376839441670</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Adding SendGrid for production outbound emails">
-      <created>1376839852345</created>
-      <updated>1376839852346</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Adding SendGrid for production outbound emails">
-      <created>1376840758073</created>
-      <updated>1376840758073</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Abandoned using wysiwyg editor for now">
-      <created>1377387903278</created>
-      <updated>1377387903278</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Converting UI to Ace v1.3">
-      <created>1377897809617</created>
-      <updated>1377897809618</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Converting project UI to Ace v1.3">
-      <created>1377899315749</created>
-      <updated>1377899315749</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Converting project UI to Ace v1.3">
-      <created>1377899374455</created>
-      <updated>1377899374456</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Fixing bugs">
-      <created>1377945569094</created>
-      <updated>1377945569094</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Migrating to UX Ace 1.3">
-      <created>1377974980054</created>
-      <updated>1377974980054</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Migrating to UX Ace 1.3">
-      <created>1377999439051</created>
-      <updated>1377999439051</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Migrating to UX Ace 1.3">
-      <created>1378036976722</created>
-      <updated>1378036976722</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Migrating to UX Ace 1.3">
-      <created>1378044853702</created>
-      <updated>1378044853702</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Migrating to UX Ace 1.3">
-      <created>1378063350245</created>
-      <updated>1378063350245</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Migrating to UX Ace 1.3">
-      <created>1378127034532</created>
-      <updated>1378127034532</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Syncing to latest">
-      <created>1383409501759</created>
-      <updated>1383409501760</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Syncing to latest">
-      <created>1383410073736</created>
-      <updated>1383410073736</updated>
-    </task>
-    <task id="LOCAL-00068" summary="Removing tasks and schedule-related details">
-      <created>1383428332242</created>
-      <updated>1383428332242</updated>
-    </task>
-    <task id="LOCAL-00069" summary="Fix UI on projects index page">
-      <created>1383433383896</created>
-      <updated>1383433383896</updated>
-    </task>
-    <task id="LOCAL-00070" summary="Adding dashboard badges to project show page">
-      <created>1383495233442</created>
-      <updated>1383495233442</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Fixed milestones gadget on project show page">
-      <created>1383496890353</created>
-      <updated>1383496890353</updated>
-    </task>
-    <task id="LOCAL-00072" summary="Starting adding issues module">
-      <created>1384010297731</created>
-      <updated>1384010297731</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Updating milestones UI">
-      <created>1384011606476</created>
-      <updated>1384011606477</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Building out issues module">
-      <created>1384012370030</created>
-      <updated>1384012370030</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Building out issues module">
-      <created>1384035778881</created>
-      <updated>1384035778882</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Building out issues module">
-      <created>1384086369542</created>
-      <updated>1384086369543</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Added assignee to issue">
-      <created>1384094144190</created>
-      <updated>1384094144190</updated>
-    </task>
-    <task id="LOCAL-00078" summary="Added issue resolved/unresolved fucntionality">
-      <created>1384096979977</created>
-      <updated>1384096979977</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Added issue show page as a placeholder for a timelines">
-      <created>1384101970431</created>
-      <updated>1384101970432</updated>
-    </task>
-    <task id="LOCAL-00080" summary="Added issue show page as a placeholder for a timelines">
-      <created>1384108752882</created>
-      <updated>1384108752882</updated>
-    </task>
-    <task id="LOCAL-00081" summary="Added 'issues' to project dashboard">
-      <created>1384109778875</created>
-      <updated>1384109778876</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Adding posts functionality">
-      <created>1384437179361</created>
-      <updated>1384437179361</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Fixing UI for issues and posts">
-      <created>1384446109672</created>
-      <updated>1384446109673</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Fixing UI for issues and posts">
-      <created>1384464296029</created>
-      <updated>1384464296029</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Fixing UI for issues and posts">
-      <created>1384473272332</created>
-      <updated>1384473272332</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Fixing UI for pages titles">
-      <created>1384556572017</created>
-      <updated>1384556572017</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Adding action item module">
-      <created>1384642965758</created>
-      <updated>1384642965758</updated>
-    </task>
-    <task id="LOCAL-00088" summary="Building out action items module">
-      <created>1384708541743</created>
-      <updated>1384708541743</updated>
-    </task>
-    <task id="LOCAL-00089" summary="Building out action items module">
-      <created>1384708849267</created>
-      <updated>1384708849267</updated>
-    </task>
-    <task id="LOCAL-00090" summary="Pushing v0.8">
-      <created>1384910546731</created>
-      <updated>1384910546731</updated>
-    </task>
-    <task id="LOCAL-00091" summary="Pushing v0.8">
-      <created>1384910554155</created>
-      <updated>1384910554156</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Pushing v0.8">
-      <created>1385215432115</created>
-      <updated>1385215432115</updated>
-    </task>
-    <task id="LOCAL-00093" summary="Pushing v0.8">
-      <created>1385215814230</created>
-      <updated>1385215814230</updated>
-    </task>
-    <task id="LOCAL-00094" summary="Pushing v0.8">
-      <created>1385220565734</created>
-      <updated>1385220565734</updated>
-    </task>
-    <task id="LOCAL-00095" summary="Adding posts whenever an action takes place on an issue">
-      <created>1385234424750</created>
-      <updated>1385234424750</updated>
-    </task>
-    <task id="LOCAL-00096" summary="Adding posts whenever an action takes place on an issue">
-      <created>1385314629994</created>
-      <updated>1385314629994</updated>
-    </task>
-    <task id="LOCAL-00097" summary="Adding posts whenever an action takes place on an issue">
-      <created>1385329357132</created>
-      <updated>1385329357132</updated>
-    </task>
-    <task id="LOCAL-00098" summary="v0.9.1 - Building out smoke test.">
-      <created>1385594142937</created>
-      <updated>1385594142937</updated>
-    </task>
-    <task id="LOCAL-00099" summary="v0.9.2 - check security for user who don't access to projects">
-      <created>1385688694687</created>
-      <updated>1385688694687</updated>
-    </task>
-    <task id="LOCAL-00100" summary="v0.9.2 - add CanCan authorization">
-      <created>1385845630657</created>
-      <updated>1385845630657</updated>
-    </task>
-    <task id="LOCAL-00101" summary="v0.9.2 - add CanCan authorization">
-      <created>1385912444943</created>
-      <updated>1385912444943</updated>
-    </task>
-    <task id="LOCAL-00102" summary="v0.9.3 - cannot remove all admins, and cannot block yourself">
-      <created>1385913115504</created>
-      <updated>1385913115504</updated>
-    </task>
-    <task id="LOCAL-00103" summary="v0.9.4 - added figaro to protect assets">
-      <created>1385922366765</created>
-      <updated>1385922366765</updated>
-    </task>
-    <task id="LOCAL-00104" summary="v1.0 - Theme: Commercialize">
-      <created>1386427910015</created>
-      <updated>1386427910015</updated>
-    </task>
-    <task id="LOCAL-00105" summary="v1.0 - Theme: Commercialize">
-      <created>1386546692530</created>
-      <updated>1386546692530</updated>
-    </task>
-    <task id="LOCAL-00106" summary="Updating to rake 10.1.1">
-      <created>1388187118293</created>
-      <updated>1388187118293</updated>
-    </task>
-    <task id="LOCAL-00107" summary="Require milestone date and deal with error checking">
-      <created>1388241285160</created>
-      <updated>1388241285160</updated>
-    </task>
-    <task id="LOCAL-00108" summary="Show pie chart with % of total on milestones index">
-      <created>1388243052270</created>
-      <updated>1388243052270</updated>
-    </task>
-    <task id="LOCAL-00109" summary="Fixing UX on dashboard">
-      <created>1388340200307</created>
-      <updated>1388340200308</updated>
-    </task>
-    <task id="LOCAL-00110" summary="Moved audit logs to a separate tab">
-      <created>1388359203006</created>
-      <updated>1388359203006</updated>
-    </task>
-    <task id="LOCAL-00111" summary="Fixed UX for project edit form">
-      <created>1397858918502</created>
-      <updated>1397858918502</updated>
-    </task>
-    <task id="LOCAL-00112" summary="Fixed UX for todos module">
-      <created>1397861996906</created>
-      <updated>1397861996906</updated>
-    </task>
-    <task id="LOCAL-00113" summary="Fixed UX for issues index page">
-      <created>1397907906790</created>
-      <updated>1397907906790</updated>
-    </task>
-    <task id="LOCAL-00114" summary="Remove un-needed issues child attributes - make it just a child off the project">
-      <created>1397919814520</created>
-      <updated>1397919814520</updated>
-    </task>
-    <task id="LOCAL-00115" summary="Fix the 'activities' page to be more useful">
-      <created>1398163781357</created>
-      <updated>1398163781357</updated>
-    </task>
-    <task id="LOCAL-00116" summary="Remove modals in todos editing">
-      <created>1398165010058</created>
-      <updated>1398165010058</updated>
-    </task>
-    <task id="LOCAL-00117" summary="Put badges in the side nav for working items">
-      <created>1398166621353</created>
-      <updated>1398166621353</updated>
-    </task>
-    <task id="LOCAL-00118" summary="Started adding 'messages' module">
-      <created>1398347680055</created>
-      <updated>1398347680055</updated>
-    </task>
-    <task id="LOCAL-00119" summary="Building out 'messages' module">
-      <created>1398348723504</created>
-      <updated>1398348723504</updated>
-    </task>
-    <task id="LOCAL-00120" summary="Building out 'messages' module">
-      <created>1398374316428</created>
-      <updated>1398374316428</updated>
-    </task>
-    <task id="LOCAL-00121" summary="Building out 'messages' module">
-      <created>1398374984237</created>
-      <updated>1398374984237</updated>
-    </task>
-    <task id="LOCAL-00122" summary="Building out 'messages' module">
-      <created>1398423370660</created>
-      <updated>1398423370660</updated>
-    </task>
-    <task id="LOCAL-00123" summary="Add read receipts for messages">
-      <created>1398523036177</created>
-      <updated>1398523036177</updated>
-    </task>
-    <task id="LOCAL-00124" summary="Building out messages and read receipts">
-      <created>1398537443351</created>
-      <updated>1398537443351</updated>
-    </task>
-    <task id="LOCAL-00125" summary="Put badges in the side nav for active items">
-      <created>1398613038481</created>
-      <updated>1398613038481</updated>
-    </task>
-    <task id="LOCAL-00126" summary="Completed UX for timeline">
-      <created>1399117012297</created>
-      <updated>1399117012297</updated>
-    </task>
-    <task id="LOCAL-00127" summary="Refactoring issues controller">
-      <created>1399121939937</created>
-      <updated>1399121939937</updated>
-    </task>
-    <task id="LOCAL-00128" summary="Added messages module to smoke test">
-      <created>1399133860464</created>
-      <updated>1399133860464</updated>
-    </task>
-    <task id="LOCAL-00129" summary="Fixing sidebar badges bug">
-      <created>1399134593821</created>
-      <updated>1399134593821</updated>
-    </task>
-    <task id="LOCAL-00130" summary="Adding milestones / calendar">
-      <created>1399337782529</created>
-      <updated>1399337782529</updated>
-    </task>
-    <task id="LOCAL-00131" summary="Finish adding milestones / calendar">
-      <created>1399470980704</created>
-      <updated>1399470980704</updated>
-    </task>
-    <task id="LOCAL-00132" summary="Finish adding milestones / calendar">
-      <created>1399551038027</created>
-      <updated>1399551038027</updated>
-    </task>
-    <task id="LOCAL-00133" summary="Add 'messages' to smoke test and accompanying fixes">
-      <created>1399643541916</created>
-      <updated>1399643541917</updated>
-    </task>
-    <task id="LOCAL-00134" summary="Fixing missing colors from milestone editor">
-      <created>1399657678132</created>
-      <updated>1399657678132</updated>
-    </task>
-    <task id="LOCAL-00135" summary="add milestone delete option">
-      <created>1399658806993</created>
-      <updated>1399658806993</updated>
-    </task>
-    <task id="LOCAL-00136" summary="Building out the project dashboard page">
-      <created>1400190988932</created>
-      <updated>1400190988932</updated>
-    </task>
-    <task id="LOCAL-00137" summary="Building out the project dashboard page">
-      <created>1400198962483</created>
-      <updated>1400198962483</updated>
-    </task>
-    <task id="LOCAL-00138" summary="Build out upper HUD for my messages, my todos, my alerts etc">
-      <created>1401136794454</created>
-      <updated>1401136794454</updated>
-    </task>
-    <task id="LOCAL-00139" summary="Fix UX on project list, project show">
-      <created>1409487364329</created>
-      <updated>1409487364329</updated>
-    </task>
-    <task id="LOCAL-00140" summary="Working on CanCan bug">
-      <created>1409507391345</created>
-      <updated>1409507391345</updated>
-    </task>
-    <task id="LOCAL-00141" summary="Adjusting UX in Todos">
-      <created>1409508931146</created>
-      <updated>1409508931146</updated>
-    </task>
-    <task id="LOCAL-00142" summary="Adjusting UX in Issues">
-      <created>1409512847902</created>
-      <updated>1409512847902</updated>
-    </task>
-    <task id="LOCAL-00143" summary="Fixed bug so admin cannot delete ALL projects - must keep at least 1 active for membership">
-      <created>1409580436849</created>
-      <updated>1409580436849</updated>
-    </task>
-    <task id="LOCAL-00144" summary="Started building user profile">
-      <created>1409601073014</created>
-      <updated>1409601073014</updated>
-    </task>
-    <task id="LOCAL-00145" summary="Implmeneting new UX in login">
-      <created>1410263311287</created>
-      <updated>1410263311287</updated>
-    </task>
-    <task id="LOCAL-00146" summary="Implementing new UX in project module">
-      <created>1410717649521</created>
-      <updated>1410717649521</updated>
-    </task>
-    <task id="LOCAL-00147" summary="Implementing new UX in project module">
-      <created>1410718766527</created>
-      <updated>1410718766527</updated>
-    </task>
-    <task id="LOCAL-00148" summary="Implementing new UX in issues module">
-      <created>1410975476721</created>
-      <updated>1410975476721</updated>
-    </task>
-    <task id="LOCAL-00149" summary="Implementing new UX in issues module">
-      <created>1410979409894</created>
-      <updated>1410979409894</updated>
-    </task>
-    <task id="LOCAL-00150" summary="Implementing new UX in issues module">
-      <created>1410980630073</created>
-      <updated>1410980630073</updated>
-    </task>
-    <task id="LOCAL-00151" summary="Implementing new UX in issues module">
-      <created>1410982735643</created>
-      <updated>1410982735643</updated>
-    </task>
-    <task id="LOCAL-00152" summary="Implementing new UX in todos module">
-      <created>1411054877534</created>
-      <updated>1411054877534</updated>
-    </task>
-    <task id="LOCAL-00153" summary="Add description to Todo">
-      <created>1411132867264</created>
-      <updated>1411132867264</updated>
-    </task>
-    <task id="LOCAL-00154" summary="add is_complete to todo form">
-      <created>1411137122588</created>
-      <updated>1411137122589</updated>
-    </task>
-    <task id="LOCAL-00155" summary="add subject to issues list, fix UX">
-      <created>1411157905072</created>
-      <updated>1411157905072</updated>
-    </task>
-    <task id="LOCAL-00156" summary="fix defects in breadcrumbs and side_nav">
-      <created>1411158617527</created>
-      <updated>1411158617527</updated>
-    </task>
-    <task id="LOCAL-00157" summary="Adding milestones calendar in new UX">
-      <created>1411221783984</created>
-      <updated>1411221783984</updated>
-    </task>
-    <task id="LOCAL-00158" summary="Finish updating milestones UX">
-      <created>1411245827798</created>
-      <updated>1411245827798</updated>
-    </task>
-    <task id="LOCAL-00159" summary="Finish updating members UX">
-      <created>1411313325695</created>
-      <updated>1411313325695</updated>
-    </task>
-    <task id="LOCAL-00160" summary="Finish updating invitations UX">
-      <created>1411323536424</created>
-      <updated>1411323536424</updated>
-    </task>
-    <task id="LOCAL-00161" summary="Finish updating messages UX">
-      <created>1411397887186</created>
-      <updated>1411397887187</updated>
-    </task>
-    <task id="LOCAL-00162" summary="Finish updating messages UX">
-      <created>1411406611185</created>
-      <updated>1411406611185</updated>
-    </task>
-    <task id="LOCAL-00163" summary="Finish updating timeline/audit UX">
-      <created>1411491997039</created>
-      <updated>1411491997039</updated>
-    </task>
-    <task id="LOCAL-00164" summary="Updating project show/edit UX">
-      <created>1411560340964</created>
-      <updated>1411560340964</updated>
-    </task>
-    <task id="LOCAL-00165" summary="Adding todos widget to project dashboard">
-      <created>1411566026079</created>
-      <updated>1411566026079</updated>
-    </task>
-    <task id="LOCAL-00166" summary="Adding todos widget to project dashboard">
-      <created>1411570529627</created>
-      <updated>1411570529627</updated>
-    </task>
-    <task id="LOCAL-00167" summary="Adding issues widget to project dashboard">
-      <created>1411644490033</created>
-      <updated>1411644490033</updated>
-    </task>
-    <task id="LOCAL-00168" summary="Fix username is left nav">
-      <created>1411644750451</created>
-      <updated>1411644750451</updated>
-    </task>
-    <task id="LOCAL-00169" summary="Fix UX in issues gadget on dashboard">
-      <created>1411645210728</created>
-      <updated>1411645210728</updated>
-    </task>
-    <task id="LOCAL-00170" summary="Add description, status to project show page">
-      <created>1411646490348</created>
-      <updated>1411646490348</updated>
-    </task>
-    <task id="LOCAL-00171" summary="Hacked a workaround in projects_helper to accomodate testing">
-      <created>1411740553066</created>
-      <updated>1411740553066</updated>
-    </task>
-    <task id="LOCAL-00172" summary="Fixing bugs in todos module">
-      <created>1411742197959</created>
-      <updated>1411742197959</updated>
-    </task>
-    <task id="LOCAL-00173" summary="Replace issues UX with todos UX">
-      <created>1411744550811</created>
-      <updated>1411744550812</updated>
-    </task>
-    <task id="LOCAL-00174" summary="Replace issues UX with todos UX">
-      <created>1411745673123</created>
-      <updated>1411745673123</updated>
-    </task>
-    <task id="LOCAL-00175" summary="Update badges for issues and todos when updated via ajax">
-      <created>1411753993515</created>
-      <updated>1411753993515</updated>
-    </task>
-    <task id="LOCAL-00176" summary="Fix branding in the title bar">
-      <created>1411826955178</created>
-      <updated>1411826955178</updated>
-    </task>
-    <task id="LOCAL-00177" summary="Fix branding in the title bar">
-      <created>1411826960100</created>
-      <updated>1411826960100</updated>
-    </task>
-    <task id="LOCAL-00178" summary="added user icon or photo on members index page">
-      <created>1411915840623</created>
-      <updated>1411915840623</updated>
-    </task>
-    <task id="LOCAL-00179" summary="add error flash to top of login form">
-      <created>1411917484557</created>
-      <updated>1411917484557</updated>
-    </task>
-    <task id="LOCAL-00180" summary="Making sure user has admin rights before allowing ability to edit or delete a project">
-      <created>1411920443130</created>
-      <updated>1411920443130</updated>
-    </task>
-    <task id="LOCAL-00181" summary="Added sort capability to todos and to issues">
-      <created>1411924508570</created>
-      <updated>1411924508570</updated>
-    </task>
-    <task id="LOCAL-00182" summary="Added sort capability to todos and to issues">
-      <created>1411924656960</created>
-      <updated>1411924656960</updated>
-    </task>
-    <task id="LOCAL-00183" summary="Fix position accessibility attribute on issues">
-      <created>1411941900297</created>
-      <updated>1411941900297</updated>
-    </task>
-    <task id="LOCAL-00184" summary="Fix calendar layout on dashboard">
-      <created>1411943925095</created>
-      <updated>1411943925095</updated>
-    </task>
-    <task id="LOCAL-00185" summary="Fix title on todo delete button">
-      <created>1412091586984</created>
-      <updated>1412091586984</updated>
-    </task>
-    <task id="LOCAL-00186" summary="Fix draggable on calendar on dashboard">
-      <created>1412098119490</created>
-      <updated>1412098119490</updated>
-    </task>
-    <task id="LOCAL-00187" summary="Fixing add/edit form for icon and priority">
-      <created>1412100162912</created>
-      <updated>1412100162912</updated>
-    </task>
-    <task id="LOCAL-00188" summary="Fix display error in icon picker in milestones">
-      <created>1412173143066</created>
-      <updated>1412173143066</updated>
-    </task>
-    <task id="LOCAL-00189" summary="Adding start-time and end-time to milestones">
-      <created>1412258698176</created>
-      <updated>1412258698176</updated>
-    </task>
-    <task id="LOCAL-00190" summary="Removing voice command toolbar - it only works with set commands!">
-      <created>1412262031782</created>
-      <updated>1412262031782</updated>
-    </task>
-    <task id="LOCAL-00191" summary="Adding is-critical field to todos and issues">
-      <created>1412284665469</created>
-      <updated>1412284665469</updated>
-    </task>
-    <task id="LOCAL-00192" summary="Remove tooltips on forms">
-      <created>1412299330468</created>
-      <updated>1412299330468</updated>
-    </task>
-    <task id="LOCAL-00193" summary="Adding user profile page.">
-      <created>1412367047599</created>
-      <updated>1412367047599</updated>
-    </task>
-    <task id="LOCAL-00194" summary="Adding project-level summary of MY tasks on each line item in project index page.">
-      <created>1412370040579</created>
-      <updated>1412370040579</updated>
-    </task>
-    <task id="LOCAL-00195" summary="Adjusting lables on link to comments from dashboard">
-      <created>1412422472563</created>
-      <updated>1412422472563</updated>
-    </task>
-    <task id="LOCAL-00196" summary="Introduced Apache Bench (ab) testing and NewRelic for test bench monitoring">
-      <created>1412544784186</created>
-      <updated>1412544784186</updated>
-    </task>
-    <task id="LOCAL-00197" summary="Added performance test files to .gitignore">
-      <created>1412603073642</created>
-      <updated>1412603073642</updated>
-    </task>
-    <task id="LOCAL-00198" summary="UX tweaks from usability testing session.">
-      <created>1412613846617</created>
-      <updated>1412613846617</updated>
-    </task>
-    <task id="LOCAL-00199" summary="UX tweaks from usability testing session.">
-      <created>1412701190741</created>
-      <updated>1412701190741</updated>
-    </task>
-    <task id="LOCAL-00200" summary="UX tweaks from usability testing session.">
-      <created>1412702127336</created>
-      <updated>1412702127336</updated>
-    </task>
-    <task id="LOCAL-00201" summary="Started configuring registration engine.">
-      <created>1413295124702</created>
-      <updated>1413295124702</updated>
-    </task>
-    <task id="LOCAL-00202" summary="Introduce change / recover password features">
-      <created>1413463921423</created>
-      <updated>1413463921423</updated>
-    </task>
-    <task id="LOCAL-00203" summary="Commercialization#126 - Add favicon.ico">
-      <created>1413485893598</created>
-      <updated>1413485893598</updated>
-    </task>
-    <task id="LOCAL-00204" summary="Commercialization#124 - Improve 500, 404, and 422 handling.">
-      <created>1413546106539</created>
-      <updated>1413546106539</updated>
-    </task>
-    <task id="LOCAL-00205" summary="Commercialization#123 - Completed integration testing fixes.">
-      <created>1413559214822</created>
-      <updated>1413559214822</updated>
-    </task>
-    <task id="LOCAL-00206" summary="Commercialization#118 - Added image slider and captions for marketing landing page.">
-      <created>1413752481726</created>
-      <updated>1413752481726</updated>
-    </task>
-    <task id="LOCAL-00207" summary="Commercialization#117 - Added pricing page.">
-      <created>1413755260204</created>
-      <updated>1413755260204</updated>
-    </task>
-    <task id="LOCAL-00208" summary="Commercialization#117 - Added pricing page.">
-      <created>1413755766959</created>
-      <updated>1413755766959</updated>
-    </task>
-    <task id="LOCAL-00209" summary="Commercialization#117 - Added pricing page.">
-      <created>1413762083062</created>
-      <updated>1413762083062</updated>
-    </task>
-    <task id="LOCAL-00210" summary="Commercialization#131 - hero unit -- captions + sub-pillars.">
-      <created>1413822560533</created>
-      <updated>1413822560533</updated>
-    </task>
-    <task id="LOCAL-00211" summary="Commercialization#119 - Building out the registration engine...">
-      <created>1413836207859</created>
-      <updated>1413836207860</updated>
-    </task>
-    <task id="LOCAL-00212" summary="Commercialization#119 - Building out the registration engine...">
-      <created>1413907099170</created>
-      <updated>1413907099171</updated>
-    </task>
-    <task id="LOCAL-00213" summary="Commercialization#119 - Adding plan to the user model and adding to registration engine...">
-      <created>1413909569443</created>
-      <updated>1413909569443</updated>
-    </task>
-    <task id="LOCAL-00214" summary="Commercialization#119 - Adding plan to the user model and adding to registration engine...">
-      <created>1413909589902</created>
-      <updated>1413909589902</updated>
-    </task>
-    <task id="LOCAL-00215" summary="Commercialization#119 - Adding plan to the user model and adding to registration engine...">
-      <created>1413909718821</created>
-      <updated>1413909718821</updated>
-    </task>
-    <task id="LOCAL-00216" summary="Commercialization#119 - Adding js and fields to allow API calls into Stripe (not yet done)...">
-      <created>1413923558666</created>
-      <updated>1413923558666</updated>
-    </task>
-    <task id="LOCAL-00217" summary="Commercialization#119 - Adding js and fields to allow API calls into Stripe (still in progress)...">
-      <created>1413986362851</created>
-      <updated>1413986362852</updated>
-    </task>
-    <task id="LOCAL-00218" summary="Commercialization#119 - Breaking registration and billing into 2 separate steps.">
-      <created>1413992484015</created>
-      <updated>1413992484015</updated>
-    </task>
-    <task id="LOCAL-00219" summary="Commercialization#119 - Completed UX for registration engine - does not include billing yet.">
-      <created>1414016626060</created>
-      <updated>1414016626060</updated>
-    </task>
-    <task id="LOCAL-00220" summary="Commercialization#119 - Refactored UX for devise actions so be away from billing info.">
-      <created>1414084156215</created>
-      <updated>1414084156215</updated>
-    </task>
-    <task id="LOCAL-00221" summary="Commercialization#119 - Refactored UX for devise actions so be away from billing info.">
-      <created>1414157918169</created>
-      <updated>1414157918169</updated>
-    </task>
-    <task id="LOCAL-00222" summary="Commercialization#119 - Refactored UX for devise actions so be away from billing info.">
-      <created>1414158791586</created>
-      <updated>1414158791586</updated>
-    </task>
-    <task id="LOCAL-00223" summary="Commercialization#121 - Building out Strip billing.">
-      <created>1414238089723</created>
-      <updated>1414238089723</updated>
-    </task>
-    <task id="LOCAL-00224" summary="Commercialization#121 - Building out Strip billing.">
-      <created>1414238105707</created>
-      <updated>1414238105707</updated>
-    </task>
-    <task id="LOCAL-00225" summary="Commercialization#121 - Building out Strip billing.">
-      <created>1414239495085</created>
-      <updated>1414239495085</updated>
-    </task>
-    <task id="LOCAL-00226" summary="Commercialization#160 - Edit subscription with Stripe.">
-      <created>1414248018992</created>
-      <updated>1414248018992</updated>
-    </task>
-    <task id="LOCAL-00227" summary="Commercialization#160 - Edit subscription with Stripe.">
-      <created>1414248581385</created>
-      <updated>1414248581385</updated>
-    </task>
-    <task id="LOCAL-00228" summary="Commercialization#161 - Change credit card being billed with Stripe.">
-      <created>1414259672753</created>
-      <updated>1414259672753</updated>
-    </task>
-    <task id="LOCAL-00229" summary="Commercialization#161 - Change credit card being billed with Stripe.">
-      <created>1414267276336</created>
-      <updated>1414267276336</updated>
-    </task>
-    <task id="LOCAL-00230" summary="Commercialization#163 - Allow user to cancel account and unsubscribe on Stripe.">
-      <created>1414268951170</created>
-      <updated>1414268951170</updated>
-    </task>
-    <task id="LOCAL-00231" summary="Commercialization#162 - Stripe notifications / emails / account expriation notifications.">
-      <created>1414331919397</created>
-      <updated>1414331919397</updated>
-    </task>
-    <task id="LOCAL-00232" summary="Issue#40 - move marketing content from index.html to content controller.">
-      <created>1414410123106</created>
-      <updated>1414410123106</updated>
-    </task>
-    <task id="LOCAL-00233" summary="Fix test fixtures now that Stripe integration is complete">
-      <created>1414413703019</created>
-      <updated>1414413703019</updated>
-    </task>
-    <task id="LOCAL-00234" summary="Updated marketing text.">
-      <created>1414527205801</created>
-      <updated>1414527205801</updated>
-    </task>
-    <task id="LOCAL-00235" summary="Commercialization#159 - limit ability based on subscription / CanCan.">
-      <created>1414590270935</created>
-      <updated>1414590270935</updated>
-    </task>
-    <task id="LOCAL-00236" summary="Commercialization - building smoke tests and fixing defects.">
-      <created>1414614562818</created>
-      <updated>1414614562818</updated>
-    </task>
-    <task id="LOCAL-00237" summary="Commercialization - building smoke tests and fixing defects.">
-      <created>1414674860024</created>
-      <updated>1414674860024</updated>
-    </task>
-    <task id="LOCAL-00238" summary="Commercialization - building smoke tests and fixing defects.">
-      <created>1414706845914</created>
-      <updated>1414706845914</updated>
-    </task>
-    <task id="LOCAL-00239" summary="Commercialization - building smoke tests and fixing defects.">
-      <created>1414775146570</created>
-      <updated>1414775146570</updated>
-    </task>
-    <task id="LOCAL-00240" summary="Commercialization - Sending an email to HQ for any change to an account that has financial impact, so it can be audited against Stripe.">
-      <created>1414873407750</created>
-      <updated>1414873407750</updated>
-    </task>
-    <task id="LOCAL-00241" summary="Fixing bugs in planner and routes">
-      <created>1414978488686</created>
-      <updated>1414978488686</updated>
-    </task>
-    <task id="LOCAL-00242" summary="Fix UX on login and registration pages">
-      <created>1415222719481</created>
-      <updated>1415222719481</updated>
-    </task>
-    <task id="LOCAL-00243" summary="Sort projects on their status.">
-      <created>1415223031008</created>
-      <updated>1415223031008</updated>
-    </task>
-    <task id="LOCAL-00244" summary="Fix bug where on activities log, new issues are missing title.">
-      <created>1415224257269</created>
-      <updated>1415224257269</updated>
     </task>
     <task id="LOCAL-00245" summary="Adding ‘locked’ and ‘closed’ fields, formatting, business logic, and smoke tests to PROJECT and TODOS">
       <created>1415380462301</created>
+      <option name="number" value="00245" />
+      <option name="project" value="LOCAL" />
       <updated>1415380462301</updated>
     </task>
     <task id="LOCAL-00246" summary="Adding ‘locked’ and ‘closed’ fields, formatting, and business logic to ISSUES">
       <created>1415381463239</created>
+      <option name="number" value="00246" />
+      <option name="project" value="LOCAL" />
       <updated>1415381463239</updated>
     </task>
     <task id="LOCAL-00247" summary="Adding ‘locked’ and ‘closed’ fields, formatting, and business logic to MILESTONES">
       <created>1415391362638</created>
+      <option name="number" value="00247" />
+      <option name="project" value="LOCAL" />
       <updated>1415391362638</updated>
     </task>
     <task id="LOCAL-00248" summary="Adding ‘locked’ and ‘closed’ fields, formatting, and business logic to MESSAGES">
       <created>1415392865480</created>
+      <option name="number" value="00248" />
+      <option name="project" value="LOCAL" />
       <updated>1415392865480</updated>
     </task>
     <task id="LOCAL-00249" summary="Adding formatted content to emails, rather than plain text.">
       <created>1415816846690</created>
+      <option name="number" value="00249" />
+      <option name="project" value="LOCAL" />
       <updated>1415816846690</updated>
     </task>
     <task id="LOCAL-00250" summary="Hiding postgres local security in env variables">
       <created>1415977500551</created>
+      <option name="number" value="00250" />
+      <option name="project" value="LOCAL" />
       <updated>1415977500551</updated>
     </task>
     <task id="LOCAL-00251" summary="Adjusting local env variables for Stripe API keys">
       <created>1415979099527</created>
+      <option name="number" value="00251" />
+      <option name="project" value="LOCAL" />
       <updated>1415979099527</updated>
     </task>
     <task id="LOCAL-00252" summary="Finished formatting of outbound email content.">
       <created>1415980397425</created>
+      <option name="number" value="00252" />
+      <option name="project" value="LOCAL" />
       <updated>1415980397425</updated>
     </task>
     <task id="LOCAL-00253" summary="#59 - put comments count in the label next to the issue title on issue index">
       <created>1416102192231</created>
+      <option name="number" value="00253" />
+      <option name="project" value="LOCAL" />
       <updated>1416102192231</updated>
     </task>
     <task id="LOCAL-00254" summary="#54 - re-order the left nav">
       <created>1416104344039</created>
+      <option name="number" value="00254" />
+      <option name="project" value="LOCAL" />
       <updated>1416104344039</updated>
     </task>
     <task id="LOCAL-00255" summary="#58 - display user's name somewhere on top nav">
       <created>1416107143779</created>
+      <option name="number" value="00255" />
+      <option name="project" value="LOCAL" />
       <updated>1416107143780</updated>
     </task>
     <task id="LOCAL-00256" summary="#57 - fix the UX for the invitations module">
       <created>1416137737895</created>
+      <option name="number" value="00256" />
+      <option name="project" value="LOCAL" />
       <updated>1416137737895</updated>
     </task>
     <task id="LOCAL-00257" summary="Issues #55, #56 - fix the summary page to have fixed=size widgets and ability to add-new from that page">
       <created>1416409722757</created>
+      <option name="number" value="00257" />
+      <option name="project" value="LOCAL" />
       <updated>1416409722757</updated>
     </task>
     <task id="LOCAL-00258" summary="Rolling back to SmartAdmin 1.4 and pushing release 2014.11">
       <created>1417981591748</created>
+      <option name="number" value="00258" />
+      <option name="project" value="LOCAL" />
       <updated>1417981591748</updated>
     </task>
     <task id="LOCAL-00259" summary="Rolling back to SmartAdmin 1.4 and pushing release 2014.11">
       <created>1417981696299</created>
+      <option name="number" value="00259" />
+      <option name="project" value="LOCAL" />
       <updated>1417981696299</updated>
     </task>
     <task id="LOCAL-00260" summary="Fixed login screen UX issues">
       <created>1418422102827</created>
+      <option name="number" value="00260" />
+      <option name="project" value="LOCAL" />
       <updated>1418422102827</updated>
     </task>
     <task id="LOCAL-00261" summary="Adding ANNOUNCEMENTS engine and replaced messages engine">
       <created>1418484885160</created>
+      <option name="number" value="00261" />
+      <option name="project" value="LOCAL" />
       <updated>1418484885160</updated>
     </task>
     <task id="LOCAL-00262" summary="Started SETTINGS engine">
       <created>1419009579186</created>
+      <option name="number" value="00262" />
+      <option name="project" value="LOCAL" />
       <updated>1419009579186</updated>
     </task>
     <task id="LOCAL-00263" summary="Adding categories data-entry to settings">
       <created>1419089594999</created>
+      <option name="number" value="00263" />
+      <option name="project" value="LOCAL" />
       <updated>1419089594999</updated>
     </task>
     <task id="LOCAL-00264" summary="Adding categories data-entry to settings">
       <created>1419089705822</created>
+      <option name="number" value="00264" />
+      <option name="project" value="LOCAL" />
       <updated>1419089705822</updated>
     </task>
     <task id="LOCAL-00265" summary="Adding categories data-entry to settings">
       <created>1419089716341</created>
+      <option name="number" value="00265" />
+      <option name="project" value="LOCAL" />
       <updated>1419089716341</updated>
     </task>
     <task id="LOCAL-00266" summary="Adding CATEGORIES to todos and issues">
       <created>1419258223987</created>
+      <option name="number" value="00266" />
+      <option name="project" value="LOCAL" />
       <updated>1419258223987</updated>
     </task>
     <task id="LOCAL-00267" summary="Adding category display to issues index and todos index">
       <created>1419958553717</created>
+      <option name="number" value="00267" />
+      <option name="project" value="LOCAL" />
       <updated>1419958553717</updated>
     </task>
     <task id="LOCAL-00268" summary="Release 2014.12">
       <created>1419986060343</created>
+      <option name="number" value="00268" />
+      <option name="project" value="LOCAL" />
       <updated>1419986060343</updated>
     </task>
     <task id="LOCAL-00269" summary="Release 2014.12">
       <created>1419986074610</created>
+      <option name="number" value="00269" />
+      <option name="project" value="LOCAL" />
       <updated>1419986074610</updated>
     </task>
     <task id="LOCAL-00270" summary="Prepare for the public unveiling...">
       <created>1422826947272</created>
+      <option name="number" value="00270" />
+      <option name="project" value="LOCAL" />
       <updated>1422826947272</updated>
     </task>
     <task id="LOCAL-00271" summary="Working on revised projects listing page">
       <created>1425038673139</created>
+      <option name="number" value="00271" />
+      <option name="project" value="LOCAL" />
       <updated>1425038673139</updated>
     </task>
     <task id="LOCAL-00272" summary="Working on revised projects listing page">
       <created>1425131209094</created>
+      <option name="number" value="00272" />
+      <option name="project" value="LOCAL" />
       <updated>1425131209094</updated>
     </task>
     <task id="LOCAL-00273" summary="Major rewrite of the projects listing page">
       <created>1425135788193</created>
+      <option name="number" value="00273" />
+      <option name="project" value="LOCAL" />
       <updated>1425135788193</updated>
     </task>
     <task id="LOCAL-00274" summary="Hackathon to make UX tweaks">
       <created>1425157039025</created>
+      <option name="number" value="00274" />
+      <option name="project" value="LOCAL" />
       <updated>1425157039025</updated>
     </task>
     <task id="LOCAL-00275" summary="Todo ID# 329 - improve category creation UX (use form widgets)">
       <created>1425227907689</created>
+      <option name="number" value="00275" />
+      <option name="project" value="LOCAL" />
       <updated>1425227907689</updated>
     </task>
     <task id="LOCAL-00276" summary="Issue ID# 78 - Fix counts &quot;for me&quot; on project index">
       <created>1426446325085</created>
+      <option name="number" value="00276" />
+      <option name="project" value="LOCAL" />
       <updated>1426446325085</updated>
     </task>
     <task id="LOCAL-00277" summary="Todo ID# 330 - redesign UX on project show page">
       <created>1426448219245</created>
+      <option name="number" value="00277" />
+      <option name="project" value="LOCAL" />
       <updated>1426448219245</updated>
     </task>
     <task id="LOCAL-00278" summary="Migrate config to Rails 4.1.2">
       <created>1428093713680</created>
+      <option name="number" value="00278" />
+      <option name="project" value="LOCAL" />
       <updated>1428093713680</updated>
     </task>
     <task id="LOCAL-00279" summary="Migrate config to Rails 4.1.2 - successfully run migrations">
       <created>1428192297816</created>
+      <option name="number" value="00279" />
+      <option name="project" value="LOCAL" />
       <updated>1428192297816</updated>
     </task>
     <task id="LOCAL-00280" summary="Migrate config to Rails 4.1.2 - upgraded audits">
       <created>1428234050304</created>
+      <option name="number" value="00280" />
+      <option name="project" value="LOCAL" />
       <updated>1428234050304</updated>
     </task>
     <task id="LOCAL-00281" summary="Migrate config to Rails 4.1.2 - upgraded settings">
       <created>1428234695867</created>
+      <option name="number" value="00281" />
+      <option name="project" value="LOCAL" />
       <updated>1428234695867</updated>
     </task>
     <task id="LOCAL-00282" summary="Migrate config to Rails 4.1.2 - fixing strong params and routes">
       <created>1428253884124</created>
+      <option name="number" value="00282" />
+      <option name="project" value="LOCAL" />
       <updated>1428253884124</updated>
     </task>
     <task id="LOCAL-00283" summary="Migrate config to Rails 4.1.2 - fixing CRUD for members">
       <created>1428259736494</created>
+      <option name="number" value="00283" />
+      <option name="project" value="LOCAL" />
       <updated>1428259736494</updated>
     </task>
     <task id="LOCAL-00284" summary="Migrate config to Rails 4.1.2 - fixed sending and accepting invitations">
       <created>1428261210302</created>
+      <option name="number" value="00284" />
+      <option name="project" value="LOCAL" />
       <updated>1428261210302</updated>
     </task>
     <task id="LOCAL-00285" summary="Migrate config to Rails 4.1.2 - fixed devise registration based on http://stackoverflow.com/questions/25704625/rails-4-devise-unpermitted-parameters-when-updating-users-account">
       <created>1428262678609</created>
+      <option name="number" value="00285" />
+      <option name="project" value="LOCAL" />
       <updated>1428262678609</updated>
     </task>
     <task id="LOCAL-00286" summary="Migrate config to Rails 4.1.2 - fixed devise strong params delaing with stripe cc payments">
       <created>1428359363810</created>
+      <option name="number" value="00286" />
+      <option name="project" value="LOCAL" />
       <updated>1428359363810</updated>
     </task>
     <task id="LOCAL-00287" summary="Migrate config to Rails 4.1.2 - fixes to get smoke test to run">
       <created>1428750694285</created>
+      <option name="number" value="00287" />
+      <option name="project" value="LOCAL" />
       <updated>1428750694285</updated>
     </task>
     <task id="LOCAL-00288" summary="Migrate config to Rails 4.1.2">
       <created>1428750706667</created>
+      <option name="number" value="00288" />
+      <option name="project" value="LOCAL" />
       <updated>1428750706667</updated>
     </task>
     <task id="LOCAL-00289" summary="Tuning the UX of the projects index view">
       <created>1428785133732</created>
+      <option name="number" value="00289" />
+      <option name="project" value="LOCAL" />
       <updated>1428785133732</updated>
     </task>
     <task id="LOCAL-00290" summary="Tuning the UX of the issues and tasks view">
       <created>1428868113632</created>
+      <option name="number" value="00290" />
+      <option name="project" value="LOCAL" />
       <updated>1428868113632</updated>
     </task>
     <task id="LOCAL-00291" summary="Tuning the UX of the issues and tasks views">
       <created>1428868197293</created>
+      <option name="number" value="00291" />
+      <option name="project" value="LOCAL" />
       <updated>1428868197293</updated>
     </task>
     <task id="LOCAL-00292" summary="Tuning the UX of the issues and tasks views">
       <created>1428868209875</created>
+      <option name="number" value="00292" />
+      <option name="project" value="LOCAL" />
       <updated>1428868209875</updated>
     </task>
-    <option name="localTasksCounter" value="293" />
+    <task id="LOCAL-00293" summary="Tuning the UX of the announcements">
+      <created>1428889758500</created>
+      <option name="number" value="00293" />
+      <option name="project" value="LOCAL" />
+      <updated>1428889758500</updated>
+    </task>
+    <option name="localTasksCounter" value="294" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -2312,86 +1155,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="23" width="1301" height="771" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="815" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32863188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971016" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29515758" sideWeight="0.6866953" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30829757" sideWeight="0.6866953" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31111112" sideWeight="0.98031497" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271028" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31330472" sideWeight="0.98031497" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19444445" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32863188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25894135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769832" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="true" />
-    <option name="myTodoPanelSettings">
-      <value>
-        <are-packages-shown value="false" />
-        <are-modules-shown value="false" />
-        <flatten-packages value="false" />
-        <is-autoscroll-to-source value="false" />
-      </value>
-    </option>
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
-    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
-    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
-    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
-    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
-    <option name="UPDATE_FILTER_SCOPE_NAME" />
-    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tuning the UX of the issues and tasks views" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
-    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
-    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
-    <option name="ACTIVE_VCS_NAME" />
-    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
-    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
-    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
-    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Started SETTINGS engine" />
     <MESSAGE value="Adding categories data-entry to settings" />
     <MESSAGE value="Adding CATEGORIES to todos and issues" />
     <MESSAGE value="Adding category display to issues index and todos index" />
@@ -2416,130 +1208,140 @@
     <MESSAGE value="Tuning the UX of the projects index view" />
     <MESSAGE value="Tuning the UX of the issues and tasks view" />
     <MESSAGE value="Tuning the UX of the issues and tasks views" />
+    <MESSAGE value="Tuning the UX of the announcements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tuning the UX of the announcements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="16" selection-start="253" selection-end="253" vertical-scroll-proportion="0.19911504">
-          <folding />
+        <state vertical-scroll-proportion="0.19911504">
+          <caret line="6" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/test.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="4" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.53539824">
-          <folding />
+        <state vertical-scroll-proportion="0.53539824">
+          <caret line="33" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="41" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.03318584">
-          <folding />
+        <state vertical-scroll-proportion="0.03318584">
+          <caret line="27" column="41" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="251" selection-end="251" vertical-scroll-proportion="0.03318584">
-          <folding />
+        <state vertical-scroll-proportion="0.03318584">
+          <caret line="7" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="384" column="22" selection-start="12786" selection-end="12786" vertical-scroll-proportion="0.036144577">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/projects_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="75" selection-start="1130" selection-end="1130" vertical-scroll-proportion="0.6492027">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="37" selection-start="4034" selection-end="4034" vertical-scroll-proportion="0.7590361">
-          <folding />
+        <state vertical-scroll-proportion="0.036144577">
+          <caret line="384" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/todos/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="51" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.5301205">
-          <folding />
+        <state vertical-scroll-proportion="0.5301205">
+          <caret line="71" column="51" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/issues/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="50" selection-start="2287" selection-end="2297" vertical-scroll-proportion="0.5301205">
-          <folding />
+        <state vertical-scroll-proportion="0.5301205">
+          <caret line="63" column="50" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/issues/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="2885" selection-end="2885" vertical-scroll-proportion="0.56626505">
-          <folding>
-            <element signature="n#style#0;n#span#0;n#p#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.56626505">
+          <caret line="65" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/todos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="2263" selection-end="2937" vertical-scroll-proportion="0.92771083">
-          <folding>
-            <element signature="n#style#0;n#span#0;n#p#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/projects/_breadcrumbs.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="396" selection-end="396" vertical-scroll-proportion="-5.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/SmartAdmin/css/your_style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="15" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0">
-          <folding />
+        <state vertical-scroll-proportion="0.92771083">
+          <caret line="66" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/announcements/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="131" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.79518074">
+        <state vertical-scroll-proportion="0.31325302">
+          <caret line="12" column="79" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/SmartAdmin/css/your_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8340708">
+          <caret line="33" column="15" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/projects/_breadcrumbs.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3253012">
+          <caret line="9" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.875">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/projects_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9797297">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
   </component>
 </project>
-
