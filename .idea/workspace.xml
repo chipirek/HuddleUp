@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1973f6-6655-45d0-a7ac-ae476ae5860c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/projects/show.html.erb" afterPath="$PROJECT_DIR$/app/views/projects/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/members/index.html.erb" afterPath="$PROJECT_DIR$/app/views/members/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="52656041-ba70-43b0-bc7a-641c3997a2af" name="RubyMine project" comment="" />
@@ -32,12 +32,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/members/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6507177">
-              <caret line="23" column="71" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
-              <folding />
+            <state vertical-scroll-proportion="0.28229666">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,6 +75,7 @@
         <option value="$PROJECT_DIR$/app/views/layouts/devise/new_registration.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/devise/sessions.html.erb" />
         <option value="$PROJECT_DIR$/app/views/projects/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/members/index.html.erb" />
       </list>
     </option>
   </component>
@@ -304,6 +307,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HuddleUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HuddleUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="members" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -817,12 +842,6 @@
       <option name="number" value="Default" />
       <updated>1370706518484</updated>
     </task>
-    <task id="LOCAL-00248" summary="Adding ‘locked’ and ‘closed’ fields, formatting, and business logic to MESSAGES">
-      <created>1415392865480</created>
-      <option name="number" value="00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1415392865480</updated>
-    </task>
     <task id="LOCAL-00249" summary="Adding formatted content to emails, rather than plain text.">
       <created>1415816846690</created>
       <option name="number" value="00249" />
@@ -1111,7 +1130,13 @@
       <option name="project" value="LOCAL" />
       <updated>1433804186864</updated>
     </task>
-    <option name="localTasksCounter" value="297" />
+    <task id="LOCAL-00297" summary="Fix UX on top of project dashboard">
+      <created>1433805091989</created>
+      <option name="number" value="00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1433805091989</updated>
+    </task>
+    <option name="localTasksCounter" value="298" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -1164,7 +1189,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Release 2014.12" />
     <MESSAGE value="Prepare for the public unveiling..." />
     <MESSAGE value="Working on revised projects listing page" />
     <MESSAGE value="Major rewrite of the projects listing page" />
@@ -1189,7 +1213,8 @@
     <MESSAGE value="Simplify the project listing page" />
     <MESSAGE value="Fix comments area UX" />
     <MESSAGE value="Add SEO changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add SEO changes" />
+    <MESSAGE value="Fix UX on top of project dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix UX on top of project dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1354,6 +1379,16 @@
         <state vertical-scroll-proportion="0.6507177">
           <caret line="23" column="71" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/members/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28229666">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
