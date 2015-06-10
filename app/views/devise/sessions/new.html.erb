@@ -8,27 +8,30 @@
         <div class="hero">
 
           <div class="pull-left login-desc-box-l">
-            <h4 class="paragraph-header">From 1 to 10,000 team members. Unlimited projects. Pay as go. Use what you need.</h4>
-          </div>
+            <h4 class="paragraph-header">Start huddling with your team.</h4>
 
-          <img src="/SmartAdmin/img/demo/team_huddle_1.jpg" class="pull-right display-image" alt="" style="width:210px">
-
-        </div>
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h5 class="about-heading">HuddleUp is easy to use and easy on your wallet.</h5>
+            <p>&nbsp;</p>
+            <h5 class="about-heading">Forget paper and spreadsheets.</h5>
             <p>
-              Experience the simplicity of HuddleUp, everywhere you go!
+              HuddleUp has cloud-based schedules, todo lists, alerts, and group messages - all in one place.
             </p>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <p>&nbsp;</p>
             <h5 class="about-heading">Get together!</h5>
             <p>
               HuddleUp is an intuitive, secure, web-based collaboration tool. HuddleUp to run your projects more efficiently, stay in sync with family, and manage your time!
             </p>
+            <p>&nbsp;</p>
+            <h5 class="about-heading">HuddleUp is easy to use and easy on your wallet.</h5>
+            <p>
+              From 1 to 1,000 people on your team. Unlimited projects. Pay as go. Use what you need.
+            </p>
+
           </div>
+
+          <img src="/SmartAdmin/img/demo/team_huddle_1.jpg" class="pull-right display-image" alt="" style="width:260px">
+
         </div>
+
 
       </div>
       <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
@@ -39,7 +42,7 @@
               Sign In
             </header>
 
-              <% if flash[:alert] && current_user %>
+              <% if flash[:alert] %>
                   <div class="alert alert-danger fade in" style='margin-left: 10px; margin-right: 10px; margin-top: 10px;'>
                     <button class="close" data-dismiss="alert">
                       ×
@@ -48,6 +51,8 @@
                     <strong>Error!</strong> <%= flash[:alert] %>
                   </div>
               <% end %>
+
+              <%= devise_error_messages! %>
 
               <fieldset>
 
@@ -87,20 +92,6 @@
           <% end %>
 
         </div>
-
-        <h5 class="text-center"> - Or sign in using -</h5>
-
-        <ul class="list-inline text-center">
-          <li>
-            <a href="notimlemented.html" class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
-          </li>
-          <li>
-            <a href="notimlemented.html" class="btn btn-info btn-circle"><i class="fa fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="notimlemented.html" class="btn btn-warning btn-circle"><i class="fa fa-linkedin"></i></a>
-          </li>
-        </ul>
 
       </div>
     </div>

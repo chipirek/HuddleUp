@@ -45,6 +45,7 @@
   <p>
 
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put, :class => 'smart-form', :id => 'profile_form'}) do |f| %>
+
         <%= devise_error_messages! %>
         <%= display_base_errors resource %>
 

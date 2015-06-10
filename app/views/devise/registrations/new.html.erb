@@ -1,14 +1,46 @@
+
+<!-- MAIN CONTENT -->
 <div id="content" class="container">
 
-  <div class="row col-xs-12 col-sm-12 col-md-5 col-lg-12">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+      <h1 class="txt-color-red login-header-big" style='font-size: 5em;'>HuddleUp</h1>
+      <div class="hero">
 
-    <div class='col col-lg-4'>&nbsp;</div>
-    <div class='col col-lg-4'>
-      <div class='well '>
+        <div class="pull-left login-desc-box-l">
+          <h4 class="paragraph-header">Start huddling with your team.</h4>
 
-        <h1>Welcome to HuddleUp! <br/>Registration will be easy!</h1>
+          <p>&nbsp;</p>
+          <h5 class="about-heading">Forget paper and spreadsheets.</h5>
+          <p>
+            HuddleUp has cloud-based schedules, todo lists, alerts, and group messages - all in one place.
+          </p>
+          <p>&nbsp;</p>
+          <h5 class="about-heading">Get together!</h5>
+          <p>
+            HuddleUp is an intuitive, secure, web-based collaboration tool. HuddleUp to run your projects more efficiently, stay in sync with family, and manage your time!
+          </p>
+          <p>&nbsp;</p>
+          <h5 class="about-heading">HuddleUp is easy to use and easy on your wallet.</h5>
+          <p>
+            From 1 to 1,000 people on your team. Unlimited projects. Pay as go. Use what you need.
+          </p>
 
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'smart-form', :id => 'registration_form'}) do |f| %>
+        </div>
+
+        <img src="/SmartAdmin/img/demo/team_huddle_1.jpg" class="pull-right display-image" alt="" style="width:260px">
+
+      </div>
+
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+
+      <div class="well no-padding">
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'smart-form client-form', :id => 'registration_form'}) do |f| %>
+            <header>
+              Welcome to HuddleUp!
+            </header>
 
             <%= devise_error_messages! %>
 
@@ -24,6 +56,16 @@
                   <i class="fa-fw fa fa-times"></i>
                   <strong>The following error(s) prevented this registration:</strong>
                   <ul style='margin-left:25px;'><%= flash[:alert].html_safe %></ul>
+                </div>
+            <% end %>
+
+            <% if flash[:success] %>
+                <div class="alert alert-success fade in">
+                  <button class="close" data-dismiss="alert">
+                    ×
+                  </button>
+                  <i class="fa-fw fa fa-check"></i>
+                  <strong>Success</strong> <%= flash[:success] %>
                 </div>
             <% end %>
 
@@ -68,9 +110,8 @@
         <% end %>
 
       </div>
-    </div>
-    <div class='col col-lg-4'>&nbsp;</div>
 
+    </div>
   </div>
 </div>
 

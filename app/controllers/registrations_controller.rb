@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
 
-  layout "devise/new_registration", only: [:new]
+  layout "devise/new_registration" #, only: [:new, :edit]
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
@@ -26,7 +26,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   def after_update_path_for(user)
-    edit_user_registration_path
+    "/" #edit_user_registration_path
   end
 
 
