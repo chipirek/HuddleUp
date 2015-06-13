@@ -7,6 +7,7 @@ bg-color-darken
 
 
 <%= form_for [@project, @event], :html => {:class => 'smart-form', :id => 'event_form'} do |f| %>
+
     <% if @event.errors.any? %>
 
         <div class="alert alert-danger fade in">
@@ -24,8 +25,8 @@ bg-color-darken
 
     <% end %>
 
-
     <fieldset>
+
       <section>
         <label class="label">Title</label>
         <label class="input">
@@ -125,26 +126,26 @@ bg-color-darken
       </div>
 
       <div class='row'>
-        <section class="col col-6">
-          <label class="label">Start Time <i>(24-hour format. Optional.)</i></label>
+        <section class="col col-4">
+          <label class="label">Start Time</label>
           <label class="input"> <i class="icon-append fa fa-clock-o"></i>
             <input type="text" name="event[start_time]" id="event_start_time" placeholder="Start time..." value='<%= @event.start_time.strftime("%H:%M") unless @event.start_time.nil? %>'>
           </label>
         </section>
 
-        <section class="col col-6">
-          <label class="label">End Time <i>(24-hour format. Optional.)</i></label>
+        <section class="col col-4">
+          <label class="label">End Time</label>
           <label class="input"> <i class="icon-append fa fa-clock-o"></i>
             <input type="text" name="event[end_time]" id="event_end_time" placeholder="End time..." value='<%= @event.end_time.strftime("%H:%M") unless @event.end_time.nil? %>'>
           </label>
         </section>
-      </div>
 
-      <section>
-        <label class="checkbox">
-          <input type="checkbox" name="event[all_day]" id="event_all_day" >
-          <i></i>This is an all-day event.</label>
-      </section>
+        <section class="col col-4">
+          <label class="checkbox">
+            <input type="checkbox" name="event[all_day]" id="event_all_day" >
+            <i></i>This is an all-day event.</label>
+        </section>
+      </div>
 
       <section>
         <label class="label">Description</label>

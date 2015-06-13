@@ -42,6 +42,7 @@ class EventsController < ApplicationController
     @event.icon='fa-warning'
     @event.start_time=nil
     @event.end_time=nil
+    @event.all_day=false
 
     # HACK: not sure why CanCan is allowing this, so here is a workaround...
     respond_to do |format|

@@ -42,7 +42,7 @@
 </div>
 
 <%= render :partial => '/projects/scripts' %>
-<script src="/SmartAdmin/js/plugin/clockpicker/clockpicker.min.js"></script>
+<script src="/SmartAdmin/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 
 <script type="text/javascript">
 
@@ -50,32 +50,80 @@
 
         pageSetUp();
 
-        $('#event_start').datepicker({
+        $('#event_start_date').datepicker({
             dateFormat : 'mm/dd/yy',
             prevText : '<i class="fa fa-chevron-left"></i>',
             nextText : '<i class="fa fa-chevron-right"></i>'
         });
 
-        $('#event_end').datepicker({
+        $('#event_end_date').datepicker({
             dateFormat : 'mm/dd/yy',
             prevText : '<i class="fa fa-chevron-left"></i>',
             nextText : '<i class="fa fa-chevron-right"></i>'
         });
 
-        $('#event_start_time').clockpicker({
-            placement: 'top',
-            donetext: 'Done'
-        });
-
-        $('#event_end_time').clockpicker({
-            placement: 'top',
-            donetext: 'Done'
-        });
+        $('#event_start_time').timepicker();
+        $('#event_end_time').timepicker();
 
         $('#event_start_time').val('');
         $('#event_end_time').val('');
 
         $('#event_title').focus();
+
+        //--- build up the validation suite for this calendar event
+
+
+        jQuery.validator.addMethod("EndDateCannotBeLessThanStartDate", function(value, element) {
+            if ($('#event_end_date').val() != '')
+            {
+                var startDt = new Date($('#event_start_date').val());
+                var endDt = new Date($('#event_end_date').val());
+
+                if(startDt <= endDt)
+                {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            else {
+                return true;
+            }
+        }, "End date cannot be less than start date");
+
+
+        jQuery.validator.addMethod("BothTimesMustBeEntered", function(value, element) {
+            if ($('#event_start_time').val() != '')
+                if ($('#event_end_time').val() == '')
+                    return false;
+            if ($('#event_end_time').val() != '')
+                if ($('#event_start_time').val() == '')
+                    return false;
+            return true;
+        }, "Both times must be entered when one or the other is present");
+
+
+        jQuery.validator.addMethod("EndTimeCannotBeLessThanStartTime", function(value, element) {
+
+            var startDate = $('#event_start_date').val();
+            var endDate = $('#event_end_date').val();
+            var startTime = new Date(($('#event_start_date').val() + ' ' + $('#event_start_time').val()));
+            var endTime = new Date(($('#event_end_date').val() + ' ' + $('#event_end_time').val()));
+
+            if (endDate == startDate)
+            {
+                if(startTime <= endTime)
+                {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            else {
+                return true;
+            }
+        }, "End time cannot be less than start time");
+
 
         var $eventForm = $("#event_form").validate({
 
@@ -85,8 +133,19 @@
                     required: true,
                     minlength: 3
                 },
-                'event[start]': {
+                'event[start_date]': {
                     required: true
+                },
+                'event[end_date]': {
+                    EndDateCannotBeLessThanStartDate: true
+                },
+                'event[end_time]': {
+                    EndTimeCannotBeLessThanStartTime: true,
+                    BothTimesMustBeEntered: true
+                },
+                'event[start_time]': {
+                    EndTimeCannotBeLessThanStartTime: true,
+                    BothTimesMustBeEntered: true
                 }
             },
 
@@ -95,15 +154,75 @@
                 'event[title]': {
                     required: 'Please enter a short name for your event'
                 },
-                'event[start]': {
+                'event[start_date]': {
                     required: 'Please enter at least a starting date for your event'
-                },
+                }
             },
 
             // Do not change code below
             errorPlacement: function (error, element) {
                 error.insertAfter(element.parent());
             }
+        });
+
+
+        //--- field change event handlers
+
+
+        $('#event_title').change(function() {
+            //re-validate the form
+            var validator = $( "#event_form" ).validate();
+            validator.form();
+        });
+
+        $('#event_start_date').change(function() {
+            //re-validate the form
+            var validator = $( "#event_form" ).validate();
+            validator.form();
+        });
+
+        $('#event_end_date').change(function() {
+            //re-validate the form
+            var validator = $( "#event_form" ).validate();
+            validator.form();
+        });
+
+        $('#event_start_time').change(function() {
+            //re-validate the form
+            var validator = $( "#event_form" ).validate();
+            validator.form();
+        });
+
+        $('#event_end_time').change(function() {
+            //re-validate the form
+            var validator = $( "#event_form" ).validate();
+            validator.form();
+        });
+
+        $('#event_all_day').change(function() {
+
+            if (userDefinedAllDay)
+                userDefinedAllDay = false;
+            else
+                userDefinedAllDay = true;
+
+            //remove the time(s) if unchecked
+            if (userDefinedAllDay)
+            {
+                userDefinedStartTime = $('#event_start_time').val();
+                userDefinedEndTime = $('#event_end_time').val();
+                $('#event_start_time').val("");
+                $('#event_end_time').val("");
+            }
+            else
+            {
+                $('#event_start_time').val(userDefinedStartTime);
+                $('#event_end_time').val(userDefinedEndTime);
+            }
+
+            //re-validate the form
+            var validator = $( "#event_form" ).validate();
+            validator.form();
         });
 
     })
