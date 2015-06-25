@@ -8,7 +8,7 @@ gem 'pg'
 gem 'devise'
 gem 'jquery-rails'# , '>=2.2.1'
 gem 'audited-activerecord' #, '~> 3.0'
-gem 'rails_12factor'
+# gem 'rails_12factor'
 gem 'cancan'
 ## gem 'figaro'  # remove because I'll keep secrets in ENV variables
 gem 'newrelic_rpm'

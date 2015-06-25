@@ -6,7 +6,7 @@
     <h1 class="page-title txt-color-blueDark">
       <!-- PAGE HEADER -->
       <i class="fa-fw fa fa-reorder"></i>
-      Timeline
+      Timeline - <%= @audits.count %> entries
     </h1>
   </div>
   <!-- end col -->
@@ -28,7 +28,7 @@
           <% @audits.each do |a| %>
               <li>
                 <div class="smart-timeline-icon">
-                  <i class="fa fa-pencil"></i>
+                  <img src="/SmartAdmin/img/avatars/sunny.png" width="32" height="32" alt="user">
                 </div>
 
                 <div class="smart-timeline-time">
@@ -37,7 +37,7 @@
 
                 <div class="smart-timeline-content">
                   <p>
-                    <a href="#"><strong><%= a.full_message.html_safe %></strong></a>
+                    <%= a.full_message.html_safe %>
                   </p>
 
                   <p class='font-xs'>
